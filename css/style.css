@@ -1,0 +1,143 @@
+/* Colors
+    Dark1: #303030
+    Dark2: #404040
+    Dark-Light1: #999
+    Dark-Light:2 #ccc
+    Light: #eee
+    fa-comment-medical: #da6926     أيقونة تعليق جديد
+    fa-user-plus: #367cba           أيقونة مستخدم جديد
+    fa-newspaper: #55ab36           أيقونة موضوع جديد
+
+    primary: #007bff
+    secondary: #6c757d
+    success: #28a745
+    danger: #dc3545
+    warning: #ffc107
+    info: #17a2b8
+
+
+*/
+
+
+/* RTL */
+body {
+    direction: rtl;
+    background: #303030;
+}
+body, .dropdown-menu {
+    text-align: right;
+}
+.offset-md-2 {
+    margin-right: 16.666667%;
+}
+
+
+/* التنسيقات الافتراضية */
+a, a:link {
+    text-decoration: none;
+}
+
+
+/* تنسيق الهيدر */
+header {
+    background: #303030;
+    color: #eee;
+}
+header a, header a.btn {
+    display: block;
+    padding: 10px 20px;
+    color: #eee;
+    cursor: pointer;
+}
+header a:hover, nav a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+header .badge {
+    position: relative;
+    top: -10px;
+}
+header .dropdown-menu a {
+    padding: 10px 10px;
+}
+header .dropdown-menu a:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+header .dropdown-menu .dropdown-item i {
+    width: 20px;
+    margin-left: 3px;
+}
+header .dropdown-menu .fa-comment-medical {
+    color: #17a2b8;
+}
+header .dropdown-menu .fa-newspaper {
+    color: #28a745;
+}
+header .dropdown-menu .fa-user-plus {
+    color: #dc3545;
+}
+header .dropdown #dropdownUser .fa-user-circle {
+    font-size: 20px;
+    margin-right: 5px;
+}
+.user-info {
+    width: 100%;
+    height: 80px;
+    padding: 10px 10px;
+    background: #303030;
+    color: #eee;
+    border-radius: 5px;
+    border: 2px solid #404040;
+
+}
+.user-info .fa-user-circle {
+    font-size: 60px;
+}
+
+
+/* تنسيق القائمة الجانبية */
+nav, nav a {
+    color: #eee;
+}
+nav .nav-link {
+    padding: 15px;
+    border-bottom: 1px #404040 solid;
+}
+nav .nav-link.active {
+    background: #eee;
+    color: #303030;
+    border-radius: 50px;
+    padding: 10px 15px;
+}
+nav .nav-link .add {
+    display: none;
+}
+nav .nav-link:hover .add {
+    display: block;
+    color: #ffc107;
+}
+nav .nav-link:hover > i {
+    -ms-transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+
+/* تنسيق المحتوى */
+main {    
+    min-height: 100vh !important;
+    background: #eee;
+    color: #303030;
+}
+
+
+/* تنسيق الفوتر */
+footer {
+    background: #fff;
+    color: #303030;
+    padding: 20px;
+}
