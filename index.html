@@ -20,9 +20,9 @@
     </head>
 
     <body>
-        <header class="d-flex justify-content-between px-2">
-            <a href="#"><i class="fas fa-cog pl-1"></i>لوحة تحكم الموقع</a>
-            <a href="#"><i class="fas fa-home pl-1"></i>الموقع الرئيسي</a>
+        <header class="d-flex justify-content-between px-2 sticky-top">
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pl-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pl-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
             
             <div class="dropdown mr-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,17 +32,17 @@
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-comment-medical"></i>
                         <span class="ml-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                        <small class=" mr-auto">قبل 30 دقيقة</small>
+                        <small class="mr-auto">قبل 30 دقيقة</small>
                     </a>
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-newspaper color"></i>
                         <span class="ml-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                        <small class="text-muted mr-auto">قبل 15 ساعة</small>
+                        <small class="mr-auto">قبل 15 ساعة</small>
                     </a>
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-user-plus"></i>
                         <span class="ml-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                        <small class="text-muted mr-auto">قبل 1 يوم</small>
+                        <small class="mr-auto">قبل 1 يوم</small>
                     </a>
                     <a class="dropdown-item text-center text-light bg-dark">
                         <small>عرض جميع الإشعارات <i class="fas fa-angle-double-left"></i></small>
@@ -52,7 +52,7 @@
 
             <div class="dropdown">
                 <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span>مرحباً, مدير الموقع</span>
+                    <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
                     <span><i class="fas fa-user-circle"></i></span>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
@@ -77,74 +77,79 @@
 
         <div class="container-fluid">
             <div class="row">
-                <nav class="flex-column col-md-2 py-3 bg-dark">
-                    <div class="user-info d-flex align-items-center mb-3" href="#">
-                        <i class="fas fa-user-circle ml-2"></i>
-                        <div>
-                            <div>مدير الموقع</div>
-                            <small class="text-warning">مسؤول</small>
+                <nav class="navbar-expand-md col-md-4 col-lg-3 col-xl-2 py-3 bg-dark" >
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="d-md-block collapse" id="menu">
+                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                            <i class="fas fa-user-circle ml-2"></i>
+                            <div>
+                                <div>مدير الموقع</div>
+                                <small class="text-warning">مسؤول</small>
+                            </div>
                         </div>
+                        <a class="nav-link d-flex align-items-center active" href="#">
+                            <i class="fas fa-home ml-3"></i>
+                            <span>الرئيسية</span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-sitemap ml-3"></i>
+                            <span>تصنيفات الموقع</span>
+                            <span class="add mr-auto text-warning"><i class="fas fa-plus-square"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-file-alt ml-3"></i>
+                            <span>محتوى الموقع</span>
+                            <span class="add mr-auto"><i class="fas fa-file-medical"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-clone ml-3"></i>
+                            <span>صفحات الموقع</span>
+                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-images ml-3"></i>
+                            <span>الوسائط المتعددة</span>
+                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-ad ml-3"></i>
+                            <span>إعلانات الموقع</span>
+                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-comment-dots ml-3"></i>
+                            <span>تعليقات الموقع</span>
+                            <span class="add mr-auto"><i class="fas fa-comment-medical"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-users ml-3"></i>
+                            <span>أعضاء الموقع</span>
+                            <span class="add mr-auto"><i class="fas fa-user-plus"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-poll ml-3"></i>
+                            <span>استطلاعات الرأي</span>
+                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-mail-bulk ml-3"></i>
+                            <span>القائمة البريدية</span>
+                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-chart-pie ml-3"></i>
+                            <span>إحصائيات وأرقام</span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-cogs ml-3"></i>
+                            <span>إعدادات الموقع</span>
+                        </a>
                     </div>
-                    <a class="nav-link d-flex align-items-center active" href="#">
-                        <i class="fas fa-home ml-3"></i>
-                        <span>الرئيسية</span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-sitemap ml-3"></i>
-                        <span>تصنيفات الموقع</span>
-                        <span class="add mr-auto text-warning"><i class="fas fa-plus-square"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-file-alt ml-3"></i>
-                        <span>محتوى الموقع</span>
-                        <span class="add mr-auto"><i class="fas fa-file-medical"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-clone ml-3"></i>
-                        <span>صفحات الموقع</span>
-                        <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-images ml-3"></i>
-                        <span>الوسائط المتعددة</span>
-                        <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-ad ml-3"></i>
-                        <span>إعلانات الموقع</span>
-                        <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-comment-dots ml-3"></i>
-                        <span>تعليقات الموقع</span>
-                        <span class="add mr-auto"><i class="fas fa-comment-medical"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-users ml-3"></i>
-                        <span>أعضاء الموقع</span>
-                        <span class="add mr-auto"><i class="fas fa-user-plus"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-poll ml-3"></i>
-                        <span>استطلاعات الرأي</span>
-                        <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-mail-bulk ml-3"></i>
-                        <span>القائمة البريدية</span>
-                        <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-chart-pie ml-3"></i>
-                        <span>إحصائيات وأرقام</span>
-                    </a>
-                    <a class="nav-link d-flex align-items-center" href="#">
-                        <i class="fas fa-cogs ml-3"></i>
-                        <span>إعدادات الموقع</span>
-                    </a>
                 </nav>
         
-                <main class="col-md-10">
+                <main class="col-md-8 col-lg-9 col-xl-10">
                     
                 </main>
                 
@@ -152,7 +157,7 @@
             
         </div>
 
-        <footer class="col-10 offset-md-2">
+        <footer class="col-md-8 col-lg-9 col-xl-10 mr-auto">
             <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
         </footer>
         
