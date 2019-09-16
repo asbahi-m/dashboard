@@ -14,6 +14,8 @@
     danger: #dc3545
     warning: #ffc107
     info: #17a2b8
+    light: #f8f9fa
+    dark: #343a40
 
 
 */
@@ -38,12 +40,12 @@ a, a:link {
 /* تنسيق الهيدر */
 header {
     background: #303030;
-    color: #eee;
+    color: #f8f9fa;
 }
 header a, header a.btn {
     display: block;
     padding: 10px 20px;
-    color: #eee;
+    color: #f8f9fa;
     cursor: pointer;
 }
 header a:hover, nav a:hover {
@@ -84,7 +86,7 @@ header .dropdown #dropdownUser .fa-user-circle {
     height: 80px;
     padding: 10px 10px;
     background: #303030;
-    color: #eee;
+    color: #f8f9fa;
     border-radius: 5px;
     border: 2px solid #404040;
 
@@ -96,15 +98,15 @@ header .dropdown #dropdownUser .fa-user-circle {
 
 /* تنسيق القائمة الجانبية */
 nav, nav a {
-    color: #eee;
+    color: #f8f9fa;
 }
 nav .nav-link {
     padding: 15px;
     border-bottom: 1px #404040 solid;
 }
 nav .nav-link.active {
-    background: #eee;
-    color: #303030;
+    background: #f8f9fa;
+    color: #343a40;
     border-radius: 50px;
     padding: 10px 15px;
 }
@@ -127,14 +129,27 @@ nav .nav-link:hover > i {
 /* تنسيق المحتوى */
 main {    
     min-height: 100vh !important;
-    background: #eee;
-    color: #303030;
+    color: #343a40;
+}
+
+main .panel {
+    border-radius: 10px;
+    overflow: hidden;
+}
+main .panel > div i {
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+main .panel:hover > div i {
+    -ms-transform: translate(-10px);
+    -webkit-transform: translate(-10px);
+    transform: translate(-10px);
 }
 
 
 /* تنسيق الفوتر */
 footer {
     background: #fff;
-    color: #303030;
+    color: #343a40;
     padding: 20px;
 }
