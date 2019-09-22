@@ -9,13 +9,16 @@
 
         <!-- CSS Files -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="libraries/DataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="css/style.css">
 
         <!-- JS Files -->
         <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="libraries/popper/popper.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
-        <!-- <script src="libraries/fontawesome/js/all.min.js"></script> -->
+        <script src="libraries/DataTables/datatables.min.js"></script>
+        <script src="libraries/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
         <script src="js/main.js"></script>
     </head>
 
@@ -78,6 +81,7 @@
 
         <div class="container-fluid">
             <div class="row">
+                <!-- قائمة لوحة التحكم -->
                 <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark" >
                     <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
@@ -90,54 +94,72 @@
                                 <small class="text-warning">مسؤول</small>
                             </div>
                         </div>
-                        <a class="nav-link d-flex align-items-center active" href="#">
+                        <a class="nav-link d-flex align-items-center active" href="index.html">
                             <i class="fas fa-home ml-3"></i>
                             <span>الرئيسية</span>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-sitemap ml-3"></i>
                             <span>تصنيفات الموقع</span>
-                            <span class="add mr-auto text-warning"><i class="fas fa-plus-square"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-file-alt ml-3"></i>
                             <span>محتوى الموقع</span>
-                            <span class="add mr-auto"><i class="fas fa-file-medical"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-file-medical"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-clone ml-3"></i>
                             <span>صفحات الموقع</span>
-                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-images ml-3"></i>
                             <span>الوسائط المتعددة</span>
-                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-ad ml-3"></i>
                             <span>إعلانات الموقع</span>
-                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-comment-dots ml-3"></i>
                             <span>تعليقات الموقع</span>
-                            <span class="add mr-auto"><i class="fas fa-comment-medical"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-comment-medical"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-users ml-3"></i>
                             <span>أعضاء الموقع</span>
-                            <span class="add mr-auto"><i class="fas fa-user-plus"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-user-plus"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-poll ml-3"></i>
                             <span>استطلاعات الرأي</span>
-                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-mail-bulk ml-3"></i>
                             <span>القائمة البريدية</span>
-                            <span class="add mr-auto"><i class="fas fa-plus-square"></i></span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
                         </a>
                         <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fas fa-chart-pie ml-3"></i>
@@ -149,14 +171,14 @@
                         </a>
                     </div>
                 </nav>
-        
-                <main class="col-xl-10 col-lg-9 col-md-8 bg-light">
+                
+                <!-- المحتوى الداخلي -->
+                <main class="col-xl-10 col-lg-9 col-md-8 bg-light pb-3">
                     <h2 class="border-bottom py-2">الرئيسية</h2>
 
                     <!-- لوحات المعلومات والإحصائيات -->
-                    <div class="row m-auto ">
-
-                        <div class="col-xl-2">
+                    <div class="row">
+                        <div class="col-xl-3 col-sm-6">
                             <div class="panel p-0 bg-danger border border-danger">
                                 <div class="px-3 py-1 d-flex justify-content-between align-items-center text-light">
                                     <i class="fas fa-users display-4"></i>
@@ -164,16 +186,16 @@
                                         <span class="display-4">7</span>
                                         <span>مستخدمين</span>
                                     </div>
-    
                                 </div>
                                 <a class="px-3 py-2 bg-light text-danger d-flex justify-content-between align-items-center" href="#">
                                     <span>استعراض</span>
                                     <i class="fas fa-arrow-alt-circle-left"></i>
                                 </a>
                             </div>
+                            <hr class="d-block d-xl-none">
                         </div>
 
-                        <div class="col-xl-2">
+                        <div class="col-xl-3 col-sm-6">
                             <div class="panel p-0 bg-success border border-success">
                                 <div class="px-3 py-1 d-flex justify-content-between align-items-center text-light">
                                     <i class="fas fa-file-alt display-4"></i>
@@ -187,9 +209,10 @@
                                     <i class="fas fa-arrow-alt-circle-left"></i>
                                 </a>
                             </div>
+                            <hr class="d-block d-xl-none">
                         </div>
 
-                        <div class="col-xl-2">
+                        <div class="col-xl-3 col-sm-6">
                             <div class="panel p-0 bg-info border border-info">
                                 <div class="px-3 py-1 d-flex justify-content-between align-items-center text-light">
                                     <i class="fas fa-comment-dots display-4"></i>
@@ -197,34 +220,191 @@
                                         <span class="display-4">50</span>
                                         <span>تعليقاً</span>
                                     </div>
-    
                                 </div>
                                 <a class="px-3 py-2 bg-light text-info d-flex justify-content-between align-items-center" href="#">
                                     <span>استعراض</span>
                                     <i class="fas fa-arrow-alt-circle-left"></i>
                                 </a>
                             </div>
+                            <hr class="d-block d-xl-none">
                         </div>
 
-                        <div class="col-xl-6">
-                            <div class="bg-dark"></div>
-
+                        <div class="col-xl-3 col-sm-6">
+                            <div class="panel p-0 bg-secondary border border-secondary">
+                                <div class="px-3 py-1 d-flex justify-content-between align-items-center text-light">
+                                    <i class="fas fa-ad display-4"></i>
+                                    <div class="d-flex flex-column text-center">
+                                        <span class="display-4">5</span>
+                                        <span>إعلانات</span>
+                                    </div>
+    
+                                </div>
+                                <a class="px-3 py-2 bg-light text-secondary d-flex justify-content-between align-items-center" href="#">
+                                    <span>استعراض</span>
+                                    <i class="fas fa-arrow-alt-circle-left"></i>
+                                </a>
+                            </div>
+                            <hr class="d-block d-xl-none">
                         </div>
-                        
-                        
-
                     </div>
-                
+                    
+                    <hr class="d-none d-xl-block">
+                    
+                    <!-- آخر المنشورات والتعليقات -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <h4 class="card-header">آخر المنشورات</h4>
+                                <ul class="list-group list-group-flush p-0">
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>اليوم 10:42 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>بالأمس 11:50 م</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <a href="#">كيف تبدأ يومك!</a>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr class="d-block d-lg-none">
+                        </div>
+                    
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <h4 class="card-header">آخر التعليقات</h4>
+                                <ul class="list-group list-group-flush p-0">
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>اليوم 05:36 م</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>بالأمس 09:15 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div>
+                                            <small>محمد: </small>
+                                            <span>مقال رائع يستحق القراءة</span>
+                                            <small> - رداً على: </small>
+                                            <a href="#">كيف تبدأ يومك!</a>
+                                        </div>
+                                        <small>26 سبتمبر - 10:30 ص</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </main>
-                
             </div>
-
         </div>
 
         <footer class="col-md-8 col-lg-9 col-xl-10 mr-auto">
             <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
         </footer>
-        
-
     </body>
 </html>

@@ -116,6 +116,8 @@ nav .nav-link .add {
 nav .nav-link:hover .add {
     display: block;
     color: #ffc107;
+    padding: 0 5px;
+    border: 0;
 }
 nav .nav-link:hover > i {
     -ms-transform: rotate(-360deg);
