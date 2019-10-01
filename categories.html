@@ -1,0 +1,551 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Control Panel</title>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- JS Files -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="libraries/popper/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="libraries/DataTables/datatables.min.js"></script>
+        <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <header class="d-flex justify-content-between px-2 sticky-top">
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pl-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pl-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
+            
+            <div class="dropdown mr-auto">
+                <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-comment-medical"></i>
+                        <span class="ml-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="mr-auto">قبل 30 دقيقة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-newspaper color"></i>
+                        <span class="ml-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="mr-auto">قبل 15 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="ml-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <small class="mr-auto">قبل 1 يوم</small>
+                    </a>
+                    <a class="dropdown-item text-center text-light bg-dark">
+                        <small>عرض جميع الإشعارات <i class="fas fa-angle-double-left"></i></small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
+                    <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-angle-down mx-1"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
+                    <div class="user-info d-flex align-items-center" href="#">
+                        <i class="fas fa-user-circle ml-2"></i>
+                        <div>
+                            <div>مدير الموقع</div>
+                            <small class="text-warning">مسؤول</small>
+                        </div>
+                    </div>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-user-edit"></i>
+                        <span class="ml-2">تحرير الملف الشخصي</span>
+                    </a>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="ml-2">تسجيل الخروج</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- قائمة لوحة التحكم -->
+                <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark" >
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="d-md-block collapse" id="menu">
+                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                            <i class="fas fa-user-circle ml-2"></i>
+                            <div>
+                                <div>مدير الموقع</div>
+                                <small class="text-warning">مسؤول</small>
+                            </div>
+                        </div>
+                        <a class="nav-link d-flex align-items-center" href="index.html">
+                            <i class="fas fa-home ml-3"></i>
+                            <span>الرئيسية</span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center active" href="categories.html">
+                            <i class="fas fa-sitemap ml-3"></i>
+                            <span>تصنيفات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-file-alt ml-3"></i>
+                            <span>محتوى الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-file-medical"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-clone ml-3"></i>
+                            <span>صفحات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-images ml-3"></i>
+                            <span>الوسائط المتعددة</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-ad ml-3"></i>
+                            <span>إعلانات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-comment-dots ml-3"></i>
+                            <span>تعليقات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-comment-medical"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-users ml-3"></i>
+                            <span>أعضاء الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-user-plus"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-poll ml-3"></i>
+                            <span>استطلاعات الرأي</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-mail-bulk ml-3"></i>
+                            <span>القائمة البريدية</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-chart-pie ml-3"></i>
+                            <span>إحصائيات وأرقام</span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-cogs ml-3"></i>
+                            <span>إعدادات الموقع</span>
+                        </a>
+                    </div>
+                </nav>
+                
+                <!-- المحتوى الداخلي -->
+                <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
+
+                    <button type="button" class="btn btn-dark float-left d-xl-none" data-toggle="collapse" data-target="#addCate" aria-expanded="false" aria-controls="addCate">
+                        <i class="fas fa-plus-square"></i> <span>أضف تصنيف جديد</span>
+                    </button>
+                    <h2 class="border-bottom py-2">تصنيفات الموقع</h2>
+
+                    <div class="row">
+                        <!-- بوكس إضافة تصنيف جديد -->
+                        <div id="addCate" class="col-xl-3 col-lg-12 rounded py-2 bg-white">
+                            <h4>أضف تصنيفاً جديداً</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="cateName">الاسم:</label>
+                                    <input type="text" class="form-control form-control-sm" id="cateName" required>
+                                    <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cateSlug">الاسم المختصر:</label>
+                                    <input type="text" class="form-control form-control-sm" id="cateSlug">
+                                    <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cateParent">التصنيف الأب:</label>
+                                    <select class="form-control form-control-sm" id="cateParent">
+                                        <option selected>بدون</option>
+                                        <option class="level-0">أخبار</option>
+                                        <option class="level-1">أخبار محلية</option>
+                                        <option class="level-2">أخبار محلية سياسية</option>
+                                        <option class="level-2">أخبار محلية اقتصادية</option>
+                                        <option class="level-1">أخبار دولية</option>
+                                        <option class="level-0">مقالات</option>
+                                        <option class="level-1">مقالات سياسية</option>
+                                        <option class="level-1">مقالات اقتصادية</option>
+                                    </select>
+                                    <small class="form-text text-muted">جعل التصنيف فرعي عبر اختيار التصنيف الأب، أو "بدون" يعني أن التصنيف رئيسي.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cateDesc">الوصف:</label>
+                                    <textarea class="form-control form-control-sm" id="cateDesc" row="3"></textarea>
+                                    <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary">أضف تصنيف</button>
+                            </form>
+                        </div>
+
+                        <!-- بوكس تعديل التصنيف -->
+                        <div id="editCate" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">تعديل التصنيف: <strong>أخبار</strong></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="cateName">الاسم:</label>
+                                                <input type="text" class="form-control form-control-sm" id="cateName" required value="أخبار">
+                                                <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cateSlug">الاسم المختصر:</label>
+                                                <input type="text" class="form-control form-control-sm" id="cateSlug" value="أخبار">
+                                                <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cateParent">التصنيف الأب:</label>
+                                                <select class="form-control form-control-sm" id="cateParent">
+                                                    <option selected>بدون</option>
+                                                    <option class="level-0">أخبار</option>
+                                                    <option class="level-1">أخبار محلية</option>
+                                                    <option class="level-2">أخبار محلية سياسية</option>
+                                                    <option class="level-2">أخبار محلية اقتصادية</option>
+                                                    <option class="level-1">أخبار دولية</option>
+                                                    <option class="level-0">مقالات</option>
+                                                    <option class="level-1">مقالات سياسية</option>
+                                                    <option class="level-1">مقالات اقتصادية</option>
+                                                </select>
+                                                <small class="form-text text-muted">جعل التصنيف فرعي عبر اختيار التصنيف الأب، أو "بدون" يعني أن التصنيف رئيسي.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cateDesc">الوصف:</label>
+                                                <textarea class="form-control form-control-sm" id="cateDesc" row="3">القسم الرئيسي لأخبار الموقع</textarea>
+                                                <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-warning">تعديل</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بوكس حذف التصنيف -->
+                        <div id="deleteCate" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">هل تريد حذف التصنيف: <strong>أخبار</strong></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- جدول تصنيفات الموقع -->
+                        <div id="categories" class="table-responsive-sm col-xl-9 col-lg-12">
+
+                            <!-- رسائل التصنيفات -->
+                            <button type="button" class="btn btn-outline-dark btn-sm cateMsg d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#cateMsg" aria-expanded="false" aria-controls="cateMsg">
+                                Show MSG
+                            </button>
+                            <div id="cateMsg" class="collapse">
+                                
+                                <!-- رسالة نجاح تعديل التصنيف -->
+                                <div class="alert alert-success alert-dismissible d-flex" role="alert">
+                                    <span class="ml-auto">تم تعديل التصنيف بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="mr-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                
+                                <!-- رسالة نجاح حذف التصنيف -->
+                                <div class="alert alert-warning alert-dismissible d-flex" role="alert">
+                                    <span class="ml-auto">تم حذف التصنيف بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="mr-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+    
+                                <!-- رسائل خطأ حذف التصنيف -->
+                                <div class="alert alert-danger alert-dismissible d-flex" role="alert">
+                                    <span class="ml-auto">لا يمكن حذف هذا التصنيف؛ لاحتوائه على محتوى!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="mr-auto"><i class="fas fa-exclamation-circle"></i></span>
+                                </div>
+                            </div>
+
+                            <!-- رسالة تحديد التصنيفات -->
+                            <div class="alert alert-info alert-dismissible selected" role="alert">
+                                <span class="ml-auto">تم تحديد <strong class="count"></strong> عناصر</span>
+                                <button type="button" class="close" data-dismiss="" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            
+                            <!-- أوامر إضافية للتصنيفات المحددة -->
+                            <button type="button" class="btn btn-outline-danger btn-sm float-right d-selected" data-toggle="modal" data-target="#deleteCate">
+                                <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
+                            </button>
+
+                            <!-- بيانات جدول التصنيفات -->
+                            <table class="table table-hover table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-all" name="all">
+                                                <label class="custom-control-label" for="cate-all"></label>
+                                            </div>
+                                        </th>
+                                        <th scope="col">التصنيف</th>
+                                        <th scope="col">الاسم المختصر</th>
+                                        <th scope="col" class="d-none d-lg-table-cell">الوصف</th>
+                                        <th scope="col">العدد</th>
+                                        <th scope="col">التحكم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="level-0">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-1" value="cate-1" name="cate[]">
+                                                <label class="custom-control-label" for="cate-1"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">أخبار</td>
+                                        <td>أخبار</td>
+                                        <td class="d-none d-lg-table-cell"></td>
+                                        <td><a href="#">65</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="level-1">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-2" value="cate-2" name="cate[]">
+                                                <label class="custom-control-label" for="cate-2"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">أخبار محلية</td>
+                                        <td>أخبار-محلية</td>
+                                        <td class="d-none d-lg-table-cell"></td>
+                                        <td><a href="#">50</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="level-2">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-3" value="cate-3" name="cate[]">
+                                                <label class="custom-control-label" for="cate-3"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">أخبار محلية سياسية</td>
+                                        <td>أخبار-محلية-سياسية</td>
+                                        <td class="d-none d-lg-table-cell"><small>يختص بجميع الأخبار السياسية محلياً</small></td>
+                                        <td><a href="#">30</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="level-2">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-4" value="cate-4" name="cate[]">
+                                                <label class="custom-control-label" for="cate-4"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">أخبار محلية اقتصادية</td>
+                                        <td>أخبار-محلية-اقتصادية</td>
+                                        <td class="d-none d-lg-table-cell"><small>يختص بجميع الأخبار الاقتصادية محلياً</small></td>
+                                        <td><a href="#">20</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="level-1">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-5" value="cate-5" name="cate[]">
+                                                <label class="custom-control-label" for="cate-5"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">أخبار دولية</td>
+                                        <td>أخبار-دولية</td>
+                                        <td class="d-none d-lg-table-cell"></td>
+                                        <td><a href="#">15</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="level-0">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-6" value="cate-6" name="cate[]">
+                                                <label class="custom-control-label" for="cate-6"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">مقالات</td>
+                                        <td>مقالات</td>
+                                        <td class="d-none d-lg-table-cell"></td>
+                                        <td><a href="#">50</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="level-1">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-7" value="cate-7" name="cate[]">
+                                                <label class="custom-control-label" for="cate-7"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">مقالات سياسية</td>
+                                        <td>مقالات-سياسية</td>
+                                        <td class="d-none d-lg-table-cell"></td>
+                                        <td><a href="#">50</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="level-1">
+                                        <th scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="cate-8" value="cate-8" name="cate[]">
+                                                <label class="custom-control-label" for="cate-8"></label>
+                                            </div>
+                                        </th>
+                                        <td class="cate-name">مقالات اقتصادية</td>
+                                        <td>مقالات-اقتصادية</td>
+                                        <td class="d-none d-lg-table-cell"></td>
+                                        <td><a href="#">50</a></td>
+                                        <td>
+                                            <div class="icon-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editCate">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteCate">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <footer class="col-md-8 col-lg-9 col-xl-10 mr-auto">
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
+        </footer>
+    </body>
+</html>

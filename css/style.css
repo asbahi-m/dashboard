@@ -29,13 +29,31 @@ body {
 body, .dropdown-menu {
     text-align: right;
 }
+.modal-footer > :not(:last-child) {
+    margin-right: 0;
+    margin-left: .25rem;
+}
+.modal-footer > :not(:first-child) {
+    margin-left: 0;
+    margin-right: .25rem;
+}
+.modal-header .close {
+    margin-left: -1rem;
+    margin-right: auto;
+}
+table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child {
+    border-right-width: 1px;
+}
 
 
 /* التنسيقات الافتراضية */
 a, a:link {
     text-decoration: none;
 }
-
+.custom-checkbox .custom-control-label::before, 
+.custom-checkbox .custom-control-label::after {
+    cursor: pointer;
+}
 
 /* تنسيق الهيدر */
 header {
@@ -134,6 +152,7 @@ main {
     color: #343a40;
 }
 
+/* تنسيق صفحة الترحيب */
 main .panel {
     border-radius: 10px;
     overflow: hidden;
@@ -148,6 +167,31 @@ main .panel:hover > div i {
     transform: translate(-10px);
 }
 
+/* تنسيق صفحة التصنيفات */
+#categories .alert.selected {
+    position: fixed;
+    top: 30%;
+    left: 0;
+    display: none;
+    z-index: 1;
+}
+#categories .d-selected {
+    display: none;
+}
+.icon-control {
+    opacity: 0;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+tr:hover .icon-control {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 800px) {
+    .icon-control {
+        opacity: 1;
+    }
+}
 
 /* تنسيق الفوتر */
 footer {
