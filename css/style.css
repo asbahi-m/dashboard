@@ -168,29 +168,55 @@ main .panel:hover > div i {
 }
 
 /* تنسيق صفحة التصنيفات */
-#categories .alert.selected {
+.alert.selected {
     position: fixed;
     top: 30%;
     left: 0;
     display: none;
     z-index: 1;
 }
-#categories .d-selected {
+#deleteItems {
     display: none;
 }
-.icon-control {
+.icons-control {
     opacity: 0;
     -webkit-transition: all .5s;
     transition: all .5s;
 }
-tr:hover .icon-control {
+tr:hover .icons-control {
     opacity: 1;
 }
+.icons-control .details {
+    display: none;
+}
 
-@media only screen and (max-width: 800px) {
-    .icon-control {
+@media only screen and (max-width: 991.98px) {
+    table th.column-primary ~ th:not(.column-control), table td.column-primary ~ td:not(.column-control) {
+        display: none;
+    }
+    table th.column-primary {
+        width: 100%;
+    }
+    table td.column-primary  {
+        display: block;
+    }
+    table td.column-control {
+        white-space: nowrap;
+        /* display: inline-flex; */
+    }
+    table td.column-primary ~ td:not(.column-control) {
+        display: none;
+        position: relative;
+        width: auto;
+        clear: both;
+    }
+    .icons-control {
         opacity: 1;
     }
+    .icons-control .details {
+        display: inline-block;
+    }
+    /* table td.column-primary ~ td */
 }
 
 /* تنسيق الفوتر */

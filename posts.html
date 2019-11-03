@@ -1,0 +1,349 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Control Panel</title>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- JS Files -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="libraries/popper/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="libraries/DataTables/datatables.min.js"></script>
+        <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <header class="d-flex justify-content-between px-2 sticky-top">
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pl-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pl-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
+            
+            <div class="dropdown mr-auto">
+                <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-comment-medical"></i>
+                        <span class="ml-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="mr-auto">قبل 30 دقيقة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-newspaper color"></i>
+                        <span class="ml-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="mr-auto">قبل 15 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="ml-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <small class="mr-auto">قبل 1 يوم</small>
+                    </a>
+                    <a class="dropdown-item text-center text-light bg-dark">
+                        <small>عرض جميع الإشعارات <i class="fas fa-angle-double-left"></i></small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
+                    <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-angle-down mx-1"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
+                    <div class="user-info d-flex align-items-center" href="#">
+                        <i class="fas fa-user-circle ml-2"></i>
+                        <div>
+                            <div>مدير الموقع</div>
+                            <small class="text-warning">مسؤول</small>
+                        </div>
+                    </div>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-user-edit"></i>
+                        <span class="ml-2">تحرير الملف الشخصي</span>
+                    </a>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="ml-2">تسجيل الخروج</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- قائمة لوحة التحكم -->
+                <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark" >
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="d-md-block collapse" id="menu">
+                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                            <i class="fas fa-user-circle ml-2"></i>
+                            <div>
+                                <div>مدير الموقع</div>
+                                <small class="text-warning">مسؤول</small>
+                            </div>
+                        </div>
+                        <a class="nav-link d-flex align-items-center" href="index.html">
+                            <i class="fas fa-home ml-3"></i>
+                            <span>الرئيسية</span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="categories.html">
+                            <i class="fas fa-sitemap ml-3"></i>
+                            <span>تصنيفات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center active" href="posts.html">
+                            <i class="fas fa-file-alt ml-3"></i>
+                            <span>محتوى الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-file-medical"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-clone ml-3"></i>
+                            <span>صفحات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-images ml-3"></i>
+                            <span>الوسائط المتعددة</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-ad ml-3"></i>
+                            <span>إعلانات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-comment-dots ml-3"></i>
+                            <span>تعليقات الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-comment-medical"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-users ml-3"></i>
+                            <span>أعضاء الموقع</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-user-plus"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-poll ml-3"></i>
+                            <span>استطلاعات الرأي</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-mail-bulk ml-3"></i>
+                            <span>القائمة البريدية</span>
+                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-chart-pie ml-3"></i>
+                            <span>إحصائيات وأرقام</span>
+                        </a>
+                        <a class="nav-link d-flex align-items-center" href="#">
+                            <i class="fas fa-cogs ml-3"></i>
+                            <span>إعدادات الموقع</span>
+                        </a>
+                    </div>
+                </nav>
+                
+                <!-- المحتوى الداخلي -->
+                <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
+
+                    <a type="button" class="btn btn-dark float-left" href="post-new.html">
+                        <i class="fas fa-file-medical"></i> <span>أضف محتوى جديد</span>
+                    </a>
+                    <h2 class="border-bottom py-2">محتويات الموقع</h2>
+
+                    <div class="row">
+
+                        <!-- بوكس حذف العنصر -->
+                        <div id="deleteItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">هل تريد حذف المحتوى: <strong>كيف تبدأ يومك!</strong></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- جدول المحتويات -->
+                        <div id="postsContent" class="table-responsive col-xl-12">
+
+                            <!-- رسائل الأوامر والعمليات -->
+                            <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                                Show MSG
+                            </button>
+                            <div id="MSG" class="collapse">
+                                
+                                <!-- رسالة نجاح عملية التعديل -->
+                                <div class="alert alert-success alert-dismissible d-flex" role="alert">
+                                    <span class="ml-auto">تم تعديل المحتوى بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="mr-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                
+                                <!-- رسالة نجاح عملية الحذف -->
+                                <div class="alert alert-warning alert-dismissible d-flex" role="alert">
+                                    <span class="ml-auto">تم حذف المحتوى/المحتويات بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="mr-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+    
+                                <!-- رسائل فشل عملية الحذف -->
+                                <div class="alert alert-danger alert-dismissible d-flex" role="alert">
+                                    <span class="ml-auto">لا يمكن حذف هذا المحتوى!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="mr-auto"><i class="fas fa-exclamation-circle"></i></span>
+                                </div>
+                            </div>
+
+                            <!-- رسالة تحديد العناصر -->
+                            <div class="alert alert-info alert-dismissible selected" role="alert">
+                                <span class="ml-auto">تم تحديد <strong class="count"></strong> عنصر/عناصر</span>
+                                <button type="button" class="close" data-dismiss="" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            
+                            <!-- أوامر إضافية للعناصر المحددة -->
+                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm float-right delete-items" data-toggle="modal" data-target="#deleteItem">
+                                <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
+                            </button>
+
+                            <!-- محتوى الجدول -->
+                            <table id="postsTable" class="table table-hover table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th id="check" class="column-check" scope="col">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="checkAll" type="checkbox" class="custom-control-input">
+                                                <label class="custom-control-label" for="checkAll"></label>
+                                            </div>
+                                        </th>
+                                        <th id="title" class="column-primary" scope="col">العنوان</th>
+                                        <th id="category" scope="col">التصنيف</th>
+                                        <th id="author" scope="col">المحرر</th>
+                                        <th id="date" scope="col">التاريخ</th>
+                                        <th id="commentsNum" scope="col">
+                                            <span data-toggle="tooltip"  data-placement="top" title="التعليقات">
+                                                <i class="fas fa-comment-dots"></i>
+                                            </span>
+                                        </th>
+                                        <th id="visitsNum" scope="col">
+                                            <span data-toggle="tooltip"  data-placement="top" title="المشاهدات">
+                                                <i class="fas fa-eye"></i>
+                                            </span>
+                                        </th>
+                                        <th id="iconsControl" class="column-control" scope="col">التحكم</th>
+                                        <th id="image" scope="col">الصورة</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="post-2" >
+                                        <th class="column-check details-control" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-2" type="checkbox" class="custom-control-input" name="post[]" value="2">
+                                                <label class="custom-control-label" for="check-2"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-title column-primary" data-column-title="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
+                                        <td class="column-category" data-column-category="التصنيف"><a href="#">مقالات</a></td>
+                                        <td class="column-author" data-column-author="المحرر"><a href="#">سعيد أحمد</a></td>
+                                        <td class="column-date" data-column-date="التاريخ"><small>اليوم 10:42 ص</small></td>
+                                        <td class="column-commentsNum" data-column-commentsNum="التعليقات"><a href="#">10</a></td>
+                                        <td class="column-visitsNum" data-column-visitsNum="المشاهدات">500</td>
+                                        <td class="column-control" data-column-control="التحكم">
+                                            <div class="icons-control">
+                                                <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </a>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                        <td class="column-image" data-column-image="الصورة"></td>
+                                    </tr>
+                                    <tr id="post-1">
+                                        <th class="column-check" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-1" type="checkbox" class="custom-control-input" name="post[]" value="1">
+                                                <label class="custom-control-label" for="check-1"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-title column-primary" data-column-title="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
+                                        <td class="column-category" data-column-category="التصنيف"><a href="#">مقالات</a></td>
+                                        <td class="column-author" data-column-author="المحرر"><a href="#">سعيد أحمد</a></td>
+                                        <td class="column-date" data-column-date="التاريخ"><small>اليوم 10:42 ص</small></td>
+                                        <td class="column-commentsNum" data-column-commentsNum="التعليقات"><a href="#">10</a></td>
+                                        <td class="column-visitsNum" data-column-visitsNum="المشاهدات">500</td>
+                                        <td class="column-control" data-column-control="التحكم">
+                                            <div class="icons-control">
+                                                <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                                </a>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                                
+                                            </div>
+                                        </td>
+                                        <td class="column-image" data-column-image="الصورة"></td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <footer class="col-md-8 col-lg-9 col-xl-10 mr-auto">
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
+        </footer>
+    </body>
+</html>
