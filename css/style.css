@@ -44,14 +44,34 @@ body, .dropdown-menu {
 table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child {
     border-right-width: 1px;
 }
+.custom-control {
+    padding-left: unset;
+    padding-right: 1rem;
+}
+:not(th) > .custom-control > .custom-control-label {
+    padding-right: 10px;
+}
+.custom-control-label::before, 
+.custom-control-label::after {
+    left: unset;
+    right: -1rem;
+}
+.custom-file-label::after {
+    left: 0;
+    right: unset;
+    content: "استعراض";
+}
+.MSG {
+    opacity: .5;
+}
 
 
 /* التنسيقات الافتراضية */
 a, a:link {
     text-decoration: none;
 }
-.custom-checkbox .custom-control-label::before, 
-.custom-checkbox .custom-control-label::after {
+.custom-control .custom-control-label::before, 
+.custom-control .custom-control-label::after {
     cursor: pointer;
 }
 
@@ -151,6 +171,9 @@ main {
     min-height: 100vh !important;
     color: #343a40;
 }
+table tbody tr {
+    background: #fff;
+}
 
 /* تنسيق صفحة الترحيب */
 main .panel {
@@ -216,8 +239,64 @@ tr:hover .icons-control {
     .icons-control .details {
         display: inline-block;
     }
-    /* table td.column-primary ~ td */
 }
+
+/* تنسيق صفحة إضافة محتوى */
+#postAdd :not(.form-group) > .form-group {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+#postAdd .form-group.sticky-top {
+    top: 44px;
+}
+#postAdd .form-group label.head {
+    font-weight: bolder;
+}
+#postAdd .form-group > label.head {
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+#postAdd #textEditor {
+    margin: 10px 0;
+    height: 300px;
+}
+#postAdd .cate-all {
+    padding: 10px;
+    border: 1px solid #ccc;
+    min-height: 40px;
+    max-height: 200px;
+    overflow: auto;
+
+}
+#postAdd .cate-all li {
+    margin-top: 10px;
+}
+#postAdd .cate-all li .custom-control-label::before {
+    border-radius: 0;
+}
+#postAdd .cate-all .children {
+    padding-right: 10px;
+}
+#postAdd #postSource, 
+#postAdd #postWriter, 
+#postAdd #postGallery, 
+#postAdd #postVideo, 
+#postAdd #postAudio {
+    display: none;
+    /* opacity: 0; */
+}
+#postAdd .writer-img i {
+    font-size: 36px;
+    color: #999;
+    vertical-align: top;
+}
+#postAdd #postGallery img {
+    width: 100px;
+    height: 100px;
+}
+
 
 /* تنسيق الفوتر */
 footer {
