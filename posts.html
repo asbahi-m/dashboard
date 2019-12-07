@@ -85,10 +85,11 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- قائمة لوحة التحكم -->
-                <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark" >
+                <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark">
                     <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>
+
                     <div class="d-md-block collapse" id="menu">
                         <div class="user-info d-flex align-items-center mb-3" href="#">
                             <i class="fas fa-user-circle ml-2"></i>
@@ -97,81 +98,107 @@
                                 <small class="text-warning">مسؤول</small>
                             </div>
                         </div>
-                        <a class="nav-link d-flex align-items-center" href="index.html">
-                            <i class="fas fa-home ml-3"></i>
-                            <span>الرئيسية</span>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="categories.html">
-                            <i class="fas fa-sitemap ml-3"></i>
-                            <span>تصنيفات الموقع</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-plus-square"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center active" href="posts.html">
-                            <i class="fas fa-file-alt ml-3"></i>
-                            <span>محتوى الموقع</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-file-medical"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-clone ml-3"></i>
-                            <span>صفحات الموقع</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-plus-square"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-images ml-3"></i>
-                            <span>الوسائط المتعددة</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-plus-square"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-ad ml-3"></i>
-                            <span>إعلانات الموقع</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-plus-square"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-comment-dots ml-3"></i>
-                            <span>تعليقات الموقع</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-comment-medical"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-users ml-3"></i>
-                            <span>أعضاء الموقع</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-user-plus"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-poll ml-3"></i>
-                            <span>استطلاعات الرأي</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-plus-square"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-mail-bulk ml-3"></i>
-                            <span>القائمة البريدية</span>
-                            <button type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                <i class="fas fa-plus-square"></i>
-                            </button>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-chart-pie ml-3"></i>
-                            <span>إحصائيات وأرقام</span>
-                        </a>
-                        <a class="nav-link d-flex align-items-center" href="#">
-                            <i class="fas fa-cogs ml-3"></i>
-                            <span>إعدادات الموقع</span>
-                        </a>
+
+                        <ul class="nav flex-column p-0">
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="index.html">
+                                    <i class="fas fa-home ml-3"></i><span>الرئيسية</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="categories.html">
+                                    <i class="fas fa-sitemap ml-3"></i><span>تصنيفات الموقع</span>
+                                </a>
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center active">
+                                <a class="nav-link" href="posts.html">
+                                    <i class="fas fa-file-alt ml-3"></i><span>محتوى الموقع</span>
+                                </a>
+                                <a href="post-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-file-medical"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-clone ml-3"></i><span>صفحات الموقع</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-images ml-3"></i><span>الوسائط المتعددة</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-ad ml-3"></i><span>إعلانات الموقع</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-comment-dots ml-3"></i><span>تعليقات الموقع</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-comment-medical"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-users ml-3"></i><span>أعضاء الموقع</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-user-plus"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-poll ml-3"></i><span>استطلاعات الرأي</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-mail-bulk ml-3"></i><span>القائمة البريدية</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-chart-pie ml-3"></i><span>إحصائيات وأرقام</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-cogs ml-3"></i><span>إعدادات الموقع</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </nav>
                 
@@ -290,7 +317,7 @@
                                     <td class="column-title column-primary" data-column-title="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
                                     <td class="column-category" data-column-category="التصنيف"><a href="#">مقالات</a></td>
                                     <td class="column-author" data-column-author="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column-date="التاريخ"><small>اليوم 10:42 ص</small></td>
+                                    <td class="column-date" data-column-date="التاريخ"><small>بالأمس 6:25 م</small></td>
                                     <td class="column-commentsNum" data-column-commentsNum="التعليقات"><a href="#">10</a></td>
                                     <td class="column-visitsNum" data-column-visitsNum="المشاهدات">500</td>
                                     <td class="column-control" data-column-control="التحكم">
@@ -316,7 +343,7 @@
                                     <td class="column-title column-primary" data-column-title="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
                                     <td class="column-category" data-column-category="التصنيف"><a href="#">مقالات</a></td>
                                     <td class="column-author" data-column-author="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column-date="التاريخ"><small>اليوم 10:42 ص</small></td>
+                                    <td class="column-date" data-column-date="التاريخ"><small>2019-11-22</small></td>
                                     <td class="column-commentsNum" data-column-commentsNum="التعليقات"><a href="#">10</a></td>
                                     <td class="column-visitsNum" data-column-visitsNum="المشاهدات">500</td>
                                     <td class="column-control" data-column-control="التحكم">
@@ -333,7 +360,6 @@
                                     </td>
                                     <td class="column-image" data-column-image="الصورة"></td>
                                 </tr>
-                                
                             </tbody>
                         </table>
                     </div>

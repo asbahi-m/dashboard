@@ -86,7 +86,8 @@ header a, header a.btn {
     color: #f8f9fa;
     cursor: pointer;
 }
-header a:hover, nav a:hover {
+header a:hover, 
+nav .nav-item:hover {
     color: #fff;
     background: rgba(255,255,255,0.1);
     -webkit-transition: all .3s;
@@ -135,34 +136,42 @@ header .dropdown #dropdownUser .fa-user-circle {
 
 
 /* تنسيق القائمة الجانبية */
-nav, nav a {
+nav, nav .nav-link {
     color: #f8f9fa;
 }
-nav .nav-link {
-    padding: 15px;
+nav .nav-item {
+    position: relative;
     border-bottom: 1px #404040 solid;
+    padding: 0;
 }
-nav .nav-link.active {
-    background: #f8f9fa;
-    color: #343a40;
+nav .nav-item .nav-link {
+    padding: 15px;
+}
+nav .nav-item.active {
     border-radius: 50px;
+    background: #f8f9fa;
+}
+nav .nav-item.active .nav-link {
+    color: #343a40;
     padding: 10px 15px;
 }
-nav .nav-link .add {
-    display: none;
-}
-nav .nav-link:hover .add {
-    display: block;
-    color: #ffc107;
-    padding: 0 5px;
-    border: 0;
-}
-nav .nav-link:hover > i {
+nav .nav-item:hover .nav-link > i {
     -ms-transform: rotate(-360deg);
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg);
     -webkit-transition: all .5s;
     transition: all .5s;
+}
+nav .nav-item .add {
+    display: none;
+    padding: 0 5px;
+    margin-left: 5px;
+}
+nav .nav-item:hover .add {
+    display: block;
+    color: #ffc107;
+    padding: 0 5px;
+    border: 0;
 }
 
 
@@ -292,9 +301,23 @@ tr:hover .icons-control {
     color: #999;
     vertical-align: top;
 }
-#postAdd #postGallery img {
+#postAdd #postGallery #postGalleryContent img {
     width: 100px;
     height: 100px;
+}
+#postAdd #postGallery #postGalleryContent span {
+    position: relative;
+}
+#postAdd #postGallery #postGalleryContent span i {
+    position: absolute;
+    right: 0;
+    margin: 5px;
+    padding: 2px;
+    background: #fff;
+    cursor: pointer;
+}
+#postAdd #postGallery #postGalleryContent span i:hover {
+    color: #999;
 }
 
 
