@@ -1,8 +1,7 @@
-    
 <!DOCTYPE html>
 <html lang="ar">
     <head>
-        <title>لوحة التحكم - إضافة محتوى</title>
+        <title>لوحة التحكم - التصنيفات</title>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -204,11 +203,12 @@
                 
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
-
-                    <a type="button" class="btn btn-dark float-left d-xl-none text-white" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">
-                        <i class="fas fa-plus-square"></i> <span>أضف تصنيف جديد</span>
-                    </a>
-                    <h2 class="border-bottom py-2">تصنيفات الموقع</h2>
+                    <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
+                        <h2 class="py-2">تصنيفات الموقع</h2>
+                        <a type="button" class="btn btn-dark d-xl-none text-white" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">
+                            <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف تصنيف جديد</span>
+                        </a>
+                    </div>
 
                     <div class="row">
 
@@ -224,7 +224,7 @@
                                 <div class="form-group">
                                     <label for="cateSlug">الاسم المختصر:</label>
                                     <input type="text" class="form-control form-control-sm" id="cateSlug">
-                                    <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
+                                    <small class="form-text text-muted">شكل رابط التصنيف في الموقع.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="parent">التصنيف الأب:</label>
@@ -367,11 +367,11 @@
                                 </button>
                             </div>
                             
-                            <!-- أوامر إضافية للعناصر المحددة -->
-                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm float-right delete-items" data-toggle="modal" data-target="#deleteItem">
+                            <!-- حذف العناصر المحددة -->
+                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items" data-toggle="modal" data-target="#deleteItem">
                                 <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
                             </button>
-
+                            
                             <!-- محتوى الجدول -->
                             <table id="categoriesTable" class="table table-hover table-bordered">
                                 <thead class="thead-light">
@@ -398,12 +398,12 @@
                                                 <label class="custom-control-label" for="check-7"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">مقالات
+                                        <td class="column-name column-primary" data-column="التصنيف">مقالات
                                         </td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">مقالات</td>
-                                        <td class="column-desc" data-column-desc="الوصف"></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">50</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-slug" data-column="الاسم المختصر">مقالات</td>
+                                        <td class="column-desc" data-column="الوصف"></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">50</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -422,11 +422,11 @@
                                                 <label class="custom-control-label" for="check-9"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">مقالات اقتصادية</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">مقالات-اقتصادية</td>
-                                        <td class="column-desc" data-column-desc="الوصف"></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">50</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">مقالات اقتصادية</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">مقالات-اقتصادية</td>
+                                        <td class="column-desc" data-column="الوصف"></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">50</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -445,11 +445,11 @@
                                                 <label class="custom-control-label" for="check-8"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">مقالات سياسية</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">مقالات-سياسية</td>
-                                        <td class="column-desc" data-column-desc="الوصف"></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">50</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">مقالات سياسية</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">مقالات-سياسية</td>
+                                        <td class="column-desc" data-column="الوصف"></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">50</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -468,11 +468,11 @@
                                                 <label class="custom-control-label" for="check-2"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">أخبار</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">أخبار</td>
-                                        <td class="column-desc" data-column-desc="الوصف"></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">65</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">أخبار</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">أخبار</td>
+                                        <td class="column-desc" data-column="الوصف"></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">65</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -491,11 +491,11 @@
                                                 <label class="custom-control-label" for="check-6"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">أخبار دولية</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">أخبار-دولية</td>
-                                        <td class="column-desc" data-column-desc="الوصف"></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">15</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">أخبار دولية</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">أخبار-دولية</td>
+                                        <td class="column-desc" data-column="الوصف"></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">15</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -514,11 +514,11 @@
                                                 <label class="custom-control-label" for="check-3"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">أخبار محلية</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">أخبار-محلية</td>
-                                        <td class="column-desc" data-column-desc="الوصف"></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">50</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">أخبار محلية</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">أخبار-محلية</td>
+                                        <td class="column-desc" data-column="الوصف"></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">50</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -537,11 +537,11 @@
                                                 <label class="custom-control-label" for="check-5"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">أخبار محلية اقتصادية</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">أخبار-محلية-اقتصادية</td>
-                                        <td class="column-desc" data-column-desc="الوصف"><small>يختص بجميع الأخبار الاقتصادية محلياً</small></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">20</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">أخبار محلية اقتصادية</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">أخبار-محلية-اقتصادية</td>
+                                        <td class="column-desc" data-column="الوصف"><small>يختص بجميع الأخبار الاقتصادية محلياً</small></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">20</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -560,11 +560,11 @@
                                                 <label class="custom-control-label" for="check-4"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">أخبار محلية سياسية</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">أخبار-محلية-سياسية</td>
-                                        <td class="column-desc" data-column-desc="الوصف"><small>يختص بجميع الأخبار السياسية محلياً</small></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">30</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">أخبار محلية سياسية</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">أخبار-محلية-سياسية</td>
+                                        <td class="column-desc" data-column="الوصف"><small>يختص بجميع الأخبار السياسية محلياً</small></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">30</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -578,11 +578,11 @@
                                     </tr>
                                     <tr id="cate-1" class="level-0">
                                         <th class="column-check" scope="row"></th>
-                                        <td class="column-name column-primary" data-column-name="التصنيف">غير مصنف</td>
-                                        <td class="column-slug" data-column-slug="الاسم المختصر">غير مصنف</td>
-                                        <td class="column-desc" data-column-desc="الوصف"><small>لا يمكن حذف هذا التصنيف</small></td>
-                                        <td class="column-postsNum" data-column-postsNum="العدد"><a href="#">5</a></td>
-                                        <td class="column-control" data-column-control="التحكم">
+                                        <td class="column-name column-primary" data-column="التصنيف">غير مصنف</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">غير مصنف</td>
+                                        <td class="column-desc" data-column="الوصف"><small>لا يمكن حذف هذا التصنيف</small></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">5</a></td>
+                                        <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -592,15 +592,6 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th></th>
-                                        <th class="column-primary"></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th class="column-control" data-column-control="التحكم"></th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>

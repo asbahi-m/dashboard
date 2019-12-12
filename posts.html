@@ -1,8 +1,7 @@
-    
 <!DOCTYPE html>
 <html lang="ar">
     <head>
-        <title>لوحة التحكم - إضافة محتوى</title>
+        <title>لوحة التحكم - المحتويات</title>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -204,11 +203,12 @@
                 
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
-
-                    <a type="button" class="btn btn-dark float-left" href="post-new.html">
-                        <i class="fas fa-file-medical"></i> <span>أضف محتوى جديد</span>
-                    </a>
-                    <h2 class="border-bottom py-2">محتويات الموقع</h2>
+                    <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
+                        <h2 class="py-2">محتويات الموقع</h2>
+                        <a type="button" class="btn btn-dark" href="post-new.html">
+                            <i class="fas fa-file-medical"></i> <span class="d-none d-sm-inline-block">أضف محتوى جديد</span>
+                        </a>
+                    </div>
 
                     <!-- بوكس حذف العنصر -->
                     <div id="deleteItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -273,11 +273,32 @@
                             </button>
                         </div>
                         
-                        <!-- أوامر إضافية للعناصر المحددة -->
-                        <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm float-right delete-items" data-toggle="modal" data-target="#deleteItem">
-                            <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
-                        </button>
+                        <!-- أيقونات اختيار المحتويات المعروضة -->                        
+                        <div class="d-flex">
+                            <a type ="button" class="btn btn-primary" href="#">الكل <span class="badge badge-light">10</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">المنشورة <span class="badge badge-light">7</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">المسودات <span class="badge badge-light">2</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">المحذوفة <span class="badge badge-light">1</span></a>
+                        </div>
+                        
+                        <!-- فلترة تصفية الجدول بحسب التصنيف والمحرر والتاريخ -->
+                        <div id="filter" class="form-row mx-0 my-2 align-items-center">
+                            <div class="col-xl-2 col-sm-3 col-7">
+                                <select class="custom-select custom-select-sm get-cate"></select>
+                            </div>
+                            <div class="col-xl-2 col-sm-3 col-7 my-1">
+                                <select class="custom-select custom-select-sm get-user"></select>
+                            </div>
+                            <div class="col-xl-2 col-sm-3 col-7">
+                                <select class="custom-select custom-select-sm get-date"></select>
+                            </div>
 
+                            <!-- حذف العناصر المحددة -->
+                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items" data-toggle="modal" data-target="#deleteItem">
+                                <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
+                            </button>
+                        </div>
+                        
                         <!-- محتوى الجدول -->
                         <table id="postsTable" class="table table-hover table-bordered">
                             <thead class="thead-light">
@@ -302,25 +323,26 @@
                                             <i class="fas fa-eye"></i>
                                         </span>
                                     </th>
-                                    <th id="iconsControl" class="column-control" scope="col">التحكم</th>
                                     <th id="image" scope="col">الصورة</th>
+                                    <th id="iconsControl" class="column-control" scope="col">التحكم</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="post-2" >
+                                <tr id="post-3" >
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-2" type="checkbox" class="custom-control-input" name="post[]" value="2">
-                                            <label class="custom-control-label" for="check-2"></label>
+                                            <input id="check-3" type="checkbox" class="custom-control-input" name="post[]" value="3">
+                                            <label class="custom-control-label" for="check-3"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column-title="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
-                                    <td class="column-category" data-column-category="التصنيف"><a href="#">مقالات</a></td>
-                                    <td class="column-author" data-column-author="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column-date="التاريخ"><small>بالأمس 6:25 م</small></td>
-                                    <td class="column-commentsNum" data-column-commentsNum="التعليقات"><a href="#">10</a></td>
-                                    <td class="column-visitsNum" data-column-visitsNum="المشاهدات">500</td>
-                                    <td class="column-control" data-column-control="التحكم">
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">عواصف رملية تهدد بعض دول العالم</a></td>
+                                    <td class="column-category" data-column="التصنيف"><a href="#">أخبار</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">صالح الشيخ</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-11-21</small></td>
+                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">5</a></td>
+                                    <td class="column-visitsNum" data-column="المشاهدات">300</td>
+                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -331,7 +353,32 @@
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
                                         </div>
                                     </td>
-                                    <td class="column-image" data-column-image="الصورة"></td>
+                                </tr>
+                                <tr id="post-2" >
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-2" type="checkbox" class="custom-control-input" name="post[]" value="2">
+                                            <label class="custom-control-label" for="check-2"></label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
+                                    <td class="column-category" data-column="التصنيف"><a href="#">مقالات</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">سعيد أحمد</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>بالأمس 6:25 م</small></td>
+                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">10</a></td>
+                                    <td class="column-visitsNum" data-column="المشاهدات">500</td>
+                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr id="post-1">
                                     <th class="column-check" scope="row">
@@ -340,13 +387,14 @@
                                             <label class="custom-control-label" for="check-1"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column-title="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
-                                    <td class="column-category" data-column-category="التصنيف"><a href="#">مقالات</a></td>
-                                    <td class="column-author" data-column-author="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column-date="التاريخ"><small>2019-11-22</small></td>
-                                    <td class="column-commentsNum" data-column-commentsNum="التعليقات"><a href="#">10</a></td>
-                                    <td class="column-visitsNum" data-column-visitsNum="المشاهدات">500</td>
-                                    <td class="column-control" data-column-control="التحكم">
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
+                                    <td class="column-category" data-column="التصنيف"><a href="#">مقالات</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">سعيد أحمد</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-11-22</small></td>
+                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">10</a></td>
+                                    <td class="column-visitsNum" data-column="المشاهدات">500</td>
+                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
@@ -358,7 +406,6 @@
                                             
                                         </div>
                                     </td>
-                                    <td class="column-image" data-column-image="الصورة"></td>
                                 </tr>
                             </tbody>
                         </table>
