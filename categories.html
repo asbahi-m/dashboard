@@ -124,10 +124,10 @@
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="pages.html">
                                     <i class="fas fa-clone ml-3"></i><span>صفحات الموقع</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="page-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
@@ -206,7 +206,7 @@
                     <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
                         <h2 class="py-2">تصنيفات الموقع</h2>
                         <a type="button" class="btn btn-dark d-xl-none text-white" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">
-                            <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف تصنيف جديد</span>
+                            <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
                         </a>
                     </div>
 
@@ -323,7 +323,7 @@
                         </div>
 
                         <!-- جدول المحتويات -->
-                        <div id="categoriesContent" class="table-responsive-lg col-xl-9 col-lg-12">
+                        <div id="categoriesContent" class="table-responsive-lg col-xl-9 col-lg-12 hasChildren">
 
                             <!-- رسائل الأوامر والعمليات -->
                             <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
@@ -368,7 +368,7 @@
                             </div>
                             
                             <!-- حذف العناصر المحددة -->
-                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items" data-toggle="modal" data-target="#deleteItem">
+                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-right" data-toggle="modal" data-target="#deleteItem">
                                 <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
                             </button>
                             
@@ -398,7 +398,7 @@
                                                 <label class="custom-control-label" for="check-7"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">مقالات
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">مقالات
                                         </td>
                                         <td class="column-slug" data-column="الاسم المختصر">مقالات</td>
                                         <td class="column-desc" data-column="الوصف"></td>
@@ -422,7 +422,7 @@
                                                 <label class="custom-control-label" for="check-9"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">مقالات اقتصادية</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">مقالات اقتصادية</td>
                                         <td class="column-slug" data-column="الاسم المختصر">مقالات-اقتصادية</td>
                                         <td class="column-desc" data-column="الوصف"></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">50</a></td>
@@ -445,7 +445,7 @@
                                                 <label class="custom-control-label" for="check-8"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">مقالات سياسية</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">مقالات سياسية</td>
                                         <td class="column-slug" data-column="الاسم المختصر">مقالات-سياسية</td>
                                         <td class="column-desc" data-column="الوصف"></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">50</a></td>
@@ -468,7 +468,7 @@
                                                 <label class="custom-control-label" for="check-2"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">أخبار</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">أخبار</td>
                                         <td class="column-slug" data-column="الاسم المختصر">أخبار</td>
                                         <td class="column-desc" data-column="الوصف"></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">65</a></td>
@@ -491,7 +491,7 @@
                                                 <label class="custom-control-label" for="check-6"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">أخبار دولية</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">أخبار دولية</td>
                                         <td class="column-slug" data-column="الاسم المختصر">أخبار-دولية</td>
                                         <td class="column-desc" data-column="الوصف"></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">15</a></td>
@@ -514,7 +514,7 @@
                                                 <label class="custom-control-label" for="check-3"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">أخبار محلية</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">أخبار محلية</td>
                                         <td class="column-slug" data-column="الاسم المختصر">أخبار-محلية</td>
                                         <td class="column-desc" data-column="الوصف"></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">50</a></td>
@@ -537,7 +537,7 @@
                                                 <label class="custom-control-label" for="check-5"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">أخبار محلية اقتصادية</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">أخبار محلية اقتصادية</td>
                                         <td class="column-slug" data-column="الاسم المختصر">أخبار-محلية-اقتصادية</td>
                                         <td class="column-desc" data-column="الوصف"><small>يختص بجميع الأخبار الاقتصادية محلياً</small></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">20</a></td>
@@ -560,7 +560,7 @@
                                                 <label class="custom-control-label" for="check-4"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary" data-column="التصنيف">أخبار محلية سياسية</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">أخبار محلية سياسية</td>
                                         <td class="column-slug" data-column="الاسم المختصر">أخبار-محلية-سياسية</td>
                                         <td class="column-desc" data-column="الوصف"><small>يختص بجميع الأخبار السياسية محلياً</small></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">30</a></td>
@@ -578,7 +578,7 @@
                                     </tr>
                                     <tr id="cate-1" class="level-0">
                                         <th class="column-check" scope="row"></th>
-                                        <td class="column-name column-primary" data-column="التصنيف">غير مصنف</td>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">غير مصنف</td>
                                         <td class="column-slug" data-column="الاسم المختصر">غير مصنف</td>
                                         <td class="column-desc" data-column="الوصف"><small>لا يمكن حذف هذا التصنيف</small></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">5</a></td>

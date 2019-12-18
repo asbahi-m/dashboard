@@ -183,6 +183,11 @@ main {
 table tbody tr {
     background: #fff;
 }
+table tbody tr .expanded::before {
+    content: attr(data-column)": ";
+    margin-right: 40px;
+    color: #999;
+}
 
 /* تنسيق صفحة الترحيب */
 main .panel {
@@ -319,13 +324,6 @@ tr:hover .icons-control {
 #postAdd #postGallery #postGalleryContent span i:hover {
     color: #999;
 }
-
-table tr .expanded::before {
-    content: attr(data-column)": ";
-    margin-right: 40px;
-    color: #999;
-}
-
 
 /* تنسيق الفوتر */
 footer {

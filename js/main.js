@@ -95,6 +95,17 @@ $(document).ready(function() {
         }*/
     });
 
+    var tablePages = $("#pagesTable").DataTable({
+        "columnDefs": [
+            { "orderable": false, "targets": 0 },
+            { "orderable": false, "targets": 6 },
+            { "searchable": false, "targets": 0 },
+            { "searchable": false, "targets": 4 },
+            { "searchable": false, "targets": 5 },
+            { "searchable": false, "targets": 6 },
+        ]
+    });
+
     /* فلتر تصفية جدول المحتويات أعلى الجدول بحسب الأعمدة */
     /* $("#postsTable thead tr").clone().appendTo("#postsTable thead");
     $('#postsTable thead tr:eq(1) th').each(function(i){
@@ -197,7 +208,7 @@ $(document).ready(function() {
     });
 
     /* تحديد عناصر جدول المحتويات */
-    $("#postsTable input:checkbox").click(function() {
+    $("#postsTable input:checkbox, #pagesTable input:checkbox").click(function() {
         showChecked("input[name='post[]']", "input[name='post[]']:checked");
     });
 
@@ -216,13 +227,13 @@ $(document).ready(function() {
     });
 
     /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في جدول صفحة التصنيفات
-    $("#categoriesContent table tr").each(function(i){
+    $(".hasChildren table tr").each(function(i){
         if (i > 0) {
             var insert = "<i class='fas fa-long-arrow-alt-left ml-1 mr-" + (1+i) + "'></i>";
             for (var x = 1; x < i ; x++) {
                 insert += "<i class='fas fa-long-arrow-alt-left mx-1'></i>";
             }
-            $("table tr.level-" + i + " .column-name").prepend(insert);
+            $("table tr.level-" + i + " .child-name").prepend(insert);
         }
     });
 
