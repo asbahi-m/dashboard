@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar">
     <head>
-        <title>لوحة التحكم - محتويات الموقع</title>
+        <title>لوحة التحكم - إعلانات الموقع</title>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,7 +114,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item d-flex align-items-center active">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
                                     <i class="fas fa-file-alt ml-3"></i><span>محتوى الموقع</span>
                                 </a>
@@ -141,7 +141,7 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item d-flex align-items-center">
+                            <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="ads.html">
                                     <i class="fas fa-ad ml-3"></i><span>إعلانات الموقع</span>
                                 </a>
@@ -201,8 +201,8 @@
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
                     <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
-                        <h2 class="py-2">محتويات الموقع</h2>
-                        <a type="button" class="btn btn-dark" href="post-new.html">
+                        <h2 class="py-2">إعلانات الموقع</h2>
+                        <a type="button" class="btn btn-dark" href="ads-new.html">
                             <i class="fas fa-file-medical"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
                         </a>
                     </div>
@@ -226,7 +226,7 @@
                     </div>
 
                     <!-- جدول المحتويات -->
-                    <div id="postsContent" class="table-responsive">
+                    <div id="adsContent" class="table-responsive">
 
                         <!-- رسائل الأوامر والعمليات -->
                         <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
@@ -278,26 +278,13 @@
                             <a type ="button" class="btn btn-light bg-white" href="#">المحذوفة <span class="badge badge-light">1</span></a>
                         </div>
                         
-                        <!-- فلترة تصفية الجدول بحسب التصنيف والمحرر والتاريخ -->
-                        <div id="filter" class="form-row mx-0 my-2 align-items-center">
-                            <div class="col-xl-2 col-sm-3 col-7">
-                                <select class="custom-select custom-select-sm get-cate"></select>
-                            </div>
-                            <div class="col-xl-2 col-sm-3 col-7 my-1">
-                                <select class="custom-select custom-select-sm get-user"></select>
-                            </div>
-                            <div class="col-xl-2 col-sm-3 col-7">
-                                <select class="custom-select custom-select-sm get-date"></select>
-                            </div>
-
-                            <!-- حذف العناصر المحددة -->
-                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items" data-toggle="modal" data-target="#deleteItem">
-                                <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
-                            </button>
-                        </div>
+                        <!-- حذف العناصر المحددة -->
+                        <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-right" data-toggle="modal" data-target="#deleteItem">
+                            <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
+                        </button>
                         
                         <!-- محتوى الجدول -->
-                        <table id="postsTable" class="table table-hover table-bordered">
+                        <table id="adsTable" class="table table-hover table-bordered">
                             <thead class="thead-light">
                                 <tr>
                                     <th id="check" class="column-check" scope="col">
@@ -307,41 +294,33 @@
                                         </div>
                                     </th>
                                     <th id="title" class="column-primary" scope="col">العنوان</th>
-                                    <th id="category" scope="col">التصنيف</th>
-                                    <th id="author" scope="col">المحرر</th>
-                                    <th id="date" scope="col">التاريخ</th>
-                                    <th id="commentsNum" scope="col">
-                                        <span data-toggle="tooltip"  data-placement="top" title="التعليقات">
-                                            <i class="fas fa-comment-dots"></i>
-                                        </span>
-                                    </th>
-                                    <th id="visitsNum" scope="col">
-                                        <span data-toggle="tooltip"  data-placement="top" title="المشاهدات">
-                                            <i class="fas fa-eye"></i>
-                                        </span>
-                                    </th>
-                                    <th id="image" scope="col">الصورة</th>
+                                    <th id="location" scope="col">المنطقة</th>
+                                    <th id="type" scope="col">النوع</th>
+                                    <th id="status" scope="col">الحالة</th>
+                                    <th id="dateStart" scope="col">تاريخ البدء</th>
+                                    <th id="dateEnd" scope="col">تاريخ الانتهاء</th>
+                                    <th id="area" scope="col">المساحة</th>
                                     <th id="iconsControl" class="column-control" scope="col">التحكم</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="post-3" >
+                                <tr id="post-31" >
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-3" type="checkbox" class="custom-control-input" name="post[]" value="3">
-                                            <label class="custom-control-label" for="check-3"></label>
+                                            <input id="check-31" type="checkbox" class="custom-control-input" name="post[]" value="31">
+                                            <label class="custom-control-label" for="check-31"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">عواصف رملية تهدد بعض دول العالم</a></td>
-                                    <td class="column-category" data-column="التصنيف"><a href="#">أخبار</a></td>
-                                    <td class="column-author" data-column="المحرر"><a href="#">صالح الشيخ</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>2019-11-21</small></td>
-                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">5</a></td>
-                                    <td class="column-visitsNum" data-column="المشاهدات">300</td>
-                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلانات جوجل أدسينس</a></td>
+                                    <td class="column-location" data-column="المنطقة">أعلى القائمة الجانبية</td>
+                                    <td class="column-type" data-column="النوع">جوجل أدسينس</td>
+                                    <td class="column-status" data-column="الحالة">معروض</td>
+                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
+                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
+                                    <td class="column-area" data-column="المساحة">شاشة كاملة</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
                                             </a>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
@@ -351,23 +330,24 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="post-2" >
+
+                                <tr id="post-30" >
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-2" type="checkbox" class="custom-control-input" name="post[]" value="2">
-                                            <label class="custom-control-label" for="check-2"></label>
+                                            <input id="check-30" type="checkbox" class="custom-control-input" name="post[]" value="30">
+                                            <label class="custom-control-label" for="check-30"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
-                                    <td class="column-category" data-column="التصنيف"><a href="#">مقالات</a></td>
-                                    <td class="column-author" data-column="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>بالأمس 6:25 م</small></td>
-                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">10</a></td>
-                                    <td class="column-visitsNum" data-column="المشاهدات">500</td>
-                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلان تدشين مشروع</a></td>
+                                    <td class="column-location" data-column="المنطقة">أعلى الموقع</td>
+                                    <td class="column-type" data-column="النوع">افتراضي (صورة)</td>
+                                    <td class="column-status" data-column="الحالة">منتهي</td>
+                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
+                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
+                                    <td class="column-area" data-column="المساحة">نصف شاشة</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
                                             </a>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
@@ -377,33 +357,34 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="post-1">
-                                    <th class="column-check" scope="row">
+
+                                <tr id="post-29" >
+                                    <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-1" type="checkbox" class="custom-control-input" name="post[]" value="1">
-                                            <label class="custom-control-label" for="check-1"></label>
+                                            <input id="check-29" type="checkbox" class="custom-control-input" name="post[]" value="29">
+                                            <label class="custom-control-label" for="check-29"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
-                                    <td class="column-category" data-column="التصنيف"><a href="#">مقالات</a></td>
-                                    <td class="column-author" data-column="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>2019-11-22</small></td>
-                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">10</a></td>
-                                    <td class="column-visitsNum" data-column="المشاهدات">500</td>
-                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلان موقع إلكتروني</a></td>
+                                    <td class="column-location" data-column="المنطقة">أعلى المواضيع</td>
+                                    <td class="column-type" data-column="النوع">كود HTML</td>
+                                    <td class="column-status" data-column="الحالة">متوقف</td>
+                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
+                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
+                                    <td class="column-area" data-column="المساحة">ثلث شاشة</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
                                             </a>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
-                                            
                                         </div>
                                     </td>
                                 </tr>
+                                
                             </tbody>
                         </table>
                     </div>

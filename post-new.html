@@ -133,67 +133,64 @@
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="upload.html">
                                     <i class="fas fa-images ml-3"></i><span>الوسائط المتعددة</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="media-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="ads.html">
                                     <i class="fas fa-ad ml-3"></i><span>إعلانات الموقع</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="ads-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="comments.html">
                                     <i class="fas fa-comment-dots ml-3"></i><span>تعليقات الموقع</span>
-                                </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                    <i class="fas fa-comment-medical"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="users.html">
                                     <i class="fas fa-users ml-3"></i><span>أعضاء الموقع</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="user-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
                                 </a>
                             </li>
                             
-                            <li class="nav-item d-flex align-items-center">
+                            <!-- <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="#">
                                     <i class="fas fa-poll ml-3"></i><span>استطلاعات الرأي</span>
                                 </a>
                                 <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
-                            </li>
+                            </li> -->
                             
-                            <li class="nav-item d-flex align-items-center">
+                            <!-- <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="#">
                                     <i class="fas fa-mail-bulk ml-3"></i><span>القائمة البريدية</span>
                                 </a>
                                 <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
-                            </li>
+                            </li> -->
                             
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="analytics.html">
                                     <i class="fas fa-chart-pie ml-3"></i><span>إحصائيات وأرقام</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="settings.html">
                                     <i class="fas fa-cogs ml-3"></i><span>إعدادات الموقع</span>
                                 </a>
                             </li>
@@ -318,7 +315,7 @@
                                         <div class="form-group row mx-0">
                                             <label class="col-sm-3 col-xl-2" for="postSourceUrl">الرابط:</label>
                                             <div class="col-sm-9 col-xl-10">
-                                                <input id="postSourceUrl" type="text" class="form-control" disabled>
+                                                <input id="postSourceUrl" type="url" class="form-control" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -474,20 +471,6 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group"><!-- خصائص إضافية -->
-                                        <label class="head">خصائص إضافية</label>
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="comment_status" type="checkbox" class="custom-control-input" name="comment_status" value="1" checked>
-                                            <label class="custom-control-label" for="comment_status">السماح بالتعليقات</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox mt-2">
-                                            <input id="sticky" type="checkbox" class="custom-control-input" name="sticky" value="0">
-                                            <label class="custom-control-label" for="sticky">تثبيت بالرئيسية</label>
-                                        </div>
-                                    </div>
-                                    
                                     <div class="form-group"><!-- تاريخ النشر -->
                                         <label class="head">تاريخ النشر</label>
                                         <div class="form-row">
@@ -499,6 +482,20 @@
                                                 <input id="postTime" type="time" class="form-control">
                                                 <small class="form-text text-muted">10:30 ص</small>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group"><!-- خصائص إضافية -->
+                                        <label class="head">خصائص إضافية</label>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="comment_status" type="checkbox" class="custom-control-input" name="comment_status" value="1" checked>
+                                            <label class="custom-control-label" for="comment_status">السماح بالتعليقات</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox mt-2">
+                                            <input id="sticky" type="checkbox" class="custom-control-input" name="sticky" value="0">
+                                            <label class="custom-control-label" for="sticky">تثبيت بالرئيسية</label>
                                         </div>
                                     </div>
                                 </div>

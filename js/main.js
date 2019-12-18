@@ -106,6 +106,17 @@ $(document).ready(function() {
         ]
     });
 
+    var tableAds = $("#adsTable").DataTable({
+        "columnDefs": [
+            { "orderable": false, "targets": 0 },
+            { "orderable": false, "targets": 8 },
+            { "searchable": false, "targets": 0 },
+            { "searchable": false, "targets": 5 },
+            { "searchable": false, "targets": 6 },
+            { "searchable": false, "targets": 8 },
+        ]
+    });
+
     /* فلتر تصفية جدول المحتويات أعلى الجدول بحسب الأعمدة */
     /* $("#postsTable thead tr").clone().appendTo("#postsTable thead");
     $('#postsTable thead tr:eq(1) th').each(function(i){
@@ -208,7 +219,7 @@ $(document).ready(function() {
     });
 
     /* تحديد عناصر جدول المحتويات */
-    $("#postsTable input:checkbox, #pagesTable input:checkbox").click(function() {
+    $("#postsTable input:checkbox, #pagesTable input:checkbox, #adsTable input:checkbox").click(function() {
         showChecked("input[name='post[]']", "input[name='post[]']:checked");
     });
 
@@ -282,7 +293,7 @@ $(document).ready(function() {
         }
     };
 
-    if ($("#textEditor") !== undefined) {
+    if ($("#textEditor").val() !== undefined) {
 
         var editor = textboxio.replace("#textEditor", config);
     }
@@ -351,6 +362,18 @@ $(document).ready(function() {
     $("#postTemplate").change(function(){
         elementCase("#postAudio", "#postAudio textarea", "audio");
     });
+
+    // إظهار عنصر (مصدر ورابط الصورة) إذا كان نوع الإعلان: صورة HTML
+    elementCase("#postAdsImg", "#postAdsImg input", "image");
+    $("#postTemplate").change(function(){
+        elementCase("#postAdsImg", "#postAdsImg input", "image");
+    });
+    
+    // إظهار عنصر (كود الإعلان) إذا كان نوع الإعلان: جوجل أدسينس أو كود HTML
+    elementCase("#postCode", "#postCode textarea", ["codeHTML", "googleAds"]);
+    $("#postTemplate").change(function(){
+        elementCase("#postCode", "#postCode textarea", ["codeHTML", "googleAds"]);
+    });
     
     /////////////////////////// إضافة الصور المتعددة في بوكس معرض الصور وإظهارها مباشرةً
     $("#postGalleryImg").change(function(){
@@ -379,6 +402,16 @@ $(document).ready(function() {
             imgContent.src = event.target.result;
         }
     })
+
+    /////////////////////////// تعيين تاريخ النشر تلقائياً بحسب التاريخ والوقت الحالي
+    var dateNow = new Date(),
+        getHo = dateNow.getHours(),
+        getMi = dateNow.getMinutes(),
+        getYe = dateNow.getFullYear(),
+        getMo = dateNow.getMonth() + 1,
+        getDa = dateNow.getDate();
+    $("#postDate").val(getYe + "-" + (0 + getMo.toString()).slice(-2) + "-" + (0 + getDa.toString()).slice(-2));
+    $("#postTime").val((0 + getHo.toString()).slice(-2) + ":" + (0 + getMi.toString()).slice(-2));
     
 
 });
