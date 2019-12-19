@@ -130,8 +130,10 @@ header .dropdown #dropdownUser .fa-user-circle {
     border: 2px solid #404040;
 
 }
-.user-info .fa-user-circle {
+.user-info .fa-user-circle, 
+.author-info .fa-user-circle {
     font-size: 60px;
+    color: #ccc;
 }
 
 
@@ -282,7 +284,6 @@ tr:hover .icons-control {
     min-height: 40px;
     max-height: 200px;
     overflow: auto;
-
 }
 #postAdd .cate-all li {
     margin-top: 10px;
@@ -325,6 +326,21 @@ tr:hover .icons-control {
 #postAdd #postGallery #postGalleryContent span i:hover {
     color: #999;
 }
+
+/* تنسيق صفحة التعليقات */
+#commentsContent .icons-control {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5px;
+}
+#commentsContent #commentsTable .unapproved {
+    border-right: 10px solid #343a40;
+}
+#commentsContent #commentsTable .unapproved .column-status {
+    color: #dc3545;
+    font-weight: bolder;
+}
+
 
 /* تنسيق الفوتر */
 footer {

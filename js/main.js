@@ -67,7 +67,7 @@ $(document).ready(function() {
             { "searchable": false, "targets": 5 },
             { "searchable": false, "targets": 6 },
             { "searchable": false, "targets": 7 },
-            { "searchable": false, "targets": 8 },
+            { "searchable": false, "targets": 8 }
         ],
         /* فلتر تصفية جدول المحتويات أسفل الجدول بحسب الأعمدة */
         /*initComplete: function(){
@@ -102,7 +102,7 @@ $(document).ready(function() {
             { "searchable": false, "targets": 0 },
             { "searchable": false, "targets": 4 },
             { "searchable": false, "targets": 5 },
-            { "searchable": false, "targets": 6 },
+            { "searchable": false, "targets": 6 }
         ]
     });
 
@@ -113,7 +113,18 @@ $(document).ready(function() {
             { "searchable": false, "targets": 0 },
             { "searchable": false, "targets": 5 },
             { "searchable": false, "targets": 6 },
-            { "searchable": false, "targets": 8 },
+            { "searchable": false, "targets": 8 }
+        ]
+    });
+
+    var tableComments = $("#commentsTable").DataTable({
+        "columnDefs": [
+            { "orderable": false, "targets": 0 },
+            { "orderable": false, "targets": 2 },
+            { "orderable": false, "targets": 6 },
+            { "searchable": false, "targets": 0 },
+            { "searchable": false, "targets": 4 },
+            { "searchable": false, "targets": 6 }
         ]
     });
 
@@ -223,6 +234,11 @@ $(document).ready(function() {
         showChecked("input[name='post[]']", "input[name='post[]']:checked");
     });
 
+    /* تحديد عناصر جدول التعليقات */
+    $("#commentsTable input:checkbox").click(function() {
+        showChecked("input[name='comment[]']", "input[name='comment[]']:checked");
+    });
+
     /* إغلاق رسالة تنبيه العناصر المحددة */
     $(".alert.selected .close").click(function(){
         $(".alert.selected").fadeOut();
@@ -294,8 +310,8 @@ $(document).ready(function() {
     };
 
     if ($("#textEditor").val() !== undefined) {
-
-        var editor = textboxio.replace("#textEditor", config);
+        // textboxio.replaceAll('.editableDiv');
+        var editor = textboxio.replaceAll("#textEditor", config);
     }
 
     /////////////////////////// إظهار وإخفاء العناصر في صفحة إضافة محتوى بحسب بنية المحتوى أو النموذج

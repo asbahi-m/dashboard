@@ -114,7 +114,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item d-flex align-items-center active">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
                                     <i class="fas fa-file-alt ml-3"></i><span>محتوى الموقع</span>
                                 </a>
@@ -150,7 +150,7 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item d-flex align-items-center">
+                            <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="comments.html">
                                     <i class="fas fa-comment-dots ml-3"></i><span>تعليقات الموقع</span>
                                 </a>
@@ -201,10 +201,71 @@
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
                     <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
-                        <h2 class="py-2">محتويات الموقع</h2>
-                        <a type="button" class="btn btn-dark" href="post-new.html">
-                            <i class="fas fa-file-medical"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
-                        </a>
+                        <h2 class="py-2">تعليقات الموقع</h2>
+                    </div>
+
+                    <!-- بوكس تعديل العنصر -->
+                    <div id="editItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">تعديل التعليق:</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="editComment">
+                                        <div class="form-group"><!-- محرر النصوص -->
+                                            <textarea id="textEditor" name="commentContent">شكراً لكم</textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="commenterName">الاسم:</label>
+                                            <input type="text" class="form-control form-control-sm" id="commenterName" required value="مدير الموقع">
+                                            <small class="form-text text-muted">اسم كاتب التعليق.</small>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="commenterEmail">البريد:</label>
+                                            <input type="email" class="form-control form-control-sm" id="commenterEmail" value="asbahi.mo@gmail.com">
+                                            <small class="form-text text-muted">عنوان بريد كاتب التعليق.</small>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">تعديل</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بوكس الرد على التعليق -->
+                    <div id="replayItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">الرد على التعليق:</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="replayComment">
+                                        <div class="form-group"><!-- محرر النصوص -->
+                                            <textarea id="textEditor" name="replayContent"></textarea>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info">رد</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- بوكس حذف العنصر -->
@@ -226,7 +287,7 @@
                     </div>
 
                     <!-- جدول المحتويات -->
-                    <div id="postsContent" class="table-responsive">
+                    <div id="commentsContent" class="table-responsive">
 
                         <!-- رسائل الأوامر والعمليات -->
                         <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
@@ -272,33 +333,20 @@
                         
                         <!-- أيقونات اختيار المحتويات المعروضة -->                        
                         <div class="d-flex my-2">
-                            <a type ="button" class="btn btn-light bg-white" href="#">الكل <span class="badge badge-light">7</span></a>
-                            <a type ="button" class="btn btn-primary" href="#">المنشورة <span class="badge badge-light">3</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">المسودات <span class="badge badge-light">2</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">بانتظار المراجعة <span class="badge badge-light">2</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">المحذوفة <span class="badge badge-light">10</span></a>
+                            <a type ="button" class="btn btn-primary" href="#">الكل <span class="badge badge-light">3</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">تمت الموافقة <span class="badge badge-light">2</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">بانتظار المراجعة <span class="badge badge-light">1</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">مزعج <span class="badge badge-light">5</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">المحذوفة <span class="badge badge-light">4</span></a>
                         </div>
-                        
-                        <!-- فلترة تصفية الجدول بحسب التصنيف والمحرر والتاريخ -->
-                        <div id="filter" class="form-row mx-0 my-2 align-items-center">
-                            <div class="col-xl-2 col-sm-3 col-7">
-                                <select class="custom-select custom-select-sm get-cate"></select>
-                            </div>
-                            <div class="col-xl-2 col-sm-3 col-7 my-1">
-                                <select class="custom-select custom-select-sm get-user"></select>
-                            </div>
-                            <div class="col-xl-2 col-sm-3 col-7">
-                                <select class="custom-select custom-select-sm get-date"></select>
-                            </div>
 
-                            <!-- حذف العناصر المحددة -->
-                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items" data-toggle="modal" data-target="#deleteItem">
-                                <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
-                            </button>
-                        </div>
+                        <!-- حذف العناصر المحددة -->
+                        <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-right" data-toggle="modal" data-target="#deleteItem">
+                            <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
+                        </button>
                         
                         <!-- محتوى الجدول -->
-                        <table id="postsTable" class="table table-hover table-bordered">
+                        <table id="commentsTable" class="table table-hover table-bordered">
                             <thead class="thead-light">
                                 <tr>
                                     <th id="check" class="column-check" scope="col">
@@ -307,44 +355,53 @@
                                             <label class="custom-control-label" for="checkAll"></label>
                                         </div>
                                     </th>
-                                    <th id="title" class="column-primary" scope="col">العنوان</th>
-                                    <th id="category" scope="col">التصنيف</th>
-                                    <th id="author" scope="col">المحرر</th>
+                                    <th id="author" class="column-primary" scope="col">الكاتب</th>
+                                    <th id="comment" scope="col">التعليق</th>
+                                    <th id="response" scope="col">مكان التعليق</th>
                                     <th id="date" scope="col">التاريخ</th>
-                                    <th id="commentsNum" scope="col">
-                                        <span data-toggle="tooltip"  data-placement="top" title="التعليقات">
-                                            <i class="fas fa-comment-dots"></i>
-                                        </span>
-                                    </th>
-                                    <th id="visitsNum" scope="col">
-                                        <span data-toggle="tooltip"  data-placement="top" title="المشاهدات">
-                                            <i class="fas fa-eye"></i>
-                                        </span>
-                                    </th>
-                                    <th id="image" scope="col">الصورة</th>
+                                    <th id="status" scope="col">الحالة</th>
                                     <th id="iconsControl" class="column-control" scope="col">التحكم</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="post-3" class="status-publish">
+                                <tr id="comment-3" class="unapproved">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-3" type="checkbox" class="custom-control-input" name="post[]" value="3">
+                                            <input id="check-3" type="checkbox" class="custom-control-input" name="comment[]" value="3">
                                             <label class="custom-control-label" for="check-3"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">عواصف رملية تهدد بعض دول العالم</a></td>
-                                    <td class="column-category" data-column="التصنيف"><a href="#">أخبار</a></td>
-                                    <td class="column-author" data-column="المحرر"><a href="#">صالح الشيخ</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>2019-11-21</small></td>
-                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">5</a></td>
-                                    <td class="column-visitsNum" data-column="المشاهدات">300</td>
-                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-author column-primary" data-column="الكاتب">
+                                        <div class="author-info d-flex align-items-center" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div>
+                                                <div>صالح سعيد</div>
+                                                <small class="text-muted email">saleh@gmail.com</small><br>
+                                                <small class="text-muted ipAddress">155.256.1.25</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="column-comment" data-column="التعليق">شكراً لكم</td>
+                                    <td class="column-response" data-column="مكان التعليق"><a href="#comment-3">كيف تبدأ يومك!</a></td>
+                                    <td class="column-date text-nowrap" data-column="التاريخ"><small>2019-11-21 10:55 ص</small></td>
+                                    <td class="column-status" data-column="الحالة">بانتظار المراجعة</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
-                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            <a type="button" class="btn btn-outline-success btn-sm approve" href="#">
+                                                <i class="far fa-check-square"></i><span class="d-none d-sm-inline-block mr-1">الموافقة</span>
                                             </a>
+                                            <a type="button" class="btn btn-outline-dark btn-sm unapprove" href="#">
+                                                <i class="far fa-square"></i><span class="d-none d-sm-inline-block mr-1">الغاء الموافقة</span>
+                                            </a>
+                                            <a type="button" class="btn btn-outline-warning btn-sm spam" href="#">
+                                                <i class="fas fa-exclamation-triangle"></i><span class="d-none d-sm-inline-block mr-1">مزعج</span>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-info btn-sm replay" data-toggle="modal" data-target="#replayItem">
+                                                <i class="far fa-share-square"></i><span class="d-none d-sm-inline-block mr-1">رد</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            </button>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
                                             </button>
@@ -352,25 +409,48 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="post-2" class="status-publish">
+
+                                <tr id="comment-2" class="approved">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-2" type="checkbox" class="custom-control-input" name="post[]" value="2">
+                                            <input id="check-2" type="checkbox" class="custom-control-input" name="comment[]" value="2">
                                             <label class="custom-control-label" for="check-2"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
-                                    <td class="column-category" data-column="التصنيف"><a href="#">مقالات</a></td>
-                                    <td class="column-author" data-column="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>بالأمس 6:25 م</small></td>
-                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">10</a></td>
-                                    <td class="column-visitsNum" data-column="المشاهدات">500</td>
-                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-author column-primary" data-column="الكاتب">
+                                        <div class="author-info d-flex align-items-center" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div>
+                                                <div>مدير الموقع</div>
+                                                <small class="text-muted email">asbahi.mo@gmail.com</small><br>
+                                                <small class="text-muted ipAddress">10.0.0.1</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="column-comment" data-column="التعليق">
+                                        <span class="d-block">رداً على: <a href="#comment-1">محمد أحمد</a></span>
+                                        الشرف لنا بزيارتكم لموقعنا
+                                    </td>
+                                    <td class="column-response" data-column="مكان التعليق"><a href="#comment-2">كيف تبدأ يومك!</a></td>
+                                    <td class="column-date text-nowrap" data-column="التاريخ"><small>2019-11-21 10:55 ص</small></td>
+                                    <td class="column-status" data-column="الحالة">تمت الموافقة</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
-                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            <a type="button" class="btn btn-outline-success btn-sm approve" href="#">
+                                                <i class="far fa-check-square"></i><span class="d-none d-sm-inline-block mr-1">الموافقة</span>
                                             </a>
+                                            <a type="button" class="btn btn-outline-dark btn-sm unapprove" href="#">
+                                                <i class="far fa-square"></i><span class="d-none d-sm-inline-block mr-1">الغاء الموافقة</span>
+                                            </a>
+                                            <a type="button" class="btn btn-outline-warning btn-sm spam" href="#">
+                                                <i class="fas fa-exclamation-triangle"></i><span class="d-none d-sm-inline-block mr-1">مزعج</span>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-info btn-sm replay" data-toggle="modal" data-target="#replayItem">
+                                                <i class="far fa-share-square"></i><span class="d-none d-sm-inline-block mr-1">رد</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            </button>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
                                             </button>
@@ -378,30 +458,49 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="post-1" class="status-publish">
-                                    <th class="column-check" scope="row">
+                                
+                                <tr id="comment-1" class="approved">
+                                    <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-1" type="checkbox" class="custom-control-input" name="post[]" value="1">
+                                            <input id="check-1" type="checkbox" class="custom-control-input" name="comment[]" value="1">
                                             <label class="custom-control-label" for="check-1"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="post-edit.html">كيف تبدأ يومك!</a></td>
-                                    <td class="column-category" data-column="التصنيف"><a href="#">مقالات</a></td>
-                                    <td class="column-author" data-column="المحرر"><a href="#">سعيد أحمد</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>2019-11-22</small></td>
-                                    <td class="column-commentsNum" data-column="التعليقات"><a href="#">10</a></td>
-                                    <td class="column-visitsNum" data-column="المشاهدات">500</td>
-                                    <td class="column-image" data-column="الصورة"></td>
+                                    <td class="column-author column-primary" data-column="الكاتب">
+                                        <div class="author-info d-flex align-items-center" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div>
+                                                <div>محمد أحمد</div>
+                                                <small class="text-muted email">moh.d@gmail.com</small><br>
+                                                <small class="text-muted ipAddress">125.2.25.333</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="column-comment" data-column="التعليق">تشرفت بزيارة موقعكم</td>
+                                    <td class="column-response" data-column="مكان التعليق"><a href="#comment-1">كيف تبدأ يومك!</a></td>
+                                    <td class="column-date text-nowrap" data-column="التاريخ"><small>2019-11-21 10:55 ص</small></td>
+                                    <td class="column-status" data-column="الحالة">تمت الموافقة</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="post-edit.html">
-                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            <a type="button" class="btn btn-outline-success btn-sm approve" href="#">
+                                                <i class="far fa-check-square"></i><span class="d-none d-sm-inline-block mr-1">الموافقة</span>
                                             </a>
+                                            <a type="button" class="btn btn-outline-dark btn-sm unapprove" href="#">
+                                                <i class="far fa-square"></i><span class="d-none d-sm-inline-block mr-1">الغاء الموافقة</span>
+                                            </a>
+                                            <a type="button" class="btn btn-outline-warning btn-sm spam" href="#">
+                                                <i class="fas fa-exclamation-triangle"></i><span class="d-none d-sm-inline-block mr-1">مزعج</span>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-info btn-sm replay" data-toggle="modal" data-target="#replayItem">
+                                                <i class="far fa-share-square"></i><span class="d-none d-sm-inline-block mr-1">رد</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            </button>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
-                                            
                                         </div>
                                     </td>
                                 </tr>
