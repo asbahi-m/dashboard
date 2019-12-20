@@ -95,6 +95,7 @@ $(document).ready(function() {
         }*/
     });
 
+    /////////////////////////// إعدادات وتفعيل جدول الصفحات
     var tablePages = $("#pagesTable").DataTable({
         "columnDefs": [
             { "orderable": false, "targets": 0 },
@@ -106,6 +107,7 @@ $(document).ready(function() {
         ]
     });
 
+    /////////////////////////// إعدادات وتفعيل جدول الإعلانات
     var tableAds = $("#adsTable").DataTable({
         "columnDefs": [
             { "orderable": false, "targets": 0 },
@@ -117,6 +119,7 @@ $(document).ready(function() {
         ]
     });
 
+    /////////////////////////// إعدادات وتفعيل جدول التعليقات
     var tableComments = $("#commentsTable").DataTable({
         "columnDefs": [
             { "orderable": false, "targets": 0 },
@@ -128,6 +131,18 @@ $(document).ready(function() {
         ]
     });
 
+    /////////////////////////// إعدادات وتفعيل جدول الأعضاء
+    var tableusers = $("#usersTable").DataTable({
+        "columnDefs": [
+            { "orderable": false, "targets": 0 },
+            { "orderable": false, "targets": 6 },
+            { "searchable": false, "targets": 0 },
+            { "searchable": false, "targets": 5 },
+            { "searchable": false, "targets": 6 }
+        ]
+    });
+
+    /////////////////////////// فلاتر تصفية الجداول
     /* فلتر تصفية جدول المحتويات أعلى الجدول بحسب الأعمدة */
     /* $("#postsTable thead tr").clone().appendTo("#postsTable thead");
     $('#postsTable thead tr:eq(1) th').each(function(i){
@@ -237,6 +252,11 @@ $(document).ready(function() {
     /* تحديد عناصر جدول التعليقات */
     $("#commentsTable input:checkbox").click(function() {
         showChecked("input[name='comment[]']", "input[name='comment[]']:checked");
+    });
+
+    /* تحديد عناصر جدول الأعضاء */
+    $("#usersTable input:checkbox").click(function() {
+        showChecked("input[name='user[]']", "input[name='user[]']:checked");
     });
 
     /* إغلاق رسالة تنبيه العناصر المحددة */
@@ -395,7 +415,7 @@ $(document).ready(function() {
     $("#postGalleryImg").change(function(){
         var fReader = new FileReader();
         fReader.readAsDataURL(this.files[0]);
-        $("#postGalleryContent").append("<span><img class='img-thumbnail mb-3'><i class='fas fa-times-circle'></i></span>");
+        $("#postGalleryContent").append("<span><img class='img-thumbnail my-2'><i class='fas fa-times-circle'></i></span>");
         var imgContent = $(this).parent().parent().find("img").last()[0];
         console.log($(this).parent().parent().find("img").last()[0]);
         fReader.onloadend = function(event){
@@ -409,7 +429,10 @@ $(document).ready(function() {
     })
 
     /////////////////////////// إضافة الصورة في بوكس الصورة البارزة وإظهارها مباشرةً
+    
     $("#postImg").change(function(){
+        $("#postImgContent img").addClass("d-block").removeClass("d-none");
+        $("#postImgContent i").remove();
         var fReader = new FileReader();
         fReader.readAsDataURL(this.files[0]);
         var imgContent = $(this).parent().parent().find("img")[0];
@@ -429,5 +452,14 @@ $(document).ready(function() {
     $("#postDate").val(getYe + "-" + (0 + getMo.toString()).slice(-2) + "-" + (0 + getDa.toString()).slice(-2));
     $("#postTime").val((0 + getHo.toString()).slice(-2) + ":" + (0 + getMi.toString()).slice(-2));
     
-
+    $(".showPassword").click(function(){
+        if($("#password").prop("type") === "password") {
+            $("#password").prop("type", "text");
+            $(this).children().toggleClass("fa-eye fa-eye-slash")
+        }
+        else {
+            $("#password").prop("type", "password");
+            $(this).children().toggleClass("fa-eye fa-eye-slash")
+        }
+    })
 });

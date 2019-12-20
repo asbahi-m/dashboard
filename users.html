@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar">
     <head>
-        <title>لوحة التحكم - إعلانات الموقع</title>
+        <title>لوحة التحكم - أعضاء الموقع</title>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -141,7 +141,7 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item d-flex align-items-center active">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
                                     <i class="fas fa-ad ml-3"></i><span>إعلانات الموقع</span>
                                 </a>
@@ -156,7 +156,7 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item d-flex align-items-center">
+                            <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="users.html">
                                     <i class="fas fa-users ml-3"></i><span>أعضاء الموقع</span>
                                 </a>
@@ -201,9 +201,9 @@
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
                     <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
-                        <h2 class="py-2">إعلانات الموقع</h2>
-                        <a type="button" class="btn btn-dark" href="ads-new.html">
-                            <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
+                        <h2 class="py-2">أعضاء الموقع</h2>
+                        <a type="button" class="btn btn-dark" href="user-new.html">
+                            <i class="fas fa-user-plus"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
                         </a>
                     </div>
 
@@ -212,7 +212,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">هل تريد حذف الإعلان: <strong>إعلان تدشين مشروع</strong></h5>
+                                    <h5 class="modal-title">هل تريد حذف المستخدم: <strong>user1</strong></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -226,7 +226,7 @@
                     </div>
 
                     <!-- جدول المحتويات -->
-                    <div id="adsContent" class="table-responsive">
+                    <div id="usersContent" class="table-responsive">
 
                         <!-- رسائل الأوامر والعمليات -->
                         <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
@@ -272,20 +272,20 @@
                         
                         <!-- أيقونات اختيار المحتويات المعروضة -->                        
                         <div class="d-flex my-2">
-                            <a type ="button" class="btn btn-light bg-white" href="#">الكل <span class="badge badge-light">7</span></a>
-                            <a type ="button" class="btn btn-primary" href="#">المنشورة <span class="badge badge-light">3</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">المسودات <span class="badge badge-light">2</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">بانتظار المراجعة <span class="badge badge-light">2</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">المحذوفة <span class="badge badge-light">10</span></a>
+                            <a type ="button" class="btn btn-primary" href="#">الكل <span class="badge badge-light">5</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">مدير <span class="badge badge-light">1</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">محرر <span class="badge badge-light">2</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">مساهم <span class="badge badge-light">1</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">مشترك <span class="badge badge-light">1</span></a>
                         </div>
-                        
+
                         <!-- حذف العناصر المحددة -->
                         <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-right" data-toggle="modal" data-target="#deleteItem">
                             <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
                         </button>
                         
                         <!-- محتوى الجدول -->
-                        <table id="adsTable" class="table table-hover table-bordered">
+                        <table id="usersTable" class="table table-hover table-bordered">
                             <thead class="thead-light">
                                 <tr>
                                     <th id="check" class="column-check" scope="col">
@@ -294,34 +294,39 @@
                                             <label class="custom-control-label" for="checkAll"></label>
                                         </div>
                                     </th>
-                                    <th id="title" class="column-primary" scope="col">العنوان</th>
-                                    <th id="location" scope="col">المنطقة</th>
-                                    <th id="type" scope="col">النوع</th>
-                                    <th id="status" scope="col">الحالة</th>
-                                    <th id="dateStart" scope="col">تاريخ البدء</th>
-                                    <th id="dateEnd" scope="col">تاريخ الانتهاء</th>
-                                    <th id="area" scope="col">المساحة</th>
+                                    <th id="username" class="column-primary" scope="col">اسم المستخدم</th>
+                                    <th id="nickname" scope="col">اسم العرض</th>
+                                    <th id="email" scope="col">البريد الإلكتروني</th>
+                                    <th id="role" scope="col">الرتبة</th>
+                                    <th id="postsNum" scope="col">المواضيع</th>
                                     <th id="iconsControl" class="column-control" scope="col">التحكم</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="post-31" >
+                                <tr id="user-1" class="administrator">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-31" type="checkbox" class="custom-control-input" name="post[]" value="31">
-                                            <label class="custom-control-label" for="check-31"></label>
+                                            <input id="check-1" type="checkbox" class="custom-control-input" name="user[]" value="1">
+                                            <label class="custom-control-label" for="check-1"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلانات جوجل أدسينس</a></td>
-                                    <td class="column-location" data-column="المنطقة">أعلى القائمة الجانبية</td>
-                                    <td class="column-type" data-column="النوع">جوجل أدسينس</td>
-                                    <td class="column-status" data-column="الحالة">معروض</td>
-                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
-                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
-                                    <td class="column-area" data-column="المساحة">شاشة كاملة</td>
+                                    <td class="column-username column-primary" data-column="اسم المستخدم">
+                                        <div class="picture-profile d-flex align-items-start" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div><a href="user-edit.html">admin</a></div>
+                                        </div>
+                                    </td>
+                                    <td class="column-nickname" data-column="اسم العرض">مدير الموقع</td>
+                                    <td class="column-email" data-column="البريد الإلكتروني">
+                                        <a href="mailto:asbahi.mo@gmail.com">asbahi.mo@gmail.com</a>
+                                    </td>
+                                    <td class="column-role text-nowrap" data-column="الرتبة">مدير</td>
+                                    <td class="column-postsNum" data-column="المواضيع">
+                                        <a href="posts.html#admin">5</a>
+                                    </td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
                                             </a>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
@@ -332,23 +337,30 @@
                                     </td>
                                 </tr>
 
-                                <tr id="post-30" >
+                                <tr id="user-2" class="editor">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-30" type="checkbox" class="custom-control-input" name="post[]" value="30">
-                                            <label class="custom-control-label" for="check-30"></label>
+                                            <input id="check-2" type="checkbox" class="custom-control-input" name="user[]" value="2">
+                                            <label class="custom-control-label" for="check-2"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلان تدشين مشروع</a></td>
-                                    <td class="column-location" data-column="المنطقة">أعلى الموقع</td>
-                                    <td class="column-type" data-column="النوع">افتراضي (صورة)</td>
-                                    <td class="column-status" data-column="الحالة">منتهي</td>
-                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
-                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
-                                    <td class="column-area" data-column="المساحة">نصف شاشة</td>
+                                    <td class="column-username column-primary" data-column="اسم المستخدم">
+                                        <div class="picture-profile d-flex align-items-start" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div><a href="user-edit.html">user1</a></div>
+                                        </div>
+                                    </td>
+                                    <td class="column-nickname" data-column="اسم العرض">محمد صالح</td>
+                                    <td class="column-email" data-column="البريد الإلكتروني">
+                                        <a href="mailto:asbahi.mo@gmail.com">moh@gmail.com</a>
+                                    </td>
+                                    <td class="column-role text-nowrap" data-column="الرتبة">محرر</td>
+                                    <td class="column-postsNum" data-column="المواضيع">
+                                        <a href="posts.html#admin">2</a>
+                                    </td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
                                             </a>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
@@ -359,23 +371,30 @@
                                     </td>
                                 </tr>
 
-                                <tr id="post-29" >
+                                <tr id="user-3" class="contributor">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-29" type="checkbox" class="custom-control-input" name="post[]" value="29">
-                                            <label class="custom-control-label" for="check-29"></label>
+                                            <input id="check-3" type="checkbox" class="custom-control-input" name="user[]" value="3">
+                                            <label class="custom-control-label" for="check-3"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلان موقع إلكتروني</a></td>
-                                    <td class="column-location" data-column="المنطقة">أعلى المواضيع</td>
-                                    <td class="column-type" data-column="النوع">كود HTML</td>
-                                    <td class="column-status" data-column="الحالة">متوقف</td>
-                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
-                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
-                                    <td class="column-area" data-column="المساحة">ثلث شاشة</td>
+                                    <td class="column-username column-primary" data-column="اسم المستخدم">
+                                        <div class="picture-profile d-flex align-items-start" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div><a href="user-edit.html">saeed</a></div>
+                                        </div>
+                                    </td>
+                                    <td class="column-nickname" data-column="اسم العرض">سعيد الحظ</td>
+                                    <td class="column-email" data-column="البريد الإلكتروني">
+                                        <a href="mailto:asbahi.mo@gmail.com">saeed@gmail.com</a>
+                                    </td>
+                                    <td class="column-role text-nowrap" data-column="الرتبة">مساهم</td>
+                                    <td class="column-postsNum" data-column="المواضيع">
+                                        <a href="posts.html#admin">3</a>
+                                    </td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
                                             </a>
                                             <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
@@ -385,7 +404,74 @@
                                         </div>
                                     </td>
                                 </tr>
-                                
+
+                                <tr id="user-4" class="subscriber">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-4" type="checkbox" class="custom-control-input" name="user[]" value="4">
+                                            <label class="custom-control-label" for="check-4"></label>
+                                        </div>
+                                    </th>
+                                    <td class="column-username column-primary" data-column="اسم المستخدم">
+                                        <div class="picture-profile d-flex align-items-start" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div><a href="user-edit.html">ali</a></div>
+                                        </div>
+                                    </td>
+                                    <td class="column-nickname" data-column="اسم العرض">علي أحمد</td>
+                                    <td class="column-email" data-column="البريد الإلكتروني">
+                                        <a href="mailto:asbahi.mo@gmail.com">ali.ah@gmail.com</a>
+                                    </td>
+                                    <td class="column-role text-nowrap" data-column="الرتبة">مشترك</td>
+                                    <td class="column-postsNum" data-column="المواضيع">
+                                        <a href="posts.html#admin">1</a>
+                                    </td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="user-5" class="editor">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-5" type="checkbox" class="custom-control-input" name="user[]" value="5">
+                                            <label class="custom-control-label" for="check-5"></label>
+                                        </div>
+                                    </th>
+                                    <td class="column-username column-primary" data-column="اسم المستخدم">
+                                        <div class="picture-profile d-flex align-items-start" href="#">
+                                            <i class="fas fa-user-circle ml-2"></i>
+                                            <div><a href="user-edit.html">aboood</a></div>
+                                        </div>
+                                    </td>
+                                    <td class="column-nickname" data-column="اسم العرض">عبدالله</td>
+                                    <td class="column-email" data-column="البريد الإلكتروني">
+                                        <a href="mailto:asbahi.mo@gmail.com">abdullah@gmail.com</a>
+                                    </td>
+                                    <td class="column-role text-nowrap" data-column="الرتبة">محرر</td>
+                                    <td class="column-postsNum" data-column="المواضيع">
+                                        <a href="posts.html#admin">6</a>
+                                    </td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

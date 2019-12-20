@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar">
     <head>
-        <title>لوحة التحكم - إعلانات الموقع</title>
+        <title>لوحة التحكم - إضافة عضو</title>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -141,7 +141,7 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item d-flex align-items-center active">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
                                     <i class="fas fa-ad ml-3"></i><span>إعلانات الموقع</span>
                                 </a>
@@ -156,7 +156,7 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item d-flex align-items-center">
+                            <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="users.html">
                                     <i class="fas fa-users ml-3"></i><span>أعضاء الموقع</span>
                                 </a>
@@ -200,43 +200,20 @@
                 
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
-                    <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
-                        <h2 class="py-2">إعلانات الموقع</h2>
-                        <a type="button" class="btn btn-dark" href="ads-new.html">
-                            <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
-                        </a>
-                    </div>
+                    <h2 class="border-bottom py-2 mb-3">إضافة عضو جديد</h2>
 
-                    <!-- بوكس حذف العنصر -->
-                    <div id="deleteItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">هل تريد حذف الإعلان: <strong>إعلان تدشين مشروع</strong></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-danger">حذف</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- جدول المحتويات -->
-                    <div id="adsContent" class="table-responsive">
+                    <!-- إضافة وتعديل المحتويات -->
+                    <div id="postAdd">
 
                         <!-- رسائل الأوامر والعمليات -->
-                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
                             MSG
                         </button>
                         <div id="MSG" class="collapse">
                             
                             <!-- رسالة نجاح عملية التعديل -->
                             <div class="alert alert-success alert-dismissible d-flex" role="alert">
-                                <span class="ml-auto">تم تعديل المحتوى بنجاح.</span>
+                                <span class="ml-auto">تم إضافة المحتوى بنجاح.</span>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -245,7 +222,7 @@
                             
                             <!-- رسالة نجاح عملية الحذف -->
                             <div class="alert alert-warning alert-dismissible d-flex" role="alert">
-                                <span class="ml-auto">تم حذف المحتوى/المحتويات بنجاح.</span>
+                                <span class="ml-auto">تم حذف المحتوى بنجاح.</span>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -262,132 +239,91 @@
                             </div>
                         </div>
 
-                        <!-- رسالة تحديد العناصر -->
-                        <div class="alert alert-info alert-dismissible selected" role="alert">
-                            <span class="ml-auto">تم تحديد <strong class="count"></strong> عنصر/عناصر</span>
-                            <button type="button" class="close" data-dismiss="" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        
-                        <!-- أيقونات اختيار المحتويات المعروضة -->                        
-                        <div class="d-flex my-2">
-                            <a type ="button" class="btn btn-light bg-white" href="#">الكل <span class="badge badge-light">7</span></a>
-                            <a type ="button" class="btn btn-primary" href="#">المنشورة <span class="badge badge-light">3</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">المسودات <span class="badge badge-light">2</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">بانتظار المراجعة <span class="badge badge-light">2</span></a>
-                            <a type ="button" class="btn btn-light bg-white" href="#">المحذوفة <span class="badge badge-light">10</span></a>
-                        </div>
-                        
-                        <!-- حذف العناصر المحددة -->
-                        <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-right" data-toggle="modal" data-target="#deleteItem">
-                            <i class="fas fa-trash"></i><span class="mr-1">حذف المحدد (<strong class="count"></strong>)</span>
-                        </button>
-                        
-                        <!-- محتوى الجدول -->
-                        <table id="adsTable" class="table table-hover table-bordered">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th id="check" class="column-check" scope="col">
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="checkAll" type="checkbox" class="custom-control-input">
-                                            <label class="custom-control-label" for="checkAll"></label>
+                        <!-- إضافة المحتوى -->
+                        <form>
+                            <div class="form-row">
+                                <div class="col-xl-6 col-lg-8">
+                                    <div class="form-group d-flex flex-column flex-sm-row justify-content-end pl-sm-5 sticky-top">
+                                        <div class="d-flex align-items-center ml-sm-3 py-1 py-sm-0"><!-- رتبة المستخدم -->
+                                            <label class="head m-0">الرتبة:</label>
+                                            <select class="custom-select mr-2" id="userRole">
+                                                <option value="subscriber" selected>مشترك</option>
+                                                <option value="contributor">مساهم</option>
+                                                <option value="editor">محرر</option>
+                                                <option value="administrator">مدير</option>
+                                            </select>
                                         </div>
-                                    </th>
-                                    <th id="title" class="column-primary" scope="col">العنوان</th>
-                                    <th id="location" scope="col">المنطقة</th>
-                                    <th id="type" scope="col">النوع</th>
-                                    <th id="status" scope="col">الحالة</th>
-                                    <th id="dateStart" scope="col">تاريخ البدء</th>
-                                    <th id="dateEnd" scope="col">تاريخ الانتهاء</th>
-                                    <th id="area" scope="col">المساحة</th>
-                                    <th id="iconsControl" class="column-control" scope="col">التحكم</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr id="post-31" >
-                                    <th class="column-check details-control" scope="row">
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="check-31" type="checkbox" class="custom-control-input" name="post[]" value="31">
-                                            <label class="custom-control-label" for="check-31"></label>
+        
+                                        <div class="mr-auto mr-sm-0  py-1 py-sm-0"><!-- أيقونة الحفظ والمعاينة -->
+                                            <button type="submit" class="btn btn-primary">إضافة</button>
                                         </div>
-                                    </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلانات جوجل أدسينس</a></td>
-                                    <td class="column-location" data-column="المنطقة">أعلى القائمة الجانبية</td>
-                                    <td class="column-type" data-column="النوع">جوجل أدسينس</td>
-                                    <td class="column-status" data-column="الحالة">معروض</td>
-                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
-                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
-                                    <td class="column-area" data-column="المساحة">شاشة كاملة</td>
-                                    <td class="column-control" data-column="التحكم">
-                                        <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
-                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
-                                            </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
-                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
-                                            </button>
-                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    </div>
 
-                                <tr id="post-30" >
-                                    <th class="column-check details-control" scope="row">
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="check-30" type="checkbox" class="custom-control-input" name="post[]" value="30">
-                                            <label class="custom-control-label" for="check-30"></label>
-                                        </div>
-                                    </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلان تدشين مشروع</a></td>
-                                    <td class="column-location" data-column="المنطقة">أعلى الموقع</td>
-                                    <td class="column-type" data-column="النوع">افتراضي (صورة)</td>
-                                    <td class="column-status" data-column="الحالة">منتهي</td>
-                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
-                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
-                                    <td class="column-area" data-column="المساحة">نصف شاشة</td>
-                                    <td class="column-control" data-column="التحكم">
-                                        <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
-                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
-                                            </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
-                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
-                                            </button>
-                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    <div class="form-group"><!-- اسم المستخدم -->
+                                        <label class="head" for="username">اسم المستخدم:</label>
+                                        <input id="username" type="text" name="username" class="form-control" maxlength="20" pattern="[A-Za-z0-9]{4,20}" title="حروف إنجليزية فقط مع أرقام، من 4 إلى 20 حرف، بدون مسافات بيضاء أو رموز" required>
+                                        <small class="form-text text-muted">اسم المستخدم دخول الموقع، يقبل فقط أحرف إنجليزية مع أو بدون أرقام، من 4 إلى 20 حرفاً.</small>
+                                    </div>
 
-                                <tr id="post-29" >
-                                    <th class="column-check details-control" scope="row">
+                                    <div class="form-group"><!-- البريد الإلكتروني -->
+                                        <label class="head" for="email">البريد الإلكتروني:</label>
+                                        <input id="email" type="email" name="email" class="form-control" maxlength="30" title="الحد الأقصى 30 حرفاً" required>
+                                        <small class="form-text text-muted">عنوان البريد الإلكتروني لتلقي الاشعارات واستعادة الحساب عند فقدانه.</small>
+                                    </div>
+
+                                    <div class="form-group"><!-- كلمة المرور -->
+                                        <label class="head" for="password">كلمة المرور:</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend order-1">
+                                                <span class="input-group-text showPassword"><i class="fas fa-eye"></i></span>
+                                            </div>
+                                            <input id="password" type="password" name="password" class="form-control" maxlength="30" minlength="6" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z])[^\s]+" title="يقبل حروف إنجليزية وأرقام ورموز، على الأقل يجب إدخال حرف كبير واحد وحرف صغير واحد ورقم واحد، من 6 إلى 30 حرف، بدون مسافات بيضاء" required>
+                                        </div>
+                                        <small class="form-text text-muted">كلمة مرور دخول الموقع، يقبل حروف إنجليزية وأرقام ورموز، من 6 إلى 30 حرفاً.</small>
+                                    </div>
+
+                                    <div class="form-group"><!-- اسم العرض -->
+                                        <label class="head" for="nickname">اسم العرض: <small>(اختياري)</small></label>
+                                        <input id="nickname" type="text" name="nickname" class="form-control" maxlength="30" pattern=".{6,}" title="من 6 إلى 30 حرفاً">
+                                        <small class="form-text text-muted">الاسم المستعار الذي سيعرض داخل الموقع.</small>
+                                    </div>
+
+                                    <div class="form-group"><!-- صورة الملف الشخصي -->
+                                        <label class="head" for="postImg">صورة الملف الشخصي: <small>(اختياري)</small></label>
+                                        <div class="form-group row mx-0 align-items-center">
+                                            <div id="postImgContent" class="picture-profile col-sm-4">
+                                                <i class="fas fa-user-circle ml-2"></i>
+                                                <img class="rounded-circle border d-none" width="100" height="100">
+                                            </div>
+                                            <div class="custom-file col-sm-8">
+                                                <input id="postImg" type="file" name="pictureProfile" class="custom-file-input" required>
+                                                <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group"><!-- لغة الموقع -->
+                                        <label class="head" for="locale">لغة الموقع: <small>(اختياري)</small></label>
+                                        <select class="custom-select" id="locale" name="locale">
+                                            <option value="locale-default" selected>لغة الموقع الافتراضية</option>
+                                            <option value="en" lang="ar">English</option>
+                                            <option value="ar" lang="ar">اللغة العربية</option>
+                                        </select>
+                                        <small class="form-text text-muted">لغة العرض التي تفضلها.</small>
+                                    </div>
+
+                                    <div class="form-group"><!-- خصائص إضافية -->
+                                        <label class="head">خصائص إضافية</label>
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-29" type="checkbox" class="custom-control-input" name="post[]" value="29">
-                                            <label class="custom-control-label" for="check-29"></label>
+                                            <input id="sendNotification" type="checkbox" class="custom-control-input" name="sendNotification" value="1" checked>
+                                            <label class="custom-control-label" for="sendNotification">إرسال بريد إلكتروني للعضو الجديد عن حسابه</label>
                                         </div>
-                                    </th>
-                                    <td class="column-title column-primary" data-column="العنوان"><a href="ads-edit.html">إعلان موقع إلكتروني</a></td>
-                                    <td class="column-location" data-column="المنطقة">أعلى المواضيع</td>
-                                    <td class="column-type" data-column="النوع">كود HTML</td>
-                                    <td class="column-status" data-column="الحالة">متوقف</td>
-                                    <td class="column-dateStart" data-column="تاريخ البدء"><small>2019-11-21</small></td>
-                                    <td class="column-dateEnd" data-column="تاريخ الانتهاء"><small>2019-12-21</small></td>
-                                    <td class="column-area" data-column="المساحة">ثلث شاشة</td>
-                                    <td class="column-control" data-column="التحكم">
-                                        <div class="icons-control">
-                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="ads-edit.html">
-                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block mr-1">تعديل</span>
-                                            </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
-                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block mr-1">حذف</span>
-                                            </button>
-                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </main>
             </div>
