@@ -87,7 +87,7 @@ header a, header a.btn {
     cursor: pointer;
 }
 header a:hover, 
-nav .nav-item:hover {
+nav #menu .nav-item:hover {
     color: #fff;
     background: rgba(255,255,255,0.1);
     -webkit-transition: all .3s;
@@ -140,38 +140,38 @@ header .dropdown #dropdownUser .fa-user-circle {
 
 
 /* تنسيق القائمة الجانبية */
-nav, nav .nav-link {
+nav #menu, nav #menu .nav-link {
     color: #f8f9fa;
 }
-nav .nav-item {
+nav #menu .nav-item {
     position: relative;
     border-bottom: 1px #404040 solid;
     padding: 0;
 }
-nav .nav-item .nav-link {
+nav #menu .nav-item .nav-link {
     padding: 15px;
 }
-nav .nav-item.active {
+nav #menu .nav-item.active {
     border-radius: 50px;
     background: #f8f9fa;
 }
-nav .nav-item.active .nav-link {
+nav #menu .nav-item.active .nav-link {
     color: #343a40;
     padding: 10px 15px;
 }
-nav .nav-item:hover .nav-link > i {
+nav #menu .nav-item:hover .nav-link > i {
     -ms-transform: rotate(-360deg);
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg);
     -webkit-transition: all .5s;
     transition: all .5s;
 }
-nav .nav-item .add {
+nav #menu .nav-item .add {
     display: none;
     padding: 0 5px;
     margin-left: 5px;
 }
-nav .nav-item:hover .add {
+nav #menu .nav-item:hover .add {
     display: block;
     color: #ffc107;
     padding: 0 5px;
@@ -260,12 +260,17 @@ tr:hover .icons-control {
 }
 
 /* تنسيق صفحة إضافة محتوى */
-#postAdd :not(.form-group) > .form-group {
+form .sticky-top {
+    z-index: 1000;
+}
+#postAdd :not(.form-group) > .form-group,
+#settings :not(.form-group) > .form-group {
     background: #fff;
     padding: 15px;
     border: 1px solid #eee;
 }
-#postAdd .form-group.sticky-top {
+#postAdd .form-group.sticky-top,
+#settings .form-group.sticky-top {
     top: 44px;
 }
 #postAdd .form-group label.head {
@@ -341,6 +346,52 @@ tr:hover .icons-control {
 #commentsContent #commentsTable .unapproved .column-status {
     color: #dc3545;
     font-weight: bolder;
+}
+
+/* تنسيق صفحة الإعدادات */
+#settings-tab .nav-link {
+    color: #343a40;
+    padding: 15px 20px;
+    border-bottom: 1px #ccc solid;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+#settings-tab .nav-link:hover {
+    background: #eee;
+}
+#settings-tab .nav-link.active {
+    background: #343a40;
+    color: #f8f9fa;
+}
+#settings .input-group-text {
+    width: 40px;
+}
+@media only screen and (max-width: 991.98px) {
+    #settings #settings-tab {
+        position: sticky;
+        top: 56px;
+        z-index: 1000;
+    }
+    #settings #settings-tab .nav {
+        position: absolute;
+        width: 100%;
+    }
+    #settings #settings-tab .nav:hover {
+        border: 1px #343a40 solid;
+        border-radius: 5px;
+    }
+    #settings #settings-tab .nav-link {
+        padding: 10px;
+    }
+    #settings #settings-tab .nav-link:not(.active) {
+        display: none;
+    }
+    #settings #settings-tab:hover .nav-link {
+        display: block;
+    }
+    #settings #settings-tabContent {
+        top: 60px;
+    }
 }
 
 

@@ -451,14 +451,15 @@ $(document).ready(function() {
         getDa = dateNow.getDate();
     $("#postDate").val(getYe + "-" + (0 + getMo.toString()).slice(-2) + "-" + (0 + getDa.toString()).slice(-2));
     $("#postTime").val((0 + getHo.toString()).slice(-2) + ":" + (0 + getMi.toString()).slice(-2));
-    
+
     $(".showPassword").click(function(){
-        if($("#password").prop("type") === "password") {
-            $("#password").prop("type", "text");
+        var inputPass = $(this).parent().next();
+        if(inputPass.prop("type") === "password") {
+            inputPass.prop("type", "text");
             $(this).children().toggleClass("fa-eye fa-eye-slash")
         }
         else {
-            $("#password").prop("type", "password");
+            inputPass.prop("type", "password");
             $(this).children().toggleClass("fa-eye fa-eye-slash")
         }
     })
