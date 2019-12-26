@@ -21,7 +21,14 @@
         <script src="libraries/DataTables/datatables.min.js"></script>
         <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
         <script src="libraries/textboxio/textboxio.js"></script>
+        <!-- FusionCharts -->
+        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+        <!-- jQuery-FusionCharts -->
+        <script type="text/javascript" src="https://rawgit.com/fusioncharts/fusioncharts-jquery-plugin/develop/dist/fusioncharts.jqueryplugin.min.js"></script>
+        <!-- Fusion Theme -->
+        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/myChart.js"></script>
     </head>
 
     <body>
@@ -202,8 +209,42 @@
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
                     <h2 class="border-bottom py-2 mb-3">إحصائيات الموقع</h2>
 
-                    <div>الصفحة قيد الإنشاء...</div>
+                    <div class="row mt-4"> <!-- إحصائيات المواضيع والمشاركات -->
+                        <div class="col-xl-6 col-12">
+                            <div id="chart-posts" style="height:500px">إحصائيات عدد المواضيع بحسب كل نوع</div>
+                            <hr>
+                        </div>
+                        <div class="col-xl-6 col-12">
+                            <div id="chart-years" style="height:500px">إحصائيات عدد المواضيع سنوياً</div>
+                            <hr>
+                        </div>
+                        <div class="col-12">
+                            <div id="chart-months" style="height:500px">إحصائيات عدد المواضيع سنوياً</div>
+                            <hr>
+                        </div>
+                    </div>
 
+                    <div class="row mt-4"> <!-- إحصائيات الأعضاء -->
+                        <div class="col-xl-6 col-12">
+                            <div id="chart-users" style="height:400px">FusionCharts will render here</div>
+                            <hr>
+                        </div>
+                        <div class="col-xl-6 col-12">
+                            <div id="chart-userPosts" style="height:400px">FusionCharts will render here</div>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4"> <!-- إحصائيات عدد المشاهدات -->
+                        <div class="col-xl-6 col-12">
+                            <div id="chart-views" style="height:400px">FusionCharts will render here</div>
+                            <hr>
+                        </div>
+                        <div class="col-xl-6 col-12">
+                            <div id="chart-viewYears" style="height:400px">FusionCharts will render here</div>
+                            <hr>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
