@@ -274,25 +274,27 @@ $(document).ready(function() {
     });
 
     /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في جدول صفحة التصنيفات
-    $(".hasChildren table tr").each(function(i){
-        if (i > 0) {
-            var insert = "<i class='fas fa-long-arrow-alt-left ml-1 mr-" + (1+i) + "'></i>";
-            for (var x = 1; x < i ; x++) {
+    $("#categoriesTable tr[lavel]").each(function(){
+        var i = $(this).attr("lavel");
+        var insert = "<i class='fas fa-long-arrow-alt-left ml-1 mr-" + i + "'></i>";
+        if (i > 1) {
+            for (var x = 1; x < i; x++) {
                 insert += "<i class='fas fa-long-arrow-alt-left mx-1'></i>";
             }
-            $("table tr.level-" + i + " .child-name").prepend(insert);
         }
+        $(this).find(".child-name").prepend(insert);
     });
 
     /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في بوكس إضافة تصنيف جديد
-    $("#parent option").each(function(i, $this){
-        if (i > 0) {
-            var insert = "&nbsp;&nbsp;";
-            for (var x = 1; x < i ; x++) {
+    $("option[lavel]").each(function(){
+        var i = $(this).attr("lavel");
+        var insert = "&nbsp;&nbsp;";
+        if (i > 1) {
+            for (var x = 1; x < i; x++) {
                 insert += "&nbsp;&nbsp;";
             }
-            $("option.level-" + i).prepend(insert);
         }
+        $(this).prepend(insert);
     });
 
     /////////////////////////// تغيير ترتيب محتوى صفوف الجدول في وضع الجوال

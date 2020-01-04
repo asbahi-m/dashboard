@@ -225,16 +225,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="parent">التصنيف الأب:</label>
-                                    <select id="parent" class="form-control form-control-sm" name="parent">
+                                    <select id="parentCate" class="form-control form-control-sm" name="parentCate">
                                         <option selected value="-1">بدون</option>
                                         <option class="level-0" value="7">مقالات</option>
-                                        <option class="level-1" value="9">مقالات اقتصادية</option>
-                                        <option class="level-1" value="8">مقالات سياسية</option>
+                                        <option class="level-1 child-name" lavel="1" value="9">مقالات اقتصادية</option>
+                                        <option class="level-1 child-name" lavel="1" value="8">مقالات سياسية</option>
                                         <option class="level-0" value="2">أخبار</option>
-                                        <option class="level-1" value="6">أخبار دولية</option>
-                                        <option class="level-1" value="3">أخبار محلية</option>
-                                        <option class="level-2" value="5">أخبار محلية اقتصادية</option>
-                                        <option class="level-2" value="4">أخبار محلية سياسية</option>
+                                        <option class="level-1 child-name" lavel="1" value="6">أخبار دولية</option>
+                                        <option class="level-1 child-name" lavel="1" value="3">أخبار محلية</option>
+                                        <option class="level-2 child-name" lavel="2" value="5">أخبار محلية اقتصادية</option>
+                                        <option class="level-2 child-name" lavel="2" value="4">أخبار محلية سياسية</option>
                                         <option class="level-0" value="1">غير مصنف</option>
                                     </select>
                                     <small class="form-text text-muted">جعل التصنيف فرعي عبر اختيار التصنيف الأب، أو "بدون" يعني أن التصنيف رئيسي.</small>
@@ -271,17 +271,17 @@
                                                 <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
                                             </div>
                                             <div class="form-group">
-                                                <label for="parent">التصنيف الأب:</label>
-                                                <select id="parent" class="form-control form-control-sm" name="parent">
+                                                <label for="parentCate">التصنيف الأب:</label>
+                                                <select id="parentCate" class="form-control form-control-sm" name="parentCate">
                                                     <option selected value="-1">بدون</option>
                                                     <option class="level-0" value="7">مقالات</option>
-                                                    <option class="level-1" value="9">مقالات اقتصادية</option>
-                                                    <option class="level-1" value="8">مقالات سياسية</option>
+                                                    <option class="level-1 child-name" lavel="1" value="9">مقالات اقتصادية</option>
+                                                    <option class="level-1 child-name" lavel="1" value="8">مقالات سياسية</option>
                                                     <option class="level-0" value="2">أخبار</option>
-                                                    <option class="level-1" value="6">أخبار دولية</option>
-                                                    <option class="level-1" value="3">أخبار محلية</option>
-                                                    <option class="level-2" value="5">أخبار محلية اقتصادية</option>
-                                                    <option class="level-2" value="4">أخبار محلية سياسية</option>
+                                                    <option class="level-1 child-name" lavel="1" value="6">أخبار دولية</option>
+                                                    <option class="level-1 child-name" lavel="1" value="3">أخبار محلية</option>
+                                                    <option class="level-2 child-name" lavel="2" value="5">أخبار محلية اقتصادية</option>
+                                                    <option class="level-2 child-name" lavel="2" value="4">أخبار محلية سياسية</option>
                                                     <option class="level-0" value="1">غير مصنف</option>
                                                 </select>
                                                 <small class="form-text text-muted">جعل التصنيف فرعي عبر اختيار التصنيف الأب، أو "بدون" يعني أن التصنيف رئيسي.</small>
@@ -320,7 +320,7 @@
                         </div>
 
                         <!-- جدول المحتويات -->
-                        <div id="categoriesContent" class="table-responsive-lg col-xl-9 col-lg-12 hasChildren">
+                        <div id="categoriesContent" class="table-responsive-lg col-xl-9 col-lg-12">
 
                             <!-- رسائل الأوامر والعمليات -->
                             <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto float-lg-left" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
@@ -388,14 +388,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="cate-7" class="level-0">
+                                    <tr id="cate-7" class="level-0 hasChildren">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-7" type="checkbox" class="custom-control-input" name="cate[]" value="7">
                                                 <label class="custom-control-label" for="check-7"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary child-name" data-column="التصنيف">مقالات
+                                        <td class="column-name column-primary" data-column="التصنيف">مقالات
                                         </td>
                                         <td class="column-slug" data-column="الاسم المختصر">مقالات</td>
                                         <td class="column-desc" data-column="الوصف"></td>
@@ -412,7 +412,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-9" class="level-1">
+                                    <tr id="cate-9" class="level-1" lavel="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-9" type="checkbox" class="custom-control-input" name="cate[]" value="9">
@@ -435,7 +435,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-8" class="level-1">
+                                    <tr id="cate-8" class="level-1" lavel="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-8" type="checkbox" class="custom-control-input" name="cate[]" value="8">
@@ -458,14 +458,14 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-2" class="level-0">
+                                    <tr id="cate-2" class="level-0 hasChildren">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-2" type="checkbox" class="custom-control-input" name="cate[]" value="2">
                                                 <label class="custom-control-label" for="check-2"></label>
                                             </div>
                                         </th>
-                                        <td class="column-name column-primary child-name" data-column="التصنيف">أخبار</td>
+                                        <td class="column-name column-primary" data-column="التصنيف">أخبار</td>
                                         <td class="column-slug" data-column="الاسم المختصر">أخبار</td>
                                         <td class="column-desc" data-column="الوصف"></td>
                                         <td class="column-postsNum" data-column="العدد"><a href="#">65</a></td>
@@ -481,7 +481,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-6" class="level-1">
+                                    <tr id="cate-6" class="level-1" lavel="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-6" type="checkbox" class="custom-control-input" name="cate[]" value="6">
@@ -504,7 +504,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-3" class="level-1">
+                                    <tr id="cate-3" class="level-1" lavel="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-3" type="checkbox" class="custom-control-input" name="cate[]" value="3">
@@ -527,7 +527,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-5" class="level-2">
+                                    <tr id="cate-5" class="level-2" lavel="2">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-5" type="checkbox" class="custom-control-input" name="cate[]" value="5">
@@ -550,7 +550,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-4" class="level-2">
+                                    <tr id="cate-4" class="level-2" lavel="2">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="check-4" type="checkbox" class="custom-control-input" name="cate[]" value="4">
