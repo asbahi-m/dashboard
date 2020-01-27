@@ -61,9 +61,6 @@ table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:
     right: unset;
     content: "استعراض";
 }
-.MSG {
-    opacity: .5;
-}
 
 
 /* التنسيقات الافتراضية */
@@ -73,6 +70,9 @@ a, a:link {
 .custom-control .custom-control-label::before, 
 .custom-control .custom-control-label::after {
     cursor: pointer;
+}
+.MSG {
+    opacity: .5;
 }
 
 /* تنسيق الهيدر */

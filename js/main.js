@@ -222,6 +222,7 @@ $(document).ready(function() {
                 }
                 else if ($(check).length > 0 && $(check).length < $(name).length) {
                     $("#checkAll").prop("indeterminate", true);
+                    $("#checkAll").prop("checked", false);
                 }
                 else {
                     $("#checkAll").prop("indeterminate", false);
@@ -412,7 +413,42 @@ $(document).ready(function() {
     $("#postTemplate").change(function(){
         elementCase("#postCode", "#postCode textarea", ["codeHTML", "googleAds"]);
     });
-    
+
+
+    /////////////////////////// إظهار وإخفاء بوكس التصنيفات إذا كان القالب شبكة مدونة أو وسائط عند إضافة صفحة جديدة
+    function checkPostTemplate($this) {
+        var textDefault = "*افتراضي: صفحة عادية فارغة بمحتوى يدوي.",
+            textBlog = "يرجى اختيار التصنيفات التي ستعرض في الصفحة بتخطيط مدونة.",
+            textMulti = "يرجى اختيار التصنيفات التي ستعرض في الصفحة بتخطيط وسائط.";
+            textContactUs = "نموذج صفحة التواصل ومراسلة إدارة الموقع.";
+        switch ($this.val()) {
+            case "blog-grid":
+            $(".categories").show();
+            $this.next().text(textBlog);
+                break;
+
+            case "multi-grid":
+            $(".categories").show();
+            $this.next().text(textMulti);
+            break;
+
+            case "contact-us":
+            $(".categories").hide();
+            $this.next().text(textContactUs);
+            break;
+            
+            default:
+            $(".categories").hide();
+            $this.next().text(textDefault);
+                break;
+        }
+    }
+    checkPostTemplate($("#postTemplate"));
+    $("#postTemplate").on("change", function() {
+        checkPostTemplate($(this));
+    })
+
+
     /////////////////////////// إضافة الصور المتعددة في بوكس معرض الصور وإظهارها مباشرةً
     $("#postGalleryImg").change(function(){
         var fReader = new FileReader();

@@ -260,13 +260,6 @@
                         <!-- إضافة المحتوى -->
                         <form>
                             <div class="form-group d-flex flex-column flex-sm-row justify-content-end pl-sm-5 sticky-top">
-                                <div class="d-flex align-items-center ml-sm-3 py-1 py-sm-0"><!-- اختيار نموذج -->
-                                    <label class="head m-0">القالب:</label>
-                                    <select class="custom-select mr-2" id="postTemplate">
-                                        <option value="default" selected>افتراضي</option>
-                                    </select>
-                                </div>
-
                                 <div class="d-flex align-items-center ml-sm-3 py-1 py-sm-0"><!-- حالة العرض -->
                                     <label class="head m-0">الحالة:</label>
                                     <select class="custom-select mr-2" id="postStatus">
@@ -302,7 +295,72 @@
 
                                 <div class="col-lg-3">
                                     <div class="form-group">
-                                        <label for="parent">التصنيف الأب:</label>
+                                        <label class="head" for="postTemplate">القالب:</label>
+                                        <select id="postTemplate" class="form-control form-control-sm" name="postTemplate">
+                                            <option value="default" selected>افتراضي</option>
+                                            <option value="blog-grid">تصنيفات بتخطيط مدونة</option>
+                                            <option value="multi-grid">تصنيفات بتخطيط وسائط</option>
+                                            <option value="contact-us">اتصل بنا</option>
+                                        </select>
+                                        <small class="form-text text-muted">*افتراضي: صفحة عادية فارغة بمحتوى يدوي.</small>
+                                    </div>
+
+                                    <div class="form-group categories"><!-- التصنيفات -->
+                                        <label class="head">التصنيف:</label>
+
+                                        <ul class="cate-all">
+                                            <li id="category-1" class="custom-control custom-checkbox">
+                                                <input id="in-cate-1" value="1" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                <label class="custom-control-label" for="in-cate-1">غير مصنف</label>
+                                            </li>
+
+                                            <li id="category-2" class="custom-control custom-checkbox">
+                                                <input id="in-cate-2" value="2" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                <label class="custom-control-label" for="in-cate-2">أخبار</label>
+
+                                                <ul class="children">
+                                                    <li id="category-6" class="custom-control custom-checkbox">
+                                                        <input id="in-cate-6" value="6" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                        <label class="custom-control-label" for="in-cate-6">أخبار دولية</label>
+                                                    </li>
+                                                    <li id="category-3" class="custom-control custom-checkbox">
+                                                        <input id="in-cate-3" value="3" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                        <label class="custom-control-label" for="in-cate-3">أخبار محلية</label>
+
+                                                        <ul class="children">
+                                                            <li id="category-5" class="custom-control custom-checkbox">
+                                                                <input id="in-cate-5" value="5" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                                <label class="custom-control-label" for="in-cate-5">أخبار محلية اقتصادية</label>
+                                                            </li>
+                                                            <li id="category-4" class="custom-control custom-checkbox">
+                                                                <input id="in-cate-4" value="4" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                                <label class="custom-control-label" for="in-cate-4">أخبار محلية سياسية</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li id="category-7" class="custom-control custom-checkbox">
+                                                <input id="in-cate-7" value="7" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                <label class="custom-control-label" for="in-cate-7">مقالات</label>
+
+                                                <ul class="children">
+                                                    <li id="category-9" class="custom-control custom-checkbox">
+                                                        <input id="in-cate-9" value="9" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                        <label class="custom-control-label" for="in-cate-9">مقالات اقتصادية</label>
+                                                    </li>
+                                                    <li id="category-8" class="custom-control custom-checkbox">
+                                                        <input id="in-cate-8" value="8" type="checkbox" class="custom-control-input" name="postCate[]">
+                                                        <label class="custom-control-label" for="in-cate-8">مقالات سياسية</label>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="head" for="parent">الصفحة الأب:</label>
                                         <select id="parent" class="form-control form-control-sm" name="parent">
                                             <option selected value="-1">بدون</option>
                                             <option class="level-0" value="114">اتصل بنا</option>
@@ -349,6 +407,11 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="comment_status" type="checkbox" class="custom-control-input" name="comment_status" value="0">
                                             <label class="custom-control-label" for="comment_status">السماح بالتعليقات</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="no_aside" type="checkbox" class="custom-control-input" name="no_aside" value="0">
+                                            <label class="custom-control-label" for="no_aside">بدون قائمة جانبية</label>
                                         </div>
                                     </div>
                                 </div>
