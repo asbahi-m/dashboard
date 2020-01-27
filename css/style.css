@@ -26,39 +26,7 @@ body {
     direction: rtl;
     background: #303030;
 }
-body, .dropdown-menu {
-    text-align: right;
-}
-.modal-footer > :not(:last-child) {
-    margin-right: 0;
-    margin-left: .25rem;
-}
-.modal-footer > :not(:first-child) {
-    margin-left: 0;
-    margin-right: .25rem;
-}
-.modal-header .close {
-    margin-left: -1rem;
-    margin-right: auto;
-}
-table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child {
-    border-right-width: 1px;
-}
-.custom-control {
-    padding-left: unset;
-    padding-right: 1rem;
-}
-:not(th) > .custom-control > .custom-control-label {
-    padding-right: 10px;
-}
-.custom-control-label::before, 
-.custom-control-label::after {
-    left: unset;
-    right: -1rem;
-}
 .custom-file-label::after {
-    left: 0;
-    right: unset;
     content: "استعراض";
 }
 
@@ -67,9 +35,17 @@ table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:
 a, a:link {
     text-decoration: none;
 }
+.custom-control {
+    min-height: 1rem;
+    padding-right: 1rem;
+}
 .custom-control .custom-control-label::before, 
 .custom-control .custom-control-label::after {
+    right: -1rem;
     cursor: pointer;
+}
+:not(th) > .custom-control > .custom-control-label {
+    padding-right: 10px;
 }
 .MSG {
     opacity: .5;

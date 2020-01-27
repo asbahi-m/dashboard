@@ -277,7 +277,7 @@ $(document).ready(function() {
     /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في جدول صفحة التصنيفات
     $("#categoriesTable tr[lavel]").each(function(){
         var i = $(this).attr("lavel");
-        var insert = "<i class='fas fa-long-arrow-alt-left ml-1 mr-" + i + "'></i>";
+        var insert = "<i class='fas fa-long-arrow-alt-left mr-1 ml-" + i + "'></i>";
         if (i > 1) {
             for (var x = 1; x < i; x++) {
                 insert += "<i class='fas fa-long-arrow-alt-left mx-1'></i>";

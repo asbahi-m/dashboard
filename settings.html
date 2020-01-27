@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <!-- CSS Files -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
         <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="fonts/fonts.css">
@@ -26,28 +26,28 @@
 
     <body>
         <header class="d-flex justify-content-between px-2 sticky-top">
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pl-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pl-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
             
-            <div class="dropdown mr-auto">
+            <div class="dropdown ml-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-comment-medical"></i>
-                        <span class="ml-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                        <small class="mr-auto">قبل 30 دقيقة</small>
+                        <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 30 دقيقة</small>
                     </a>
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-newspaper color"></i>
-                        <span class="ml-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                        <small class="mr-auto">قبل 15 ساعة</small>
+                        <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 15 ساعة</small>
                     </a>
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-user-plus"></i>
-                        <span class="ml-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                        <small class="mr-auto">قبل 1 يوم</small>
+                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
                     </a>
                     <a class="dropdown-item text-center text-light bg-dark">
                         <small>عرض جميع الإشعارات <i class="fas fa-angle-double-left"></i></small>
@@ -63,7 +63,7 @@
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
                     <div class="user-info d-flex align-items-center" href="#">
-                        <i class="fas fa-user-circle ml-2"></i>
+                        <i class="fas fa-user-circle mr-2"></i>
                         <div>
                             <div>مدير الموقع</div>
                             <small class="text-warning">مسؤول</small>
@@ -71,11 +71,11 @@
                     </div>
                     <a class="dropdown-item text-muted" href="#">
                         <i class="fas fa-user-edit"></i>
-                        <span class="ml-2">تحرير الملف الشخصي</span>
+                        <span class="mr-2">تحرير الملف الشخصي</span>
                     </a>
                     <a class="dropdown-item text-muted" href="#">
                         <i class="fas fa-sign-out-alt"></i>
-                        <span class="ml-2">تسجيل الخروج</span>
+                        <span class="mr-2">تسجيل الخروج</span>
                     </a>
                 </div>
             </div>
@@ -91,7 +91,7 @@
 
                     <div class="d-md-block collapse" id="menu">
                         <div class="user-info d-flex align-items-center mb-3" href="#">
-                            <i class="fas fa-user-circle ml-2"></i>
+                            <i class="fas fa-user-circle mr-2"></i>
                             <div>
                                 <div>مدير الموقع</div>
                                 <small class="text-warning">مسؤول</small>
@@ -101,97 +101,97 @@
                         <ul class="nav flex-column p-0">
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="index.html">
-                                    <i class="fas fa-home ml-3"></i><span>الرئيسية</span>
+                                    <i class="fas fa-home mr-3"></i><span>الرئيسية</span>
                                 </a>
                             </li>
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="categories.html">
-                                    <i class="fas fa-sitemap ml-3"></i><span>تصنيفات الموقع</span>
+                                    <i class="fas fa-sitemap mr-3"></i><span>تصنيفات الموقع</span>
                                 </a>
-                                <a href="categories.html#addItem" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
-                                    <i class="fas fa-file-alt ml-3"></i><span>محتوى الموقع</span>
+                                    <i class="fas fa-file-alt mr-3"></i><span>محتوى الموقع</span>
                                 </a>
-                                <a href="post-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="pages.html">
-                                    <i class="fas fa-clone ml-3"></i><span>صفحات الموقع</span>
+                                    <i class="fas fa-clone mr-3"></i><span>صفحات الموقع</span>
                                 </a>
-                                <a href="page-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="upload.html">
-                                    <i class="fas fa-images ml-3"></i><span>الوسائط المتعددة</span>
+                                    <i class="fas fa-images mr-3"></i><span>الوسائط المتعددة</span>
                                 </a>
-                                <a href="media-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
-                                    <i class="fas fa-ad ml-3"></i><span>إعلانات الموقع</span>
+                                    <i class="fas fa-ad mr-3"></i><span>إعلانات الموقع</span>
                                 </a>
-                                <a href="ads-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
-                                    <i class="fas fa-comment-dots ml-3"></i><span>تعليقات الموقع</span>
+                                    <i class="fas fa-comment-dots mr-3"></i><span>تعليقات الموقع</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="users.html">
-                                    <i class="fas fa-users ml-3"></i><span>أعضاء الموقع</span>
+                                    <i class="fas fa-users mr-3"></i><span>أعضاء الموقع</span>
                                 </a>
-                                <a href="user-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
                                 </a>
                             </li>
                             
                             <!-- <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="#">
-                                    <i class="fas fa-poll ml-3"></i><span>استطلاعات الرأي</span>
+                                    <i class="fas fa-poll mr-3"></i><span>استطلاعات الرأي</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li> -->
                             
                             <!-- <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="#">
-                                    <i class="fas fa-mail-bulk ml-3"></i><span>القائمة البريدية</span>
+                                    <i class="fas fa-mail-bulk mr-3"></i><span>القائمة البريدية</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li> -->
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="analytics.html">
-                                    <i class="fas fa-chart-pie ml-3"></i><span>إحصائيات وأرقام</span>
+                                    <i class="fas fa-chart-pie mr-3"></i><span>إحصائيات وأرقام</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="settings.html">
-                                    <i class="fas fa-cogs ml-3"></i><span>إعدادات الموقع</span>
+                                    <i class="fas fa-cogs mr-3"></i><span>إعدادات الموقع</span>
                                 </a>
                             </li>
                         </ul>
@@ -206,42 +206,42 @@
                     <div id="settings">
 
                         <!-- رسائل الأوامر والعمليات -->
-                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block mr-auto" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block ml-auto" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
                             MSG
                         </button>
                         <div id="MSG" class="collapse">
                             
                             <!-- رسالة نجاح عملية التعديل -->
                             <div class="alert alert-success alert-dismissible d-flex" role="alert">
-                                <span class="ml-auto">تم إضافة المحتوى بنجاح.</span>
+                                <span>تم إضافة المحتوى بنجاح.</span>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <span class="mr-auto"><i class="fas fa-check-circle"></i></span>
+                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
                             </div>
                             
                             <!-- رسالة نجاح عملية الحذف -->
                             <div class="alert alert-warning alert-dismissible d-flex" role="alert">
-                                <span class="ml-auto">تم حذف المحتوى بنجاح.</span>
+                                <span>تم حذف المحتوى بنجاح.</span>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <span class="mr-auto"><i class="fas fa-check-circle"></i></span>
+                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
                             </div>
 
                             <!-- رسائل فشل عملية الحذف -->
                             <div class="alert alert-danger alert-dismissible d-flex" role="alert">
-                                <span class="ml-auto">لا يمكن حذف هذا المحتوى!</span>
+                                <span>لا يمكن حذف هذا المحتوى!</span>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <span class="mr-auto"><i class="fas fa-exclamation-circle"></i></span>
+                                <span class="ml-auto"><i class="fas fa-exclamation-circle"></i></span>
                             </div>
                         </div>
 
                         <form>
-                            <div class="form-group text-left sticky-top">
-                                <div class="mr-auto mr-sm-0 py-1 py-sm-0"><!-- أيقونة الحفظ -->
+                            <div class="form-group text-right sticky-top">
+                                <div class="ml-auto ml-sm-0 py-1 py-sm-0"><!-- أيقونة الحفظ -->
                                     <button type="submit" class="btn btn-primary">حفظ الإعدادات</button>
                                 </div>
                             </div>
@@ -353,17 +353,17 @@
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="dateFormat-1" name="dateFormat" class="custom-control-input" checked>
                                                         <label class="custom-control-label" for="dateFormat-1">21 أكتوبر, 2019</label>
-                                                        <small class="form-text text-muted mr-3">الصيغة الافتراضية</small>
+                                                        <small class="form-text text-muted ml-3">الصيغة الافتراضية</small>
                                                     </div>
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="dateFormat-2" name="dateFormat" class="custom-control-input">
                                                         <label class="custom-control-label" for="dateFormat-2">2019-10-21</label>
-                                                        <small class="form-text text-muted mr-3">Year-Month-Day</small>
+                                                        <small class="form-text text-muted ml-3">Year-Month-Day</small>
                                                     </div>
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="dateFormat-3" name="dateFormat" class="custom-control-input">
                                                         <label class="custom-control-label" for="dateFormat-3">21/10/2019</label>
-                                                        <small class="form-text text-muted mr-3">Day/Month/Year</small>
+                                                        <small class="form-text text-muted ml-3">Day/Month/Year</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -374,7 +374,7 @@
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="urlFormat-1" name="urlFormat" class="custom-control-input" checked>
                                                         <label class="custom-control-label" for="urlFormat-1">النوع + الرقم</label>
-                                                        <small class="form-text text-muted mr-3" dir="ltr">
+                                                        <small class="form-text text-muted ml-3" dir="ltr">
                                                             http://domain.com/?post=111<br>
                                                             http://domain.com/?page=22<br>
                                                             http://domain.com/?cat=3
@@ -383,7 +383,7 @@
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="urlFormat-2" name="urlFormat" class="custom-control-input">
                                                         <label class="custom-control-label" for="urlFormat-2">النوع + الرقم (html)</label>
-                                                        <small class="form-text text-muted mr-3" dir="ltr">
+                                                        <small class="form-text text-muted ml-3" dir="ltr">
                                                             http://domain.com/post111.html<br>
                                                             http://domain.com/page22.html<br>
                                                             http://domain.com/cat3.html
@@ -392,7 +392,7 @@
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="urlFormat-3" name="urlFormat" class="custom-control-input">
                                                         <label class="custom-control-label" for="urlFormat-3">الرقم + العنوان</label>
-                                                        <small class="form-text text-muted mr-3" dir="ltr">
+                                                        <small class="form-text text-muted ml-3" dir="ltr">
                                                             http://domain.com/111/post-title/<br>
                                                             http://domain.com/page/page-title/<br>
                                                             http://domain.com/category/cate-name/
@@ -440,7 +440,7 @@
                                                     <div class="custom-control custom-checkbox mt-2">
                                                         <input type="checkbox" id="showMetaData" name="showMetaData" class="custom-control-input" value="1" checked>
                                                         <label class="custom-control-label" for="showMetaData">السماح بعرض بيانات التعريف أسفل عناوين المشاركات .</label>
-                                                        <small class="form-text text-muted mr-3">مثل: (التاريخ، التصنيف، عدد التعليقات... إلخ)</small>
+                                                        <small class="form-text text-muted ml-3">مثل: (التاريخ، التصنيف، عدد التعليقات... إلخ)</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -480,7 +480,7 @@
                                                     <div class="custom-control custom-checkbox mt-2">
                                                         <input type="checkbox" id="reviewComments" name="reviewComments" class="custom-control-input" value="1" checked>
                                                         <label class="custom-control-label" for="reviewComments">تفعيل مراجعة التعليقات قبل الموافقة على نشرها.</label>
-                                                        <small class="form-text text-muted mr-3">في حال عدم تفعيل مراجعة التعليقات؛ سيتم نشر أي تعليق مباشرةً دون الحاجة إلى الموافقة.</small>
+                                                        <small class="form-text text-muted ml-3">في حال عدم تفعيل مراجعة التعليقات؛ سيتم نشر أي تعليق مباشرةً دون الحاجة إلى الموافقة.</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -556,61 +556,61 @@
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="postsNumber">روابط الصفحات الاجتماعية:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="twitterLink"><i class="fab fa-twitter"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على تويتر" aria-describedby="twitterLink">
                                                     </div>
 
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="facebookLink"><i class="fab fa-facebook-f"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على فيسبوك" aria-describedby="facebookLink">
                                                     </div>
 
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="facebookLink"><i class="fab fa-instagram"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على انستغرام" aria-describedby="facebookLink">
                                                     </div>
 
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="facebookLink"><i class="fab fa-youtube"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على يوتيوب" aria-describedby="facebookLink">
                                                     </div>
 
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="facebookLink"><i class="fab fa-skype"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على سكايبي" aria-describedby="facebookLink">
                                                     </div>
 
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="facebookLink"><i class="fab fa-linkedin-in"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على لينكد إن" aria-describedby="facebookLink">
                                                     </div>
 
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="facebookLink"><i class="fab fa-flickr"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على فليكر" aria-describedby="facebookLink">
                                                     </div>
 
                                                     <div class="input-group mb-3">
-                                                        <div class="input-group-prepend order-1">
+                                                        <div class="input-group-prepend">
                                                             <div class="input-group-text" id="facebookLink"><i class="fas fa-rss"></i></div>
                                                         </div>
                                                         <input type="url" class="form-control" placeholder="إدخل رابط التغذية RSS" aria-describedby="facebookLink">
                                                     </div>
-                                                    <small class="form-text text-muted mr-3">يجب أن يبدأ الرابط بـ <span dir="ltr">http://</span></small>
+                                                    <small class="form-text text-muted ml-3">يجب أن يبدأ الرابط بـ <span dir="ltr">http://</span></small>
                                                 </div>
                                             </div>
                                         </div>
@@ -632,7 +632,7 @@
             </div>
         </div>
 
-        <footer class="col-md-8 col-lg-9 col-xl-10 mr-auto">
+        <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
             <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
         </footer>
     </body>

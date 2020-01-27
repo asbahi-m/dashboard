@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <!-- CSS Files -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
         <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="fonts/fonts.css">
@@ -26,28 +26,28 @@
 
     <body>
         <header class="d-flex justify-content-between px-2 sticky-top">
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pl-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pl-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
             
-            <div class="dropdown mr-auto">
+            <div class="dropdown ml-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-comment-medical"></i>
-                        <span class="ml-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                        <small class="mr-auto">قبل 30 دقيقة</small>
+                        <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 30 دقيقة</small>
                     </a>
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-newspaper color"></i>
-                        <span class="ml-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                        <small class="mr-auto">قبل 15 ساعة</small>
+                        <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 15 ساعة</small>
                     </a>
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-user-plus"></i>
-                        <span class="ml-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                        <small class="mr-auto">قبل 1 يوم</small>
+                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
                     </a>
                     <a class="dropdown-item text-center text-light bg-dark">
                         <small>عرض جميع الإشعارات <i class="fas fa-angle-double-left"></i></small>
@@ -63,7 +63,7 @@
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
                     <div class="user-info d-flex align-items-center" href="#">
-                        <i class="fas fa-user-circle ml-2"></i>
+                        <i class="fas fa-user-circle mr-2"></i>
                         <div>
                             <div>مدير الموقع</div>
                             <small class="text-warning">مسؤول</small>
@@ -71,11 +71,11 @@
                     </div>
                     <a class="dropdown-item text-muted" href="#">
                         <i class="fas fa-user-edit"></i>
-                        <span class="ml-2">تحرير الملف الشخصي</span>
+                        <span class="mr-2">تحرير الملف الشخصي</span>
                     </a>
                     <a class="dropdown-item text-muted" href="#">
                         <i class="fas fa-sign-out-alt"></i>
-                        <span class="ml-2">تسجيل الخروج</span>
+                        <span class="mr-2">تسجيل الخروج</span>
                     </a>
                 </div>
             </div>
@@ -91,7 +91,7 @@
 
                     <div class="d-md-block collapse" id="menu">
                         <div class="user-info d-flex align-items-center mb-3" href="#">
-                            <i class="fas fa-user-circle ml-2"></i>
+                            <i class="fas fa-user-circle mr-2"></i>
                             <div>
                                 <div>مدير الموقع</div>
                                 <small class="text-warning">مسؤول</small>
@@ -101,97 +101,97 @@
                         <ul class="nav flex-column p-0">
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="index.html">
-                                    <i class="fas fa-home ml-3"></i><span>الرئيسية</span>
+                                    <i class="fas fa-home mr-3"></i><span>الرئيسية</span>
                                 </a>
                             </li>
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="categories.html">
-                                    <i class="fas fa-sitemap ml-3"></i><span>تصنيفات الموقع</span>
+                                    <i class="fas fa-sitemap mr-3"></i><span>تصنيفات الموقع</span>
                                 </a>
-                                <a href="categories.html#addItem" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
-                                    <i class="fas fa-file-alt ml-3"></i><span>محتوى الموقع</span>
+                                    <i class="fas fa-file-alt mr-3"></i><span>محتوى الموقع</span>
                                 </a>
-                                <a href="post-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="pages.html">
-                                    <i class="fas fa-clone ml-3"></i><span>صفحات الموقع</span>
+                                    <i class="fas fa-clone mr-3"></i><span>صفحات الموقع</span>
                                 </a>
-                                <a href="page-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="upload.html">
-                                    <i class="fas fa-images ml-3"></i><span>الوسائط المتعددة</span>
+                                    <i class="fas fa-images mr-3"></i><span>الوسائط المتعددة</span>
                                 </a>
-                                <a href="media-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
-                                    <i class="fas fa-ad ml-3"></i><span>إعلانات الموقع</span>
+                                    <i class="fas fa-ad mr-3"></i><span>إعلانات الموقع</span>
                                 </a>
-                                <a href="ads-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
-                                    <i class="fas fa-comment-dots ml-3"></i><span>تعليقات الموقع</span>
+                                    <i class="fas fa-comment-dots mr-3"></i><span>تعليقات الموقع</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="users.html">
-                                    <i class="fas fa-users ml-3"></i><span>أعضاء الموقع</span>
+                                    <i class="fas fa-users mr-3"></i><span>أعضاء الموقع</span>
                                 </a>
-                                <a href="user-new.html" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
                                 </a>
                             </li>
                             
                             <!-- <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="#">
-                                    <i class="fas fa-poll ml-3"></i><span>استطلاعات الرأي</span>
+                                    <i class="fas fa-poll mr-3"></i><span>استطلاعات الرأي</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li> -->
                             
                             <!-- <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="#">
-                                    <i class="fas fa-mail-bulk ml-3"></i><span>القائمة البريدية</span>
+                                    <i class="fas fa-mail-bulk mr-3"></i><span>القائمة البريدية</span>
                                 </a>
-                                <a href="#" type="button" class="btn btn-dark add mr-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li> -->
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="analytics.html">
-                                    <i class="fas fa-chart-pie ml-3"></i><span>إحصائيات وأرقام</span>
+                                    <i class="fas fa-chart-pie mr-3"></i><span>إحصائيات وأرقام</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="settings.html">
-                                    <i class="fas fa-cogs ml-3"></i><span>إعدادات الموقع</span>
+                                    <i class="fas fa-cogs mr-3"></i><span>إعدادات الموقع</span>
                                 </a>
                             </li>
                         </ul>
@@ -208,7 +208,7 @@
             </div>
         </div>
 
-        <footer class="col-md-8 col-lg-9 col-xl-10 mr-auto">
+        <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
             <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
         </footer>
     </body>
