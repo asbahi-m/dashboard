@@ -467,7 +467,6 @@ $(document).ready(function() {
     })
 
     /////////////////////////// إضافة الصورة في بوكس الصورة البارزة وإظهارها مباشرةً
-    
     $("#postImg").change(function(){
         $("#postImgContent img").addClass("d-block").removeClass("d-none");
         $("#postImgContent i").remove();
@@ -490,6 +489,7 @@ $(document).ready(function() {
     $("#postDate").val(getYe + "-" + (0 + getMo.toString()).slice(-2) + "-" + (0 + getDa.toString()).slice(-2));
     $("#postTime").val((0 + getHo.toString()).slice(-2) + ":" + (0 + getMi.toString()).slice(-2));
 
+    /////////////////////////// عرض كلمة المرور عند النقر على الأيقونة
     $(".showPassword").click(function(){
         var inputPass = $(this).parent().next();
         if(inputPass.prop("type") === "password") {

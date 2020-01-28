@@ -1,0 +1,27 @@
+body {
+    direction: rtl;
+    background: #303030;
+}
+a, a:link {
+    text-decoration: none;
+}
+.custom-control .custom-control-label::before, 
+.custom-control .custom-control-label::after,
+.showPassword {
+    cursor: pointer;
+}
+
+
+.login {
+    min-height: 100vh;
+}
+.login img {
+    width: 100px;
+    max-width: 100%;
+}
+.login .head {
+    font-size: 26px;
+}
+.login .fa, .fas {
+    width: 20px;
+}

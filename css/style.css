@@ -47,9 +47,13 @@ a, a:link {
 :not(th) > .custom-control > .custom-control-label {
     padding-right: 10px;
 }
+.showPassword {
+    cursor: pointer;
+}
 .MSG {
     opacity: .5;
 }
+
 
 /* تنسيق الهيدر */
 header {
@@ -109,9 +113,6 @@ header .dropdown #dropdownUser .fa-user-circle {
 .picture-profile .fa-user-circle {
     font-size: 60px;
     color: #ccc;
-}
-.showPassword {
-    cursor: pointer;
 }
 
 
