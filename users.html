@@ -275,6 +275,7 @@
                             <a type ="button" class="btn btn-primary" href="#">الكل <span class="badge badge-light">5</span></a>
                             <a type ="button" class="btn btn-light bg-white" href="#">مدير <span class="badge badge-light">1</span></a>
                             <a type ="button" class="btn btn-light bg-white" href="#">محرر <span class="badge badge-light">2</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="#">كاتب <span class="badge badge-light">0</span></a>
                             <a type ="button" class="btn btn-light bg-white" href="#">مساهم <span class="badge badge-light">1</span></a>
                             <a type ="button" class="btn btn-light bg-white" href="#">مشترك <span class="badge badge-light">1</span></a>
                         </div>
@@ -329,9 +330,6 @@
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
-                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
-                                            </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
                                         </div>
                                     </td>
@@ -459,6 +457,40 @@
                                     <td class="column-role text-nowrap" data-column="الرتبة">محرر</td>
                                     <td class="column-postsNum" data-column="المواضيع">
                                         <a href="posts.html#admin">6</a>
+                                    </td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="user-6" class="writer">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-6" type="checkbox" class="custom-control-input" name="user[]" value="6">
+                                            <label class="custom-control-label" for="check-6"></label>
+                                        </div>
+                                    </th>
+                                    <td class="column-username column-primary" data-column="اسم المستخدم">
+                                        <div class="picture-profile d-flex align-items-start" href="#">
+                                            <i class="fas fa-user-circle mr-2"></i>
+                                            <div><a href="user-edit.html">saleh</a></div>
+                                        </div>
+                                    </td>
+                                    <td class="column-nickname" data-column="اسم العرض">صالح رمضان</td>
+                                    <td class="column-email" data-column="البريد الإلكتروني">
+                                        <a href="mailto:saleh@gmail.com">saleh@gmail.com</a>
+                                    </td>
+                                    <td class="column-role text-nowrap" data-column="الرتبة">كاتب</td>
+                                    <td class="column-postsNum" data-column="المواضيع">
+                                        <a href="posts.html#admin">2</a>
                                     </td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
