@@ -200,9 +200,82 @@
                 
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
-                    <h2 class="border-bottom py-2 mb-3">إضافة وسائط جديدة</h2>
+                    <h2 class="border-bottom py-2 mb-3">رفع وسائط جديدة</h2>
 
-                    <div>الصفحة قيد الإنشاء...</div>
+                    <!-- إضافة وتعديل المحتويات -->
+                    <div id="postAdd">
+
+                        <!-- رسائل الأوامر والعمليات -->
+                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block ml-auto" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                            MSG
+                        </button>
+                        <div id="MSG" class="collapse">
+                            
+                            <!-- رسالة نجاح عملية التعديل -->
+                            <div class="alert alert-success alert-dismissible d-flex" role="alert">
+                                <span>تم إضافة المحتوى بنجاح.</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            
+                            <!-- رسالة نجاح عملية الحذف -->
+                            <div class="alert alert-warning alert-dismissible d-flex" role="alert">
+                                <span>تم حذف المحتوى بنجاح.</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                            </div>
+
+                            <!-- رسائل فشل عملية الحذف -->
+                            <div class="alert alert-danger alert-dismissible d-flex" role="alert">
+                                <span>لا يمكن حذف هذا المحتوى!</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span class="ml-auto"><i class="fas fa-exclamation-circle"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- إضافة المحتوى -->
+                        <form>
+                            <div id="media-upload" class="form-group">
+                                <div id="drag-drop-area" class="d-flex flex-column align-items-center">
+                                    <span>اسحب الملف/الملفات هنا</span>
+                                    <span>أو</span>
+                                    <button type="button" id="upload-browse-button" class="btn btn-light">حدد الملفات</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="max-upload-size">الحد الأقصى لحجم الملف المراد رفعه: <strong>200 ميجا بايت</strong></div>
+                                <div class="type-upload-file">الامتدادات المسموح بها: <strong>png, jpg, pdf, doc, docx, xls, xlsx, mp4, mp3...</strong></div>
+                            </div>
+                            <hr>
+                            
+                            <div id="media-items">
+                                <div id="media-item-0" class="d-flex align-items-center">
+                                    <span class="media-icon">
+                                        <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                    </span>
+                                    <span class="filename px-2">خلفية صحراء</span>
+                                    <a type="button" class="ml-auto" href="#">تعديل</a>
+                                </div>
+
+                                <div id="media-item-1" class="d-flex align-items-center">
+                                    <span class="media-icon">
+                                        <span class="img-thumbnail"><i class="fas fa-file-pdf"></i></span>
+                                    </span>
+                                    <span class="filename px-2">الجمهورية اليمنية</span>
+                                    <span class="progress">
+                                        <span class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
                 </main>
             </div>

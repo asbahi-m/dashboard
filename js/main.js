@@ -95,7 +95,7 @@ $(document).ready(function() {
         }*/
     });
 
-    /////////////////////////// إعدادات وتفعيل جدول الصفحات
+    ///////////////////////// إعدادات وتفعيل جدول الصفحات
     var tablePages = $("#pagesTable").DataTable({
         "columnDefs": [
             { "orderable": false, "targets": 0 },
@@ -104,6 +104,16 @@ $(document).ready(function() {
             { "searchable": false, "targets": 4 },
             { "searchable": false, "targets": 5 },
             { "searchable": false, "targets": 6 }
+        ]
+    });
+
+    /////////////////////////// إعدادات وتفعيل جدول مكتبة الوسائط
+    var tableMedia = $("#mediaTable").DataTable({
+        "columnDefs": [
+            { "orderable": false, "targets": 0 },
+            { "orderable": false, "targets": 5 },
+            { "searchable": false, "targets": 0 },
+            { "searchable": false, "targets": 5 }
         ]
     });
 
@@ -158,39 +168,40 @@ $(document).ready(function() {
     }); */
 
     /* فلتر تصفية جدول المحتويات بحسب الاختيار المخصص فوق الجدول */
-    if (tablePosts.column().data() !== undefined) {
+    function filter(table, colCate, colUser, colDate) {
+
         /* فلتر تصفية جدول المحتويات بحسب التصنيف */
         $("#filter select.get-cate").append($('<option value="">جميع التصنيفات</option>')).on("change", function(){
-            tablePosts.column(2) // column(2) This is the column number inside the table.
+            table.column(colCate) // column(2) This is the column number inside the table.
             .search($(this).val())
             .draw();
         });
-        tablePosts.column(2).data().unique().sort().each(function(value, index){
+        table.column(colCate).data().unique().sort().each(function(value, index){
             value = value.replace(/<[^>]*>/g, "");
             $("#filter select.get-cate").append("<option value='" + value + "'>" + value + "</option>");
         });
         
         /* فلتر تصفية جدول المحتويات بحسب المحرر */
         $("#filter select.get-user").append($('<option value="">جميع المحررين</option>')).on("change", function(){
-            tablePosts.column(3) // column(3) This is the column number inside the table.
+            table.column(colUser) // column(3) This is the column number inside the table.
             .search($(this).val())
             .draw();
         });
-        tablePosts.column(3).data().unique().sort().each(function(value, index){
+        table.column(colUser).data().unique().sort().each(function(value, index){
             value = value.replace(/<[^>]*>/g, "");
             $("#filter select.get-user").append("<option value='" + value + "'>" + value + "</option>");
         });
         
         /* فلتر تصفية جدول المحتويات بحسب التاريخ */
         $("#filter select.get-date").append($('<option value="">جميع التواريخ</option>')).on("change", function(){
-            tablePosts.column(4) // column(4) This is the column number inside the table.
+            table.column(colDate) // column(4) This is the column number inside the table.
             .search($(this).val())
             .draw();
         });
         var months = [
             "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
         ];
-        var ele = tablePosts.column(4).data().unique().sort();
+        var ele = table.column(colDate).data().unique().sort();
         var newEle = ele.map(function(value, month, year){
                 value = value.replace(/<[^>]*>/g, "");
                 theDate = new Date(value);
@@ -211,8 +222,16 @@ $(document).ready(function() {
         });
     }
 
+    if (tablePosts.column().data() !== undefined) {
+        filter(tablePosts, 2, 3, 4)
+    }
+
+    if (tableMedia.column().data() !== undefined) {
+        filter(tableMedia, 0, 2, 4)
+    }
+
     /////////////////////////// تحديد عناصر الجدول
-    function showChecked(name, check){
+    function showChecked(name, check) {
         var selectAll = document.querySelectorAll("table input");
         selectAll.forEach( x => {
             x.onchange = function() {
@@ -248,6 +267,11 @@ $(document).ready(function() {
     /* تحديد عناصر جدول المحتويات */
     $("#postsTable input:checkbox, #pagesTable input:checkbox, #adsTable input:checkbox").click(function() {
         showChecked("input[name='post[]']", "input[name='post[]']:checked");
+    });
+
+    /* تحديد عناصر جدول مكتبة الوسائط */
+    $("#mediaTable input:checkbox").click(function() {
+        showChecked("input[name='media[]']", "input[name='media[]']:checked");
     });
 
     /* تحديد عناصر جدول التعليقات */

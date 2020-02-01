@@ -5,8 +5,7 @@ body {
 a, a:link {
     text-decoration: none;
 }
-.custom-control .custom-control-label::before, 
-.custom-control .custom-control-label::after,
+.custom-control .custom-control-label,
 .showPassword {
     cursor: pointer;
 }
