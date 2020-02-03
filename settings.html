@@ -266,6 +266,7 @@
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="siteTitle">عنوان الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <input id="siteTitle" type="text" name="siteTitle" class="form-control" value="مطور الويب" required>
+                                                    <input id="siteTitle-en" type="text" name="siteTitle-en" class="form-control lang-en" value="Developer Web">
                                                 </div>
                                             </div>
 
@@ -273,6 +274,7 @@
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="siteIdentity">هوية الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <input id="siteIdentity" type="text" name="siteIdentity" class="form-control" value="ثقة، جودة، أمان" required>
+                                                    <input id="siteIdentity-en" type="text" name="siteIdentity-en" class="form-control lang-en" value="Trust, Quality, Safety">
                                                     <small class="form-text text-muted">بكلمات قليلة اكتب هوية الموقع (مثال: ريادة وإتقان).</small>
                                                 </div>
                                             </div>
@@ -281,6 +283,7 @@
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="siteDesc">وصف الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <textarea id="siteDesc" name="siteDesc" class="form-control" maxlength="200">مؤسسة برمجية هدفها الريادة في تقديم الخدمات البرمجية لمواقع الويب.</textarea>
+                                                    <textarea id="siteDesc-en" name="siteDesc-en" class="form-control lang-en" maxlength="200">Leadership in providing programming services for websites.</textarea>
                                                     <small class="form-text text-muted">اكتب نبذة تعريفية عن الموقع بمالا يزيد عن 200 حرف.</small>
                                                 </div>
                                             </div>
@@ -298,7 +301,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row mx-0"><!-- شعار الموقع -->
+                                            <div class="form-group row mx-0"><!-- أيقونة الموقع -->
                                                 <label class="head col-sm-4 col-xl-3 col-form-label">أيقونة الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <div class="custom-file">
@@ -374,7 +377,7 @@
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="urlFormat-1" name="urlFormat" class="custom-control-input" checked>
                                                         <label class="custom-control-label" for="urlFormat-1">النوع + الرقم</label>
-                                                        <small class="form-text text-muted ml-3" dir="ltr">
+                                                        <small class="form-text text-muted ml-3 ltr">
                                                             http://domain.com/?post=111<br>
                                                             http://domain.com/?page=22<br>
                                                             http://domain.com/?cat=3
@@ -383,7 +386,7 @@
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="urlFormat-2" name="urlFormat" class="custom-control-input">
                                                         <label class="custom-control-label" for="urlFormat-2">النوع + الرقم (html)</label>
-                                                        <small class="form-text text-muted ml-3" dir="ltr">
+                                                        <small class="form-text text-muted ml-3 ltr">
                                                             http://domain.com/post111.html<br>
                                                             http://domain.com/page22.html<br>
                                                             http://domain.com/cat3.html
@@ -392,7 +395,7 @@
                                                     <div class="custom-control custom-radio mt-2">
                                                         <input type="radio" id="urlFormat-3" name="urlFormat" class="custom-control-input">
                                                         <label class="custom-control-label" for="urlFormat-3">الرقم + العنوان</label>
-                                                        <small class="form-text text-muted ml-3" dir="ltr">
+                                                        <small class="form-text text-muted ml-3 ltr">
                                                             http://domain.com/111/post-title/<br>
                                                             http://domain.com/page/page-title/<br>
                                                             http://domain.com/category/cate-name/
@@ -553,75 +556,75 @@
                                             </div>
 
                                             <div class="form-group row mx-0"><!-- روابط الصفحات الاجتماعية -->
-                                                <label class="head col-sm-4 col-xl-3 col-form-label" for="postsNumber">روابط الصفحات الاجتماعية:</label>
+                                                <label class="head col-sm-4 col-xl-3 col-form-label">روابط الصفحات الاجتماعية:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="twitterLink"><i class="fab fa-twitter"></i></div>
+                                                            <label class="input-group-text" for="twitterLink"><i class="fab fa-twitter"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على تويتر" aria-describedby="twitterLink">
+                                                        <input type="url" id="twitterLink" name="twitterLink" class="form-control" placeholder="إدخل رابط صفحتك على تويتر">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="facebookLink"><i class="fab fa-facebook-f"></i></div>
+                                                            <label class="input-group-text" for="facebookLink"><i class="fab fa-facebook-f"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على فيسبوك" aria-describedby="facebookLink">
+                                                        <input type="url" id="facebookLink" name="facebookLink" class="form-control" placeholder="إدخل رابط صفحتك على فيسبوك">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="facebookLink"><i class="fab fa-instagram"></i></div>
+                                                            <label class="input-group-text" for="instagramLink"><i class="fab fa-instagram"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على انستغرام" aria-describedby="facebookLink">
+                                                        <input type="url" id="instagramLink" name="instagramLink" class="form-control" placeholder="إدخل رابط صفحتك على انستغرام">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="facebookLink"><i class="fab fa-youtube"></i></div>
+                                                            <label class="input-group-text" for="youtubeLink"><i class="fab fa-youtube"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على يوتيوب" aria-describedby="facebookLink">
+                                                        <input type="url" id="youtubeLink" name="youtubeLink" class="form-control" placeholder="إدخل رابط صفحتك على يوتيوب">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="facebookLink"><i class="fab fa-skype"></i></div>
+                                                            <label class="input-group-text" for="skypeLink"><i class="fab fa-skype"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على سكايبي" aria-describedby="facebookLink">
+                                                        <input type="url" id="skypeLink" name="skypeLink" class="form-control" placeholder="إدخل رابط صفحتك على سكايبي">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="facebookLink"><i class="fab fa-linkedin-in"></i></div>
+                                                            <label class="input-group-text" for="linkedinInLink"><i class="fab fa-linkedin-in"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على لينكد إن" aria-describedby="facebookLink">
+                                                        <input type="url" id="linkedinInLink" name="linkedinInLink" class="form-control" placeholder="إدخل رابط صفحتك على لينكد إن">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="facebookLink"><i class="fab fa-flickr"></i></div>
+                                                            <label class="input-group-text" for="flickrLink"><i class="fab fa-flickr"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط صفحتك على فليكر" aria-describedby="facebookLink">
+                                                        <input type="url" id="flickrLink" name="flickrLink" class="form-control" placeholder="إدخل رابط صفحتك على فليكر">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <div class="input-group-text" id="facebookLink"><i class="fas fa-rss"></i></div>
+                                                            <label class="input-group-text" for="rssLink"><i class="fas fa-rss"></i></label>
                                                         </div>
-                                                        <input type="url" class="form-control" placeholder="إدخل رابط التغذية RSS" aria-describedby="facebookLink">
+                                                        <input type="url" id="rssLink" name="rssLink" class="form-control" placeholder="إدخل رابط التغذية RSS">
                                                     </div>
-                                                    <small class="form-text text-muted ml-3">يجب أن يبدأ الرابط بـ <span dir="ltr">http://</span></small>
+                                                    <small class="form-text text-muted ml-3">يجب أن يبدأ الرابط بـ <span class="ltr">http://</span></small>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- إعدادات القائمة الرئيسية -->
                                         <div class="tab-pane fade" id="menuSettings" role="tabpanel" aria-labelledby="menuSettings-tab">
-                                            إعدادات القائمة الرئيسية
+                                            الصفحة تحت الإنشاء
                                         </div>
 
                                         <div class="tab-pane fade" id="seoSettings" role="tabpanel" aria-labelledby="seoSettings-tab">
-                                            إعدادات الخرائط والأرشفة على محركات البحث
+                                            الصفحة تحت الإنشاء
                                         </div>
                                     </div>
                                 </div>

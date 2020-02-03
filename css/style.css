@@ -32,6 +32,12 @@ body {
 
 
 /* التنسيقات الافتراضية */
+.ltr, 
+[type="url"], 
+[type="email"], 
+.lang-en {
+    direction: ltr;
+}
 a, a:link {
     text-decoration: none;
 }
@@ -54,6 +60,24 @@ a, a:link {
 }
 .MSG {
     opacity: .5;
+}
+.lang-en {
+    margin-top: 10px;
+}
+.lang-name {
+    position: relative;
+    display: block;
+    max-height: 38px;
+    max-width: 38px;
+    padding: 5px;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    text-align: center;
+    background: #ced4da;
+    z-index: 111;
+}
+#ephox_textEditor-en {
+    height: 300px !important;
 }
 
 
@@ -286,8 +310,7 @@ form .sticky-top {
 #postAdd #postVideo, 
 #postAdd #postAudio, 
 #postAdd #postCode {
-    display: none;
-    /* opacity: 0; */
+    /* display: none; */
 }
 #postAdd .writer-img i {
     font-size: 36px;

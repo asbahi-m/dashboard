@@ -262,7 +262,7 @@
                             <div class="form-group d-flex flex-column flex-sm-row justify-content-end pr-sm-5 sticky-top">
                                 <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- حالة العرض -->
                                     <label class="head m-0">الحالة:</label>
-                                    <select class="custom-select ml-2" id="postStatus">
+                                    <select class="custom-select ml-2" id="postStatus" name="postStatus">
                                         <option value="publish" selected>منشور</option>
                                         <option value="draft">مسودة</option>
                                         <option value="pending">تحت المراجعة</option>
@@ -279,17 +279,20 @@
                                 <div class="col-lg-9">
                                     <div class="form-group"><!-- العنوان -->
                                         <label class="head" for="postTitle">العنوان:</label>
-                                        <input id="postTitle" type="text" class="form-control" placeholder="إضافة عنوان" required>
+                                        <input id="postTitle" type="text" class="form-control" name="postTitle" placeholder="إضافة عنوان" required>
+                                        <input id="postTitle-en" type="text" class="form-control lang-en" name="postTitle-en" placeholder="Add Title">
                                     </div>
 
                                     <div class="form-group"><!-- محرر النصوص -->
                                         <!-- <label class="head" for="postContent">المحتوى:</label> -->
                                         <textarea id="textEditor" name="postContent"></textarea>
+                                        <textarea id="textEditor-en" class="lang-en" name="postContent-en"></textarea>
                                     </div>
                                     
                                     <div class="form-group"><!-- نبذة مختصرة -->
                                         <label class="head" for="postDesc">نبذة مختصرة: <small>(اختياري)</small></label>
-                                        <textarea id="postDesc" class="form-control" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                        <textarea id="postDesc" class="form-control" name="postDesc" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                        <textarea id="postDesc-en" class="form-control lang-en" name="postDesc-en" rows="3" placeholder="Description"></textarea>
                                     </div>
                                 </div>
 
@@ -299,7 +302,7 @@
                                         <select id="postTemplate" class="form-control form-control-sm" name="postTemplate">
                                             <option value="default" selected>افتراضي</option>
                                             <option value="blog-grid">تصنيفات بتخطيط مدونة</option>
-                                            <option value="multi-grid">تصنيفات بتخطيط وسائط</option>
+                                            <option value="media-grid">تصنيفات بتخطيط وسائط</option>
                                             <option value="contact-us">اتصل بنا</option>
                                         </select>
                                         <small class="form-text text-muted">*افتراضي: صفحة عادية فارغة بمحتوى يدوي.</small>
@@ -373,7 +376,7 @@
 
                                     <div class="form-group"> <!-- ترتيب العنصر -->
                                         <label class="head" for="postOrder">الترتيب</label>
-                                        <input id="postOrder" type="number" min="0" class="form-control" value="0">
+                                        <input id="postOrder" type="number" class="form-control" name="postOrder" min="0" value="0">
                                     </div>
 
                                     <div class="form-group"><!-- الصورة البارزة -->
@@ -382,7 +385,7 @@
                                             <img class="img-thumbnail my-2 d-none">
                                         </div>
                                         <div class="custom-file">
-                                            <input id="postImg" type="file" class="custom-file-input">
+                                            <input id="postImg" type="file" class="custom-file-input" name="postImg">
                                             <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
                                         </div>
                                     </div>
@@ -391,11 +394,11 @@
                                         <label class="head">تاريخ النشر</label>
                                         <div class="form-row">
                                             <div class="col-7">
-                                                <input id="postDate" type="date" class="form-control">
+                                                <input id="postDate" type="date" class="form-control" name="postDate">
                                                 <small class="form-text text-muted">2020/02/24</small>
                                             </div>
                                             <div class="col-5">
-                                                <input id="postTime" type="time" class="form-control">
+                                                <input id="postTime" type="time" class="form-control" name="postTime">
                                                 <small class="form-text text-muted">10:30 ص</small>
                                             </div>
                                         </div>

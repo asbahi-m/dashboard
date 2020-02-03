@@ -215,12 +215,14 @@
                             <form id="addCate">
                                 <div class="form-group">
                                     <label for="cateName">الاسم:</label>
-                                    <input type="text" class="form-control form-control-sm" id="cateName" required>
+                                    <input type="text" class="form-control form-control-sm" id="cateName" name="cateName" placeholder="اسم التصنيف" required>
+                                    <input type="text" class="form-control form-control-sm lang-en" id="cateName-en" name="cateName-en" placeholder="Category Name">
                                     <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="cateSlug">الاسم المختصر:</label>
-                                    <input type="text" class="form-control form-control-sm" id="cateSlug">
+                                    <input type="text" class="form-control form-control-sm" id="cateSlug" name="cateSlug" placeholder="الاسم المختصر">
+                                    <input type="text" class="form-control form-control-sm lang-en" id="cateSlug-en" name="cateSlug-en" placeholder="Category Short">
                                     <small class="form-text text-muted">شكل رابط التصنيف في الموقع.</small>
                                 </div>
                                 <div class="form-group">
@@ -241,7 +243,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="cateDesc">الوصف:</label>
-                                    <textarea class="form-control form-control-sm" id="cateDesc" row="3"></textarea>
+                                    <textarea class="form-control form-control-sm" id="cateDesc" name="cateDesc" placeholder="الوصف" row="3"></textarea>
+                                    <textarea class="form-control form-control-sm lang-en" id="cateDesc-en" name="cateDesc-en" placeholder="Description" row="3"></textarea>
                                     <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
                                 </div>
                                 <button type="submit" class="btn btn-primary">أضف تصنيف</button>
@@ -262,12 +265,14 @@
                                         <form id="editCate">
                                             <div class="form-group">
                                                 <label for="cateName">الاسم:</label>
-                                                <input type="text" class="form-control form-control-sm" id="cateName" required value="أخبار">
+                                                <input type="text" class="form-control form-control-sm" id="cateName" name="cateName" placeholder="اسم التصنيف" value="أخبار" required>
+                                                <input type="text" class="form-control form-control-sm lang-en" id="cateName-en" name="cateName-en" placeholder="Category Name" value="New">
                                                 <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
                                             </div>
                                             <div class="form-group">
                                                 <label for="cateSlug">الاسم المختصر:</label>
-                                                <input type="text" class="form-control form-control-sm" id="cateSlug" value="أخبار">
+                                                <input type="text" class="form-control form-control-sm" id="cateSlug" name="cateSlug" placeholder="الاسم المختصر" value="أخبار">
+                                                <input type="text" class="form-control form-control-sm lang-en" id="cateSlug-en" name="cateSlug-en" placeholder="Category Short" value="new">
                                                 <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
                                             </div>
                                             <div class="form-group">
@@ -288,7 +293,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="cateDesc">الوصف:</label>
-                                                <textarea class="form-control form-control-sm" id="cateDesc" row="3">القسم الرئيسي لأخبار الموقع</textarea>
+                                                <textarea class="form-control form-control-sm" id="cateDesc" name="cateDesc" placeholder="الوصف" row="3"></textarea>
+                                                <textarea class="form-control form-control-sm lang-en" id="cateDesc-en" name="cateDesc-en" placeholder="Description" row="3"></textarea>
                                                 <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
                                             </div>
                                             <div class="modal-footer">

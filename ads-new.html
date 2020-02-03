@@ -262,7 +262,7 @@
                             <div class="form-group d-flex flex-column flex-sm-row justify-content-end pr-sm-5 sticky-top">
                                 <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- اختيار نموذج -->
                                     <label class="head m-0">النوع:</label>
-                                    <select class="custom-select ml-2" id="postTemplate">
+                                    <select class="custom-select ml-2" id="postTemplate" name="postTemplate">
                                         <option value="image" selected>صورة</option>
                                         <option value="codeHTML">كود HTML</option>
                                         <option value="googleAds">جوجل أدسينس</option>
@@ -271,7 +271,7 @@
 
                                 <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- حالة العرض -->
                                     <label class="head m-0">الحالة:</label>
-                                    <select class="custom-select ml-2" id="postStatus">
+                                    <select class="custom-select ml-2" id="postStatus" name="postStatus">
                                         <option value="publish" selected>منشور</option>
                                         <option value="draft">مسودة</option>
                                         <option value="pending">تحت المراجعة</option>
@@ -288,7 +288,8 @@
                                 <div class="col-lg-9">
                                     <div class="form-group"><!-- العنوان -->
                                         <label class="head" for="postTitle">العنوان:</label>
-                                        <input id="postTitle" type="text" class="form-control" placeholder="إضافة عنوان" required>
+                                        <input id="postTitle" type="text" class="form-control" name="postTitle" placeholder="إضافة عنوان" required>
+                                        <input id="postTitle-en" type="text" class="form-control lang-en" name="postTitle-en" placeholder="Add Title">
                                     </div>
 
                                     <div id="postAdsImg">
@@ -298,14 +299,14 @@
                                                 <img class="img-thumbnail my-2 d-none">
                                             </div>
                                             <div class="custom-file">
-                                                <input id="postImg" type="file" class="custom-file-input" required>
+                                                <input id="postImg" type="file" class="custom-file-input" name="postImg" required>
                                                 <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
                                             </div>
                                         </div>
     
                                         <div class="form-group"><!-- رابط الإعلان -->
                                             <label class="head" for="postImgUrl">رابط الإعلان: <small>(اختياري)</small></label>
-                                            <input id="postImgUrl" type="url" class="form-control" placeholder="http://www..." dir="ltr">
+                                            <input id="postImgUrl" type="url" class="form-control" name="postImgUrl" placeholder="http://www...">
                                             <small class="form-text text-muted">أدخل رابط إعادة توجيه الإعلان</small>
                                         </div>
                                     </div>
@@ -313,19 +314,20 @@
 
                                     <div class="form-group" id="postCode"><!-- كود الإعلان -->
                                         <label class="head" for="postAdsCode">كود الإعلان:</label>
-                                        <textarea id="postAdsCode" class="form-control" rows="3" placeholder="JavaScript or HTML Code" dir="ltr" required></textarea>
+                                        <textarea id="postAdsCode" class="form-control ltr" name="postAdsCode" rows="3" placeholder="JavaScript or HTML Code" required></textarea>
                                     </div>
 
                                     <div class="form-group"><!-- نبذة مختصرة -->
                                         <label class="head" for="postDesc">نبذة مختصرة: <small>(اختياري)</small></label>
-                                        <textarea id="postDesc" class="form-control" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                        <textarea id="postDesc" class="form-control" name="postDesc" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                        <textarea id="postDesc-en" class="form-control lang-en" name="postDesc-en" rows="3" placeholder="Description"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-3">
                                     <div class="form-group"><!-- منطقة الإعلان -->
                                         <label class="head">منطقة الإعلان:</label>
-                                        <select class="custom-select ml-2" id="postLocation">
+                                        <select class="custom-select ml-2" id="postLocation" name="postLocation">
                                             <option value="headerB" selected>أسفل الهيدر</option>
                                             <option value="footerT">أعلى الفوتر</option>
                                             <option value="homeT">أعلى الرئيسية</option>
@@ -341,7 +343,7 @@
 
                                     <div class="form-group"><!-- مساحة الإعلان -->
                                         <label class="head">مساحة الإعلان:</label>
-                                        <select class="custom-select ml-2" id="postArea">
+                                        <select class="custom-select ml-2" id="postArea" name="postArea">
                                             <option value="1" selected>شاشة كاملة</option>
                                             <option value="2">نصف شاشة</option>
                                             <option value="3">ثلث شاشة</option>
@@ -350,12 +352,12 @@
 
                                     <div class="form-group"> <!-- ترتيب العنصر -->
                                         <label class="head" for="postOrder">الترتيب</label>
-                                        <input id="postOrder" type="number" min="0" class="form-control" value="0">
+                                        <input id="postOrder" type="number" class="form-control" name="postOrder" min="0" value="0">
                                     </div>
                                     
                                     <div class="form-group"> <!-- فترة الإعلان -->
                                         <label class="head" for="postLimit">فترة الإعلان</label>
-                                        <input id="postLimit" type="number" min="-1" class="form-control" value="0">
+                                        <input id="postLimit" type="number" class="form-control" name="postLimit" min="-1" value="0">
                                         <small class="form-text text-muted">فترة الإعلان بالأيام، 0 يعني عرض دائم، -1 يعني أن الإعلان منتهي</small>
                                     </div>
                                     
@@ -363,11 +365,11 @@
                                         <label class="head">تاريخ النشر</label>
                                         <div class="form-row">
                                             <div class="col-7">
-                                                <input id="postDate" type="date" class="form-control">
+                                                <input id="postDate" type="date" class="form-control" name="postDate">
                                                 <small class="form-text text-muted">2020/02/24</small>
                                             </div>
                                             <div class="col-5">
-                                                <input id="postTime" type="time" class="form-control">
+                                                <input id="postTime" type="time" class="form-control" name="postTime">
                                                 <small class="form-text text-muted">10:30 ص</small>
                                             </div>
                                         </div>

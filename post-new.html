@@ -262,7 +262,7 @@
                             <div class="form-group d-flex flex-column flex-sm-row justify-content-end pr-sm-5 sticky-top">
                                 <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- اختيار نموذج -->
                                     <label class="head m-0">النموذج:</label>
-                                    <select class="custom-select ml-2" id="postTemplate">
+                                    <select class="custom-select ml-2" id="postTemplate" name="postTemplate">
                                         <option value="default" selected>افتراضي</option>
                                         <option value="new">خبر</option>
                                         <option value="artical">مقال</option>
@@ -274,7 +274,7 @@
 
                                 <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- حالة العرض -->
                                     <label class="head m-0">الحالة:</label>
-                                    <select class="custom-select ml-2" id="postStatus">
+                                    <select class="custom-select ml-2" id="postStatus" name="postStatus">
                                         <option value="publish" selected>منشور</option>
                                         <option value="draft">مسودة</option>
                                         <option value="pending">تحت المراجعة</option>
@@ -291,31 +291,35 @@
                                 <div class="col-lg-9">
                                     <div class="form-group"><!-- العنوان -->
                                         <label class="head" for="postTitle">العنوان:</label>
-                                        <input id="postTitle" type="text" class="form-control" placeholder="إضافة عنوان" required>
+                                        <input id="postTitle" type="text" class="form-control" name="postTitle" placeholder="إضافة عنوان" required>
+                                        <input id="postTitle-en" type="text" class="form-control lang-en" name="postTitle-en" placeholder="Add Title">
                                     </div>
 
                                     <div class="form-group"><!-- محرر النصوص -->
                                         <!-- <label class="head" for="postContent">المحتوى:</label> -->
                                         <textarea id="textEditor" name="postContent"></textarea>
+                                        <textarea id="textEditor-en" class="lang-en" name="postContent-en"></textarea>
                                     </div>
                                     
                                     <div class="form-group"><!-- نبذة مختصرة -->
                                         <label class="head" for="postDesc">نبذة مختصرة: <small>(اختياري)</small></label>
-                                        <textarea id="postDesc" class="form-control" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                        <textarea id="postDesc" class="form-control" name="postDesc" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                        <textarea id="postDesc-en" class="form-control lang-en" name="postDesc-en" rows="3" placeholder="Description"></textarea>
                                     </div>
 
                                     <div class="form-group" id="postSource"><!-- مصدر الخبر -->
                                         <label class="head">مصدر الخبر: <small>(اختياري)</small></label>
                                         <div class="form-group row mx-0">
-                                            <label class="col-sm-3 col-xl-2" for="postSourceTitle">عنوان المصدر:</label>
+                                            <label class="col-sm-3 col-xl-2" for="postSourceName">اسم المصدر:</label>
                                             <div class="col-sm-9 col-xl-10">
-                                                <input id="postSourceTitle" type="text" class="form-control" disabled>
+                                                <input id="postSourceName" type="text" class="form-control" name="postSourceName" placeholder="مصدر الخبر" disabled>
+                                                <input id="postSourceName-en" type="text" class="form-control lang-en" name="postSourceName-en" placeholder="New Source" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group row mx-0">
                                             <label class="col-sm-3 col-xl-2" for="postSourceUrl">الرابط:</label>
                                             <div class="col-sm-9 col-xl-10">
-                                                <input id="postSourceUrl" type="url" class="form-control" disabled>
+                                                <input id="postSourceUrl" type="url" class="form-control" name="postSourceUrl" placeholder="رابط الخبر" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -323,7 +327,7 @@
                                     <div class="form-group" id="postWriter"><!-- كاتب المقال -->
                                         <label class="head" for="postWriterName">كاتب المقال: <small>(اختياري)</small></label>
                                         <div class="form-group row mx-0">
-                                            <select id="postWriterName" class="custom-select col-6">
+                                            <select id="postWriterName" class="custom-select col-6" name="postWriterName">
                                                 <option value="0">بدون كاتب</option>
                                                 <option value="1">محمد سعيد</option>
                                                 <option value="2">قاسم رضا</option>
@@ -339,21 +343,25 @@
 
                                                     <div id="editWriter" class="collapse p-2 border"><!-- بوكس تعديل الكاتب -->
                                                         <label>الاسم الكامل:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerName" placeholder="أدخل اسم الكاتب" value="محمد أحمد علي سعيد">
+                                                        <input type="text" class="form-control form-control-sm" id="writerName" name="writerName" placeholder="أدخل اسم الكاتب" value="محمد أحمد علي سعيد">
+                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerName-en" name="writerName-en" placeholder="Enter Writer" value="Moh'd Ahmed Ali Saeed">
                                                         <hr>
                                                         <label>الاسم المستعار:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname" placeholder="أدخل الاسم المستعار للكاتب" value="محمد سعيد">
+                                                        <input type="text" class="form-control form-control-sm" id="writerNickname" name="writerNickname" placeholder="أدخل الاسم المستعار للكاتب" value="محمد سعيد">
+                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname" value="Moh'd Saeed">
                                                         <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
                                                         <hr>
                                                         <button type="button" id="updateWriter" class="btn btn-primary">تعديل</button>
                                                     </div>
-
+                                                    
                                                     <div id="addWriter" class="collapse p-2 border"><!-- بوكس إضافة كاتب -->
                                                         <label>الاسم الكامل:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerName" placeholder="أدخل اسم الكاتب">
+                                                        <input type="text" class="form-control form-control-sm" id="writerName" name="writerName" placeholder="أدخل اسم الكاتب">
+                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerName-en" name="writerName-en" placeholder="Enter Writer">
                                                         <hr>
                                                         <label>الاسم المستعار:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname" placeholder="أدخل الاسم المستعار للكاتب">
+                                                        <input type="text" class="form-control form-control-sm" id="writerNickname" name="writerNickname" placeholder="أدخل الاسم المستعار للكاتب">
+                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname">
                                                         <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
                                                         <hr>
                                                         <button type="button" id="saveWriter" class="btn btn-primary">إضافة</button>
@@ -369,7 +377,7 @@
                                             <!-- <span><i class='fas fa-times-circle'></i><img class='img-thumbnail mb-3'></span> -->
                                         </div>
                                         <div class="custom-file">
-                                            <input id="postGalleryImg" type="file" class="custom-file-input">
+                                            <input id="postGalleryImg" type="file" class="custom-file-input" name="postGalleryImg">
                                             <label class="custom-file-label" for="postGalleryImg">اختر ملفاً...</label>
                                         </div>
                                         <!-- <img id="postGalleryContent" class="img-thumbnail mt-3"> -->
@@ -377,12 +385,12 @@
 
                                     <div class="form-group" id="postVideo"><!-- تضمين الفيديو -->
                                         <label class="head" for="postVideoCode">تضمين الفيديو: <small>(اختياري)</small></label>
-                                        <textarea id="postVideoCode" class="form-control" rows="3" placeholder="كود تضمين الفيديو من يوتيوب"></textarea>
+                                        <textarea id="postVideoCode" class="form-control ltr" name="postVideoCode" rows="3" placeholder="كود تضمين الفيديو من يوتيوب"></textarea>
                                     </div>
 
                                     <div class="form-group" id="postAudio"><!-- تضمين الصوت -->
                                         <label class="head" for="postAudioCode">تضمين الصوت: <small>(اختياري)</small></label>
-                                        <textarea id="postAudioCode" class="form-control" rows="1" placeholder="رابط المقطع الصوتي"></textarea>
+                                        <textarea id="postAudioCode" class="form-control ltr" name="postAudioCode" rows="1" placeholder="رابط المقطع الصوتي"></textarea>
                                     </div>
                                 </div>
 
@@ -445,7 +453,7 @@
                                             <i class="fas fa-plus-square"></i> <span>أضف تصنيف جديد</span>
                                         </a>
                                         <div id="addItem" class="rounded py-2 bg-white">
-                                            <input type="text" class="form-control form-control-sm mb-3" id="cateName" placeholder="أدخل اسم التصنيف">
+                                            <input type="text" class="form-control form-control-sm mb-3" id="cateName" name="cateName" placeholder="أدخل اسم التصنيف">
                                             <select id="parentCate" class="form-control form-control-sm" name="parentCate">
                                                 <option selected value="-1">بدون</option>
                                                 <option class="level-0" value="7">مقالات</option>
@@ -468,7 +476,7 @@
                                             <img class="img-thumbnail my-2 d-none">
                                         </div>
                                         <div class="custom-file">
-                                            <input id="postImg" type="file" class="custom-file-input">
+                                            <input id="postImg" type="file" class="custom-file-input" name="postImg">
                                             <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
                                         </div>
                                     </div>
@@ -477,11 +485,11 @@
                                         <label class="head">تاريخ النشر</label>
                                         <div class="form-row">
                                             <div class="col-7">
-                                                <input id="postDate" type="date" class="form-control">
+                                                <input id="postDate" type="date" class="form-control postDate" name="postDate">
                                                 <small class="form-text text-muted">2020/02/24</small>
                                             </div>
                                             <div class="col-5">
-                                                <input id="postTime" type="time" class="form-control">
+                                                <input id="postTime" type="time" class="form-control postTime" name="postTime">
                                                 <small class="form-text text-muted">10:30 ص</small>
                                             </div>
                                         </div>

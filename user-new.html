@@ -246,7 +246,7 @@
                                     <div class="form-group d-flex flex-column flex-sm-row justify-content-end pr-sm-5 sticky-top">
                                         <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- رتبة المستخدم -->
                                             <label class="head m-0">الرتبة:</label>
-                                            <select class="custom-select ml-2" id="userRole">
+                                            <select class="custom-select ml-2" id="userRole" name="userRole">
                                                 <option value="subscriber" selected>مشترك</option>
                                                 <option value="contributor">مساهم</option>
                                                 <option value="writer">كاتب</option>
@@ -262,7 +262,7 @@
 
                                     <div class="form-group"><!-- اسم المستخدم -->
                                         <label class="head" for="username">اسم المستخدم:</label>
-                                        <input id="username" type="text" name="username" class="form-control" maxlength="20" pattern="[A-Za-z0-9]{4,20}" title="حروف إنجليزية فقط مع أرقام، من 4 إلى 20 حرف، بدون مسافات بيضاء أو رموز" required>
+                                        <input id="username" type="text" name="username" class="form-control ltr" maxlength="20" pattern="[A-Za-z0-9]{4,20}" title="حروف إنجليزية فقط مع أرقام، من 4 إلى 20 حرف، بدون مسافات بيضاء أو رموز" required>
                                         <small class="form-text text-muted">اسم المستخدم دخول الموقع، يقبل فقط أحرف إنجليزية مع أو بدون أرقام، من 4 إلى 20 حرفاً.</small>
                                     </div>
 
@@ -318,7 +318,7 @@
                                         <label class="head" for="localeControl">لغة لوحة التحكم: <small>(اختياري)</small></label>
                                         <select class="custom-select" id="localeControl" name="localeControl">
                                             <option value="locale-default" selected>اللغة الافتراضية</option>
-                                            <option value="en" lang="ar">English</option>
+                                            <option value="en" lang="en">English</option>
                                             <option value="ar" lang="ar">العربية</option>
                                         </select>
                                         <small class="form-text text-muted">لغة العرض التي تفضلها.</small>

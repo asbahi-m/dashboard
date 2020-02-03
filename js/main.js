@@ -60,13 +60,11 @@ $(document).ready(function() {
     var tablePosts = $("#postsTable").DataTable({
         "columnDefs": [
             { "orderable": false, "targets": 0 },
-            { "orderable": false, "targets": 7 },
             { "orderable": false, "targets": 8 },
             { "searchable": false, "targets": 0 },
             // { "searchable": false, "targets": 4 },
             { "searchable": false, "targets": 5 },
             { "searchable": false, "targets": 6 },
-            { "searchable": false, "targets": 7 },
             { "searchable": false, "targets": 8 }
         ],
         /* فلتر تصفية جدول المحتويات أسفل الجدول بحسب الأعمدة */
@@ -168,7 +166,7 @@ $(document).ready(function() {
     }); */
 
     /* فلتر تصفية جدول المحتويات بحسب الاختيار المخصص فوق الجدول */
-    function filter(table, colCate, colUser, colDate) {
+    function filter(table, colCate, colType, colUser, colDate) {
 
         /* فلتر تصفية جدول المحتويات بحسب التصنيف */
         $("#filter select.get-cate").append($('<option value="">جميع التصنيفات</option>')).on("change", function(){
@@ -179,6 +177,17 @@ $(document).ready(function() {
         table.column(colCate).data().unique().sort().each(function(value, index){
             value = value.replace(/<[^>]*>/g, "");
             $("#filter select.get-cate").append("<option value='" + value + "'>" + value + "</option>");
+        });
+
+        /* فلتر تصفية جدول المحتويات بحسب النوع */
+        $("#filter select.get-type").append($('<option value="">جميع الأنواع</option>')).on("change", function(){
+            table.column(colType) // column(2) This is the column number inside the table.
+            .search($(this).val())
+            .draw();
+        });
+        table.column(colType).data().unique().sort().each(function(value, index){
+            value = value.replace(/<[^>]*>/g, "");
+            $("#filter select.get-type").append("<option value='" + value + "'>" + value + "</option>");
         });
         
         /* فلتر تصفية جدول المحتويات بحسب المحرر */
@@ -223,7 +232,7 @@ $(document).ready(function() {
     }
 
     if (tablePosts.column().data() !== undefined) {
-        filter(tablePosts, 2, 3, 4)
+        filter(tablePosts, 2, 7, 3, 4)
     }
 
     if (tableMedia.column().data() !== undefined) {
@@ -331,9 +340,10 @@ $(document).ready(function() {
     })
 
     /////////////////////////// محرر النصوص في صفحة إضافة محتوى
-    var config = {
+    var config_ar = {
         ui : {
-            locale : 'ar', //sets the editor language to Arabic
+            // autoresize : true,
+            locale : "ar", //sets the editor language to Arabic
             toolbar :  {
                 items : [
                     'undo', 
@@ -355,36 +365,60 @@ $(document).ready(function() {
             }
         }
     };
+    var config_en = {
+        ui : {
+            // autoresize : true,
+            locale : "en", //sets the editor language to Arabic
+            toolbar :  {
+                items : [
+                    'undo', 
+                    'style', 
+                    'emphasis', 
+                    // 'language', 
+                    {
+                        label: 'group.language', items: ['ltrdir', 'rtldir']
+                    },
+                    'align', 
+                    'listindent', 
+                    'format', 
+                    // 'tools', 
+                    {
+                        label: 'group.tools', items: ['find', 'fullscreen', 'usersettings']
+                    },
+                    'insert'
+                ]
+            }
+        }
 
+    };
+    if ($("#textEditor-en").val() !== undefined) {
+        var editor_en = textboxio.replaceAll("#textEditor-en", config_en);
+    }
     if ($("#textEditor").val() !== undefined) {
-        // textboxio.replaceAll('.editableDiv');
-        var editor = textboxio.replaceAll("#textEditor", config);
+        var editor = textboxio.replaceAll("#textEditor", config_ar);
     }
 
     /////////////////////////// إظهار وإخفاء العناصر في صفحة إضافة محتوى بحسب بنية المحتوى أو النموذج
     var postTemplate = $("#postTemplate");
     function elementCase(element, input, val){
         function checkArr(val) {
-            // var checkInput = input.prop("type");
             if ($(postTemplate).val() === val) {
                 $(element).fadeIn();
                 $(input).prop("disabled", false);
             }else {
-                $(element).fadeOut();
+                // $(element).fadeOut();
                 $(input).prop("disabled", true);
             }
         }
         if (typeof val === "object") {
             for (var i=0; i < val.length; i++) {
                 checkArr(val[i]);
-                // alert("Object" + ": " + val[i]);
                 if ($(postTemplate).val() === val[i]) {
                     break
                 }
             }
         }else {
             checkArr(val);
-            // alert("String");
         }
     }
     
@@ -443,7 +477,7 @@ $(document).ready(function() {
     function checkPostTemplate($this) {
         var textDefault = "*افتراضي: صفحة عادية فارغة بمحتوى يدوي.",
             textBlog = "يرجى اختيار التصنيفات التي ستعرض في الصفحة بتخطيط مدونة.",
-            textMulti = "يرجى اختيار التصنيفات التي ستعرض في الصفحة بتخطيط وسائط.";
+            textMedia = "يرجى اختيار التصنيفات التي ستعرض في الصفحة بتخطيط وسائط.";
             textContactUs = "نموذج صفحة التواصل ومراسلة إدارة الموقع.";
         switch ($this.val()) {
             case "blog-grid":
@@ -451,9 +485,9 @@ $(document).ready(function() {
             $this.next().text(textBlog);
                 break;
 
-            case "multi-grid":
+            case "media-grid":
             $(".categories").show();
-            $this.next().text(textMulti);
+            $this.next().text(textMedia);
             break;
 
             case "contact-us":
@@ -525,4 +559,16 @@ $(document).ready(function() {
             $(this).children().toggleClass("fa-eye fa-eye-slash")
         }
     })
+
+    /////////////////////////// اللغة والترجمة
+    // إضافة أيقونة لغة عنصر الإدخال EN
+    $(".lang-en").each(function(){
+        var outerHeight = $(this).outerHeight() > 38 ? 38 : $(this).outerHeight();
+        $(this).after("<span class='lang-name' style=" + 
+        "top:-" + outerHeight + "px;" + 
+        "height:" + outerHeight + "px;" + 
+        "width:" + outerHeight + "px;" + 
+        "padding:" + outerHeight/6 + "px;" + 
+        ">en</span>");
+    });
 });
