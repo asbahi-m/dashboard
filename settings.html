@@ -16,6 +16,7 @@
 
         <!-- JS Files -->
         <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="libraries/popper/popper.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="libraries/DataTables/datatables.min.js"></script>
@@ -252,7 +253,7 @@
                                         <a class="nav-link active" id="generalSettings-tab" data-toggle="tab" href="#generalSettings" role="tab" aria-controls="generalSettings" aria-selected="true">الإعدادات العامة</a>
                                         <a class="nav-link" id="postSettings-tab" data-toggle="tab" href="#postSettings" role="tab" aria-controls="postSettings" aria-selected="false">المحتوى والأقسام</a>
                                         <a class="nav-link" id="socialSettings-tab" data-toggle="tab" href="#socialSettings" role="tab" aria-controls="socialSettings" aria-selected="false">المشاركة والصفحات الاجتماعية</a>
-                                        <a class="nav-link" id="menuSettings-tab" data-toggle="tab" href="#menuSettings" role="tab" aria-controls="menuSettings" aria-selected="false">القائمة الرئيسية (النافبار)</a>
+                                        <a class="nav-link" id="menuSettings-tab" data-toggle="tab" href="#menuSettings" role="tab" aria-controls="menuSettings" aria-selected="false">قوائم الموقع</a>
                                         <a class="nav-link" id="seoSettings-tab" data-toggle="tab" href="#seoSettings" role="tab" aria-controls="seoSettings" aria-selected="false">الأرشفة والخرائط (SEO)</a>
                                     </div>
                                 </div>
@@ -618,13 +619,535 @@
                                             </div>
                                         </div>
 
-                                        <!-- إعدادات القائمة الرئيسية -->
+                                        <!-- إعدادات قوائم الموقع -->
                                         <div class="tab-pane fade" id="menuSettings" role="tabpanel" aria-labelledby="menuSettings-tab">
-                                            الصفحة تحت الإنشاء
+                                            <div class="row">
+                                                <div class="col-lg-5"> <!-- إضافة عناصر للقائمة -->
+                                                    <h5>إضافة عناصر للقائمة</h5>
+                                                    <div class="accordion" id="accordionAddMenu">
+                                                        <div class="card"> <!-- الصفحات --> 
+                                                            <div class="card-header" id="addPage">
+                                                                <h2 class="mb-0">
+                                                                    <a class="btn btn-link d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#pageType" aria-expanded="true" aria-controls="pageType">
+                                                                        <span>صفحات</span><i class="fas fa-angle-down"></i>
+                                                                    </a>
+                                                                </h2>
+                                                            </div>
+                                                            <div id="pageType" class="collapse show" aria-labelledby="addPage" data-parent="#accordionAddMenu">
+                                                                <div class="card-body">
+                                                                    <ul class="page-all">
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="post-114" value="114" type="checkbox" class="custom-control-input" name="menuItem[1]">
+                                                                            <label class="custom-control-label" for="post-114">اتصل بنا</label>
+                                                                        </li>
+                            
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="post-111" value="111" type="checkbox" class="custom-control-input" name="menuItem[2]">
+                                                                            <label class="custom-control-label" for="post-111">من نحن</label>
+                            
+                                                                            <ul class="children">
+                                                                                <li class="custom-control custom-checkbox">
+                                                                                    <input id="post-115" value="115" type="checkbox" class="custom-control-input" name="menuItem[3]">
+                                                                                    <label class="custom-control-label" for="post-115">أهدافنا</label>
+                                                                                </li>
+                                                                                <li class="custom-control custom-checkbox">
+                                                                                    <input id="post-112" value="112" type="checkbox" class="custom-control-input" name="menuItem[4]">
+                                                                                    <label class="custom-control-label" for="post-112">رؤيتنا</label>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <button type="submit" class="btn btn-secondary btn-sm" name="add-page-menuItem">أضف للقائمة</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card"> <!-- التصنيفات --> 
+                                                            <div class="card-header" id="addCate">
+                                                                <h2 class="mb-0">
+                                                                    <a class="btn btn-link d-flex justify-content-between collapsed" type="button" data-toggle="collapse" data-target="#cateType" aria-expanded="false" aria-controls="cateType">
+                                                                        <span>تصنيفات</span><i class="fas fa-angle-down"></i>
+                                                                    </a>
+                                                                </h2>
+                                                            </div>
+                                                            <div id="cateType" class="collapse" aria-labelledby="addCate" data-parent="#accordionAddMenu">
+                                                                <div class="card-body">
+                                                                    <ul class="cate-all">
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="cate-1" value="1" type="checkbox" class="custom-control-input" name="menuItem[5]">
+                                                                            <label class="custom-control-label" for="cate-1">غير مصنف</label>
+                                                                        </li>
+                            
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="cate-2" value="2" type="checkbox" class="custom-control-input" name="menuItem[6]">
+                                                                            <label class="custom-control-label" for="cate-2">أخبار</label>
+                            
+                                                                            <ul class="children">
+                                                                                <li class="custom-control custom-checkbox">
+                                                                                    <input id="cate-6" value="6" type="checkbox" class="custom-control-input" name="menuItem[8]">
+                                                                                    <label class="custom-control-label" for="cate-6">أخبار دولية</label>
+                                                                                </li>
+                                                                                <li class="custom-control custom-checkbox">
+                                                                                    <input id="cate-3" value="3" type="checkbox" class="custom-control-input" name="menuItem[9]">
+                                                                                    <label class="custom-control-label" for="cate-3">أخبار محلية</label>
+                            
+                                                                                    <ul class="children">
+                                                                                        <li class="custom-control custom-checkbox">
+                                                                                            <input id="cate-5" value="5" type="checkbox" class="custom-control-input" name="menuItem[9]">
+                                                                                            <label class="custom-control-label" for="cate-5">أخبار محلية اقتصادية</label>
+                                                                                        </li>
+                                                                                        <li class="custom-control custom-checkbox">
+                                                                                            <input id="cate-4" value="4" type="checkbox" class="custom-control-input" name="menuItem[10]">
+                                                                                            <label class="custom-control-label" for="cate-4">أخبار محلية سياسية</label>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                            
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="cate-7" value="7" type="checkbox" class="custom-control-input" name="menuItem[11]">
+                                                                            <label class="custom-control-label" for="cate-7">مقالات</label>
+                            
+                                                                            <ul class="children">
+                                                                                <li class="custom-control custom-checkbox">
+                                                                                    <input id="cate-9" value="9" type="checkbox" class="custom-control-input" name="menuItem[12]">
+                                                                                    <label class="custom-control-label" for="cate-9">مقالات اقتصادية</label>
+                                                                                </li>
+                                                                                <li class="custom-control custom-checkbox">
+                                                                                    <input id="cate-8" value="8" type="checkbox" class="custom-control-input" name="menuItem[13]">
+                                                                                    <label class="custom-control-label" for="cate-8">مقالات سياسية</label>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <button type="submit" class="btn btn-secondary btn-sm" name="add-cate-menuItem">أضف للقائمة</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card"> <!-- المشاركات والمواضيع --> 
+                                                            <div class="card-header" id="addPost">
+                                                                <h2 class="mb-0">
+                                                                    <a class="btn btn-link d-flex justify-content-between collapsed" type="button" data-toggle="collapse" data-target="#postType" aria-expanded="false" aria-controls="postType">
+                                                                        <span>مشاركات</span><i class="fas fa-angle-down"></i>
+                                                                    </a>
+                                                                </h2>
+                                                            </div>
+                                                            <div id="postType" class="collapse" aria-labelledby="addPost" data-parent="#accordionAddMenu">
+                                                                <div class="card-body">
+                                                                    <ul class="cate-all">
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="post-3" value="3" type="checkbox" class="custom-control-input" name="menuItem[14]">
+                                                                            <label class="custom-control-label" for="post-3">عواصف رملية تهدد بعض دول العالم</label>
+                                                                        </li>
+
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="post-2" value="2" type="checkbox" class="custom-control-input" name="menuItem[15]">
+                                                                            <label class="custom-control-label" for="post-2">مجموعة صور للطبيعة</label>
+                                                                        </li>
+
+                                                                        <li class="custom-control custom-checkbox">
+                                                                            <input id="post-1" value="1" type="checkbox" class="custom-control-input" name="menuItem[16]">
+                                                                            <label class="custom-control-label" for="post-1">كيف تبدأ يومك!</label>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <button type="submit" class="btn btn-secondary btn-sm" name="add-post-menuItem">أضف للقائمة</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card"> <!-- روابط مخصصة --> 
+                                                            <div class="card-header" id="addLinks">
+                                                                <h2 class="mb-0">
+                                                                    <a class="btn btn-link d-flex justify-content-between collapsed" type="button" data-toggle="collapse" data-target="#linksType" aria-expanded="false" aria-controls="linksType">
+                                                                        <span>روابط مخصصة</span><i class="fas fa-angle-down"></i>
+                                                                    </a>
+                                                                </h2>
+                                                            </div>
+                                                            <div id="linksType" class="collapse" aria-labelledby="addLinks" data-parent="#accordionAddMenu">
+                                                                <div class="card-body">
+                                                                        <div class="row">
+                                                                            <label class="col-sm-5 col-xl-4" for="customURL">الرابط:</label>
+                                                                            <div class="col-sm-7 col-xl-8">
+                                                                                <input id="textCustomURL" type="text" class="form-control" name="textCustomURL" value="http://">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row mt-3">
+                                                                            <label class="col-sm-5 col-xl-4" for="textCustomURL">نص الرابط:</label>
+                                                                            <div class="col-sm-7 col-xl-8">
+                                                                                <input id="customURL" type="text" class="form-control" name="customURL">
+                                                                                <input id="customURL-en" type="text" class="form-control lang-en" name="customURL-en">
+                                                                            </div>
+                                                                        </div>
+                                                                    <button type="submit" class="btn btn-secondary btn-sm" name="add-custom-menuItem">أضف للقائمة</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="col-lg-7"> <!-- تركيبة القائمة -->
+                                                    <h5>تركيبة القائمة</h5>
+                                                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center bg-white p-3">
+                                                        <select class="custom-select w-auto">
+                                                            <option>القائمة الأساسية</option>
+                                                            <option>القائمة الثانوية</option>
+                                                        </select>
+                                                        <div class="my-2 my-sm-0 mx-1">
+                                                            <a type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#addMenu">إضافة</a>
+                                                            <a type="button" class="btn btn-light btn-sm mx-1" data-toggle="modal" data-target="#editMenu">تعديل</a>
+                                                            <a type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#deleteMenu">حذف</a>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-info btn-sm ml-auto">حفظ القائمة</button>
+                                                    </div>
+
+                                                    <!-- بوكس إضافة قائمة -->
+                                                    <div id="addMenu" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4>أضف قائمة جديدة</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <input type="text" class="form-control form-control-sm" id="nameMenu" name="nameMenu" placeholder="اسم القائمة" required>
+                                                                    <input type="text" class="form-control form-control-sm lang-en" id="nameMenu-en" name="nameMenu-en" placeholder="Menu Name">
+                                                                    <button type="submit" class="btn btn-primary">أضف القائمة</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- بوكس تعديل القائمة -->
+                                                    <div id="editMenu" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">تعديل القائمة: <strong>القائمة الرئيسية</strong></h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <input type="text" class="form-control form-control-sm" id="nameMenu" name="nameMenu" value="القائمة الرئيسية" required>
+                                                                    <input type="text" class="form-control form-control-sm lang-en" id="nameMenu-en" name="nameMenu-en" value="Menu Primary">
+                                                                    <button type="submit" class="btn btn-primary">تعديل القائمة</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- بوكس حذف القائمة -->
+                                                    <div id="deleteMenu" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">هل تريد حذف القائمة: <strong>القائمة الرئيسية</strong></h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                        
+                                                    <ul id="sortable" class="list-group menu-structure">
+                                                        <li id="menu-item-1" class="list-group-item menu-item-custom">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">الرئيسية</span>
+                                                                <span class="item-type">رابط مخصص</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-1" role="button" aria-expanded="false" aria-controls="edit-menu-item-1">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-1">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-1">الرابط:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-url-1" type="text" class="form-control" name="menu-item-url[1]" value="/">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-1">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-1" type="text" class="form-control" name="menu-item-title[1]" value="الرئيسية">
+                                                                            <input id="menu-item-title-1-en" type="text" class="form-control lang-en" name="menu-item-title-en[1]" value="Home">
+                                                                        </div>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-1" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-2" class="list-group-item menu-item-category">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">أخبار</span>
+                                                                <span class="item-type">تصنيف</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-2" role="button" aria-expanded="false" aria-controls="edit-menu-item-2">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-2">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-2">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-2" type="text" class="form-control" name="menu-item-title[2]" value="أخبار">
+                                                                            <input id="menu-item-title-2-en" type="text" class="form-control lang-en" name="menu-item-title-en[2]" value="News">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-2">الأصل:</label>
+                                                                        <a href="#" target="_blank">أخبار</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-2" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-3" class="list-group-item menu-item-category">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">أخبار محلية</span>
+                                                                <span class="item-type">تصنيف</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-3" role="button" aria-expanded="false" aria-controls="edit-menu-item-3">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-3">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-3">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-3" type="text" class="form-control" name="menu-item-title[3]" value="أخبار محلية">
+                                                                            <input id="menu-item-title-3-en" type="text" class="form-control lang-en" name="menu-item-title-en[3]" value="Local News">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-3">الأصل:</label>
+                                                                        <a href="#" target="_blank">أخبار محلية</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-3" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-4" class="list-group-item menu-item-category">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">أخبار دولية</span>
+                                                                <span class="item-type">تصنيف</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-4" role="button" aria-expanded="false" aria-controls="edit-menu-item-4">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-4">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-4">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-4" type="text" class="form-control" name="menu-item-title[4]" value="أخبار دولية">
+                                                                            <input id="menu-item-title-4-en" type="text" class="form-control lang-en" name="menu-item-title-en[4]" value="International News">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-4">الأصل:</label>
+                                                                        <a href="#" target="_blank">أخبار دولية</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-4" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-5" class="list-group-item menu-item-category">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">مقالات</span>
+                                                                <span class="item-type">تصنيف</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-5" role="button" aria-expanded="false" aria-controls="edit-menu-item-5">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-5">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-5">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-5" type="text" class="form-control" name="menu-item-title[5]" value="مقالات">
+                                                                            <input id="menu-item-title-5-en" type="text" class="form-control lang-en" name="menu-item-title-en[5]" value="Articles">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-5">الأصل:</label>
+                                                                        <a href="#" target="_blank">مقالات</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-5" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-6" class="list-group-item menu-item-category">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">مقالات اقتصادية</span>
+                                                                <span class="item-type">تصنيف</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-6" role="button" aria-expanded="false" aria-controls="edit-menu-item-6">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-6">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-6">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-6" type="text" class="form-control" name="menu-item-title[6]" value="مقالات اقتصادية">
+                                                                            <input id="menu-item-title-6-en" type="text" class="form-control lang-en" name="menu-item-title-en[6]" value="Economic Articles">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-6">الأصل:</label>
+                                                                        <a href="#" target="_blank">مقالات اقتصادية</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-6" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-7" class="list-group-item menu-item-category">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">مقالات سياسية</span>
+                                                                <span class="item-type">تصنيف</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-7" role="button" aria-expanded="false" aria-controls="edit-menu-item-7">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-7">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-7">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-7" type="text" class="form-control" name="menu-item-title[7]" value="مقالات سياسية">
+                                                                            <input id="menu-item-title-7-en" type="text" class="form-control lang-en" name="menu-item-title-en[7]" value="Political Articles">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-7">الأصل:</label>
+                                                                        <a href="#" target="_blank">مقالات سياسية</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-7" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-8" class="list-group-item menu-item-page">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">من نحن</span>
+                                                                <span class="item-type">تصنيف</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-8" role="button" aria-expanded="false" aria-controls="edit-menu-item-8">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-8">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-8">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-8" type="text" class="form-control" name="menu-item-title[8]" value="من نحن">
+                                                                            <input id="menu-item-title-8-en" type="text" class="form-control lang-en" name="menu-item-title-en[8]" value="About Us">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-8">الأصل:</label>
+                                                                        <a href="#" target="_blank">من نحن</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-8" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li id="menu-item-9" class="list-group-item menu-item-post">
+                                                            <div class="card-header d-flex justify-content-between">
+                                                                <span class="item-title">كيف تبدأ يومك!</span>
+                                                                <span class="item-type">مشاركة</span>
+                                                                <a class="edit-menu-item text-dark" data-toggle="collapse" href="#edit-menu-item-9" role="button" aria-expanded="false" aria-controls="edit-menu-item-9">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="collapse" id="edit-menu-item-9">
+                                                                <div class="card-body">
+                                                                    <div class="row mt-3">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-title-9">النص في القائمة:</label>
+                                                                        <div class="col-sm-7 col-xl-8">
+                                                                            <input id="menu-item-title-9" type="text" class="form-control" name="menu-item-title[9]" value="كيف تبدأ يومك!">
+                                                                            <input id="menu-item-title-9-en" type="text" class="form-control lang-en" name="menu-item-title-en[9]" value="How to start your day!">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label class="col-sm-5 col-xl-4" for="menu-item-url-9">الأصل:</label>
+                                                                        <a href="#" target="_blank">كيف تبدأ يومك!</a>
+                                                                    </div>
+                                                                    <a type="button" id="delete-menu-item-9" class="btn btn-light btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                    </ul>
+
+                                                    <div class="menu-options pt-0">
+                                                        <h5>إعدادات القائمة</h5>
+                                                        <div class="form-group">
+                                                            <div class="custom-control custom-checkbox mt-2">
+                                                                <input type="checkbox" id="locations-primary" name="menu-locations[primary]" class="custom-control-input" value="1" checked>
+                                                                <label class="custom-control-label" for="locations-primary">عرض في القائمة الرئيسية.</label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox mt-2">
+                                                                <input type="checkbox" id="locations-footer" name="menu-locations[footer]" class="custom-control-input" value="0">
+                                                                <label class="custom-control-label" for="locations-footer">عرض في قائمة التذييل (الفوتر).</label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox mt-2">
+                                                                <input type="checkbox" id="locations-top-bar" name="menu-locations[top-bar]" class="custom-control-input" value="0">
+                                                                <label class="custom-control-label" for="locations-top-bar">عرض في الشريط الأعلى للغاية.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="tab-pane fade" id="seoSettings" role="tabpanel" aria-labelledby="seoSettings-tab">
-                                            الصفحة تحت الإنشاء
+                                            <div class="form-group row mx-0"><!-- أدوات مشرفي المواقع من جوجل -->
+                                                <label class="head col-sm-4 col-xl-3 col-form-label" for="seoGoogle">أدوات مشرفي المواقع من جوجل:</label>
+                                                <div class="col-sm-8 col-xl-9">
+                                                    <input id="seoGoogle" type="text" name="seoGoogle" class="form-control ltr" value="pMaVcC5LhbMzGHMmKh8nJ7lZy_05Ph6vXckEkwY5kkQ">
+                                                    <small class="form-text text-muted">
+                                                            أدخل رمز التحقق هنا للتحقق من موقع الويب الخاص بك مع "أدوات مشرفي المواقع من جوجل".
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mx-0"><!-- أدوات مشرفي المواقع من بينغ -->
+                                                <label class="head col-sm-4 col-xl-3 col-form-label" for="seoBing">مركز Bing لمسؤولي المواقع:</label>
+                                                <div class="col-sm-8 col-xl-9">
+                                                    <input id="seoBing" type="text" name="seoBing" class="form-control ltr" value="pMaVcC5LhbMzGHMmKh8nJ7lZy_05Ph6vXckEkwY5kkQ">
+                                                    <small class="form-text text-muted">
+                                                            أدخل رمز التحقق هنا للتحقق من موقع الويب الخاص بك مع "أدوات مسؤول الموقع من بينغ".
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mx-0"><!-- معرف إحصائيات جوجل -->
+                                                <label class="head col-sm-4 col-xl-3 col-form-label" for="google_analytics_id">معرف إحصائيات جوجل:</label>
+                                                <div class="col-sm-8 col-xl-9">
+                                                    <input id="google_analytics_id" type="text" name="google_analytics_id" class="form-control ltr" value="UA-42774646-5">
+                                                    <small class="form-text text-muted">
+                                                            أدخل معرف ID احصائيات جوجل هنا لتتبع سلوك الزائرين على موقعك باستخدام احصائيات جوجل.
+                                                    </small>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

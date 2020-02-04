@@ -288,20 +288,25 @@ form .sticky-top {
     margin: 10px 0;
     height: 300px;
 }
-#postAdd .cate-all {
+.cate-all, 
+.page-all {
     padding: 10px;
     border: 1px solid #ccc;
     min-height: 40px;
     max-height: 200px;
     overflow: auto;
 }
-#postAdd .cate-all li {
+.cate-all li, 
+.page-all li {
     margin-top: 10px;
+    font-size: 14px;
 }
-#postAdd .cate-all li .custom-control-label::before {
+.cate-all li .custom-control-label::before, 
+.page-all li .custom-control-label::before {
     border-radius: 0;
 }
-#postAdd .cate-all .children {
+.cate-all .children, 
+.page-all .children {
     padding-right: 10px;
 }
 #postAdd #postSource, 
@@ -512,6 +517,31 @@ form .sticky-top {
         top: 60px;
     }
 }
+#settings #menuSettings h5 {
+    background: #fff;
+    padding: 15px;
+    /* margin-top: 15px; */
+}
+#settings #menuSettings #accordionAddMenu .card-header {
+    padding: 5px;
+}
+#settings #menuSettings #sortable li {
+    margin: 5px 0;
+    padding: 0;
+    cursor: move;
+}
+#settings #menuSettings #sortable li .item-type {
+    margin-right: auto;
+    padding: 0 10px;
+}
+#settings #menuSettings #sortable .item-type {
+    font-size: 14px;
+}
+#settings #menuSettings .menu-options {
+    background: #fff;
+    padding: 15px;
+}
+
 
 
 /* تنسيق الفوتر */

@@ -2,6 +2,12 @@ $(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+/////////////////////////// تمكين السحب والإفلات لعناصر القائمة الرئيسية
+$(function() {
+    $("#sortable").sortable();
+    $("#sortable").disableSelection();
+});
+
 $(document).ready(function() {
     /////////////////////////// الإعدادات الافتراضية للجداول
     $.extend(true, $.fn.dataTable.defaults, {
@@ -308,8 +314,8 @@ $(document).ready(function() {
     });
 
     /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في جدول صفحة التصنيفات
-    $("#categoriesTable tr[lavel]").each(function(){
-        var i = $(this).attr("lavel");
+    $("tr[level]").each(function(){
+        var i = $(this).attr("level");
         var insert = "<i class='fas fa-long-arrow-alt-left mr-1 ml-" + i + "'></i>";
         if (i > 1) {
             for (var x = 1; x < i; x++) {
@@ -320,8 +326,8 @@ $(document).ready(function() {
     });
 
     /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في بوكس إضافة تصنيف جديد
-    $("option[lavel]").each(function(){
-        var i = $(this).attr("lavel");
+    $("option[level]").each(function(){
+        var i = $(this).attr("level");
         var insert = "&nbsp;&nbsp;";
         if (i > 1) {
             for (var x = 1; x < i; x++) {
