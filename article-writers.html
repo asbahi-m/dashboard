@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <title>لوحة التحكم - كتاب المقالات</title>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
+        <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- JS Files -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="libraries/popper/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="libraries/DataTables/datatables.min.js"></script>
+        <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
+        <script src="libraries/textboxio/textboxio.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <header class="d-flex justify-content-between px-2 sticky-top">
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
+            
+            <div class="dropdown ml-auto">
+                <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-comment-medical"></i>
+                        <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 30 دقيقة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-newspaper color"></i>
+                        <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 15 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
+                    </a>
+                    <a class="dropdown-item text-center text-light bg-dark">
+                        <small>عرض جميع الإشعارات <i class="fas fa-angle-double-left"></i></small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
+                    <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-angle-down mx-1"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
+                    <div class="user-info d-flex align-items-center" href="#">
+                        <i class="fas fa-user-circle mr-2"></i>
+                        <div>
+                            <div>مدير الموقع</div>
+                            <small class="text-warning">مسؤول</small>
+                        </div>
+                    </div>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-user-edit"></i>
+                        <span class="mr-2">تحرير الملف الشخصي</span>
+                    </a>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="mr-2">تسجيل الخروج</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- قائمة لوحة التحكم -->
+                <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark">
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <div class="d-md-block collapse" id="menu">
+                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                            <i class="fas fa-user-circle mr-2"></i>
+                            <div>
+                                <div>مدير الموقع</div>
+                                <small class="text-warning">مسؤول</small>
+                            </div>
+                        </div>
+
+                        <ul class="nav flex-column p-0">
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="index.html">
+                                    <i class="fas fa-home mr-3"></i><span>الرئيسية</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center active">
+                                <a class="nav-link" href="categories.html">
+                                    <i class="fas fa-sitemap mr-3"></i><span>تصنيفات الموقع</span>
+                                </a>
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="posts.html">
+                                    <i class="fas fa-file-alt mr-3"></i><span>محتوى الموقع</span>
+                                </a>
+                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-file-medical"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="pages.html">
+                                    <i class="fas fa-clone mr-3"></i><span>صفحات الموقع</span>
+                                </a>
+                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="upload.html">
+                                    <i class="fas fa-images mr-3"></i><span>الوسائط المتعددة</span>
+                                </a>
+                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="ads.html">
+                                    <i class="fas fa-ad mr-3"></i><span>إعلانات الموقع</span>
+                                </a>
+                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="comments.html">
+                                    <i class="fas fa-comment-dots mr-3"></i><span>تعليقات الموقع</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="users.html">
+                                    <i class="fas fa-users mr-3"></i><span>أعضاء الموقع</span>
+                                </a>
+                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-user-plus"></i>
+                                </a>
+                            </li>
+                            
+                            <!-- <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-poll mr-3"></i><span>استطلاعات الرأي</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li> -->
+                            
+                            <!-- <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-mail-bulk mr-3"></i><span>القائمة البريدية</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li> -->
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="analytics.html">
+                                    <i class="fas fa-chart-pie mr-3"></i><span>إحصائيات وأرقام</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="settings.html">
+                                    <i class="fas fa-cogs mr-3"></i><span>إعدادات الموقع</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                
+                <!-- المحتوى الداخلي -->
+                <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
+                    <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
+                        <h2 class="py-2">كتاب المقالات</h2>
+                        <a type="button" class="btn btn-dark d-xl-none text-white" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">
+                            <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
+                        </a>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- بوكس إضافة عنصر جديد -->
+                        <div id="addItem" class="col-xl-3 col-lg-12 rounded py-2 bg-white">
+                            <h4>أضف كاتباً جديداً</h4>
+                            <form id="addWriter">
+                                <div class="form-group">
+                                    <label for="writerName">الاسم الكامل:</label>
+                                    <input type="text" class="form-control form-control-sm" id="writerName" name="writerName" placeholder="اسم الكاتب كاملاً" required>
+                                    <input type="text" class="form-control form-control-sm lang-en" id="writerName-en" name="writerName-en" placeholder="Writer Full Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="writerNickname">الاسم المستعار:</label>
+                                    <input type="text" class="form-control form-control-sm" id="writerNickname" name="writerNickname" placeholder="أدخل الاسم المستعار للكاتب">
+                                    <input type="text" class="form-control form-control-sm lang-en" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname">
+                                    <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
+                                </div>
+                                <div class="form-group"><!-- صورة الملف الشخصي -->
+                                    <label for="postImg">صورة الملف الشخصي:</label>
+                                    <div class="form-group">
+                                        <div id="postImgContent" class="picture-profile col-sm-4">
+                                            <i class="fas fa-user-circle mr-2"></i>
+                                            <img class="rounded-circle border d-none" width="100" height="100">
+                                        </div>
+                                        <div class="custom-file">
+                                            <input id="postImg" type="file" name="pictureProfile" class="custom-file-input postImg">
+                                            <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="saveWriter" class="btn btn-primary">أضف كاتباً</button>
+                            </form>
+                        </div>
+
+                        <!-- بوكس تعديل العنصر -->
+                        <div id="editItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">تعديل الكاتب: <strong>محمد سعيد</strong></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editWriter">
+                                            <div class="form-group">
+                                                <label for="writerName">الاسم الكامل:</label>
+                                                <input type="text" class="form-control form-control-sm" id="writerName" name="writerName" placeholder="اسم الكاتب كاملاً" value="محمد أحمد علي سعيد" required>
+                                                <input type="text" class="form-control form-control-sm lang-en" id="writerName-en" name="writerName-en" placeholder="Writer Full Name" value="Moh'd Ahmed Ali Saeed">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="writerNickname">الاسم المستعار:</label>
+                                                <input type="text" class="form-control form-control-sm" id="writerNickname" name="writerNickname" placeholder="أدخل الاسم المستعار للكاتب" value="محمد سعيد">
+                                                <input type="text" class="form-control form-control-sm lang-en" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname" value="Moh'd Saeed">
+                                                <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
+                                            </div>
+                                            <div class="form-group"><!-- صورة الملف الشخصي -->
+                                                <label for="postImg">صورة الملف الشخصي:</label>
+                                                <div class="form-group">
+                                                    <div id="postImgContent" class="picture-profile col-sm-4">
+                                                        <i class="fas fa-user-circle mr-2"></i>
+                                                        <img class="rounded-circle border d-none" width="100" height="100">
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input id="postImg" type="file" name="pictureProfile" class="custom-file-input postImg">
+                                                        <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" id="updateWriter" class="btn btn-primary">تعديل</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بوكس حذف العنصر -->
+                        <div id="deleteItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">هل تريد حذف الكاتب: <strong>محمد سعيد</strong></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- جدول المحتويات -->
+                        <div id="writersContent" class="table-responsive-lg col-xl-9 col-lg-12">
+
+                            <!-- رسائل الأوامر والعمليات -->
+                            <button type="button" class="btn btn-outline-dark btn-sm MSG d-block ml-auto float-lg-right" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                                Show MSG
+                            </button>
+                            <div id="MSG" class="collapse">
+                                
+                                <!-- رسالة نجاح عملية التعديل -->
+                                <div class="alert alert-success alert-dismissible d-flex" role="alert">
+                                    <span>تم تعديل الكاتب بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                
+                                <!-- رسالة نجاح عملية الحذف -->
+                                <div class="alert alert-warning alert-dismissible d-flex" role="alert">
+                                    <span>تم حذف الكاتب/الكُتاب بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+    
+                                <!-- رسائل فشل عملية الحذف -->
+                                <div class="alert alert-danger alert-dismissible d-flex" role="alert">
+                                    <span>لا يمكن حذف هذا الكاتب لاحتوائه على محتوى!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="ml-auto"><i class="fas fa-exclamation-circle"></i></span>
+                                </div>
+                            </div>
+
+                            <!-- رسالة تحديد العناصر -->
+                            <div class="alert alert-info alert-dismissible selected" role="alert">
+                                <span>تم تحديد <strong class="count"></strong> عنصر/عناصر</span>
+                                <button type="button" class="close" data-dismiss="" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            
+                            <!-- حذف العناصر المحددة -->
+                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
+                                <i class="fas fa-trash"></i><span class="ml-1">حذف المحدد (<strong class="count"></strong>)</span>
+                            </button>
+                            
+                            <!-- محتوى الجدول -->
+                            <table id="writersTable" class="table table-hover table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th id="check" class="column-check" scope="col">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="checkAll" type="checkbox" class="custom-control-input">
+                                                <label class="custom-control-label" for="checkAll"></label>
+                                            </div>
+                                        </th>
+                                        <th id="name" class="column-primary" scope="col">الكاتب
+                                        </th>
+                                        <th id="nickname" scope="col">الاسم المستعار</th>
+                                        <th id="postsNum" scope="col">العدد</th>
+                                        <th id="picture" scope="col">الصورة</th>
+                                        <th id="controlIcons" class="column-control" scope="col">التحكم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="writer-1">
+                                        <th class="column-check" scope="row"></th>
+                                        <td class="column-name column-primary" data-column="الكاتب">بدون كاتب</td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">بدون كاتب</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">10</a></td>
+                                        <td class="column-picture" data-column="الصورة"></td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr id="writer-2">
+                                        <th class="column-check" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-2" type="checkbox" class="custom-control-input" name="writer[]" value="2">
+                                                <label class="custom-control-label" for="check-2"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-name column-primary" data-column="الكاتب">محمد أحمد علي سعيد
+                                        </td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">محمد سعيد</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">7</a></td>
+                                        <td class="column-picture" data-column="الصورة">
+                                            <div class="picture-profile d-flex align-items-center">
+                                                <i class="fas fa-user-circle mr-2"></i>
+                                            </div>
+                                        </td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="writer-3">
+                                        <th class="column-check" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-3" type="checkbox" class="custom-control-input" name="writer[]" value="3">
+                                                <label class="custom-control-label" for="check-3"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-name column-primary" data-column="الكاتب">قاسم صالح رضا
+                                        </td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">قاسم رضا</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">5</a></td>
+                                        <td class="column-picture" data-column="الصورة">
+                                            <div class="picture-profile d-flex align-items-center">
+                                                <i class="fas fa-user-circle mr-2"></i>
+                                            </div>
+                                        </td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr id="writer-4">
+                                        <th class="column-check" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-4" type="checkbox" class="custom-control-input" name="writer[]" value="4">
+                                                <label class="custom-control-label" for="check-4"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-name column-primary" data-column="الكاتب">ملاك أحمد السعدي
+                                        </td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">ملاك أحمد</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">2</a></td>
+                                        <td class="column-picture" data-column="الصورة">
+                                            <div class="picture-profile d-flex align-items-center">
+                                                <i class="fas fa-user-circle mr-2"></i>
+                                            </div>
+                                        </td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
+        </footer>
+    </body>
+</html>

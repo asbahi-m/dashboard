@@ -336,6 +336,17 @@ $(document).ready(function() {
         }
         $(this).prepend(insert);
     });
+    /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في بوكس قوائم الموقع
+    $("li[level]").each(function(){
+        var i = $(this).attr("level");
+        var insert = "30px";
+        if (i > 1) {
+            for (var x = 1; x < i; x++) {
+                insert += "30px";
+            }
+        }
+        $(this).css("margin-right", insert);
+    });
 
     /////////////////////////// تغيير ترتيب محتوى صفوف الجدول في وضع الجوال
     $("table tr").on("expanded", function(event){
@@ -405,21 +416,21 @@ $(document).ready(function() {
     }
 
     /////////////////////////// إظهار وإخفاء العناصر في صفحة إضافة محتوى بحسب بنية المحتوى أو النموذج
-    var postTemplate = $("#postTemplate");
+    var postType = $("#postType");
     function elementCase(element, input, val){
         function checkArr(val) {
-            if ($(postTemplate).val() === val) {
+            if ($(postType).val() === val) {
                 $(element).fadeIn();
                 $(input).prop("disabled", false);
             }else {
-                // $(element).fadeOut();
+                $(element).fadeOut();
                 $(input).prop("disabled", true);
             }
         }
         if (typeof val === "object") {
             for (var i=0; i < val.length; i++) {
                 checkArr(val[i]);
-                if ($(postTemplate).val() === val[i]) {
+                if ($(postType).val() === val[i]) {
                     break
                 }
             }
@@ -430,51 +441,51 @@ $(document).ready(function() {
     
     // إظهار عنصر (مصدر الخبر) إذا كانت بنية المحتوى: خبر
     elementCase("#postSource", "#postSource input", "new");
-    $("#postTemplate").change(function(){
+    $("#postType").change(function(){
         elementCase("#postSource", "#postSource input", "new");
     });
     
     // إظهار عنصر (كاتب المقال) إذا كانت بنية المحتوى: مقال
     elementCase("#postWriter", "#postWriter select, #postWriter input", "artical");
-    $("#postTemplate").change(function(){
+    $("#postType").change(function(){
         elementCase("#postWriter", "#postWriter select, #postWriter input", "artical");
     });
 
     // إخفاء بوكس إضافة كاتب عند الضغط على أيقونة تعديل كاتب، والعكس
-    $("[data-target='#editWriter']").click(function(){
-        $("#addWriter").removeClass("show");
-    });
-    $("[data-target='#addWriter']").click(function(){
-        $("#editWriter").removeClass("show");
-    });
+    // $("[data-target='#editWriter']").click(function(){
+    //     $("#addWriter").removeClass("show");
+    // });
+    // $("[data-target='#addWriter']").click(function(){
+    //     $("#editWriter").removeClass("show");
+    // });
 
     // إظهار عنصر (معرض الصور) إذا كانت بنية المحتوى: معرض صور
     elementCase("#postGallery", "#postGallery input", "gallery");
-    $("#postTemplate").change(function(){
+    $("#postType").change(function(){
         elementCase("#postGallery", "#postGallery input", "gallery");
     });
 
     // إظهار عنصر (تضمين الفيديو) إذا كانت بنية المحتوى: فيديو
     elementCase("#postVideo", "#postVideo textarea", "video");
-    $("#postTemplate").change(function(){
+    $("#postType").change(function(){
         elementCase("#postVideo", "#postVideo textarea", "video");
     });
     
     // إظهار عنصر (تضمين الصوت) إذا كانت بنية المحتوى: صوت
     elementCase("#postAudio", "#postAudio textarea", "audio");
-    $("#postTemplate").change(function(){
+    $("#postType").change(function(){
         elementCase("#postAudio", "#postAudio textarea", "audio");
     });
 
     // إظهار عنصر (مصدر ورابط الصورة) إذا كان نوع الإعلان: صورة HTML
     elementCase("#postAdsImg", "#postAdsImg input", "image");
-    $("#postTemplate").change(function(){
+    $("#postType").change(function(){
         elementCase("#postAdsImg", "#postAdsImg input", "image");
     });
     
     // إظهار عنصر (كود الإعلان) إذا كان نوع الإعلان: جوجل أدسينس أو كود HTML
     elementCase("#postCode", "#postCode textarea", ["codeHTML", "googleAds"]);
-    $("#postTemplate").change(function(){
+    $("#postType").change(function(){
         elementCase("#postCode", "#postCode textarea", ["codeHTML", "googleAds"]);
     });
 
@@ -531,9 +542,9 @@ $(document).ready(function() {
     })
 
     /////////////////////////// إضافة الصورة في بوكس الصورة البارزة وإظهارها مباشرةً
-    $("#postImg").change(function(){
-        $("#postImgContent img").addClass("d-block").removeClass("d-none");
-        $("#postImgContent i").remove();
+    $("#postImg, .postImg").change(function(){
+        $(this).parent().parent().find("#postImgContent img").addClass("d-block").removeClass("d-none");
+        $(this).parent().parent().find("#postImgContent i").remove();
         var fReader = new FileReader();
         fReader.readAsDataURL(this.files[0]);
         var imgContent = $(this).parent().parent().find("img")[0];

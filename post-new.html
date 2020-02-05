@@ -262,7 +262,7 @@
                             <div class="form-group d-flex flex-column flex-sm-row justify-content-end pr-sm-5 sticky-top">
                                 <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- اختيار نموذج -->
                                     <label class="head m-0">النموذج:</label>
-                                    <select class="custom-select ml-2" id="postTemplate" name="postTemplate">
+                                    <select class="custom-select ml-2" id="postType" name="postType">
                                         <option value="default" selected>افتراضي</option>
                                         <option value="new">خبر</option>
                                         <option value="artical">مقال</option>
@@ -326,46 +326,31 @@
 
                                     <div class="form-group" id="postWriter"><!-- كاتب المقال -->
                                         <label class="head" for="postWriterName">كاتب المقال: <small>(اختياري)</small></label>
-                                        <div class="form-group row mx-0">
-                                            <select id="postWriterName" class="custom-select col-6" name="postWriterName">
+                                        <div class="form-group d-flex">
+                                            <select id="postWriterName" class="custom-select w-auto" name="postWriterName">
                                                 <option value="0">بدون كاتب</option>
                                                 <option value="1">محمد سعيد</option>
                                                 <option value="2">قاسم رضا</option>
                                                 <option value="3">ملاك أحمد</option>
                                             </select>
 
-                                            <div class="col-6 d-flex justify-content-around">
-                                                <div class="writer-img"><i class="fas fa-user-circle"></i></div>
+                                            <div class="writer-img mx-3"><i class="fas fa-user-circle"></i></div>
 
-                                                <div>
-                                                    <a type="button" class="btn btn-light" data-toggle="collapse" data-target="#editWriter" aria-expanded="false" aria-controls="editWriter">تعديل الكاتب</a>
-                                                    <a type="button" class="btn btn-light" data-toggle="collapse" data-target="#addWriter" aria-expanded="false" aria-controls="addWriter">إضافة كاتب</a>
-
-                                                    <div id="editWriter" class="collapse p-2 border"><!-- بوكس تعديل الكاتب -->
-                                                        <label>الاسم الكامل:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerName" name="writerName" placeholder="أدخل اسم الكاتب" value="محمد أحمد علي سعيد">
-                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerName-en" name="writerName-en" placeholder="Enter Writer" value="Moh'd Ahmed Ali Saeed">
-                                                        <hr>
-                                                        <label>الاسم المستعار:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname" name="writerNickname" placeholder="أدخل الاسم المستعار للكاتب" value="محمد سعيد">
-                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname" value="Moh'd Saeed">
-                                                        <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
-                                                        <hr>
-                                                        <button type="button" id="updateWriter" class="btn btn-primary">تعديل</button>
-                                                    </div>
-                                                    
-                                                    <div id="addWriter" class="collapse p-2 border"><!-- بوكس إضافة كاتب -->
-                                                        <label>الاسم الكامل:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerName" name="writerName" placeholder="أدخل اسم الكاتب">
-                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerName-en" name="writerName-en" placeholder="Enter Writer">
-                                                        <hr>
-                                                        <label>الاسم المستعار:</label>
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname" name="writerNickname" placeholder="أدخل الاسم المستعار للكاتب">
-                                                        <input type="text" class="form-control form-control-sm lang-en" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname">
-                                                        <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
-                                                        <hr>
-                                                        <button type="button" id="saveWriter" class="btn btn-primary">إضافة</button>
-                                                    </div>
+                                            <div>
+                                                <a type="button" class="btn btn-info text-white" data-toggle="collapse" data-target="#addWriter" aria-expanded="false" aria-controls="addWriter">إضافة كاتب</a>
+                                                <a class="btn btn-light" href="article-writers.html" target="_blank">إدارة الكُتاب</a>
+                                                
+                                                <div id="addWriter" class="collapse p-2 border mt-2"><!-- بوكس إضافة كاتب -->
+                                                    <label>الاسم الكامل:</label>
+                                                    <input type="text" class="form-control form-control-sm" id="writerName" name="writerName" placeholder="اسم الكاتب كاملاً" required>
+                                                    <input type="text" class="form-control form-control-sm lang-en" id="writerName-en" name="writerName-en" placeholder="Writer Full Name">
+                                                    <hr>
+                                                    <label>الاسم المستعار:</label>
+                                                    <input type="text" class="form-control form-control-sm" id="writerNickname" name="writerNickname" placeholder="أدخل الاسم المستعار للكاتب">
+                                                    <input type="text" class="form-control form-control-sm lang-en" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname">
+                                                    <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
+                                                    <hr>
+                                                    <button type="button" id="saveWriter" class="btn btn-info">أضف كاتباً</button>
                                                 </div>
                                             </div>
                                         </div>
