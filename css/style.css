@@ -61,23 +61,29 @@ a, a:link {
 .MSG {
     opacity: .5;
 }
-.lang-en {
+.lang-en, 
+.lang-ar {
     margin-top: 10px;
+    position: relative;
 }
 .lang-name {
-    position: relative;
+    position: absolute;
+    top: 0;
     display: block;
     max-height: 38px;
     max-width: 38px;
     padding: 5px;
-    border-top-right-radius: .25rem;
-    border-bottom-right-radius: .25rem;
     text-align: center;
     background: #ced4da;
     z-index: 111;
 }
-#ephox_textEditor-en {
-    height: 300px !important;
+.lang-ar .lang-name {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+.lang-en .lang-name {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
 }
 
 
@@ -284,7 +290,8 @@ form .sticky-top {
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
 }
-#postAdd #textEditor {
+#postAdd #textEditor-ar, 
+#postAdd #textEditor-en {
     margin: 10px 0;
     height: 300px;
 }

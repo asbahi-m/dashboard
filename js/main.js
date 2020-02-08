@@ -1,11 +1,11 @@
 $(function() {
     $('[data-toggle="tooltip"]').tooltip();
-});
 
-/////////////////////////// تمكين السحب والإفلات لعناصر القائمة الرئيسية
-$(function() {
-    $("#sortable").sortable();
-    $("#sortable").disableSelection();
+    /////////////////////////// تمكين السحب والإفلات لعناصر القائمة الرئيسية
+    if ($("#sortable").val() !== undefined) {
+        $("#sortable").sortable();
+        $("#sortable").disableSelection();
+    }
 });
 
 $(document).ready(function() {
@@ -57,6 +57,19 @@ $(document).ready(function() {
             { "orderable": false, "targets": 0 },
             { "orderable": false, "targets": 5 },
             { "searchable": false, "targets": 0 },
+            { "searchable": false, "targets": 4 },
+            { "searchable": false, "targets": 5 }
+        ]
+    });
+
+    /////////////////////////// إعدادات وتفعيل جدول كُتاب المقالات
+    $('#writersTable').DataTable({
+        "columnDefs": [
+            { "orderable": false, "targets": 0 },
+            { "orderable": false, "targets": 4 },
+            { "orderable": false, "targets": 5 },
+            { "searchable": false, "targets": 0 },
+            { "searchable": false, "targets": 3 },
             { "searchable": false, "targets": 4 },
             { "searchable": false, "targets": 5 }
         ]
@@ -411,8 +424,8 @@ $(document).ready(function() {
     if ($("#textEditor-en").val() !== undefined) {
         var editor_en = textboxio.replaceAll("#textEditor-en", config_en);
     }
-    if ($("#textEditor").val() !== undefined) {
-        var editor = textboxio.replaceAll("#textEditor", config_ar);
+    if ($("#textEditor-ar").val() !== undefined) {
+        var editor = textboxio.replaceAll("#textEditor-ar", config_ar);
     }
 
     /////////////////////////// إظهار وإخفاء العناصر في صفحة إضافة محتوى بحسب بنية المحتوى أو النموذج
@@ -579,13 +592,17 @@ $(document).ready(function() {
 
     /////////////////////////// اللغة والترجمة
     // إضافة أيقونة لغة عنصر الإدخال EN
-    $(".lang-en").each(function(){
+    $(".lang-ar input, .lang-ar textarea, .lang-en input, .lang-en textarea").each(function(){
+        var lang = $(this).parent().hasClass("lang-ar") ? "ar" : "en";
+        var rtl = $(this).parent().hasClass("lang-ar") ? "left" : "right";
         var outerHeight = $(this).outerHeight() > 38 ? 38 : $(this).outerHeight();
-        $(this).after("<span class='lang-name' style=" + 
-        "top:-" + outerHeight + "px;" + 
+        $(this).parent().append("<span class='lang-name' style=" + 
+        rtl + ":0;" +
+        // "top:-" + outerHeight + "px;" + 
         "height:" + outerHeight + "px;" + 
         "width:" + outerHeight + "px;" + 
-        "padding:" + outerHeight/6 + "px;" + 
-        ">en</span>");
+        "padding:" + outerHeight/6 + "px;>" + 
+        lang + 
+        "</span>");
     });
 });

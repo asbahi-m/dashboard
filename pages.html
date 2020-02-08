@@ -66,7 +66,7 @@
                         <i class="fas fa-user-circle mr-2"></i>
                         <div>
                             <div>مدير الموقع</div>
-                            <small class="text-warning">مسؤول</small>
+                            <small class="text-warning">مدير</small>
                         </div>
                     </div>
                     <a class="dropdown-item text-muted" href="#">
@@ -94,7 +94,7 @@
                             <i class="fas fa-user-circle mr-2"></i>
                             <div>
                                 <div>مدير الموقع</div>
-                                <small class="text-warning">مسؤول</small>
+                                <small class="text-warning">مدير</small>
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="upload.html">
-                                    <i class="fas fa-images mr-3"></i><span>الوسائط المتعددة</span>
+                                    <i class="fas fa-images mr-3"></i><span>مكتبة الوسائط</span>
                                 </a>
                                 <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -311,7 +311,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="post-114" class="level-0">
+                                <tr id="post-114" class="status-publish level-0">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-114" type="checkbox" class="custom-control-input" name="post[]" value="114">
@@ -325,6 +325,9 @@
                                     <td class="column-visitsNum" data-column="المشاهدات">300</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-info btn-sm edit" href="#" target="_blank">
+                                                <i class="fas fa-globe"></i><span class="d-none d-lg-inline-block ml-1">معاينة</span>
+                                            </a>
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="page-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
@@ -335,7 +338,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="post-111" class="level-0 hasChildren">
+                                <tr id="post-111" class="status-publish level-0 hasChildren">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-111" type="checkbox" class="custom-control-input" name="post[]" value="111">
@@ -349,6 +352,9 @@
                                     <td class="column-visitsNum" data-column="المشاهدات">500</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-info btn-sm edit" href="#" target="_blank">
+                                                <i class="fas fa-globe"></i><span class="d-none d-lg-inline-block ml-1">معاينة</span>
+                                            </a>
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="page-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
@@ -359,7 +365,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="post-115" class="level-1" level="1">
+                                <tr id="post-115" class="status-publish level-1" level="1">
                                     <th class="column-check" scope="row">
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-115" type="checkbox" class="custom-control-input" name="post[]" value="115">
@@ -373,6 +379,9 @@
                                     <td class="column-visitsNum" data-column="المشاهدات">500</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-info btn-sm edit" href="#" target="_blank">
+                                                <i class="fas fa-globe"></i><span class="d-none d-lg-inline-block ml-1">معاينة</span>
+                                            </a>
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="page-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
@@ -383,20 +392,23 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="post-112" class="level-1" level="1">
+                                <tr id="post-112" class="status-draft level-1" level="1">
                                     <th class="column-check" scope="row">
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-112" type="checkbox" class="custom-control-input" name="post[]" value="112">
                                             <label class="custom-control-label" for="check-112"></label>
                                         </div>
                                     </th>
-                                    <td class="column-title column-primary child-name" data-column="العنوان"><a href="page-edit.html">رؤيتنا</a></td>
+                                    <td class="column-title column-primary child-name" data-column="العنوان"><a href="page-edit.html">رؤيتنا</a><span> - (مسودة)</span></td>
                                     <td class="column-author" data-column="المحرر"><a href="#">مدير الموقع</a></td>
                                     <td class="column-date" data-column="التاريخ"><small>2019-11-22</small></td>
                                     <td class="column-commentsNum" data-column="التعليقات"><a href="#">10</a></td>
                                     <td class="column-visitsNum" data-column="المشاهدات">500</td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
+                                            <a type="button" class="btn btn-outline-info btn-sm edit" href="#" target="_blank">
+                                                <i class="fas fa-globe"></i><span class="d-none d-lg-inline-block ml-1">معاينة</span>
+                                            </a>
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="page-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>

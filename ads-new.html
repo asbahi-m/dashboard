@@ -66,7 +66,7 @@
                         <i class="fas fa-user-circle mr-2"></i>
                         <div>
                             <div>مدير الموقع</div>
-                            <small class="text-warning">مسؤول</small>
+                            <small class="text-warning">مدير</small>
                         </div>
                     </div>
                     <a class="dropdown-item text-muted" href="#">
@@ -94,7 +94,7 @@
                             <i class="fas fa-user-circle mr-2"></i>
                             <div>
                                 <div>مدير الموقع</div>
-                                <small class="text-warning">مسؤول</small>
+                                <small class="text-warning">مدير</small>
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="upload.html">
-                                    <i class="fas fa-images mr-3"></i><span>الوسائط المتعددة</span>
+                                    <i class="fas fa-images mr-3"></i><span>مكتبة الوسائط</span>
                                 </a>
                                 <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -288,8 +288,12 @@
                                 <div class="col-lg-9">
                                     <div class="form-group"><!-- العنوان -->
                                         <label class="head" for="postTitle">العنوان:</label>
-                                        <input id="postTitle" type="text" class="form-control" name="postTitle" placeholder="إضافة عنوان" required>
-                                        <input id="postTitle-en" type="text" class="form-control lang-en" name="postTitle-en" placeholder="Add Title">
+                                        <div class="lang-ar">
+                                            <input id="postTitle-ar" type="text" class="form-control" name="postTitle-ar" placeholder="إضافة عنوان" required>
+                                        </div>
+                                        <div class="lang-en">
+                                            <input id="postTitle-en" type="text" class="form-control" name="postTitle-en" placeholder="Add Title">
+                                        </div>
                                     </div>
 
                                     <div id="postAdsImg">
@@ -319,8 +323,12 @@
 
                                     <div class="form-group"><!-- نبذة مختصرة -->
                                         <label class="head" for="postDesc">نبذة مختصرة: <small>(اختياري)</small></label>
-                                        <textarea id="postDesc" class="form-control" name="postDesc" rows="3" placeholder="نبذة مختصرة"></textarea>
-                                        <textarea id="postDesc-en" class="form-control lang-en" name="postDesc-en" rows="3" placeholder="Description"></textarea>
+                                        <div class="lang-ar">
+                                            <textarea id="postDesc-ar" class="form-control" name="postDesc-ar" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                        </div>
+                                        <div class="lang-en">
+                                            <textarea id="postDesc-en" class="form-control" name="postDesc-en" rows="3" placeholder="Description"></textarea>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -336,8 +344,8 @@
                                             <option value="sidebarB">أسفل القائمة الجانبية</option>
                                             <option value="categoryT">أعلى الأقسام</option>
                                             <option value="categoryB">أسفل الأقسام</option>
-                                            <option value="postT">أعلى المواضيع</option>
-                                            <option value="postB">أسفل المواضيع</option>
+                                            <option value="postT">أعلى المشاركات</option>
+                                            <option value="postB">أسفل المشاركات</option>
                                         </select>
                                     </div>
 
