@@ -105,6 +105,9 @@ nav #menu .nav-item:hover {
     -webkit-transition: all .3s;
     transition: all .3s;
 }
+header .logo img {
+    max-height: 40px;
+}
 header .badge {
     position: relative;
     top: -10px;
@@ -119,16 +122,39 @@ header .dropdown-menu .dropdown-item i {
     width: 20px;
     margin-left: 3px;
 }
-header .dropdown-menu .fa-comment-medical {
+header #Notices .dropdown-menu {
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+header #Notices .dropdown-menu #showNotices[aria-expanded=true] {
+    position: sticky;
+    bottom: 0;
+}
+header #Notices .dropdown-menu .dropdown-item .fa-comment-medical {
     color: #17a2b8;
 }
-header .dropdown-menu .fa-newspaper {
+header #Notices .dropdown-menu .dropdown-item .fa-newspaper {
     color: #28a745;
 }
-header .dropdown-menu .fa-user-plus {
+header #Notices .dropdown-menu .dropdown-item .fa-user-plus {
     color: #dc3545;
 }
-header .dropdown #dropdownUser .fa-user-circle {
+header #Notices .dropdown-menu .dropdown-item.new {
+    position: relative;
+}
+header #Notices .dropdown-menu .dropdown-item.new span.new {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 3px;
+    border-radius: 3px;
+    background: #ffc107;
+    color: #dc3545;
+    font-size: 12px;
+    font-weight: 600;
+}
+header .dropdown #dropdownUser .dropdown-item .fa-user-circle {
     font-size: 20px;
     margin-right: 5px;
 }

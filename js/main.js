@@ -9,6 +9,23 @@ $(function() {
 });
 
 $(document).ready(function() {
+    /////////////////////////// تنسيق صندوق الإشعارات في النافبار
+    $("#showNotices").click(function() {
+        var $this = $(this);
+        $("#Notices").dropdown("dispose");
+        
+        $("#allNotices").on("shown.bs.collapse", function () {
+            $this.find("span").text("إغلاق صندوق الإشعارات")
+            $("#Notices").dropdown("show");
+        })
+
+        $("#allNotices").on("hidden.bs.collapse", function () {
+            $this.find("span").text("عرض جميع الإشعارات")
+            $("#Notices").dropdown("hide");
+        })
+    })
+    $("#Notices .dropdown-item.new").append("<span class='new'>new</span>")
+
     /////////////////////////// الإعدادات الافتراضية للجداول
     $.extend(true, $.fn.dataTable.defaults, {
         // "dom": "lfrtip",

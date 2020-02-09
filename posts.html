@@ -6,6 +6,7 @@
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" type="image/png" href="images/favicon.png">
 
         <!-- CSS Files -->
         <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
@@ -16,6 +17,7 @@
 
         <!-- JS Files -->
         <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="libraries/jquery-ui/jquery-ui.min.js"></script>
         <script src="libraries/popper/popper.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="libraries/DataTables/datatables.min.js"></script>
@@ -26,31 +28,107 @@
 
     <body>
         <header class="d-flex justify-content-between px-2 sticky-top">
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم الموقع</span></a>
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">الموقع الرئيسي</span></a>
+            <span class="d-flex align-items-center logo"><img src="images/logo.png" width=32 height=32></span>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم مطور الويب</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">صفحة الموقع</span></a>
             
-            <div class="dropdown ml-auto">
+            <div id="Notices" class="dropdown ml-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
-                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                    <!-- عرض ثابت لآخر 5 إشعارات -->
+                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
                         <i class="fas fa-comment-medical"></i>
                         <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
                         <small class="ml-auto">قبل 30 دقيقة</small>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
                         <i class="fas fa-newspaper color"></i>
                         <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
                         <small class="ml-auto">قبل 15 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
                     </a>
                     <a class="dropdown-item d-flex align-items-center text-muted" href="#">
                         <i class="fas fa-user-plus"></i>
                         <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
                         <small class="ml-auto">قبل 1 يوم</small>
                     </a>
-                    <a class="dropdown-item text-center text-light bg-dark">
-                        <small>عرض جميع الإشعارات <i class="fas fa-angle-double-left"></i></small>
+                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
+                    </a>
+
+                    <!-- عرض جميع الإشعارات -->
+                    <div class="collapse" id="allNotices">
+                        <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 30 دقيقة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-newspaper color"></i>
+                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 15 ساعة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-user-plus"></i>
+                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">قبل 1 يوم</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 30 دقيقة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-newspaper color"></i>
+                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 15 ساعة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-user-plus"></i>
+                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">قبل 1 يوم</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 30 دقيقة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-newspaper color"></i>
+                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 15 ساعة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-user-plus"></i>
+                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">قبل 1 يوم</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 30 دقيقة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-newspaper color"></i>
+                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">قبل 15 ساعة</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                            <i class="fas fa-user-plus"></i>
+                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">قبل 1 يوم</small>
+                        </a>
+                    </div>
+                    <a type="button" id="showNotices" class="text-center text-light bg-dark btn btn-primary" data-toggle="collapse" href="#allNotices" role="button" aria-expanded="false" aria-controls="allNotices">
+                        <small><span>عرض جميع الإشعارات</span> <i class="fas fa-angle-double-left"></i></small>
                     </a>
                 </div>
             </div>
@@ -426,7 +504,7 @@
         </div>
 
         <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
-            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">محمد الأصبحي</a></span>
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>|<span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
         </footer>
     </body>
 </html>
