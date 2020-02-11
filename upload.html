@@ -298,13 +298,13 @@
                                 <form class="d-flex flex-column h-100">
                                     <div class="modal-body">
                                         <div class="form-row">
-                                            <div class="col-md-8 text-center">
+                                            <div class="col-md-8 col-xl-9 text-center files">
                                                 <div class="media-source">
                                                     <img src="uploads/2020/01/خلفية-صحراء-1024×1024.jpg" alt="...">
                                                 </div>
                                                 <a type="button" class="btn btn-light text-center mt-3" href="#">تحرير الصورة</a>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xl-3 file-info">
                                                 <div class="form-group">
                                                     <label for="mediaName">العنوان:</label>
                                                     <div class="lang-ar">
@@ -380,7 +380,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">هل تريد حذف المحتوى: <strong>خلفية صحراء</strong></h5>
+                                    <h5 class="modal-title">هل تريد حذف الملف: <strong>خلفية صحراء</strong></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -463,9 +463,14 @@
                                 <i class="fas fa-trash"></i><span class="ml-1">حذف المحدد (<strong class="count"></strong>)</span>
                             </button>
                         </div>
-                        
+
+                        <!-- تخطيط الجدول -->
+                        <div class="viewSwitch float-left">
+                            <a id="viewList" type="button" class="btn btn-light"><i class="fas fa-th-list"></i></a>
+                            <a id="viewGrid" type="button" class="btn btn-primary current"><i class="fas fa-th"></i></a>
+                        </div>
                         <!-- محتوى الجدول -->
-                        <table id="mediaTable" class="table table-hover table-bordered">
+                        <table id="mediaTable" class="table table-hover table-bordered grid">
                             <thead class="thead-light">
                                 <tr>
                                     <th id="check" class="column-check" scope="col">
@@ -482,7 +487,241 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="media-3" class="status-publish">
+                                <tr id="media-12" class="type-image">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-12" type="checkbox" class="custom-control-input" name="media[]" value="12">
+                                            <label class="custom-control-label media-icon" for="check-12">
+                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-12-27</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-11" class="type-image">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-11" type="checkbox" class="custom-control-input" name="media[]" value="11">
+                                            <label class="custom-control-label media-icon" for="check-11">
+                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-11-18</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-10" class="type-document">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-10" type="checkbox" class="custom-control-input" name="media[]" value="10">
+                                            <label class="custom-control-label media-icon" for="check-10">
+                                                <span class="img-thumbnail"><i class="fas fa-file-pdf"></i></span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">الجمهورية اليمنية</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى">غير مرفق</td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-10-11</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-9" class="type-image">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-9" type="checkbox" class="custom-control-input" name="media[]" value="9">
+                                            <label class="custom-control-label media-icon" for="check-9">
+                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-09-01</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-8" class="type-image">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-8" type="checkbox" class="custom-control-input" name="media[]" value="8">
+                                            <label class="custom-control-label media-icon" for="check-8">
+                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-08-27</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-7" class="type-document">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-7" type="checkbox" class="custom-control-input" name="media[]" value="7">
+                                            <label class="custom-control-label media-icon" for="check-7">
+                                                <span class="img-thumbnail"><i class="fas fa-file-pdf"></i></span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">الجمهورية اليمنية</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى">غير مرفق</td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-07-22</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-6" class="type-image">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-6" type="checkbox" class="custom-control-input" name="media[]" value="6">
+                                            <label class="custom-control-label media-icon" for="check-6">
+                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-06-12</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-5" class="type-image">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-5" type="checkbox" class="custom-control-input" name="media[]" value="5">
+                                            <label class="custom-control-label media-icon" for="check-5">
+                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-05-07</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-4" class="type-document">
+                                    <th class="column-check details-control" scope="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input id="check-4" type="checkbox" class="custom-control-input" name="media[]" value="4">
+                                            <label class="custom-control-label media-icon" for="check-4">
+                                                <span class="img-thumbnail"><i class="fas fa-file-pdf"></i></span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">الجمهورية اليمنية</a></td>
+                                    <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                    <td class="column-uploadedTo" data-column="مرفوع إلى">غير مرفق</td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-04-06</small></td>
+                                    <td class="column-control" data-column="التحكم">
+                                        <div class="icons-control">
+                                            <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
+                                                <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr id="media-3" class="type-image">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-3" type="checkbox" class="custom-control-input" name="media[]" value="3">
@@ -494,7 +733,7 @@
                                     <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
                                     <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
                                     <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>2019-11-21</small></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-03-21</small></td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
@@ -508,7 +747,7 @@
                                     </td>
                                 </tr>
 
-                                <tr id="media-2" class="status-publish">
+                                <tr id="media-2" class="type-image">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-2" type="checkbox" class="custom-control-input" name="media[]" value="2">
@@ -520,7 +759,7 @@
                                     <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
                                     <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
                                     <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
-                                    <td class="column-date" data-column="التاريخ"><small>2019-9-15</small></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-02-15</small></td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
@@ -534,7 +773,7 @@
                                     </td>
                                 </tr>
 
-                                <tr id="media-1" class="status-publish">
+                                <tr id="media-1" class="type-document">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-1" type="checkbox" class="custom-control-input" name="media[]" value="1">
@@ -546,7 +785,7 @@
                                     <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">الجمهورية اليمنية</a></td>
                                     <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
                                     <td class="column-uploadedTo" data-column="مرفوع إلى">غير مرفق</td>
-                                    <td class="column-date" data-column="التاريخ"><small>2019-8-04</small></td>
+                                    <td class="column-date" data-column="التاريخ"><small>2019-01-04</small></td>
                                     <td class="column-control" data-column="التحكم">
                                         <div class="icons-control">
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
@@ -567,7 +806,7 @@
         </div>
 
         <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
-            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>|<span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
         </footer>
     </body>
 </html>

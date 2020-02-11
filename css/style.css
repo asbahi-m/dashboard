@@ -41,6 +41,9 @@ body {
 a, a:link {
     text-decoration: none;
 }
+.btn-primary {
+    color: #fff !important;
+}
 .custom-control {
     min-height: 1rem;
     padding-right: 1rem;
@@ -84,6 +87,19 @@ a, a:link {
 .lang-en .lang-name {
     border-top-right-radius: .25rem;
     border-bottom-right-radius: .25rem;
+}
+.clearMedia {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 5px;
+    margin-left: 17px;
+    padding: 2px;
+    background: #fff;
+    cursor: pointer;
+}
+.clearMedia:hover {
+    color: #999;
 }
 
 
@@ -359,51 +375,123 @@ form .sticky-top {
     width: 100px;
     height: 100px;
 }
-#postAdd #postGallery #postGalleryContent span {
+#postImage, 
+#postGallery #postGalleryContent a {
     position: relative;
 }
-#postAdd #postGallery #postGalleryContent span i {
-    position: absolute;
-    right: 0;
-    margin: 5px;
-    padding: 2px;
-    background: #fff;
-    cursor: pointer;
-}
-#postAdd #postGallery #postGalleryContent span i:hover {
-    color: #999;
+#postAdd #postImage img {
+    max-height: 200px;
 }
 
+/* تنسيق بوكس الصور في صفحة إضافة محتوى */
+#editMedia.media-modal {
+    z-index: 9999;
+}
+#editMedia.media-modal #mediaTable_wrapper {
+    height: 90%;
+    overflow: auto;
+    background: #fff;
+}
+#editMedia.media-modal #mediaTable_wrapper > .row {
+    margin: 0;
+}
+#editMedia.media-modal .file-info {
+    display: none;
+}
+#editMedia.media-modal .file-info .media-source img {
+    max-width: 100%;
+    max-height: 250px;
+}
+#editMedia.media-modal .modal-footer .gallery-items img {
+    height: 60px;
+}
+/* #postAdd #editMedia .modal-footer img:last-of-type {
+    margin-left: auto;
+}
+#postAdd #editMedia .modal-footer img:last-of-type::before {
+    content: "عدد العناصر"
+} */
+
 /* تنسيق صفحة مكتبة الوسائط */
-#mediaContent #mediaTable .media-icon img, 
-#mediaContent #mediaTable .media-icon span {
+#mediaTable .media-icon img, 
+#mediaTable .media-icon span {
     max-width: 100px;
     margin-right: -20px;
 }
-#mediaContent #mediaTable .media-icon span {
+#mediaTable .media-icon span {
     display: block;
     width: 100px;
     height: 100px;
     padding: 25px;
     text-align: center;
 }
-#mediaContent #mediaTable .media-icon span i {
+#mediaTable .media-icon span i {
     font-size: 50px;
 }
 @media only screen and (max-width: 575.98px) {
-    #mediaContent #mediaTable .media-icon img, 
-    #mediaContent #mediaTable .media-icon span {
+    #mediaTable .media-icon img, 
+    #mediaTable .media-icon span {
         max-width: 60px;
     }
-    #mediaContent #mediaTable .media-icon span {
+    #mediaTable .media-icon span {
         width: 60px;
         height: 60px;
         padding: 15px;
         text-align: center;
     }
-    #mediaContent #mediaTable .media-icon span i {
+    #mediaTable .media-icon span i {
         font-size: 30px;
     }
+}
+#mediaTable.grid thead,
+#mediaTable.grid tbody tr td:not(.column-control) {
+    display: none;
+}
+#mediaTable.grid tbody tr {
+    display: inline-flex;
+    position: relative;
+}
+#mediaTable.grid .media-icon img, 
+#mediaTable.grid .media-icon span {
+    max-width: 130px;
+}
+#mediaTable.grid .media-icon span {
+    width: 130px;
+    height: 130px;
+    padding: 30px;
+}
+#mediaTable.grid .media-icon span i {
+    font-size: 70px;
+}
+@media only screen and (max-width: 575.98px) {
+    #mediaTable.grid .media-icon img, 
+    #mediaTable.grid .media-icon span {
+        max-width: 100px;
+    }
+    #mediaTable.grid .media-icon span {
+        width: 100px;
+        height: 100px;
+        padding: 25px;
+    }
+    #mediaTable.grid .media-icon span i {
+        font-size: 50px;
+    }
+}
+#mediaTable.grid tbody tr td.column-control {
+    position: absolute;
+    bottom: 4px;
+    border-top: 0;
+}
+#mediaTable.grid tbody tr td.column-control .icons-control {
+    display: flex;
+    flex-wrap: nowrap;
+    background: rgba(255,255,255,0.7);
+}
+#mediaTable.grid tbody tr td.column-control .icons-control button {
+    font-size: 12px;
+}
+#mediaTable.grid tbody tr td.column-control .icons-control .details {
+    display: none !important;
 }
 #editMedia.modal {
     bottom: 0;
@@ -420,6 +508,11 @@ form .sticky-top {
         max-width: 100%;
     }
 }
+@media only screen and (min-width: 992px) {
+    #editMedia.modal .modal-dialog {
+        max-width: 90%;
+    }
+}
 #editMedia.modal .modal-dialog .modal-content .modal-body {
     padding: 0;
     margin: 15px;
@@ -428,34 +521,36 @@ form .sticky-top {
     #editMedia.modal .modal-dialog .modal-content {
         height: 100%;
     }
-    #editMedia.modal .modal-dialog .modal-content form .form-row {
+    #editMedia.modal .modal-dialog .modal-content .modal-body > .form-row {
         width: 100%;
         position: absolute;
         top: 0;
         bottom: 0;
     }
 }
-#editMedia.modal .modal-dialog .modal-content form .form-row > div:first-child {
+#editMedia.modal .modal-dialog .modal-content .modal-body > .form-row .files {
     height: 100%;
 }
-#editMedia.modal .modal-dialog .modal-content form .form-row > div:last-child {
+#editMedia.modal .modal-dialog .modal-content .modal-body > .form-row .file-info {
     height: 100%;
     overflow: auto;
 }
-#editMedia.modal .modal-dialog .modal-content form .media-source {
+#editMedia.modal .modal-dialog .modal-content .modal-body .files .media-source {
     height: 90%;
 }
-#editMedia.modal .modal-dialog .modal-content form .media-source img {
+#editMedia.modal .modal-dialog .modal-content .modal-body .files .media-source img {
     max-width: 100%;
     max-height: 100%;
     padding: 15px;
 }
-#editMedia.modal .modal-dialog .modal-content form .media-info strong {
+#editMedia.modal .modal-dialog .modal-content .modal-body .media-info strong {
     margin-left: 10px;
 }
-#editMedia.modal .modal-dialog .modal-content form .media-info div {
+#editMedia.modal .modal-dialog .modal-content .modal-body .media-info div {
     margin-bottom: 5px;
 }
+
+/* #editMedia.modal .modal-dialog .modal-content form .modal-body > .form-row .file-info { */
 
 /* تنسيق صفحة إضافة وسائط جديدة */
 #media-upload #drag-drop-area {

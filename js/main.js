@@ -259,7 +259,7 @@ $(document).ready(function() {
             if (newEle.indexOf(value) === index) {
                 var valueToArr = value.split(", ");
                 var monthNum = months.indexOf(valueToArr[0]);
-                function checkMonth(){return monthNum == -1 ? value : valueToArr[1] + "-" + (monthNum+1)};
+                function checkMonth(){return monthNum == -1 ? value : valueToArr[1] + "-" + ("0"+(monthNum+1)).slice(-2)};
                 $("#filter select.get-date").append("<option value='" + checkMonth() + "'>" + 
                 value + 
                 "</option>");
@@ -272,7 +272,7 @@ $(document).ready(function() {
     }
 
     if (tableMedia.column().data() !== undefined) {
-        filter(tableMedia, 0, 2, 4)
+        filter(tableMedia, "", "", 2, 4)
     }
 
     /////////////////////////// تحديد عناصر الجدول
@@ -366,6 +366,7 @@ $(document).ready(function() {
         }
         $(this).prepend(insert);
     });
+
     /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في بوكس قوائم الموقع
     $("li[level]").each(function(){
         var i = $(this).attr("level");
@@ -384,6 +385,105 @@ $(document).ready(function() {
     });
     $(".details").click(function(){
         $(this).trigger("expanded");
+    })
+
+    /////////////////////////// تغيير مخطط عرض صفحة مكتبة الوسائط شبكة - قائمة
+    $("#viewGrid").click(function() {
+        $(this).addClass(["btn-primary","current"]).removeClass("btn-light");
+        $("#viewList").removeClass(["btn-primary","current"]).addClass("btn-light");
+        $("#mediaTable").addClass("grid");
+    })
+    $("#viewList").click(function() {
+        $(this).addClass(["btn-primary","current"]).removeClass("btn-light");
+        $("#viewGrid").removeClass(["btn-primary","current"]).addClass("btn-light");
+        $("#mediaTable").removeClass("grid");
+    })
+
+    /////////////////////////// مكتبة الوسائط
+
+    // أيقونات التعامل مع صندوق مكتبة الوسائط من خارج المودال
+    $(".setMedia").click(function() {
+        // تغيير عنوان هيدر المودال
+        $("#editMedia.media-modal .modal-title strong").text($(this).attr("data-title"));
+    })
+
+    $(".changeMedia").click(function() {
+        // تغيير عنوان هيدر المودال
+        $("#editMedia.media-modal .modal-title strong").text($(this).attr("data-title"));
+        // تحديد الصورة بمعرف الـ ID
+        var mediaId = $(this).attr("data-media");
+        $("#editMedia.media-modal #" + mediaId + " [name='media[]']").prop("checked", true);
+    })
+
+    $(".clearMedia").click(function() {
+        // إزالة الصورة والغاء تعيينها
+        $(this).parent().parent().find(".picture-profile i, .setMedia").toggleClass("d-none");
+        $(this).parent().fadeOut();
+    })
+
+    $("#setGallery").click(function() {
+        // تغيير عنوان هيدر الصندوق
+        $("#editMedia.media-modal .modal-title strong").text($(this).attr("data-title"));
+        // تهيئة صندوق مكتبة الوسائط إلى معرض الصور
+        $("#editMedia.media-modal").addClass("mediaGallery");
+        $("#editMedia.media-modal [name='media[]']").prop("type", "checkbox");
+        $("#editMedia.media-modal [name='media[]']").parent().removeClass("custom-radio").addClass("custom-checkbox");
+        $("<div class='mr-auto gallery-items'><span class='mx-2'></span></div>").prependTo($("#editMedia.media-modal .modal-footer"));
+    })
+
+    // صندوق مكتبة الوسائط
+    
+    $("#editMedia.media-modal [name='media[]']").click(function() {
+        var itemClass = $(this).attr("id");
+        var itemNum = $("#editMedia.media-modal [name='media[]']:checked").length;
+        
+        if (itemNum > 0) {
+            // إظهار معلومات الصورة
+            $(".file-info").show();
+            // تفعيل أيقونة "تعيين وحفظ" فقط
+            $("#editMedia.media-modal .modal-footer button:not(.update)").prop("disabled", false);
+
+            $("#editMedia.media-modal .modal-footer .gallery-items span").text("عدد العناصر المحدد: " + itemNum);
+        }
+        else {
+            // إخفاء معلومات الصورة
+            $(".file-info").hide();
+            // تعطيل أيقونة "تعيين وحفظ" فقط
+            $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
+            $("#editMedia.media-modal .modal-footer .gallery-items span").text("");
+        }
+        if ($("#editMedia.media-modal").hasClass("mediaGallery") && $(this).prop("checked") === true) {
+            $(this).next().find("img").clone().appendTo("#editMedia.media-modal .modal-footer .gallery-items").addClass(itemClass);
+        }
+        else {
+            $("#editMedia.media-modal .modal-footer ." + itemClass).remove();
+        }
+    })
+
+    // إعادة ضبط صندوق مكتبة الوسائط
+    $("#editMedia.media-modal").on("show.bs.modal", function () {
+        $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
+        if ($("[name='media[]']:checked").length > 0) {
+            $(".file-info").show();
+            $("#editMedia.media-modal .modal-footer button:not(.update)").prop("disabled", false);
+        }
+        else {
+            $(".file-info").hide();
+            $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
+        }
+        $("#editMedia.media-modal .file-info input[type=text]").change(function() {
+            // تفعيل أيقونة "حفظ دون تعيين" عند تغيير معلومات الصورة
+            $("#editMedia.media-modal .modal-footer button.update").prop("disabled", false);
+        })
+    })
+    $("#editMedia.media-modal").on("hidden.bs.modal", function () {
+        $(this) + $(" [name='media[]']").prop({"type": "radio", "checked": false});
+        $(this) + $(" [name='media[]']").parent().removeClass("custom-checkbox").addClass("custom-radio");
+        $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
+
+        if ($("#editMedia.media-modal").hasClass("mediaGallery")) {
+            $(this) + $(" .gallery-items").remove();
+        }
     })
 
     /////////////////////////// محرر النصوص في صفحة إضافة محتوى

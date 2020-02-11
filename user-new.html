@@ -280,6 +280,252 @@
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
                     <h2 class="border-bottom py-2 mb-3">إضافة عضو جديد</h2>
 
+                    <!-- بوكس مكتبة الوسائط -->
+                    <div id="editMedia" class="media-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title"><strong>مكتبة الوسائط</strong></h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <!-- <form class="d-flex flex-column h-100"> -->
+                                <div class="modal-body">
+                                    <div class="form-row">
+                                        <div class="col-md-8 col-xl-9 files">
+                                            <!-- فلترة تصفية الجدول بحسب التصنيف والمحرر والتاريخ -->
+                                            <div id="filter" class="form-row mx-0 my-2 align-items-center">
+                                                <div class="col-xl-2 col-sm-3 col-7 my-1">
+                                                    <select class="custom-select custom-select-sm get-user"></select>
+                                                </div>
+                                                <div class="col-xl-2 col-sm-3 col-7">
+                                                    <select class="custom-select custom-select-sm get-date"></select>
+                                                </div>
+                                            </div>
+                                            <!-- محتوى الجدول -->
+                                            <table id="mediaTable" class="table table-hover table-bordered grid">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th id="check" class="column-check" scope="col"></th>
+                                                        <th id="title" class="column-primary" scope="col">العنوان</th>
+                                                        <th id="author" scope="col">المحرر</th>
+                                                        <th id="uploadedTo" scope="col">مرفوع إلى</th>
+                                                        <th id="date" scope="col">التاريخ</th>
+                                                        <th id="iconsControl" class="column-control" scope="col">التحكم</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id="media-12" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-12" type="radio" class="custom-control-input" name="media[]" value="12">
+                                                                <label class="custom-control-label media-icon" for="check-12">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-12-27</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-11" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-11" type="radio" class="custom-control-input" name="media[]" value="11">
+                                                                <label class="custom-control-label media-icon" for="check-11">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-11-18</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-9" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-9" type="radio" class="custom-control-input" name="media[]" value="9">
+                                                                <label class="custom-control-label media-icon" for="check-9">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-09-01</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-8" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-8" type="radio" class="custom-control-input" name="media[]" value="8">
+                                                                <label class="custom-control-label media-icon" for="check-8">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-08-27</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-6" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-6" type="radio" class="custom-control-input" name="media[]" value="6">
+                                                                <label class="custom-control-label media-icon" for="check-6">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-06-12</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-5" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-5" type="radio" class="custom-control-input" name="media[]" value="5">
+                                                                <label class="custom-control-label media-icon" for="check-5">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-05-07</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-3" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-3" type="radio" class="custom-control-input" name="media[]" value="3">
+                                                                <label class="custom-control-label media-icon" for="check-3">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-03-21</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-2" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-2" type="radio" class="custom-control-input" name="media[]" value="2">
+                                                                <label class="custom-control-label media-icon" for="check-2">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-02-15</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-4 col-xl-3 file-info">
+                                            <div class="form-group text-center">
+                                                <div class="media-source mb-2">
+                                                    <img src="uploads/2020/01/خلفية-صحراء-1024×1024.jpg" alt="...">
+                                                </div>
+                                                <div>
+                                                    <a type="button" class="btn btn-light edit" href="#">تحرير الصورة</a>
+                                                    <a type="button" class="btn btn-warning delete">حذف الصورة</a>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="mediaName">العنوان:</label>
+                                                <div class="lang-ar">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" required value="خلفية صحراء">
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" value="Desert Background">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="mediaAlt">النص البديل:</label>
+                                                <div class="lang-ar">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" value="خلفية صحراء">
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" value="Desert Background">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="mediaUrl">رابط الملف:</label>
+                                                <input type="url" class="form-control form-control-sm" id="mediaUrl" name="mediaUrl" value="http://localhost/uploads/2020/01/خلفية-صحراء.jpg" readonly>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group media-info">
+                                                <div class="file-name">
+                                                    <strong>اسم الملف:</strong>
+                                                    خلفية-صحراء.jpg
+                                                </div>
+                                                <div class="file-name">
+                                                    <strong>نوع الملف:</strong>
+                                                    image/jpeg
+                                                </div>
+                                                <div class="uplod-date">
+                                                    <strong>تاريخ الرفع:</strong>
+                                                    2019-11-21
+                                                </div>
+                                                <div class="file-size">
+                                                    <strong>حجم الملف:</strong>
+                                                    164 ك.ب
+                                                </div>
+                                                <div class="file-size">
+                                                    <strong>الأبعاد:</strong>
+                                                    640 × 360 بيكسل
+                                                </div>
+                                                <div>
+                                                    <strong>تم الرفع بواسطة:</strong>
+                                                    عبدالله
+                                                </div>
+                                                <div>
+                                                    <strong>مرفوع إلى:</strong>
+                                                    <a href="post-edit.html">عواصف رملية تهدد بعض دول العالم</a>
+                                                </div>
+                                                <div>
+                                                    <a type="" class="btn btn-light" href="#">عرض المرفق في الموقع</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info update">حفط دون تعيين</button>
+                                    <button type="button" class="btn btn-primary set">تعيين وحفظ</button>
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- إضافة وتعديل المحتويات -->
                     <div id="postAdd">
 
@@ -380,7 +626,7 @@
 
                                     <div class="form-group"><!-- صورة الملف الشخصي -->
                                         <label class="head" for="postImg">صورة الملف الشخصي: <small>(اختياري)</small></label>
-                                        <div class="form-group row mx-0 align-items-center">
+                                        <!-- <div class="form-group row mx-0 align-items-center">
                                             <div id="postImgContent" class="picture-profile col-sm-4">
                                                 <i class="fas fa-user-circle mr-2"></i>
                                                 <img class="rounded-circle border d-none" width="100" height="100">
@@ -389,7 +635,18 @@
                                                 <input id="postImg" type="file" name="pictureProfile" class="custom-file-input" required>
                                                 <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
                                             </div>
+                                        </div> -->
+                                        <div class="picture-profile text-center mb-2">
+                                            <i class="fas fa-user-circle d-none"></i>
                                         </div>
+                                        <div id="postImage" class="text-center">
+                                            <a type="button" class="btn d-block changeMedia" data-media="media-2" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">
+                                                <img class="img-thumbnail rounded-circle border" src="uploads/2020/01/خلفية-صحراء-400×400.jpg" alt="خلفية صحراء" width="100" height="100">
+                                            </a>
+                                            <i type="button" class="fas fa-times-circle clearMedia"></i>
+                                            <small class="text-muted">انقر على الصورة للتعديل أو التحديث</small>
+                                        </div>
+                                        <button type="button" class="btn btn-info btn-sm d-none setMedia" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">تعيين صورة الملف الشخصي</button>
                                     </div>
 
                                     <div class="form-group"><!-- لغة لوحة التحكم -->
@@ -418,7 +675,7 @@
         </div>
 
         <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
-            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>|<span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
         </footer>
     </body>
 </html>
