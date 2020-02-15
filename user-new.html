@@ -460,19 +460,19 @@
                                             <div class="form-group">
                                                 <label for="mediaName">العنوان:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" required value="خلفية صحراء">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required value="خلفية صحراء">
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" value="Desert Background">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="Desert Background">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="mediaAlt">النص البديل:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" value="خلفية صحراء">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="خلفية صحراء">
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" value="Desert Background">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="Desert Background">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -592,7 +592,7 @@
 
                                     <div class="form-group"><!-- البريد الإلكتروني -->
                                         <label class="head" for="email">البريد الإلكتروني:</label>
-                                        <input id="email" type="email" name="email" class="form-control" maxlength="30" title="الحد الأقصى 30 حرفاً" required>
+                                        <input id="email" type="email" name="email" class="form-control" maxlength="50" title="الحد الأقصى 50 حرفاً" required>
                                         <small class="form-text text-muted">عنوان البريد الإلكتروني لتلقي الاشعارات واستعادة الحساب عند فقدانه.</small>
                                     </div>
 

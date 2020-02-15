@@ -294,20 +294,20 @@
                                 <div class="form-group">
                                     <label for="cateName">الاسم:</label>
                                     <div class="lang-ar">
-                                        <input type="text" class="form-control form-control-sm" id="cateName-ar" name="cateName-ar" placeholder="اسم التصنيف" required>
+                                        <input type="text" class="form-control form-control-sm" id="cateName-ar" name="cateName-ar" placeholder="اسم التصنيف" maxlength="100" pattern=".{3,100}" title="يجب أن تكون القيمة من 3 إلى 100 حرف" required>
                                     </div>
                                     <div class="lang-en">
-                                        <input type="text" class="form-control form-control-sm" id="cateName-en" name="cateName-en" placeholder="Category Name">
+                                        <input type="text" class="form-control form-control-sm" id="cateName-en" name="cateName-en" placeholder="Category Name" maxlength="100" pattern=".{0,100}" title="يجب أن تكون القيمة أقل من 100 حرف">
                                     </div>
                                     <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="cateSlug">الاسم المختصر:</label>
                                     <div class="lang-ar">
-                                        <input type="text" class="form-control form-control-sm" id="cateSlug-ar" name="cateSlug-ar" placeholder="الاسم المختصر">
+                                        <input type="text" class="form-control form-control-sm" id="cateSlug-ar" name="cateSlug-ar" placeholder="الاسم المختصر" maxlength="40" pattern=".{0,40}" title="يجب أن تكون القيمة أقل من 40 حرف">
                                     </div>
                                     <div class="lang-en">
-                                        <input type="text" class="form-control form-control-sm" id="cateSlug-en" name="cateSlug-en" placeholder="Category Short">
+                                        <input type="text" class="form-control form-control-sm" id="cateSlug-en" name="cateSlug-en" placeholder="Category Short" maxlength="40" pattern=".{0,40}" title="يجب أن تكون القيمة أقل من 40 حرف">
                                     </div>
                                     <small class="form-text text-muted">شكل رابط التصنيف في الموقع.</small>
                                 </div>
@@ -330,10 +330,10 @@
                                 <div class="form-group">
                                     <label for="cateDesc">الوصف:</label>
                                     <div class="lang-ar">
-                                        <textarea class="form-control form-control-sm" id="cateDesc-ar" name="cateDesc-ar" placeholder="الوصف" row="3"></textarea>
+                                        <textarea class="form-control form-control-sm" id="cateDesc-ar" name="cateDesc-ar" placeholder="الوصف" row="3" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف"></textarea>
                                     </div>
                                     <div class="lang-en">
-                                        <textarea class="form-control form-control-sm" id="cateDesc-en" name="cateDesc-en" placeholder="Description" row="3"></textarea>
+                                        <textarea class="form-control form-control-sm" id="cateDesc-en" name="cateDesc-en" placeholder="Description" row="3" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف"></textarea>
                                     </div>
                                     <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
                                 </div>
@@ -356,20 +356,20 @@
                                             <div class="form-group">
                                                 <label for="cateName">الاسم:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="cateName-ar" name="cateName-ar" placeholder="اسم التصنيف" value="أخبار" required>
+                                                    <input type="text" class="form-control form-control-sm" id="cateName-ar" name="cateName-ar" placeholder="اسم التصنيف" value="أخبار" maxlength="100" pattern=".{3,100}" title="يجب أن تكون القيمة من 3 إلى 100 حرف" required>
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="cateName-en" name="cateName-en" placeholder="Category Name" value="New">
+                                                    <input type="text" class="form-control form-control-sm" id="cateName-en" name="cateName-en" placeholder="Category Name" value="New" maxlength="100" pattern=".{0,100}" title="يجب أن تكون القيمة أقل من 100 حرف">
                                                 </div>
                                                 <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
                                             </div>
                                             <div class="form-group">
                                                 <label for="cateSlug">الاسم المختصر:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="cateSlug-ar" name="cateSlug-ar" placeholder="الاسم المختصر" value="أخبار">
+                                                    <input type="text" class="form-control form-control-sm" id="cateSlug-ar" name="cateSlug-ar" placeholder="الاسم المختصر" value="أخبار" maxlength="40" pattern=".{0,40}" title="يجب أن تكون القيمة أقل من 40 حرف">
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="cateSlug-en" name="cateSlug-en" placeholder="Category Short" value="new">
+                                                    <input type="text" class="form-control form-control-sm" id="cateSlug-en" name="cateSlug-en" placeholder="Category Short" value="new" maxlength="40" pattern=".{0,40}" title="يجب أن تكون القيمة أقل من 40 حرف">
                                                 </div>
                                                 <small class="form-text text-muted">اسم التصنيف كما سيظهر في الموقع.</small>
                                             </div>
@@ -392,10 +392,10 @@
                                             <div class="form-group">
                                                 <label for="cateDesc">الوصف:</label>
                                                 <div class="lang-ar">
-                                                    <textarea class="form-control form-control-sm" id="cateDesc-ar" name="cateDesc-ar" placeholder="الوصف" row="3"></textarea>
+                                                    <textarea class="form-control form-control-sm" id="cateDesc-ar" name="cateDesc-ar" placeholder="الوصف" row="3" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف"></textarea>
                                                 </div>
                                                 <div class="lang-en">
-                                                    <textarea class="form-control form-control-sm" id="cateDesc-en" name="cateDesc-en" placeholder="Description" row="3"></textarea>
+                                                    <textarea class="form-control form-control-sm" id="cateDesc-en" name="cateDesc-en" placeholder="Description" row="3" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف"></textarea>
                                                 </div>
                                                 <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
                                             </div>

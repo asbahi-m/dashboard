@@ -460,19 +460,19 @@
                                             <div class="form-group">
                                                 <label for="mediaName">العنوان:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" required value="خلفية صحراء">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required value="خلفية صحراء">
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" value="Desert Background">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="Desert Background">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="mediaAlt">النص البديل:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" value="خلفية صحراء">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="خلفية صحراء">
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" value="Desert Background">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="Desert Background">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -616,10 +616,10 @@
                                     <div class="form-group"><!-- العنوان -->
                                         <label class="head" for="postTitle">العنوان:</label>
                                         <div class="lang-ar">
-                                            <input id="postTitle-ar" type="text" class="form-control" name="postTitle-ar" placeholder="إضافة عنوان" required>
+                                            <input id="postTitle-ar" type="text" class="form-control" name="postTitle-ar" placeholder="إضافة عنوان" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
                                         </div>
                                         <div class="lang-en">
-                                            <input id="postTitle-en" type="text" class="form-control" name="postTitle-en" placeholder="Add Title">
+                                            <input id="postTitle-en" type="text" class="form-control" name="postTitle-en" placeholder="Add Title" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف">
                                         </div>
                                     </div>
 
@@ -636,10 +636,10 @@
                                     <div class="form-group"><!-- نبذة مختصرة -->
                                         <label class="head" for="postDesc">نبذة مختصرة: <small>(اختياري)</small></label>
                                         <div class="lang-ar">
-                                            <textarea id="postDesc-ar" class="form-control" name="postDesc-ar" rows="3" placeholder="نبذة مختصرة"></textarea>
+                                            <textarea id="postDesc-ar" class="form-control" name="postDesc-ar" rows="3" placeholder="نبذة مختصرة" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف"></textarea>
                                         </div>
                                         <div class="lang-en">
-                                            <textarea id="postDesc-en" class="form-control" name="postDesc-en" rows="3" placeholder="Description"></textarea>
+                                            <textarea id="postDesc-en" class="form-control" name="postDesc-en" rows="3" placeholder="Description" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف"></textarea>
                                         </div>
                                     </div>
 
@@ -649,17 +649,17 @@
                                             <label class="col-sm-3 col-xl-2" for="postSourceName">اسم المصدر:</label>
                                             <div class="col-sm-9 col-xl-10">
                                                 <div class="lang-ar">
-                                                    <input id="postSourceName-ar" type="text" class="form-control" name="postSourceName-ar" placeholder="مصدر الخبر" disabled>
+                                                    <input id="postSourceName-ar" type="text" class="form-control" name="postSourceName-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="مصدر الخبر" disabled>
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input id="postSourceName-en" type="text" class="form-control" name="postSourceName-en" placeholder="New Source" disabled>
+                                                    <input id="postSourceName-en" type="text" class="form-control" name="postSourceName-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="New Source" disabled>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row mx-0">
                                             <label class="col-sm-3 col-xl-2" for="postSourceUrl">الرابط:</label>
                                             <div class="col-sm-9 col-xl-10">
-                                                <input id="postSourceUrl" type="url" class="form-control" name="postSourceUrl" placeholder="رابط الخبر" disabled>
+                                                <input id="postSourceUrl" type="url" class="form-control" name="postSourceUrl" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="رابط الخبر" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -683,18 +683,18 @@
                                                 <div id="addWriter" class="collapse p-2 border mt-2"><!-- بوكس إضافة كاتب -->
                                                     <label>الاسم الكامل:</label>
                                                     <div class="lang-ar">
-                                                        <input type="text" class="form-control form-control-sm" id="writerName-ar" name="writerName-ar" placeholder="اسم الكاتب كاملاً" required>
+                                                        <input type="text" class="form-control form-control-sm" id="writerName-ar" name="writerName-ar" placeholder="اسم الكاتب كاملاً" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
                                                     </div>
                                                     <div class="lang-en">
-                                                        <input type="text" class="form-control form-control-sm" id="writerName-en" name="writerName-en" placeholder="Writer Full Name">
+                                                        <input type="text" class="form-control form-control-sm" id="writerName-en" name="writerName-en" placeholder="Writer Full Name" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                     </div>
                                                     <hr>
                                                     <label>الاسم المستعار:</label>
                                                     <div class="lang-ar">
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname-ar" name="writerNickname-ar" placeholder="أدخل الاسم المستعار للكاتب">
+                                                        <input type="text" class="form-control form-control-sm" id="writerNickname-ar" name="writerNickname-ar" placeholder="أدخل الاسم المستعار للكاتب" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                     </div>
                                                     <div class="lang-en">
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname">
+                                                        <input type="text" class="form-control form-control-sm" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                     </div>
                                                     <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
                                                     <hr>
@@ -729,12 +729,12 @@
 
                                     <div class="form-group" id="postVideo"><!-- تضمين الفيديو -->
                                         <label class="head" for="postVideoCode">تضمين الفيديو: <small>(اختياري)</small></label>
-                                        <textarea id="postVideoCode" class="form-control ltr" name="postVideoCode" rows="3" placeholder="كود تضمين الفيديو من يوتيوب"></textarea>
+                                        <textarea id="postVideoCode" class="form-control ltr" name="postVideoCode" rows="3" placeholder="كود تضمين الفيديو من يوتيوب" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف"></textarea>
                                     </div>
 
                                     <div class="form-group" id="postAudio"><!-- تضمين الصوت -->
                                         <label class="head" for="postAudioCode">تضمين الصوت: <small>(اختياري)</small></label>
-                                        <textarea id="postAudioCode" class="form-control ltr" name="postAudioCode" rows="1" placeholder="رابط المقطع الصوتي"></textarea>
+                                        <textarea id="postAudioCode" class="form-control ltr" name="postAudioCode" rows="1" placeholder="رابط المقطع الصوتي" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف"></textarea>
                                     </div>
                                 </div>
 
@@ -797,7 +797,7 @@
                                             <i class="fas fa-plus-square"></i> <span>أضف تصنيف جديد</span>
                                         </a>
                                         <div id="addItem" class="rounded py-2 bg-white">
-                                            <input type="text" class="form-control form-control-sm mb-3" id="cateName" name="cateName" placeholder="أدخل اسم التصنيف">
+                                            <input type="text" class="form-control form-control-sm mb-3" id="cateName" name="cateName" placeholder="أدخل اسم التصنيف" maxlength="100" pattern=".{0,100}" title="يجب أن تكون القيمة أقل من 100 حرف">
                                             <select id="parentCate" class="form-control form-control-sm" name="parentCate">
                                                 <option selected value="-1">بدون</option>
                                                 <option class="level-0" value="7">مقالات</option>

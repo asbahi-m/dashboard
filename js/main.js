@@ -541,8 +541,8 @@ $(document).ready(function() {
     if ($("#textEditor-en").val() !== undefined) {
         var editor_en = textboxio.replaceAll("#textEditor-en", config_en);
     }
-    if ($("#textEditor-ar").val() !== undefined) {
-        var editor = textboxio.replaceAll("#textEditor-ar", config_ar);
+    if ($("#textEditor-ar, #textEditor").val() !== undefined) {
+        var editor = textboxio.replaceAll("#textEditor-ar, #textEditor", config_ar);
     }
 
     /////////////////////////// إظهار وإخفاء العناصر في صفحة إضافة محتوى بحسب بنية المحتوى أو النموذج

@@ -295,18 +295,18 @@
                                 <div class="modal-body">
                                     <form id="editComment">
                                         <div class="form-group"><!-- محرر النصوص -->
-                                            <textarea id="textEditor" name="commentContent">شكراً لكم</textarea>
+                                            <textarea id="textEditor" name="commentContent" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف">شكراً لكم</textarea>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="commenterName">الاسم:</label>
-                                            <input type="text" class="form-control form-control-sm" id="commenterName" required value="مدير الموقع">
+                                            <input type="text" class="form-control form-control-sm" id="commenterName" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required value="مدير الموقع">
                                             <small class="form-text text-muted">اسم كاتب التعليق.</small>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="commenterEmail">البريد:</label>
-                                            <input type="email" class="form-control form-control-sm" id="commenterEmail" value="asbahi.mo@gmail.com">
+                                            <input type="email" class="form-control form-control-sm" id="commenterEmail" value="asbahi.mo@gmail.com" maxlength="50" title="الحد الأقصى 50 حرفاً">
                                             <small class="form-text text-muted">عنوان بريد كاتب التعليق.</small>
                                         </div>
 
@@ -333,7 +333,7 @@
                                 <div class="modal-body">
                                     <form id="replayComment">
                                         <div class="form-group"><!-- محرر النصوص -->
-                                            <textarea id="textEditor" name="replayContent"></textarea>
+                                            <textarea id="textEditor" name="replayContent" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف"></textarea>
                                         </div>
 
                                         <div class="modal-footer">

@@ -460,19 +460,19 @@
                                             <div class="form-group">
                                                 <label for="mediaName">العنوان:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" required value="خلفية صحراء">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required value="خلفية صحراء">
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" value="Desert Background">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="Desert Background">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="mediaAlt">النص البديل:</label>
                                                 <div class="lang-ar">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" value="خلفية صحراء">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="خلفية صحراء">
                                                 </div>
                                                 <div class="lang-en">
-                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" value="Desert Background">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="Desert Background">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -608,10 +608,10 @@
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="siteTitle">عنوان الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <div class="lang-ar">
-                                                        <input id="siteTitle-ar" type="text" name="siteTitle-ar" class="form-control" value="مطور الويب" required>
+                                                        <input id="siteTitle-ar" type="text" name="siteTitle-ar" class="form-control" value="مطور الويب" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
                                                     </div>
                                                     <div class="lang-en">
-                                                        <input id="siteTitle-en" type="text" name="siteTitle-en" class="form-control" value="Developer Web">
+                                                        <input id="siteTitle-en" type="text" name="siteTitle-en" class="form-control" value="Developer Web" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                     </div>
                                                 </div>
                                             </div>
@@ -620,10 +620,10 @@
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="siteIdentity">هوية الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <div class="lang-ar">
-                                                        <input id="siteIdentity-ar" type="text" name="siteIdentity-ar" class="form-control" value="ثقة، جودة، أمان" required>
+                                                        <input id="siteIdentity-ar" type="text" name="siteIdentity-ar" class="form-control" value="ثقة، جودة، أمان" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
                                                     </div>
                                                     <div class="lang-en">
-                                                        <input id="siteIdentity-en" type="text" name="siteIdentity-en" class="form-control" value="Trust, Quality, Safety">
+                                                        <input id="siteIdentity-en" type="text" name="siteIdentity-en" class="form-control" value="Trust, Quality, Safety" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                     </div>
                                                     <small class="form-text text-muted">بكلمات قليلة اكتب هوية الموقع (مثال: ريادة وإتقان).</small>
                                                 </div>
@@ -633,10 +633,10 @@
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="siteDesc">وصف الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
                                                     <div class="lang-ar">
-                                                        <textarea id="siteDesc-ar" name="siteDesc-ar" class="form-control" maxlength="200">مؤسسة برمجية هدفها الريادة في تقديم الخدمات البرمجية لمواقع الويب.</textarea>
+                                                        <textarea id="siteDesc-ar" name="siteDesc-ar" class="form-control" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف">مؤسسة برمجية هدفها الريادة في تقديم الخدمات البرمجية لمواقع الويب.</textarea>
                                                     </div>
                                                     <div class="lang-en">
-                                                        <textarea id="siteDesc-en" name="siteDesc-en" class="form-control" maxlength="200">Leadership in providing programming services for websites.</textarea>
+                                                        <textarea id="siteDesc-en" name="siteDesc-en" class="form-control" maxlength="500" pattern=".{0,500}" title="يجب أن تكون القيمة أقل من 500 حرف">Leadership in providing programming services for websites.</textarea>
                                                     </div>
                                                     <small class="form-text text-muted">اكتب نبذة تعريفية عن الموقع بمالا يزيد عن 200 حرف.</small>
                                                 </div>
@@ -685,7 +685,7 @@
                                             <div class="form-group row mx-0"><!-- عنوان بريد الموقع -->
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="siteEmail">عنوان بريد الموقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
-                                                    <input id="siteEmail" type="email" name="siteEmail" class="form-control" value="info@developer-web.net" required>
+                                                    <input id="siteEmail" type="email" name="siteEmail" class="form-control" maxlength="50" title="الحد الأقصى 50 حرفاً" value="info@developer-web.net" required>
                                                     <small class="form-text text-muted">عنوان بريد الموقع الرئيسي الذي سيستخدم في المراسلات ونموذج اتصل بنا.</small>
                                                 </div>
                                             </div>
@@ -912,7 +912,7 @@
                                                         <div class="input-group-prepend">
                                                             <label class="input-group-text" for="twitterLink"><i class="fab fa-twitter"></i></label>
                                                         </div>
-                                                        <input type="url" id="twitterLink" name="twitterLink" class="form-control" placeholder="إدخل رابط صفحتك على تويتر">
+                                                        <input type="url" id="twitterLink" name="twitterLink" class="form-control" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="إدخل رابط صفحتك على تويتر">
                                                     </div>
 
                                                     <div class="input-group mb-3">
@@ -926,42 +926,42 @@
                                                         <div class="input-group-prepend">
                                                             <label class="input-group-text" for="instagramLink"><i class="fab fa-instagram"></i></label>
                                                         </div>
-                                                        <input type="url" id="instagramLink" name="instagramLink" class="form-control" placeholder="إدخل رابط صفحتك على انستغرام">
+                                                        <input type="url" id="instagramLink" name="instagramLink" class="form-control" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="إدخل رابط صفحتك على انستغرام">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <label class="input-group-text" for="youtubeLink"><i class="fab fa-youtube"></i></label>
                                                         </div>
-                                                        <input type="url" id="youtubeLink" name="youtubeLink" class="form-control" placeholder="إدخل رابط صفحتك على يوتيوب">
+                                                        <input type="url" id="youtubeLink" name="youtubeLink" class="form-control" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="إدخل رابط صفحتك على يوتيوب">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <label class="input-group-text" for="skypeLink"><i class="fab fa-skype"></i></label>
                                                         </div>
-                                                        <input type="url" id="skypeLink" name="skypeLink" class="form-control" placeholder="إدخل رابط صفحتك على سكايبي">
+                                                        <input type="url" id="skypeLink" name="skypeLink" class="form-control" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="إدخل رابط صفحتك على سكايبي">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <label class="input-group-text" for="linkedinInLink"><i class="fab fa-linkedin-in"></i></label>
                                                         </div>
-                                                        <input type="url" id="linkedinInLink" name="linkedinInLink" class="form-control" placeholder="إدخل رابط صفحتك على لينكد إن">
+                                                        <input type="url" id="linkedinInLink" name="linkedinInLink" class="form-control" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="إدخل رابط صفحتك على لينكد إن">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <label class="input-group-text" for="flickrLink"><i class="fab fa-flickr"></i></label>
                                                         </div>
-                                                        <input type="url" id="flickrLink" name="flickrLink" class="form-control" placeholder="إدخل رابط صفحتك على فليكر">
+                                                        <input type="url" id="flickrLink" name="flickrLink" class="form-control" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="إدخل رابط صفحتك على فليكر">
                                                     </div>
 
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <label class="input-group-text" for="rssLink"><i class="fas fa-rss"></i></label>
                                                         </div>
-                                                        <input type="url" id="rssLink" name="rssLink" class="form-control" placeholder="إدخل رابط التغذية RSS">
+                                                        <input type="url" id="rssLink" name="rssLink" class="form-control" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="إدخل رابط التغذية RSS">
                                                     </div>
                                                     <small class="form-text text-muted ml-3">يجب أن يبدأ الرابط بـ <span class="ltr">http://</span></small>
                                                 </div>
@@ -1119,17 +1119,17 @@
                                                                         <div class="row">
                                                                             <label class="col-sm-5 col-xl-4" for="customURL">الرابط:</label>
                                                                             <div class="col-sm-7 col-xl-8">
-                                                                                <input id="textCustomURL" type="text" class="form-control" name="textCustomURL" value="http://">
+                                                                                <input id="textCustomURL" type="text" class="form-control" name="textCustomURL" value="http://" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                         <div class="row mt-3">
                                                                             <label class="col-sm-5 col-xl-4" for="textCustomURL">نص الرابط:</label>
                                                                             <div class="col-sm-7 col-xl-8">
                                                                                 <div class="lang-ar">
-                                                                                    <input id="customURL-ar" type="text" class="form-control" name="customURL-ar">
+                                                                                    <input id="customURL-ar" type="text" class="form-control" name="customURL-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                                 </div>
                                                                                 <div class="lang-en">
-                                                                                    <input id="customURL-en" type="text" class="form-control" name="customURL-en">
+                                                                                    <input id="customURL-en" type="text" class="form-control" name="customURL-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1166,10 +1166,10 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="lang-ar">
-                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-ar" name="nameMenu-ar" placeholder="اسم القائمة" required>
+                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-ar" name="nameMenu-ar" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" placeholder="اسم القائمة" required>
                                                                     </div>
                                                                     <div class="lang-en">
-                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-en" name="nameMenu-en" placeholder="Menu Name">
+                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-en" name="nameMenu-en" placeholder="Menu Name" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -1191,10 +1191,10 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="lang-ar">
-                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-ar" name="nameMenu-ar" value="القائمة الرئيسية" required>
+                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-ar" name="nameMenu-ar" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" value="القائمة الرئيسية" required>
                                                                     </div>
                                                                     <div class="lang-en">
-                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-en" name="nameMenu-en" value="Menu Primary">
+                                                                        <input type="text" class="form-control form-control-sm" id="nameMenu-en" name="nameMenu-en" value="Menu Primary" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -1218,17 +1218,17 @@
                                                                     <div class="row">
                                                                         <label class="col-sm-5 col-xl-4" for="url-menu-item-1">الرابط:</label>
                                                                         <div class="col-sm-7 col-xl-8">
-                                                                            <input id="url-menu-item-1" type="text" class="form-control" name="url-menu-item[1]" value="/">
+                                                                            <input id="url-menu-item-1" type="text" class="form-control" name="url-menu-item[1]" value="/" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mt-3">
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-1">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-1-ar" type="text" class="form-control" name="title-menu-item-ar[1]" value="الرئيسية">
+                                                                                <input id="title-menu-item-1-ar" type="text" class="form-control" name="title-menu-item-ar[1]" value="الرئيسية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-1-en" type="text" class="form-control" name="title-menu-item-en[1]" value="Home">
+                                                                                <input id="title-menu-item-1-en" type="text" class="form-control" name="title-menu-item-en[1]" value="Home" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1253,10 +1253,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-2">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-2-ar" type="text" class="form-control" name="title-menu-item-ar[2]" value="أخبار">
+                                                                                <input id="title-menu-item-2-ar" type="text" class="form-control" name="title-menu-item-ar[2]" value="أخبار" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-2-en" type="text" class="form-control" name="title-menu-item-en[2]" value="News">
+                                                                                <input id="title-menu-item-2-en" type="text" class="form-control" name="title-menu-item-en[2]" value="News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1285,10 +1285,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-3">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-3-ar" type="text" class="form-control" name="title-menu-item-ar[3]" value="أخبار محلية">
+                                                                                <input id="title-menu-item-3-ar" type="text" class="form-control" name="title-menu-item-ar[3]" value="أخبار محلية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-3-en" type="text" class="form-control" name="title-menu-item-en[3]" value="Local News">
+                                                                                <input id="title-menu-item-3-en" type="text" class="form-control" name="title-menu-item-en[3]" value="Local News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1317,10 +1317,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-4">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-4-ar" type="text" class="form-control" name="title-menu-item-ar[4]" value="أخبار دولية">
+                                                                                <input id="title-menu-item-4-ar" type="text" class="form-control" name="title-menu-item-ar[4]" value="أخبار دولية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-4-en" type="text" class="form-control" name="title-menu-item-en[4]" value="International News">
+                                                                                <input id="title-menu-item-4-en" type="text" class="form-control" name="title-menu-item-en[4]" value="International News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1349,10 +1349,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-5">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-5-ar" type="text" class="form-control" name="title-menu-item-ar[5]" value="مقالات">
+                                                                                <input id="title-menu-item-5-ar" type="text" class="form-control" name="title-menu-item-ar[5]" value="مقالات" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-5-en" type="text" class="form-control" name="title-menu-item-en[5]" value="Articles">
+                                                                                <input id="title-menu-item-5-en" type="text" class="form-control" name="title-menu-item-en[5]" value="Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1381,10 +1381,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-6">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-6-ar" type="text" class="form-control" name="title-menu-item-ar[6]" value="مقالات اقتصادية">
+                                                                                <input id="title-menu-item-6-ar" type="text" class="form-control" name="title-menu-item-ar[6]" value="مقالات اقتصادية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-6-en" type="text" class="form-control" name="title-menu-item-en[6]" value="Economic Articles">
+                                                                                <input id="title-menu-item-6-en" type="text" class="form-control" name="title-menu-item-en[6]" value="Economic Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1413,10 +1413,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-7">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-7-ar" type="text" class="form-control" name="title-menu-item-ar[7]" value="مقالات سياسية">
+                                                                                <input id="title-menu-item-7-ar" type="text" class="form-control" name="title-menu-item-ar[7]" value="مقالات سياسية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-7-en" type="text" class="form-control" name="title-menu-item-en[7]" value="Political Articles">
+                                                                                <input id="title-menu-item-7-en" type="text" class="form-control" name="title-menu-item-en[7]" value="Political Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1445,10 +1445,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-8">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-8-ar" type="text" class="form-control" name="title-menu-item-ar[8]" value="من نحن">
+                                                                                <input id="title-menu-item-8-ar" type="text" class="form-control" name="title-menu-item-ar[8]" value="من نحن" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-8-en" type="text" class="form-control" name="title-menu-item-en[8]" value="About Us">
+                                                                                <input id="title-menu-item-8-en" type="text" class="form-control" name="title-menu-item-en[8]" value="About Us" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1477,10 +1477,10 @@
                                                                         <label class="col-sm-5 col-xl-4" for="title-menu-item-9">النص في القائمة:</label>
                                                                         <div class="col-sm-7 col-xl-8">
                                                                             <div class="lang-ar">
-                                                                                <input id="title-menu-item-9-ar" type="text" class="form-control" name="title-menu-item-ar[9]" value="كيف تبدأ يومك!">
+                                                                                <input id="title-menu-item-9-ar" type="text" class="form-control" name="title-menu-item-ar[9]" value="كيف تبدأ يومك!" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                             <div class="lang-en">
-                                                                                <input id="title-menu-item-9-en" type="text" class="form-control" name="title-menu-item-en[9]" value="How to start your day!">
+                                                                                <input id="title-menu-item-9-en" type="text" class="form-control" name="title-menu-item-en[9]" value="How to start your day!" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1541,17 +1541,17 @@
                                                                             <label class="col-sm-5 col-xl-4" for="name-lang-item-1">اسم اللغة:</label>
                                                                             <div class="col-sm-7 col-xl-8">
                                                                                 <div class="lang-ar">
-                                                                                    <input id="name-lang-item-1-ar" type="text" class="form-control" name="name-lang-item-ar[1]" value="اللغة العربية" required>
+                                                                                    <input id="name-lang-item-1-ar" type="text" class="form-control" name="name-lang-item-ar[1]" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" value="اللغة العربية" required>
                                                                                 </div>
                                                                                 <div class="lang-en">
-                                                                                    <input id="name-lang-item-1-en" type="text" class="form-control" name="name-lang-item-en[1]" value="Arabic Language">
+                                                                                    <input id="name-lang-item-1-en" type="text" class="form-control" name="name-lang-item-en[1]" value="Arabic Language" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="row mt-3">
                                                                             <label class="col-sm-5 col-xl-4" for="short-lang-item-1">الرمز المختصر:</label>
                                                                             <div class="col-sm-7 col-xl-8">
-                                                                                <input id="short-lang-item-1" type="text" class="form-control" name="short-lang-item[1]" value="ar" required>
+                                                                                <input id="short-lang-item-1" type="text" class="form-control" name="short-lang-item[1]" maxlength="20" pattern=".{0,20}" title="يجب أن تكون القيمة أقل من 20 حرف" value="ar" required>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1584,17 +1584,17 @@
                                                                             <label class="col-sm-5 col-xl-4" for="name-lang-item-2">اسم اللغة:</label>
                                                                             <div class="col-sm-7 col-xl-8">
                                                                                 <div class="lang-ar">
-                                                                                    <input id="name-lang-item-2-ar" type="text" class="form-control" name="name-lang-item-ar[2]" value="اللغة الإنجليزية" required>
+                                                                                    <input id="name-lang-item-2-ar" type="text" class="form-control" name="name-lang-item-ar[2]" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" value="اللغة الإنجليزية" required>
                                                                                 </div>
                                                                                 <div class="lang-en">
-                                                                                    <input id="name-lang-item-2-en" type="text" class="form-control" name="name-lang-item-en[2]" value="English Language">
+                                                                                    <input id="name-lang-item-2-en" type="text" class="form-control" name="name-lang-item-en[2]" value="English Language" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="row mt-3">
                                                                             <label class="col-sm-5 col-xl-4" for="short-lang-item-2">الرمز المختصر:</label>
                                                                             <div class="col-sm-7 col-xl-8">
-                                                                                <input id="short-lang-item-2" type="text" class="form-control" name="short-lang-item[2]" value="ar" required>
+                                                                                <input id="short-lang-item-2" type="text" class="form-control" name="short-lang-item[2]" maxlength="20" pattern=".{0,20}" title="يجب أن تكون القيمة أقل من 20 حرف" value="en" required>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1628,12 +1628,12 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="lang-ar">
-                                                                        <input type="text" class="form-control form-control-sm" id="nameLang-ar" name="nameLang-ar" placeholder="اسم اللغة" required>
+                                                                        <input type="text" class="form-control form-control-sm" id="nameLang-ar" name="nameLang-ar" placeholder="اسم اللغة" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
                                                                     </div>
                                                                     <div class="lang-en">
-                                                                        <input type="text" class="form-control form-control-sm" id="nameLang-en" name="nameLang-en" placeholder="Language Name">
+                                                                        <input type="text" class="form-control form-control-sm" id="nameLang-en" name="nameLang-en" placeholder="Language Name" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                                     </div>
-                                                                    <input type="text" class="form-control form-control-sm" id="shortLang" name="shortLang" placeholder="الرمز المختصر" required>
+                                                                    <input type="text" class="form-control form-control-sm" id="shortLang" name="shortLang" placeholder="الرمز المختصر" maxlength="20" pattern=".{0,20}" title="يجب أن تكون القيمة أقل من 20 حرف" required>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="submit" id="add-lang-item" class="btn btn-primary">أضف اللغة</button>
@@ -1680,7 +1680,7 @@
                                             <div class="form-group row mx-0"><!-- أدوات مشرفي المواقع من بينغ -->
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="seoBing">مركز Bing لمسؤولي المواقع:</label>
                                                 <div class="col-sm-8 col-xl-9">
-                                                    <input id="seoBing" type="text" name="seoBing" class="form-control ltr" value="pMaVcC5LhbMzGHMmKh8nJ7lZy_05Ph6vXckEkwY5kkQ">
+                                                    <input id="seoBing" type="text" name="seoBing" class="form-control ltr" value="pMaVcC5LhbMzGHMmKh8nJ7lZy_05Ph6vXckEkwY5kkQ" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                     <small class="form-text text-muted">
                                                             أدخل رمز التحقق هنا للتحقق من موقع الويب الخاص بك مع "أدوات مسؤول الموقع من بينغ".
                                                     </small>
@@ -1690,7 +1690,7 @@
                                             <div class="form-group row mx-0"><!-- معرف إحصائيات جوجل -->
                                                 <label class="head col-sm-4 col-xl-3 col-form-label" for="google_analytics_id">معرف إحصائيات جوجل:</label>
                                                 <div class="col-sm-8 col-xl-9">
-                                                    <input id="google_analytics_id" type="text" name="google_analytics_id" class="form-control ltr" value="UA-42774646-5">
+                                                    <input id="google_analytics_id" type="text" name="google_analytics_id" class="form-control ltr" value="UA-42774646-5" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
                                                     <small class="form-text text-muted">
                                                             أدخل معرف ID احصائيات جوجل هنا لتتبع سلوك الزائرين على موقعك باستخدام احصائيات جوجل.
                                                     </small>
