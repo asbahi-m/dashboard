@@ -402,89 +402,235 @@ $(document).ready(function() {
     /////////////////////////// مكتبة الوسائط
 
     // أيقونات التعامل مع صندوق مكتبة الوسائط من خارج المودال
-    $(".setMedia").click(function() {
+    $(".addMedia, .addMultiMedia, .changeMedia, #addGallery").click(function() {
         // تغيير عنوان هيدر المودال
         $("#editMedia.media-modal .modal-title strong").text($(this).attr("data-title"));
     })
 
-    $(".changeMedia").click(function() {
-        // تغيير عنوان هيدر المودال
-        $("#editMedia.media-modal .modal-title strong").text($(this).attr("data-title"));
+    $("#postImage .changeMedia").click(function() {
         // تحديد الصورة بمعرف الـ ID
-        var mediaId = $(this).attr("data-media");
-        $("#editMedia.media-modal #" + mediaId + " [name='media[]']").prop("checked", true);
+        var mediaId = $(this).find("#media_id").val();
+        $("#editMedia.single-media [name='media[]'][value=" + mediaId + "]").prop("checked", true);
     })
 
-    $(".clearMedia").click(function() {
-        // إزالة الصورة والغاء تعيينها
-        $(this).parent().parent().find(".picture-profile i, .setMedia").toggleClass("d-none");
-        $(this).parent().fadeOut();
+    $(".addMultiMedia, #postImage_2 .changeMedia").click(function() {
+        var modalMedia = $("#editMedia.media-modal");
+        modalMedia.addClass("multi-media");
+        modalMedia.removeClass("single-media");
     })
 
-    $("#setGallery").click(function() {
-        // تغيير عنوان هيدر الصندوق
-        $("#editMedia.media-modal .modal-title strong").text($(this).attr("data-title"));
+    $("#postImage_2 .changeMedia").click(function() {
+        // تحديد الصورة بمعرف الـ ID
+        var mediaId = $(this).find("#multi_media_id").val();
+        $("#editMedia.multi-media [name='media[]'][value=" + mediaId + "]").prop("checked", true);
+    })
+
+    $("#addGallery").click(function() {
+        var modalMedia = $("#editMedia.media-modal");
         // تهيئة صندوق مكتبة الوسائط إلى معرض الصور
-        $("#editMedia.media-modal").addClass("mediaGallery");
-        $("#editMedia.media-modal [name='media[]']").prop("type", "checkbox");
-        $("#editMedia.media-modal [name='media[]']").parent().removeClass("custom-radio").addClass("custom-checkbox");
+        modalMedia.addClass("mediaGallery");
+        modalMedia.removeClass("single-media");
+        modalMedia + $(" [name='media[]']").prop("type", "checkbox");
+        modalMedia + $(" [name='media[]']").parent().removeClass("custom-radio").addClass("custom-checkbox");
         $("<div class='mr-auto gallery-items'><span class='mx-2'></span></div>").prependTo($("#editMedia.media-modal .modal-footer"));
+        modalMedia + $(".mediaGallery").on("show.bs.modal", function () {
+            $("[name='gallery_id[]']").each(function() {
+                var mediaId = $(this).val();
+                modalMedia + $(".mediaGallery [name='media[]'][value=" + mediaId + "]").prop({"disabled": true, "checked": true});
+            })
+        })
+    })
+
+    $("#editMedia.media-modal").on("click", "#setMedia", function () {
+        var modalMedia = $("#editMedia.media-modal");
+        var data_id = modalMedia.find("[name='media[]']:checked").attr("value");
+        var data_ar_alt = modalMedia.find("[name='media[]']:checked").attr("data-ar_alt");
+        var data_path = modalMedia.find("[name='media[]']:checked").attr("data-path");
+        // إضافة الصورة البارزة
+        if(modalMedia.hasClass("single-media")) {
+            var media_id = $("#media_id").val();
+            $("#media_id").val(data_id);
+            if (media_id == -1) {
+                $(".addMedia").toggleClass("d-none");
+            }
+            $("#postImage").fadeIn();
+            $("#postImage .changeMedia").attr({"data-media": "media-" + data_id, "data-id": data_id});
+            $("#postImage .changeMedia img").attr({"src":data_path, "alt":data_ar_alt});
+        }
+        
+        // إضافة صورة أيقونة الموقع
+        if(modalMedia.hasClass("multi-media")) {
+            var media_id = $("#multi_media_id").val();
+            $("#multi_media_id").val(data_id);
+            if (media_id == -1) {
+                $(".addMultiMedia").toggleClass("d-none");
+            }
+            $("#postImage_2").fadeIn();
+            $("#postImage_2 .changeMedia").attr({"data-media": "media-" + data_id, "data-id": data_id});
+            $("#postImage_2 .changeMedia img").attr({"src":data_path, "alt":data_ar_alt});
+        }
+
+        // إضافة الصور لمعرض الصور
+        if(modalMedia.hasClass("mediaGallery")) {
+            $("[name='media[]']:checked:not(:disabled)").each(function(x) {
+                var data_id = $(this).attr("value");
+                var data_ar_alt = $(this).attr("data-ar_alt");
+                var data_path = $(this).attr("data-path");
+                $("#postGalleryContent [data-id=-1]").clone().appendTo("#postGalleryContent")
+                .removeClass("d-none").attr({"data-media":"media-"+data_id, "data-id":data_id})
+                .find("img").attr({"src":data_path, "alt":data_ar_alt})
+                .parent().find("[name=gallery_id]").val(data_id).attr({"id": "gallery_" + data_id, "name": "gallery_id[]"});
+            })
+            $("#postGalleryContent .clearMedia").click(function() {
+                // إزالة الصور من معرض الصور والغاء تعيينها
+                $(this).parent().remove();
+            })
+        }
+    });
+
+    $("#postImage .clearMedia").click(function() {
+        // إزالة الصورة البارزة والغاء تعيينها
+        $(this).parent().fadeOut();
+        $(this).parent().parent().find(".addMedia").toggleClass("d-none");
+        $("#media_id").val("-1");
+        $(".changeMedia").attr({"data-media": "", "data-id": ""});
+    })
+
+    $("#postImage_2 .clearMedia").click(function() {
+        // إزالة أيقونة الموقع والغاء تعيينها
+        $(this).parent().fadeOut();
+        $(this).parent().parent().find(".addMultiMedia").toggleClass("d-none");
+        $("#multi_media_id").val("-1");
+        $("#postImage_2 .changeMedia").attr({"data-media": "", "data-id": ""});
+    })
+
+    $("#postGalleryContent .clearMedia").click(function() {
+        // إزالة الصور من معرض الصور والغاء تعيينها
+        $(this).parent().remove();
     })
 
     // صندوق مكتبة الوسائط
     
     $("#editMedia.media-modal [name='media[]']").click(function() {
         var itemClass = $(this).attr("id");
-        var itemNum = $("#editMedia.media-modal [name='media[]']:checked").length;
+        var itemNum = $("[name='media[]']:checked:not(:disabled)").length;
         
-        if (itemNum > 0) {
+        if ($(this).prop("checked") == true) {
             // إظهار معلومات الصورة
             $(".file-info").show();
             // تفعيل أيقونة "تعيين وحفظ" فقط
-            $("#editMedia.media-modal .modal-footer button:not(.update)").prop("disabled", false);
+            $("#editMedia.media-modal .modal-footer button").prop("disabled", false);
 
-            $("#editMedia.media-modal .modal-footer .gallery-items span").text("عدد العناصر المحدد: " + itemNum);
+            $("#editMedia.mediaGallery .modal-footer .gallery-items span").text("عدد العناصر المحددة: " + itemNum);
+            var data_id = $(this).attr("value"),
+                data_path = $(this).attr("data-path"),
+                data_ar_title = $(this).attr("data-ar_title"),
+                data_en_title = $(this).attr("data-en_title"),
+                data_ar_alt = $(this).attr("data-ar_alt"),
+                data_en_alt = $(this).attr("data-en_alt"),
+                data_file_name = $(this).attr("data-file_name"),
+                data_file_type = $(this).attr("data-file_type"),
+                data_file_size = $(this).attr("data-file_size"),
+                data_dimensions = $(this).attr("data-dimensions"),
+                data_upload_date = $(this).attr("data-upload_date"),
+                data_uploader = $(this).attr("data-uploader"),
+                data_upload_to = $(this).attr("data-upload_to"),
+                data_view_attachment = $(this).attr("data-view_attachment");
+
+            $(".file-info .media-source img").attr({"src": data_path, "alt": data_ar_alt});
+            $(".file-info .media-button button").attr("data-id", data_id);
+            $(".file-info #mediaName-ar").val(data_ar_title);
+            $(".file-info #mediaName-en").val(data_en_title);
+            $(".file-info #mediaAlt-ar").val(data_ar_alt);
+            $(".file-info #mediaAlt-en").val(data_en_alt);
+            $(".file-info #mediaUrl").val(data_path);
+            $(".file-info .file-name span").text(data_file_name);
+            $(".file-info .file-type span").text(data_file_type);
+            $(".file-info .file-size span").text(data_file_size);
+            $(".file-info .dimensions span").text(data_dimensions);
+            $(".file-info .upload-date span").text(data_upload_date);
+            $(".file-info .uploader span").text(data_uploader);
+            $(".file-info .upload-to a").attr("href", data_upload_to);
+            $(".file-info .view-attachment a").attr("href", data_view_attachment);
         }
         else {
             // إخفاء معلومات الصورة
             $(".file-info").hide();
             // تعطيل أيقونة "تعيين وحفظ" فقط
             $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
-            $("#editMedia.media-modal .modal-footer .gallery-items span").text("");
+            if (itemNum > 0) {
+                $("#editMedia.mediaGallery .modal-footer .gallery-items span").text("عدد العناصر المحددة: " + itemNum);
+            }
+            else {
+
+                $("#editMedia.mediaGallery .modal-footer .gallery-items span").text("");
+            }
         }
         if ($("#editMedia.media-modal").hasClass("mediaGallery") && $(this).prop("checked") === true) {
+            // إضافة العناصر المحددة أسفل بوكس مكتبة الوسائط
             $(this).next().find("img").clone().appendTo("#editMedia.media-modal .modal-footer .gallery-items").addClass(itemClass);
         }
         else {
+            // إزالة العناصر المحددة أسفل بوكس مكتبة الوسائط
             $("#editMedia.media-modal .modal-footer ." + itemClass).remove();
         }
     })
 
-    // إعادة ضبط صندوق مكتبة الوسائط
+    // افتراضي صندوق مكتبة الوسائط
     $("#editMedia.media-modal").on("show.bs.modal", function () {
-        $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
+        $(".modal-footer button, .file-info .media-button .update").prop("disabled", true);
         if ($("[name='media[]']:checked").length > 0) {
             $(".file-info").show();
-            $("#editMedia.media-modal .modal-footer button:not(.update)").prop("disabled", false);
+            $(".modal-footer button").prop("disabled", false);
         }
         else {
             $(".file-info").hide();
-            $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
+            $(".modal-footer button").prop("disabled", true);
         }
-        $("#editMedia.media-modal .file-info input[type=text]").change(function() {
+        $(".file-info input[type=text]").change(function() {
             // تفعيل أيقونة "حفظ دون تعيين" عند تغيير معلومات الصورة
-            $("#editMedia.media-modal .modal-footer button.update").prop("disabled", false);
+            $(".file-info .media-button .update").prop("disabled", false);
         })
-    })
-    $("#editMedia.media-modal").on("hidden.bs.modal", function () {
-        $(this) + $(" [name='media[]']").prop({"type": "radio", "checked": false});
-        $(this) + $(" [name='media[]']").parent().removeClass("custom-checkbox").addClass("custom-radio");
-        $("#editMedia.media-modal .modal-footer button").prop("disabled", true);
-
-        if ($("#editMedia.media-modal").hasClass("mediaGallery")) {
-            $(this) + $(" .gallery-items").remove();
+        if ($(this).hasClass("single-media") && $("#media_id").val() == $("[name='media[]']:checked").val()) {
+            $(".modal-footer button").prop("disabled", true);
         }
+        $("[name='media[]']").click(function() {
+            if ($("#editMedia.media-modal").hasClass("single-media") && $("#media_id").val() == $(this).val()) {
+                $(".modal-footer button").prop("disabled", true);
+            }
+        })
+        $("#setMedia").attr("data-dismiss", "modal");
     })
+
+    // إعادة ضبط صندوق مكتبة الوسائط إلى صورة واحدة
+    $("#editMedia.media-modal").on("hidden.bs.modal", function () {
+        $(this) + $(" [name='media[]']").prop({"type": "radio", "disabled": false, "checked": false});
+        $(this) + $(" [name='media[]']").parent().removeClass("custom-checkbox").addClass("custom-radio");
+        $(".modal-footer button").prop("disabled", true);
+        if ($(this).hasClass("mediaGallery")) {
+            $(this) + $(" .gallery-items").remove();
+            $(this).addClass("single-media");
+            $(this).removeClass("mediaGallery");
+        }
+        if ($(this).hasClass("multi-media")) {
+            $(this).removeClass("multi-media");
+            $(this).addClass("single-media");
+        }
+        $("#setMedia").attr("data-dismiss", "");
+    })
+
+    // القيم الافتراضية للصورة البارزة
+    if ($("#media_id").val() > -1) {
+        $("#postImage").fadeIn();
+        $(".addMedia").toggleClass("d-none");
+        $("#media_id").val($("#postImage .changeMedia").attr("data-id"))
+    }
+    // القيم الافتراضية لأيقونة الموقع
+    if ($("#multi_media_id").val() > -1) {
+        $("#postImage_2").fadeIn();
+        $(".addMultiMedia").toggleClass("d-none");
+        $("#media_id_vav").val($("#postImage_2 .clearMedia").attr("data-id"))
+    }
 
     /////////////////////////// محرر النصوص في صفحة إضافة محتوى
     var config_ar = {

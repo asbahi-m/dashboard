@@ -300,9 +300,9 @@
                                         <div class="form-row">
                                             <div class="col-md-8 col-xl-9 text-center files">
                                                 <div class="media-source">
-                                                    <img src="uploads/2020/01/خلفية-صحراء-1024×1024.jpg" alt="...">
+                                                    <img src="uploads/2020/01/خلفية-صحراء-1024×1024.jpg" alt="خلفية صحراء">
                                                 </div>
-                                                <a type="button" class="btn btn-light text-center mt-3" href="#">تحرير الصورة</a>
+                                                <a type="button" class="btn btn-light mt-3 edit" href="#">تحرير الصورة</a>
                                             </div>
                                             <div class="col-md-4 col-xl-3 file-info">
                                                 <div class="form-group">
@@ -325,40 +325,40 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="mediaUrl">رابط الملف:</label>
-                                                    <input type="url" class="form-control form-control-sm" id="mediaUrl" name="mediaUrl" value="http://localhost/uploads/2020/01/خلفية-صحراء.jpg" readonly>
+                                                    <input type="url" class="form-control form-control-sm" id="mediaUrl" name="mediaUrl" value="uploads/2020/01/خلفية-صحراء.jpg" readonly>
                                                 </div>
                                                 <hr>
                                                 <div class="form-group media-info">
                                                     <div class="file-name">
                                                         <strong>اسم الملف:</strong>
-                                                        خلفية-صحراء.jpg
+                                                        <span>خلفية-صحراء.jpg</span>
                                                     </div>
-                                                    <div class="file-name">
+                                                    <div class="file-type">
                                                         <strong>نوع الملف:</strong>
-                                                        image/jpeg
-                                                    </div>
-                                                    <div class="uplod-date">
-                                                        <strong>تاريخ الرفع:</strong>
-                                                        2019-11-21
+                                                        <span>image/jpeg</span>
                                                     </div>
                                                     <div class="file-size">
                                                         <strong>حجم الملف:</strong>
-                                                        164 ك.ب
+                                                        <span>164 ك.ب</span>
                                                     </div>
-                                                    <div class="file-size">
+                                                    <div class="dimensions">
                                                         <strong>الأبعاد:</strong>
-                                                        640 × 360 بيكسل
+                                                        <span>640 × 360 بيكسل</span>
                                                     </div>
-                                                    <div>
+                                                    <div class="upload-date">
+                                                        <strong>تاريخ الرفع:</strong>
+                                                        <span>2019-11-21</span>
+                                                    </div>
+                                                    <div class="uploader">
                                                         <strong>تم الرفع بواسطة:</strong>
-                                                        عبدالله
+                                                        <span>عبدالله</span>
                                                     </div>
-                                                    <div>
+                                                    <div class="upload-to">
                                                         <strong>مرفوع إلى:</strong>
                                                         <a href="post-edit.html">عواصف رملية تهدد بعض دول العالم</a>
                                                     </div>
-                                                    <div>
-                                                        <a type="" class="btn btn-light" href="#">عرض المرفق في الموقع</a>
+                                                    <div class="view-attachment">
+                                                        <a class="btn btn-light" href="#" target="_blank">عرض المرفق في الموقع</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -366,8 +366,8 @@
                                     </div>
                                     
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">تعديل</button>
-                                        <button type="button" class="btn btn-danger">حذف نهائي</button>
+                                        <button type="submit" class="btn btn-primary update">تعديل</button>
+                                        <button type="button" class="btn btn-danger delete">حذف نهائي</button>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
                                     </div>
                                 </form>
