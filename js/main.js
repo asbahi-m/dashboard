@@ -313,6 +313,9 @@ $(document).ready(function() {
     $("#postsTable input:checkbox, #pagesTable input:checkbox, #adsTable input:checkbox").click(function() {
         showChecked("input[name='post[]']", "input[name='post[]']:checked");
     });
+    $("#writersTable input:checkbox").click(function() {
+        showChecked("input[name='writer[]']", "input[name='writer[]']:checked");
+    });
 
     /* تحديد عناصر جدول مكتبة الوسائط */
     $("#mediaTable input:checkbox").click(function() {
@@ -334,6 +337,47 @@ $(document).ready(function() {
         $(".alert.selected").fadeOut();
     });
 
+    /* الغاء تحديد عناصر الجدول عند تحديث الصفحة */
+    $("table tr [type=checkbox]").each(function() {
+        if ($(this).is("[checked]")) {
+            $(this).prop("checked", true);
+        }
+        else {
+            $(this).prop("checked", false);
+        }
+    });
+
+    /* بوكس حذف العناصر المحددة */
+    $("#btnDeleteItems").click(function() {
+        var items_check = $("[type=checkbox][name]:checked");
+        var item_value = document.getElementById("remove_id");
+        item_value.value = "";
+        if (items_check.length > 0) {
+            for (var i = 0; i < items_check.length; i++) {
+                item_value.value += items_check.eq(i).val();
+                if ( i != items_check.length-1) {
+                    item_value.value += ",";
+                }
+            }
+            $("#deleteItem .modal-header .item-type").addClass("d-none");
+            $("#deleteItem .modal-body .count").text(items_check.length).parent().removeClass("d-none");
+        }        
+    })
+    $(".delete").click(function() {
+        $("#remove_id").val($(this).attr("data-id"));
+        $("#deleteItem .modal-body .item-title").text($(this).attr("data-title")).removeClass("d-none");
+    })
+    $(".menu-delete").click(function() {
+        $("#remove_id").val($("[name='menu[]']").val());
+        $("#deleteItem .modal-body .item-title").text($("[name='menu[]'] :selected").attr("data-title")).removeClass("d-none");
+    })
+    $("#deleteItem").on("hide.bs.modal", function() {
+        $("#remove_id").val("");
+        $(this).find(".count").text("").parent().addClass("d-none");
+        $(this).find(".item-title").text("").addClass("d-none");
+        $(this).find(".item-type").removeClass("d-none");
+    })
+    
     /////////////////////////// إظهار/إخفاء بوكس إضافة عنصر جديد في صفحة التصنيفات
     function checkAddItem() {
         $("a.btn[data-target='#addItem']").css("display") !== "none" ? $("#addItem").addClass("collapse") : $("#addItem").removeClass("collapse");

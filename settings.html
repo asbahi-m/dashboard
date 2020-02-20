@@ -651,10 +651,15 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">هل تريد حذف: <strong>القائمة الرئيسية</strong></h5>
+                                    <h5 class="modal-title">هل فعلاً تريد حذف <span class="item-type">القائمة</span></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
+                                </div>
+                                <div class="modal-body">
+                                    <strong class="item-title d-none"></strong>
+                                    <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
+                                    <input type="hidden" id="remove_id" name="remove_id[]" value="">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-danger">حذف</button>
@@ -1265,14 +1270,14 @@
                                                 <div class="col-xl-7"> <!-- تركيبة القائمة -->
                                                     <h5>تركيبة القائمة</h5>
                                                     <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center bg-white p-3">
-                                                        <select class="custom-select w-auto">
-                                                            <option>القائمة الأساسية</option>
-                                                            <option>القائمة الثانوية</option>
+                                                        <select class="custom-select w-auto" name="menu[]">
+                                                            <option value="1" data-title="القائمة الرئيسية">القائمة الأساسية</option>
+                                                            <option value="2" data-title="القائمة الثانوية">القائمة الثانوية</option>
                                                         </select>
                                                         <div class="my-2 my-sm-0 mx-1 d-flex">
-                                                            <a type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#addMenu">إضافة</a>
-                                                            <a type="button" class="btn btn-light btn-sm mx-1" data-toggle="modal" data-target="#editMenu">تعديل</a>
-                                                            <a type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#deleteItem">حذف</a>
+                                                            <button type="button" class="btn btn-light btn-sm menu-add" data-toggle="modal" data-target="#addMenu">إضافة</button>
+                                                            <button type="button" class="btn btn-light btn-sm mx-1 menu-edit" data-toggle="modal" data-target="#editMenu">تعديل</button>
+                                                            <button type="button" class="btn btn-light btn-sm menu-delete" data-toggle="modal" data-target="#deleteItem">حذف</button>
                                                         </div>
                                                     </div>
 
@@ -1356,7 +1361,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-1" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-1" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1388,7 +1393,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-2" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-2" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1420,7 +1425,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-3" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-3" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1452,7 +1457,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-4" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-4" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1484,7 +1489,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-5" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-5" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1516,7 +1521,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-6" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-6" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1548,7 +1553,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-7" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-7" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1580,7 +1585,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-8" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-8" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1612,7 +1617,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
-                                                                    <a type="button" id="delete-menu-item-9" class="btn btn-warning btn-sm delete-menu-item">إزالة من القائمة</a>
+                                                                    <a type="button" id="menu-item-delete-9" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -1687,7 +1692,7 @@
                                                                             <label class="custom-control-label" for="lang-control-disable-1">تعطيل اللغة في لوحة التحكم.</label>
                                                                         </div>
                                                                         <div>
-                                                                            <button type="button" id="lang-item-delete-1" class="btn btn-warning btn-sm mt-2 mt-xl-0" data-toggle="modal" data-target="#deleteItem">حذف اللغة</button>
+                                                                            <button type="button" class="btn btn-warning btn-sm mt-2 mt-xl-0 delete" data-id="1" data-title="اللغة العربية" data-toggle="modal" data-target="#deleteItem">حذف اللغة</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1730,7 +1735,7 @@
                                                                             <label class="custom-control-label" for="lang-control-disable-1">تعطيل اللغة في لوحة التحكم.</label>
                                                                         </div>
                                                                         <div>
-                                                                            <button type="button" id="lang-item-delete-2" class="btn btn-warning btn-sm mt-2 mt-xl-0" data-toggle="modal" data-target="#deleteItem">حذف اللغة</button>
+                                                                            <button type="button" class="btn btn-warning btn-sm mt-2 mt-xl-0 delete" data-id="2" data-title="اللغة الإنجليزية" data-toggle="modal" data-target="#deleteItem">حذف اللغة</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>

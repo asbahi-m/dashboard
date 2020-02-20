@@ -414,10 +414,15 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">هل تريد حذف التصنيف: <strong>أخبار</strong></h5>
+                                        <h5 class="modal-title">هل فعلاً تريد حذف <span class="item-type">التصنيف</span></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <strong class="item-title d-none"></strong>
+                                        <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
+                                        <input type="hidden" id="remove_id" name="remove_id[]" value="">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">حذف</button>
@@ -473,7 +478,7 @@
                             </div>
                             
                             <!-- حذف العناصر المحددة -->
-                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
+                            <button id="btnDeleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
                                 <i class="fas fa-trash"></i><span class="ml-1">حذف المحدد (<strong class="count"></strong>)</span>
                             </button>
                             
@@ -513,7 +518,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="7" data-title="مقالات">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -536,7 +541,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="9" data-title="مقالات اقتصادية">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -559,7 +564,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="8" data-title="مقالات سياسية">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -582,7 +587,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="2" data-title="أخبار">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -605,7 +610,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="6" data-title="أخبار دولية">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -628,7 +633,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="3" data-title="أخبار محلية">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -651,7 +656,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="5" data-title="أخبار محلية اقتصادية">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -674,7 +679,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="4" data-title="أخبار محلية سياسية">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>

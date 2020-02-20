@@ -775,10 +775,15 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">هل تريد حذف الكاتب: <strong>محمد سعيد</strong></h5>
+                                        <h5 class="modal-title">هل فعلاً تريد حذف <span class="item-type">الكاتب</span></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <strong class="item-title d-none"></strong>
+                                        <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
+                                        <input type="hidden" id="remove_id" name="remove_id[]" value="">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">حذف</button>
@@ -834,7 +839,7 @@
                             </div>
                             
                             <!-- حذف العناصر المحددة -->
-                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
+                            <button id="btnDeleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
                                 <i class="fas fa-trash"></i><span class="ml-1">حذف المحدد (<strong class="count"></strong>)</span>
                             </button>
                             
@@ -842,7 +847,7 @@
                             <table id="writersTable" class="table table-hover table-bordered">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th id="check" class="column-check" scope="col">
+                                        <th id="check-writer" class="column-check" scope="col">
                                             <div class="custom-control custom-checkbox">
                                                 <input id="checkAll" type="checkbox" class="custom-control-input">
                                                 <label class="custom-control-label" for="checkAll"></label>
@@ -876,8 +881,8 @@
                                     <tr id="writer-2">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-2" type="checkbox" class="custom-control-input" name="writer[]" value="2">
-                                                <label class="custom-control-label" for="check-2"></label>
+                                                <input id="check-writer-2" type="checkbox" class="custom-control-input" name="writer[]" value="2">
+                                                <label class="custom-control-label" for="check-writer-2"></label>
                                             </div>
                                         </th>
                                         <td class="column-name column-primary" data-column="الكاتب">محمد أحمد علي سعيد
@@ -894,7 +899,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="2" data-title="محمد أحمد علي سعيد">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -905,8 +910,8 @@
                                     <tr id="writer-3">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-3" type="checkbox" class="custom-control-input" name="writer[]" value="3">
-                                                <label class="custom-control-label" for="check-3"></label>
+                                                <input id="check-writer-3" type="checkbox" class="custom-control-input" name="writer[]" value="3">
+                                                <label class="custom-control-label" for="check-writer-3"></label>
                                             </div>
                                         </th>
                                         <td class="column-name column-primary" data-column="الكاتب">قاسم صالح رضا
@@ -923,7 +928,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="3" data-title="قاسم صالح رضا">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -934,8 +939,8 @@
                                     <tr id="writer-4">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-4" type="checkbox" class="custom-control-input" name="writer[]" value="4">
-                                                <label class="custom-control-label" for="check-4"></label>
+                                                <input id="check-writer-4" type="checkbox" class="custom-control-input" name="writer[]" value="4">
+                                                <label class="custom-control-label" for="check-writer-4"></label>
                                             </div>
                                         </th>
                                         <td class="column-name column-primary" data-column="الكاتب">ملاك أحمد السعدي
@@ -952,7 +957,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="4" data-title="ملاك أحمد السعدي">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>

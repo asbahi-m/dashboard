@@ -267,7 +267,7 @@ main .panel:hover > div i {
     display: none;
     z-index: 1;
 }
-#deleteItems {
+#btnDeleteItems {
     display: none;
 }
 .icons-control {

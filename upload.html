@@ -380,10 +380,15 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">هل تريد حذف الملف: <strong>خلفية صحراء</strong></h5>
+                                    <h5 class="modal-title">هل فعلاً تريد حذف <span class="item-type">الملف</span></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
+                                </div>
+                                <div class="modal-body">
+                                    <strong class="item-title d-none"></strong>
+                                    <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
+                                    <input type="hidden" id="remove_id" name="remove_id[]" value="">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-danger">حذف نهائي</button>
@@ -459,7 +464,7 @@
                             </div>
 
                             <!-- حذف العناصر المحددة -->
-                            <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items" data-toggle="modal" data-target="#deleteItem">
+                            <button id="btnDeleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items" data-toggle="modal" data-target="#deleteItem">
                                 <i class="fas fa-trash"></i><span class="ml-1">حذف المحدد (<strong class="count"></strong>)</span>
                             </button>
                         </div>
@@ -492,7 +497,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-12" type="checkbox" class="custom-control-input" name="media[]" value="12">
                                             <label class="custom-control-label media-icon" for="check-12">
-                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="كمبيوتر وقهوة">
                                             </label>
                                         </div>
                                     </th>
@@ -505,7 +510,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="12" data-title="كمبيوتر وقهوة">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -518,7 +523,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-11" type="checkbox" class="custom-control-input" name="media[]" value="11">
                                             <label class="custom-control-label media-icon" for="check-11">
-                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="خلفية صحراء">
                                             </label>
                                         </div>
                                     </th>
@@ -531,7 +536,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="11" data-title="خلفية صحراء">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -557,7 +562,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="10" data-title="الجمهورية اليمنية">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -570,7 +575,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-9" type="checkbox" class="custom-control-input" name="media[]" value="9">
                                             <label class="custom-control-label media-icon" for="check-9">
-                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="كمبيوتر وقهوة">
                                             </label>
                                         </div>
                                     </th>
@@ -583,7 +588,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="9" data-title="كمبيوتر وقهوة">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -596,7 +601,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-8" type="checkbox" class="custom-control-input" name="media[]" value="8">
                                             <label class="custom-control-label media-icon" for="check-8">
-                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="خلفية صحراء">
                                             </label>
                                         </div>
                                     </th>
@@ -609,7 +614,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="8" data-title="خلفية صحراء">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -635,7 +640,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="7" data-title="الجمهورية اليمنية">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -648,7 +653,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-6" type="checkbox" class="custom-control-input" name="media[]" value="6">
                                             <label class="custom-control-label media-icon" for="check-6">
-                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="كمبيوتر وقهوة">
                                             </label>
                                         </div>
                                     </th>
@@ -661,7 +666,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="6" data-title="كمبيوتر وقهوة">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -674,7 +679,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-5" type="checkbox" class="custom-control-input" name="media[]" value="5">
                                             <label class="custom-control-label media-icon" for="check-5">
-                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="خلفية صحراء">
                                             </label>
                                         </div>
                                     </th>
@@ -687,7 +692,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="5" data-title="خلفية صحراء">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -713,7 +718,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="4" data-title="الجمهورية اليمنية">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -726,7 +731,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-3" type="checkbox" class="custom-control-input" name="media[]" value="3">
                                             <label class="custom-control-label media-icon" for="check-3">
-                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="كمبيوتر وقهوة">
                                             </label>
                                         </div>
                                     </th>
@@ -739,7 +744,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="3" data-title="كمبيوتر وقهوة">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -752,7 +757,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input id="check-2" type="checkbox" class="custom-control-input" name="media[]" value="2">
                                             <label class="custom-control-label media-icon" for="check-2">
-                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="خلفية صحراء">
                                             </label>
                                         </div>
                                     </th>
@@ -765,7 +770,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="2" data-title="خلفية صحراء">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -791,7 +796,7 @@
                                             <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editMedia">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="1" data-title="الجمهورية اليمنية">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>

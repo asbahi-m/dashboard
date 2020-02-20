@@ -290,13 +290,18 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">هل تريد حذف المستخدم: <strong>user1</strong></h5>
+                                    <h5 class="modal-title">هل فعلاً تريد حذف <span class="item-type">المستخدم</span></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                <div class="modal-body">
+                                    <strong class="item-title d-none"></strong>
+                                    <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
+                                    <input type="hidden" id="remove_id" name="remove_id[]" value="">
+                                </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                    <button type="submit" class="btn btn-danger">حشف نهائي</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
                                 </div>
                             </div>
@@ -359,7 +364,7 @@
                         </div>
 
                         <!-- حذف العناصر المحددة -->
-                        <button id="deleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
+                        <button id="btnDeleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
                             <i class="fas fa-trash"></i><span class="ml-1">حذف المحدد (<strong class="count"></strong>)</span>
                         </button>
                         
@@ -383,12 +388,7 @@
                             </thead>
                             <tbody>
                                 <tr id="user-1" class="administrator">
-                                    <th class="column-check details-control" scope="row">
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="check-1" type="checkbox" class="custom-control-input" name="user[]" value="1">
-                                            <label class="custom-control-label" for="check-1"></label>
-                                        </div>
-                                    </th>
+                                    <th class="column-check details-control" scope="row"></th>
                                     <td class="column-username column-primary" data-column="اسم المستخدم">
                                         <div class="picture-profile d-flex align-items-start" href="#">
                                             <i class="fas fa-user-circle mr-2"></i>
@@ -439,7 +439,7 @@
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="2" data-title="user1">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -473,7 +473,7 @@
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="3" data-title="saeed">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -507,7 +507,7 @@
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="4" data-title="ali">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -541,7 +541,7 @@
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="5" data-title="aboood">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -575,7 +575,7 @@
                                             <a type="button" class="btn btn-outline-primary btn-sm edit" href="user-edit.html">
                                                 <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                             </a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem">
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="6" data-title="saleh">
                                                 <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                             </button>
                                             <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
