@@ -423,6 +423,20 @@
                                         <strong class="item-title d-none"></strong>
                                         <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
                                         <input type="hidden" id="remove_id" name="remove_id[]" value="">
+                                        <div class="form-group">
+                                            <small class="bg-warning px-1 py-2 mt-1 d-block">* تنويه: سيتم نقل عدد <strong class="posts-num"></strong> مشاركة إلى التصنيف</small>
+                                            <select  class="form-control form-control-sm" name="parentCate">
+                                                <option class="level-0" value="7">مقالات</option>
+                                                <option class="level-1 child-name" level="1" value="9">مقالات اقتصادية</option>
+                                                <option class="level-1 child-name" level="1" value="8">مقالات سياسية</option>
+                                                <option class="level-0" value="2">أخبار</option>
+                                                <option class="level-1 child-name" level="1" value="6">أخبار دولية</option>
+                                                <option class="level-1 child-name" level="1" value="3">أخبار محلية</option>
+                                                <option class="level-2 child-name" level="2" value="5">أخبار محلية اقتصادية</option>
+                                                <option class="level-2 child-name" level="2" value="4">أخبار محلية سياسية</option>
+                                                <option class="level-0" value="1" selected>غير مصنف</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">حذف</button>
@@ -504,7 +518,7 @@
                                     <tr id="cate-7" class="level-0 hasChildren">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-7" type="checkbox" class="custom-control-input" name="cate[]" value="7">
+                                                <input id="check-7" type="checkbox" class="custom-control-input" name="cate[]" value="7" data-posts_num="50">
                                                 <label class="custom-control-label" for="check-7"></label>
                                             </div>
                                         </th>
@@ -518,7 +532,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="7" data-title="مقالات">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="7" data-title="مقالات" data-posts_num="50">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -528,7 +542,7 @@
                                     <tr id="cate-9" class="level-1" level="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-9" type="checkbox" class="custom-control-input" name="cate[]" value="9">
+                                                <input id="check-9" type="checkbox" class="custom-control-input" name="cate[]" value="9" data-posts_num="50">
                                                 <label class="custom-control-label" for="check-9"></label>
                                             </div>
                                         </th>
@@ -541,7 +555,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="9" data-title="مقالات اقتصادية">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="9" data-title="مقالات اقتصادية" data-posts_num="50">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -551,7 +565,7 @@
                                     <tr id="cate-8" class="level-1" level="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-8" type="checkbox" class="custom-control-input" name="cate[]" value="8">
+                                                <input id="check-8" type="checkbox" class="custom-control-input" name="cate[]" value="8" data-posts_num="50">
                                                 <label class="custom-control-label" for="check-8"></label>
                                             </div>
                                         </th>
@@ -564,7 +578,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="8" data-title="مقالات سياسية">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="8" data-title="مقالات سياسية" data-posts_num="50">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -574,7 +588,7 @@
                                     <tr id="cate-2" class="level-0 hasChildren">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-2" type="checkbox" class="custom-control-input" name="cate[]" value="2">
+                                                <input id="check-2" type="checkbox" class="custom-control-input" name="cate[]" value="2" data-posts_num="65">
                                                 <label class="custom-control-label" for="check-2"></label>
                                             </div>
                                         </th>
@@ -587,7 +601,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="2" data-title="أخبار">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="2" data-title="أخبار" data-posts_num="65">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -597,7 +611,7 @@
                                     <tr id="cate-6" class="level-1" level="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-6" type="checkbox" class="custom-control-input" name="cate[]" value="6">
+                                                <input id="check-6" type="checkbox" class="custom-control-input" name="cate[]" value="6" data-posts_num="15">
                                                 <label class="custom-control-label" for="check-6"></label>
                                             </div>
                                         </th>
@@ -610,7 +624,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="6" data-title="أخبار دولية">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="6" data-title="أخبار دولية" data-posts_num="15">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -620,7 +634,7 @@
                                     <tr id="cate-3" class="level-1" level="1">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-3" type="checkbox" class="custom-control-input" name="cate[]" value="3">
+                                                <input id="check-3" type="checkbox" class="custom-control-input" name="cate[]" value="3" data-posts_num="50">
                                                 <label class="custom-control-label" for="check-3"></label>
                                             </div>
                                         </th>
@@ -633,7 +647,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="3" data-title="أخبار محلية">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="3" data-title="أخبار محلية" data-posts_num="50">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -643,7 +657,7 @@
                                     <tr id="cate-5" class="level-2" level="2">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-5" type="checkbox" class="custom-control-input" name="cate[]" value="5">
+                                                <input id="check-5" type="checkbox" class="custom-control-input" name="cate[]" value="5" data-posts_num="20">
                                                 <label class="custom-control-label" for="check-5"></label>
                                             </div>
                                         </th>
@@ -656,7 +670,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="5" data-title="أخبار محلية اقتصادية">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="5" data-title="أخبار محلية اقتصادية" data-posts_num="20">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -666,7 +680,7 @@
                                     <tr id="cate-4" class="level-2" level="2">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="check-4" type="checkbox" class="custom-control-input" name="cate[]" value="4">
+                                                <input id="check-4" type="checkbox" class="custom-control-input" name="cate[]" value="4" data-posts_num="30">
                                                 <label class="custom-control-label" for="check-4"></label>
                                             </div>
                                         </th>
@@ -679,7 +693,7 @@
                                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="4" data-title="أخبار محلية سياسية">
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="4" data-title="أخبار محلية سياسية" data-posts_num="30">
                                                     <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
@@ -694,7 +708,7 @@
                                         <td class="column-postsNum" data-column="العدد"><a href="#">5</a></td>
                                         <td class="column-control" data-column="التحكم">
                                             <div class="icons-control">
-                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem" data-posts_num="50">
                                                     <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>

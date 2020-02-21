@@ -352,20 +352,27 @@ $(document).ready(function() {
         var items_check = $("[type=checkbox][name]:checked");
         var item_value = document.getElementById("remove_id");
         item_value.value = "";
+        item_value.setAttribute("data-posts_num", "");
         if (items_check.length > 0) {
             for (var i = 0; i < items_check.length; i++) {
+                var item_value_posts = item_value.getAttribute("data-posts_num");
+                item_value.setAttribute("data-posts_num", Number(item_value_posts) + Number(items_check.eq(i).attr("data-posts_num")));
                 item_value.value += items_check.eq(i).val();
                 if ( i != items_check.length-1) {
                     item_value.value += ",";
                 }
             }
+            item_value_posts = item_value.getAttribute("data-posts_num");
             $("#deleteItem .modal-header .item-type").addClass("d-none");
             $("#deleteItem .modal-body .count").text(items_check.length).parent().removeClass("d-none");
+            $("#deleteItem .modal-body .posts-num").text(item_value_posts);
         }        
     })
     $(".delete").click(function() {
         $("#remove_id").val($(this).attr("data-id"));
+        $("#remove_id").attr("data-posts_num",$(this).attr("data-posts_num"));
         $("#deleteItem .modal-body .item-title").text($(this).attr("data-title")).removeClass("d-none");
+        $("#deleteItem .modal-body .posts-num").text($(this).attr("data-posts_num"));
     })
     $(".menu-delete").click(function() {
         $("#remove_id").val($("[name='menu[]']").val());
@@ -373,9 +380,11 @@ $(document).ready(function() {
     })
     $("#deleteItem").on("hide.bs.modal", function() {
         $("#remove_id").val("");
+        $("#remove_id").attr("data-posts_num", "");
         $(this).find(".count").text("").parent().addClass("d-none");
         $(this).find(".item-title").text("").addClass("d-none");
         $(this).find(".item-type").removeClass("d-none");
+        $(this).find(".posts-num").text("");
     })
     
     /////////////////////////// إظهار/إخفاء بوكس إضافة عنصر جديد في صفحة التصنيفات
