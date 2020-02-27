@@ -17,14 +17,14 @@
 
         <!-- JS Files -->
         <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="libraries/jquery-ui/jquery-ui.min.js"></script>
+        <script src="libraries/nestable/jquery.nestable.js"></script>
         <script src="libraries/popper/popper.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="libraries/DataTables/datatables.min.js"></script>
         <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
         <script src="libraries/textboxio/textboxio.js"></script>
         <script src="js/main.js"></script>
-    </head>
+</head>
 
     <body>
         <header class="d-flex justify-content-between px-2 sticky-top">
@@ -34,97 +34,137 @@
             
             <div id="Notices" class="dropdown ml-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
+                    <i class="fas fa-bell"></i><span class="badge badge-warning">4</span>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
                     <!-- عرض ثابت لآخر 5 إشعارات -->
-                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
                         <i class="fas fa-comment-medical"></i>
-                        <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                        <small class="ml-auto">قبل 30 دقيقة</small>
+                        <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                        <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
-                        <i class="fas fa-newspaper color"></i>
-                        <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-del new" href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 14 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
+                        <i class="fas fa-sitemap"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>مقالات</strong></span>
                         <small class="ml-auto">قبل 15 ساعة</small>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-edit new" href="#">
                         <i class="fas fa-user-plus"></i>
-                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
                         <small class="ml-auto">قبل 1 يوم</small>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                        <i class="fas fa-user-plus"></i>
-                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                        <small class="ml-auto">قبل 1 يوم</small>
-                    </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                        <i class="fas fa-user-plus"></i>
-                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                        <i class="fas fa-clone"></i>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة الصفحة <strong>اتصل بنا</strong></span>
                         <small class="ml-auto">قبل 1 يوم</small>
                     </a>
 
                     <!-- عرض جميع الإشعارات -->
                     <div class="collapse" id="allNotices">
-                        <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الصفحة <strong>نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> وافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>مدير الموقع</strong> لم يوافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>مدير الموقع</strong> حذف تعليقاً على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بحذف المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
                     </div>
                     <a type="button" id="showNotices" class="text-center text-light bg-dark btn btn-primary" data-toggle="collapse" href="#allNotices" role="button" aria-expanded="false" aria-controls="allNotices">
@@ -1330,299 +1370,332 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                        
-                                                    <ul id="sortable" class="list-group menu-structure">
-                                                        <li id="menu-item-1" class="list-group-item custom-menu-item">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">الرئيسية</span>
-                                                                <span class="item-type">رابط مخصص</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-1" role="button" aria-expanded="false" aria-controls="edit-menu-item-1">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-1">
-                                                                <div class="card-body">
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4" for="url-menu-item-1">الرابط:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <input id="url-menu-item-1" type="text" class="form-control" name="url-menu-item[1]" value="/" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-1">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-1-ar" type="text" class="form-control" name="title-menu-item-ar[1]" value="الرئيسية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-1-en" type="text" class="form-control" name="title-menu-item-en[1]" value="Home" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-1" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
 
-                                                        <li id="menu-item-2" class="list-group-item category-menu-item">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">أخبار</span>
-                                                                <span class="item-type">تصنيف</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-2" role="button" aria-expanded="false" aria-controls="edit-menu-item-2">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-2">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-2">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-2-ar" type="text" class="form-control" name="title-menu-item-ar[2]" value="أخبار" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                    <!-- بوكس ترتيب عناصر القائمة بالسحب والإفلات -->
+                                                    <div class="nestable-lists">
+                                                        <div class="dd" id="nestable">
+                                                            <ul class="dd-list list-group menu-structure">
+                                                                <li id="menu-item-1" class="dd-item dd3-item list-group-item custom-menu-item" data-id="1">
+                                                                    <div class="dd-handle dd3-handle"></div>
+                                                                    <div class="dd3-content">
+                                                                        <div class="card-header d-flex justify-content-between">
+                                                                            <span class="item-title">الرئيسية</span>
+                                                                            <span class="item-type">رابط مخصص</span>
+                                                                            <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-1" role="button" aria-expanded="false" aria-controls="edit-menu-item-1">
+                                                                                <i class="fas fa-angle-down"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="collapse" id="edit-menu-item-1">
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <label class="col-sm-5 col-xl-4" for="url-menu-item-1">الرابط:</label>
+                                                                                    <div class="col-sm-7 col-xl-8">
+                                                                                        <input id="url-menu-item-1" type="text" class="form-control" name="url-menu-item[1]" value="/" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row mt-3">
+                                                                                    <label class="col-sm-5 col-xl-4" for="title-menu-item-1">النص في القائمة:</label>
+                                                                                    <div class="col-sm-7 col-xl-8">
+                                                                                        <div class="lang-ar">
+                                                                                            <input id="title-menu-item-1-ar" type="text" class="form-control" name="title-menu-item-ar[1]" value="الرئيسية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                        <div class="lang-en">
+                                                                                            <input id="title-menu-item-1-en" type="text" class="form-control" name="title-menu-item-en[1]" value="Home" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-2-en" type="text" class="form-control" name="title-menu-item-en[2]" value="News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                            <div class="card-footer">
+                                                                                <a type="button" id="menu-item-delete-1" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">أخبار</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-2" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li id="menu-item-3" class="list-group-item category-menu-item level-1" level="1">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">أخبار محلية</span>
-                                                                <span class="item-type">تصنيف</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-3" role="button" aria-expanded="false" aria-controls="edit-menu-item-3">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-3">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-3">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-3-ar" type="text" class="form-control" name="title-menu-item-ar[3]" value="أخبار محلية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                </li>
+        
+                                                                <li id="menu-item-2" class="dd-item dd3-item list-group-item category-menu-item" data-id="2">
+                                                                    <div class="dd-handle dd3-handle"></div>
+                                                                    <div class="dd3-content">
+                                                                        <div class="card-header d-flex justify-content-between">
+                                                                            <span class="item-title">أخبار</span>
+                                                                            <span class="item-type">تصنيف</span>
+                                                                            <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-2" role="button" aria-expanded="false" aria-controls="edit-menu-item-2">
+                                                                                <i class="fas fa-angle-down"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="collapse" id="edit-menu-item-2">
+                                                                            <div class="card-body">
+                                                                                <div class="row mt-3">
+                                                                                    <label class="col-sm-5 col-xl-4" for="title-menu-item-2">النص في القائمة:</label>
+                                                                                    <div class="col-sm-7 col-xl-8">
+                                                                                        <div class="lang-ar">
+                                                                                            <input id="title-menu-item-2-ar" type="text" class="form-control" name="title-menu-item-ar[2]" value="أخبار" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                        <div class="lang-en">
+                                                                                            <input id="title-menu-item-2-en" type="text" class="form-control" name="title-menu-item-en[2]" value="News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                    <a href="#" target="_blank">أخبار</a>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-3-en" type="text" class="form-control" name="title-menu-item-en[3]" value="Local News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                            <div class="card-footer">
+                                                                                <a type="button" id="menu-item-delete-2" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">أخبار محلية</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-3" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li id="menu-item-4" class="list-group-item category-menu-item level-1" level="1">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">أخبار دولية</span>
-                                                                <span class="item-type">تصنيف</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-4" role="button" aria-expanded="false" aria-controls="edit-menu-item-4">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-4">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-4">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-4-ar" type="text" class="form-control" name="title-menu-item-ar[4]" value="أخبار دولية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                    <ul class="dd-list">
+                                                                        <li id="menu-item-3" class="dd-item dd3-item list-group-item category-menu-item" data-id="3">
+                                                                            <div class="dd-handle dd3-handle"></div>
+                                                                            <div class="dd3-content">
+                                                                                <div class="card-header d-flex justify-content-between">
+                                                                                    <span class="item-title">أخبار محلية</span>
+                                                                                    <span class="item-type">تصنيف</span>
+                                                                                    <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-3" role="button" aria-expanded="false" aria-controls="edit-menu-item-3">
+                                                                                        <i class="fas fa-angle-down"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="collapse" id="edit-menu-item-3">
+                                                                                    <div class="card-body">
+                                                                                        <div class="row mt-3">
+                                                                                            <label class="col-sm-5 col-xl-4" for="title-menu-item-3">النص في القائمة:</label>
+                                                                                            <div class="col-sm-7 col-xl-8">
+                                                                                                <div class="lang-ar">
+                                                                                                    <input id="title-menu-item-3-ar" type="text" class="form-control" name="title-menu-item-ar[3]" value="أخبار محلية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                                <div class="lang-en">
+                                                                                                    <input id="title-menu-item-3-en" type="text" class="form-control" name="title-menu-item-en[3]" value="Local News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                            <a href="#" target="_blank">أخبار محلية</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-footer">
+                                                                                        <a type="button" id="menu-item-delete-3" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-4-en" type="text" class="form-control" name="title-menu-item-en[4]" value="International News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                        </li>
+                
+                                                                        <li id="menu-item-4" class="dd-item dd3-item list-group-item category-menu-item" data-id="4">
+                                                                            <div class="dd-handle dd3-handle"></div>
+                                                                            <div class="dd3-content">
+                                                                                <div class="card-header d-flex justify-content-between">
+                                                                                    <span class="item-title">أخبار دولية</span>
+                                                                                    <span class="item-type">تصنيف</span>
+                                                                                    <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-4" role="button" aria-expanded="false" aria-controls="edit-menu-item-4">
+                                                                                        <i class="fas fa-angle-down"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="collapse" id="edit-menu-item-4">
+                                                                                    <div class="card-body">
+                                                                                        <div class="row mt-3">
+                                                                                            <label class="col-sm-5 col-xl-4" for="title-menu-item-4">النص في القائمة:</label>
+                                                                                            <div class="col-sm-7 col-xl-8">
+                                                                                                <div class="lang-ar">
+                                                                                                    <input id="title-menu-item-4-ar" type="text" class="form-control" name="title-menu-item-ar[4]" value="أخبار دولية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                                <div class="lang-en">
+                                                                                                    <input id="title-menu-item-4-en" type="text" class="form-control" name="title-menu-item-en[4]" value="International News" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                            <a href="#" target="_blank">أخبار دولية</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-footer">
+                                                                                        <a type="button" id="menu-item-delete-4" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+
+                                                                <li id="menu-item-5" class="dd-item dd3-item list-group-item category-menu-item" data-id="5">
+                                                                    <div class="dd-handle dd3-handle"></div>
+                                                                    <div class="dd3-content">
+                                                                        <div class="card-header d-flex justify-content-between">
+                                                                            <span class="item-title">مقالات</span>
+                                                                            <span class="item-type">تصنيف</span>
+                                                                            <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-5" role="button" aria-expanded="false" aria-controls="edit-menu-item-5">
+                                                                                <i class="fas fa-angle-down"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="collapse" id="edit-menu-item-5">
+                                                                            <div class="card-body">
+                                                                                <div class="row mt-3">
+                                                                                    <label class="col-sm-5 col-xl-4" for="title-menu-item-5">النص في القائمة:</label>
+                                                                                    <div class="col-sm-7 col-xl-8">
+                                                                                        <div class="lang-ar">
+                                                                                            <input id="title-menu-item-5-ar" type="text" class="form-control" name="title-menu-item-ar[5]" value="مقالات" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                        <div class="lang-en">
+                                                                                            <input id="title-menu-item-5-en" type="text" class="form-control" name="title-menu-item-en[5]" value="Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                    <a href="#" target="_blank">مقالات</a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-footer">
+                                                                                <a type="button" id="menu-item-delete-5" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">أخبار دولية</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-4" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li id="menu-item-5" class="list-group-item category-menu-item">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">مقالات</span>
-                                                                <span class="item-type">تصنيف</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-5" role="button" aria-expanded="false" aria-controls="edit-menu-item-5">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-5">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-5">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-5-ar" type="text" class="form-control" name="title-menu-item-ar[5]" value="مقالات" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                    <ul class="dd-list">
+                                                                        <li id="menu-item-6" class="dd-item dd3-item list-group-item category-menu-item" data-id="6">
+                                                                            <div class="dd-handle dd3-handle"></div>
+                                                                            <div class="dd3-content">
+                                                                                <div class="card-header d-flex justify-content-between">
+                                                                                    <span class="item-title">مقالات اقتصادية</span>
+                                                                                    <span class="item-type">تصنيف</span>
+                                                                                    <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-6" role="button" aria-expanded="false" aria-controls="edit-menu-item-6">
+                                                                                        <i class="fas fa-angle-down"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="collapse" id="edit-menu-item-6">
+                                                                                    <div class="card-body">
+                                                                                        <div class="row mt-3">
+                                                                                            <label class="col-sm-5 col-xl-4" for="title-menu-item-6">النص في القائمة:</label>
+                                                                                            <div class="col-sm-7 col-xl-8">
+                                                                                                <div class="lang-ar">
+                                                                                                    <input id="title-menu-item-6-ar" type="text" class="form-control" name="title-menu-item-ar[6]" value="مقالات اقتصادية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                                <div class="lang-en">
+                                                                                                    <input id="title-menu-item-6-en" type="text" class="form-control" name="title-menu-item-en[6]" value="Economic Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                            <a href="#" target="_blank">مقالات اقتصادية</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-footer">
+                                                                                        <a type="button" id="menu-item-delete-6" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-5-en" type="text" class="form-control" name="title-menu-item-en[5]" value="Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                        </li>
+                
+                                                                        <li id="menu-item-7" class="dd-item dd3-item list-group-item category-menu-item" data-id="7">
+                                                                            <div class="dd-handle dd3-handle"></div>
+                                                                            <div class="dd3-content">
+                                                                                <div class="card-header d-flex justify-content-between">
+                                                                                    <span class="item-title">مقالات سياسية</span>
+                                                                                    <span class="item-type">تصنيف</span>
+                                                                                    <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-7" role="button" aria-expanded="false" aria-controls="edit-menu-item-7">
+                                                                                        <i class="fas fa-angle-down"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="collapse" id="edit-menu-item-7">
+                                                                                    <div class="card-body">
+                                                                                        <div class="row mt-3">
+                                                                                            <label class="col-sm-5 col-xl-4" for="title-menu-item-7">النص في القائمة:</label>
+                                                                                            <div class="col-sm-7 col-xl-8">
+                                                                                                <div class="lang-ar">
+                                                                                                    <input id="title-menu-item-7-ar" type="text" class="form-control" name="title-menu-item-ar[7]" value="مقالات سياسية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                                <div class="lang-en">
+                                                                                                    <input id="title-menu-item-7-en" type="text" class="form-control" name="title-menu-item-en[7]" value="Political Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                            <a href="#" target="_blank">مقالات سياسية</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-footer">
+                                                                                        <a type="button" id="menu-item-delete-7" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+
+                                                                <li id="menu-item-8" class="dd-item dd3-item list-group-item page-menu-item" data-id="8">
+                                                                    <div class="dd-handle dd3-handle"></div>
+                                                                    <div class="dd3-content">
+                                                                        <div class="card-header d-flex justify-content-between">
+                                                                            <span class="item-title">من نحن</span>
+                                                                            <span class="item-type">صفحة</span>
+                                                                            <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-8" role="button" aria-expanded="false" aria-controls="edit-menu-item-8">
+                                                                                <i class="fas fa-angle-down"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="collapse" id="edit-menu-item-8">
+                                                                            <div class="card-body">
+                                                                                <div class="row mt-3">
+                                                                                    <label class="col-sm-5 col-xl-4" for="title-menu-item-8">النص في القائمة:</label>
+                                                                                    <div class="col-sm-7 col-xl-8">
+                                                                                        <div class="lang-ar">
+                                                                                            <input id="title-menu-item-8-ar" type="text" class="form-control" name="title-menu-item-ar[8]" value="من نحن" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                        <div class="lang-en">
+                                                                                            <input id="title-menu-item-8-en" type="text" class="form-control" name="title-menu-item-en[8]" value="About Us" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                    <a href="#" target="_blank">من نحن</a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-footer">
+                                                                                <a type="button" id="menu-item-delete-8" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">مقالات</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-5" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li id="menu-item-6" class="list-group-item category-menu-item level-1" level="1">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">مقالات اقتصادية</span>
-                                                                <span class="item-type">تصنيف</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-6" role="button" aria-expanded="false" aria-controls="edit-menu-item-6">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-6">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-6">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-6-ar" type="text" class="form-control" name="title-menu-item-ar[6]" value="مقالات اقتصادية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                </li>
+        
+                                                                <li id="menu-item-9" class="dd-item dd3-item list-group-item post-menu-item" data-id="9">
+                                                                    <div class="dd-handle dd3-handle"></div>
+                                                                    <div class="dd3-content">
+                                                                        <div class="card-header d-flex justify-content-between">
+                                                                            <span class="item-title">كيف تبدأ يومك!</span>
+                                                                            <span class="item-type">مشاركة</span>
+                                                                            <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-9" role="button" aria-expanded="false" aria-controls="edit-menu-item-9">
+                                                                                <i class="fas fa-angle-down"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="collapse" id="edit-menu-item-9">
+                                                                            <div class="card-body">
+                                                                                <div class="row mt-3">
+                                                                                    <label class="col-sm-5 col-xl-4" for="title-menu-item-9">النص في القائمة:</label>
+                                                                                    <div class="col-sm-7 col-xl-8">
+                                                                                        <div class="lang-ar">
+                                                                                            <input id="title-menu-item-9-ar" type="text" class="form-control" name="title-menu-item-ar[9]" value="كيف تبدأ يومك!" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                        <div class="lang-en">
+                                                                                            <input id="title-menu-item-9-en" type="text" class="form-control" name="title-menu-item-en[9]" value="How to start your day!" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <label class="col-sm-5 col-xl-4">الأصل:</label>
+                                                                                    <a href="#" target="_blank">كيف تبدأ يومك!</a>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-6-en" type="text" class="form-control" name="title-menu-item-en[6]" value="Economic Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                                            <div class="card-footer">
+                                                                                <a type="button" id="menu-item-delete-9" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">مقالات اقتصادية</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-6" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li id="menu-item-7" class="list-group-item category-menu-item level-1" level="1">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">مقالات سياسية</span>
-                                                                <span class="item-type">تصنيف</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-7" role="button" aria-expanded="false" aria-controls="edit-menu-item-7">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-7">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-7">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-7-ar" type="text" class="form-control" name="title-menu-item-ar[7]" value="مقالات سياسية" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-7-en" type="text" class="form-control" name="title-menu-item-en[7]" value="Political Articles" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">مقالات سياسية</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-7" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li id="menu-item-8" class="list-group-item page-menu-item">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">من نحن</span>
-                                                                <span class="item-type">تصنيف</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-8" role="button" aria-expanded="false" aria-controls="edit-menu-item-8">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-8">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-8">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-8-ar" type="text" class="form-control" name="title-menu-item-ar[8]" value="من نحن" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-8-en" type="text" class="form-control" name="title-menu-item-en[8]" value="About Us" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">من نحن</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-8" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li id="menu-item-9" class="list-group-item post-menu-item">
-                                                            <div class="card-header d-flex justify-content-between">
-                                                                <span class="item-title">كيف تبدأ يومك!</span>
-                                                                <span class="item-type">مشاركة</span>
-                                                                <a class="text-dark" data-toggle="collapse" href="#edit-menu-item-9" role="button" aria-expanded="false" aria-controls="edit-menu-item-9">
-                                                                    <i class="fas fa-angle-down"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="collapse" id="edit-menu-item-9">
-                                                                <div class="card-body">
-                                                                    <div class="row mt-3">
-                                                                        <label class="col-sm-5 col-xl-4" for="title-menu-item-9">النص في القائمة:</label>
-                                                                        <div class="col-sm-7 col-xl-8">
-                                                                            <div class="lang-ar">
-                                                                                <input id="title-menu-item-9-ar" type="text" class="form-control" name="title-menu-item-ar[9]" value="كيف تبدأ يومك!" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                            <div class="lang-en">
-                                                                                <input id="title-menu-item-9-en" type="text" class="form-control" name="title-menu-item-en[9]" value="How to start your day!" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-5 col-xl-4">الأصل:</label>
-                                                                        <a href="#" target="_blank">كيف تبدأ يومك!</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-footer">
-                                                                    <a type="button" id="menu-item-delete-9" class="btn btn-warning btn-sm menu-item-delete">إزالة من القائمة</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                     <div class="options-menu pt-0">
                                                         <h5>إعدادات القائمة</h5>
                                                         <div class="form-group">

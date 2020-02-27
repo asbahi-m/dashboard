@@ -17,7 +17,7 @@
 
         <!-- JS Files -->
         <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="libraries/jquery-ui/jquery-ui.min.js"></script>
+        <script src="libraries/nestable/jquery.nestable.js"></script>
         <script src="libraries/popper/popper.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="libraries/DataTables/datatables.min.js"></script>
@@ -41,97 +41,137 @@
             
             <div id="Notices" class="dropdown ml-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bell"></i><span class="badge badge-warning">3</span>
+                    <i class="fas fa-bell"></i><span class="badge badge-warning">4</span>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
                     <!-- عرض ثابت لآخر 5 إشعارات -->
-                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
                         <i class="fas fa-comment-medical"></i>
-                        <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                        <small class="ml-auto">قبل 30 دقيقة</small>
+                        <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                        <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
-                        <i class="fas fa-newspaper color"></i>
-                        <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-del new" href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 14 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
+                        <i class="fas fa-sitemap"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>مقالات</strong></span>
                         <small class="ml-auto">قبل 15 ساعة</small>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-edit new" href="#">
                         <i class="fas fa-user-plus"></i>
-                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
                         <small class="ml-auto">قبل 1 يوم</small>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                        <i class="fas fa-user-plus"></i>
-                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                        <small class="ml-auto">قبل 1 يوم</small>
-                    </a>
-                    <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                        <i class="fas fa-user-plus"></i>
-                        <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                        <i class="fas fa-clone"></i>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة الصفحة <strong>اتصل بنا</strong></span>
                         <small class="ml-auto">قبل 1 يوم</small>
                     </a>
 
                     <!-- عرض جميع الإشعارات -->
                     <div class="collapse" id="allNotices">
-                        <a class="dropdown-item d-flex align-items-center text-muted new" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الصفحة <strong>نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> وافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>مدير الموقع</strong> لم يوافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
                             <i class="fas fa-comment-medical"></i>
-                            <span class="mr-2">قام <strong>محمد</strong> بإضافة تعليق جديد على <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 30 دقيقة</small>
+                            <span class="mr-2"><strong>مدير الموقع</strong> حذف تعليقاً على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-newspaper color"></i>
-                            <span class="mr-2">قام <strong>سعيد أحمد</strong> بإضافة المقال <strong>كيف تبدأ يومك!</strong></span>
-                            <small class="ml-auto">قبل 15 ساعة</small>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center text-muted" href="#">
-                            <i class="fas fa-user-plus"></i>
-                            <span class="mr-2">قام <strong>مدير الموقع</strong> بإضافة المحرر <strong>سعيد أحمد</strong></span>
-                            <small class="ml-auto">قبل 1 يوم</small>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بحذف المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
                         </a>
                     </div>
                     <a type="button" id="showNotices" class="text-center text-light bg-dark btn btn-primary" data-toggle="collapse" href="#allNotices" role="button" aria-expanded="false" aria-controls="allNotices">

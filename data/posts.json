@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "id": "3",
+      "DT_RowId": "post-3",
+      "DT_RowClass": "status-publish",
+      "check": "<div class='custom-control custom-checkbox'><input id='check-3' type='checkbox' class='custom-control-input' name='post[]' value='3'><label class='custom-control-label' for='check-3'></label></div>",
+      "title": "<a href='post-edit.html'>عواصف رملية تهدد بعض دول العالم</a>",
+      "category": "<a href='#'>أخبار</a>",
+      "author": "<a href='#'>صالح الشيخ</a>",
+      "date": "<small>2019-11-21</small>",
+      "commentsNum": "<a href='#'>5</a>",
+      "visitsNum": "300",
+      "type": "خبر",
+      "control": "<div class='icons-control'><a type='button' class='btn btn-outline-info btn-sm edit' href='#' target='_blank'><i class='fas fa-globe'></i><span class='d-none d-lg-inline-block ml-1'>معاينة</span></a><a type='button' class='btn btn-outline-primary btn-sm edit' href='post-edit.html'><i class='fas fa-edit'></i><span class='d-none d-lg-inline-block ml-1'>تعديل</span></a><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#deleteItem'  data-id='3' data-title='عواصف رملية تهدد بعض دول العالم'><i class='fas fa-trash'></i><span class='d-none d-lg-inline-block ml-1'>حذف</span></button><button type='button' class='btn btn-outline-dark btn-sm details'><i class='fas fa-angle-down'></i></button></div>"
+    },
+    {
+      "id": "2",
+      "DT_RowId": "post-2",
+      "DT_RowClass": "status-publish",
+      "check": "<div class='custom-control custom-checkbox'><input id='check-2' type='checkbox' class='custom-control-input' name='post[]' value='2'><label class='custom-control-label' for='check-2'></label></div>",
+      "title": "<a href='post-edit.html'>مجموعة صور للطبيعة</a><span> - (مسودة)</span>",
+      "category": "<a href='#'>غير مصنف</a>",
+      "author": "<a href='#'>مدير الموقع</a>",
+      "date": "<small>بالأمس 6:25 م</small>",
+      "commentsNum": "<a href='#'>10</a>",
+      "visitsNum": "150",
+      "type": "ألبوم صور",
+      "control": "<div class='icons-control'><a type='button' class='btn btn-outline-info btn-sm edit' href='#' target='_blank'><i class='fas fa-globe'></i><span class='d-none d-lg-inline-block ml-1'>معاينة</span></a><a type='button' class='btn btn-outline-primary btn-sm edit' href='post-edit.html'><i class='fas fa-edit'></i><span class='d-none d-lg-inline-block ml-1'>تعديل</span></a><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#deleteItem'  data-id='2' data-title='مجموعة صور للطبيعة'><i class='fas fa-trash'></i><span class='d-none d-lg-inline-block ml-1'>حذف</span></button><button type='button' class='btn btn-outline-dark btn-sm details'><i class='fas fa-angle-down'></i></button></div>"
+    },
+    {
+      "id": "1",
+      "DT_RowId": "post-1",
+      "DT_RowClass": "status-publish",
+      "check": "<div class='custom-control custom-checkbox'><input id='check-1' type='checkbox' class='custom-control-input' name='post[]' value='1'><label class='custom-control-label' for='check-1'></label></div>",
+      "title": "<a href='post-edit.html'>كيف تبدأ يومك!</a><span> - (بانتظار المراجعة)</span>",
+      "category": "<a href='#'>مقالات</a>",
+      "author": "<a href='#'>سعيد أحمد</a>",
+      "date": "<small>2019-11-22</small>",
+      "commentsNum": "<a href='#'>10</a>",
+      "visitsNum": "500",
+      "type": "مقال",
+      "control": "<div class='icons-control'><a type='button' class='btn btn-outline-info btn-sm edit' href='#' target='_blank'><i class='fas fa-globe'></i><span class='d-none d-lg-inline-block ml-1'>معاينة</span></a><a type='button' class='btn btn-outline-primary btn-sm edit' href='post-edit.html'><i class='fas fa-edit'></i><span class='d-none d-lg-inline-block ml-1'>تعديل</span></a><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#deleteItem'  data-id='1' data-title='كيف تبدأ يومك!'><i class='fas fa-trash'></i><span class='d-none d-lg-inline-block ml-1'>حذف</span></button><button type='button' class='btn btn-outline-dark btn-sm details'><i class='fas fa-angle-down'></i></button></div>"
+    }
+  ]
+}

@@ -98,11 +98,66 @@ $(document).ready(function() {
             { "orderable": false, "targets": 0 },
             { "orderable": false, "targets": 8 },
             { "searchable": false, "targets": 0 },
-            // { "searchable": false, "targets": 4 },
             { "searchable": false, "targets": 5 },
             { "searchable": false, "targets": 6 },
             { "searchable": false, "targets": 8 }
         ],
+        /*"ajax": "data/posts.json",
+        "columns": [
+            {
+                data: "check",
+                cellType: "th",
+                className: "column-check details-control",
+                orderable: false,
+                searchable: false
+            },
+            {
+                data: "title",
+                className: "column-title column-primary",
+            },
+            {
+                className: "column-category",
+                data: "category",
+            },
+            {
+                className: "column-author",
+                data: "author",
+            },
+            {
+                className: "column-date",
+                data: "date",
+            },
+            {
+                className: "column-commentsNum",
+                data: "commentsNum",
+                searchable: false
+            },
+            {
+                className: "column-visitsNum",
+                data: "visitsNum",
+                searchable: false
+            },
+            {
+                className: "column-type",
+                data: "type",
+            },
+            {
+                className: "column-control",
+                data: "control",
+                orderable: false,
+                searchable: false
+            }
+        ],
+        "rowCallback": function( row, data ) {
+            $('.column-title', row).attr("data-column", "العنوان");
+            $('.column-category', row).attr("data-column", "التصنيف");
+            $('.column-author', row).attr("data-column", "المحرر");
+            $('.column-date', row).attr("data-column", "التاريخ");
+            $('.column-commentsNum', row).attr("data-column", "التعليقات");
+            $('.column-visitsNum', row).attr("data-column", "المشاهدات");
+            $('.column-type', row).attr("data-column", "النوع");
+            $('.column-control', row).attr("data-column", "التحكم");
+        },*/
         /* فلتر تصفية جدول المحتويات أسفل الجدول بحسب الأعمدة */
         /*initComplete: function(){
             this.api().columns([1, 2]).every(function(){
@@ -200,7 +255,7 @@ $(document).ready(function() {
                 select.append("<option value='" + d + "'>" + d + "</option>");
             });
     }); */
-
+    
     /* فلتر تصفية جدول المحتويات بحسب الاختيار المخصص فوق الجدول */
     function filter(table, colCate, colType, colUser, colDate) {
 
@@ -420,20 +475,8 @@ $(document).ready(function() {
         $(this).prepend(insert);
     });
 
-    /////////////////////////// إنشاء تسلسل هيكلي للعناصر الفرعية في بوكس قوائم الموقع
-    $("li[level]").each(function(){
-        var i = $(this).attr("level");
-        var insert = "30px";
-        if (i > 1) {
-            for (var x = 1; x < i; x++) {
-                insert += "30px";
-            }
-        }
-        $(this).css("margin-right", insert);
-    });
-
     /////////////////////////// تغيير ترتيب محتوى صفوف الجدول في وضع الجوال
-    $("table tr").on("expanded", function(event){
+    $("table tbody tr").on("expanded", function(event){
         $(this).children("td.column-primary ~ td:not(.column-control)").toggleClass("d-block expanded")
     });
     $(".details").click(function(){
@@ -905,6 +948,36 @@ $(document).ready(function() {
             $(this).children().toggleClass("fa-eye fa-eye-slash")
         }
     })
+
+    /////////////////////////// ترتيب القوائم بالسحب والإفلات
+    if ($('#nestable').val() !== undefined) {
+        var updateOutput = function(e){
+            var list   = e.length ? e : $(e.target),
+                output = list.data('output');
+            if (window.JSON) {
+                output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            } else {
+                output.val('JSON browser support required for this demo.');
+            }
+        };
+        // activate Nestable for list 1
+        $('#nestable').nestable({
+            group: 1
+        })
+        .on('change', updateOutput);
+        // output initial serialised data
+        updateOutput($('#nestable').data('output', $('#nestable-output')));
+        $('#nestable-menu').on('click', function(e){
+            var target = $(e.target),
+                action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });
+    }
 
     /////////////////////////// اللغة والترجمة
     // إضافة أيقونة لغة عنصر الإدخال EN
