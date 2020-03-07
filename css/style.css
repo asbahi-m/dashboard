@@ -274,6 +274,7 @@ main .panel:hover > div i {
     opacity: 0;
     -webkit-transition: all .5s;
     transition: all .5s;
+    white-space: nowrap;
 }
 tr:hover .icons-control {
     opacity: 1;
@@ -517,6 +518,9 @@ form .sticky-top {
     padding: 0;
     margin: 15px;
 }
+#editMedia.modal .modal-dialog .modal-content .tab-content > #media.active {
+    display: flex;
+}
 @media only screen and (min-width: 768px) {
     #editMedia.modal .modal-dialog .modal-content {
         height: 100%;
@@ -549,8 +553,6 @@ form .sticky-top {
 #editMedia.modal .modal-dialog .modal-content .modal-body .media-info div {
     margin-bottom: 5px;
 }
-
-/* #editMedia.modal .modal-dialog .modal-content form .modal-body > .form-row .file-info { */
 
 /* تنسيق صفحة إضافة وسائط جديدة */
 #media-upload #drag-drop-area {

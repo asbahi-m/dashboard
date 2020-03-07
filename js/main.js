@@ -35,6 +35,7 @@ $(document).ready(function() {
         // "stateSave": true,
         "order": [],
         "pagingType": "full_numbers",
+        "pageLength": 100,
         "language": {
             "decimal":        "",
             "emptyTable":     "لا توجد بيانات متاحة في الجدول",
