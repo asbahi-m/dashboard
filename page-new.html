@@ -187,7 +187,7 @@
                             <small class="text-warning">مدير</small>
                         </div>
                     </div>
-                    <a class="dropdown-item text-muted" href="#">
+                    <a class="dropdown-item text-muted" href="profile.html">
                         <i class="fas fa-user-edit"></i>
                         <span class="mr-2">تحرير الملف الشخصي</span>
                     </a>
@@ -225,7 +225,7 @@
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="categories.html">
-                                    <i class="fas fa-sitemap mr-3"></i><span>تصنيفات الموقع</span>
+                                    <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
                                 </a>
                                 <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -234,7 +234,7 @@
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
-                                    <i class="fas fa-file-alt mr-3"></i><span>محتوى الموقع</span>
+                                    <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
                                 </a>
                                 <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
@@ -243,7 +243,7 @@
                             
                             <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="pages.html">
-                                    <i class="fas fa-clone mr-3"></i><span>صفحات الموقع</span>
+                                    <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
                                 </a>
                                 <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -261,7 +261,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
-                                    <i class="fas fa-ad mr-3"></i><span>إعلانات الموقع</span>
+                                    <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
                                 </a>
                                 <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -270,13 +270,13 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
-                                    <i class="fas fa-comment-dots mr-3"></i><span>تعليقات الموقع</span>
+                                    <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="users.html">
-                                    <i class="fas fa-users mr-3"></i><span>أعضاء الموقع</span>
+                                    <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
                                 </a>
                                 <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
@@ -958,12 +958,17 @@
                                     <div class="form-group"><!-- خصائص إضافية -->
                                         <label class="head">خصائص إضافية</label>
 
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="comment_status" type="checkbox" class="custom-control-input" name="comment_status" value="0">
-                                            <label class="custom-control-label" for="comment_status">السماح بالتعليقات</label>
+                                        <div class="custom-control custom-checkbox mt-2">
+                                            <input id="media_show" type="checkbox" class="custom-control-input" name="media_show" value="0">
+                                            <label class="custom-control-label" for="media_show">عرض الصورة</label>
                                         </div>
 
-                                        <div class="custom-control custom-checkbox">
+                                        <div class="custom-control custom-checkbox mt-2">
+                                            <input id="comment_status" type="checkbox" class="custom-control-input" name="comment_status" value="0">
+                                            <label class="custom-control-label" for="comment_status">السماح بالتعليق</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox mt-2">
                                             <input id="no_aside" type="checkbox" class="custom-control-input" name="no_aside" value="0">
                                             <label class="custom-control-label" for="no_aside">بدون قائمة جانبية</label>
                                         </div>

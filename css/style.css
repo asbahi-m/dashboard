@@ -101,6 +101,9 @@ a, a:link {
 .clearMedia:hover {
     color: #999;
 }
+.ephox-polish-editor-container.ephox-polish-fullscreen-maximized {
+    position: fixed !important;
+}
 
 
 /* تنسيق الهيدر */
@@ -382,6 +385,12 @@ form .sticky-top {
 }
 #postAdd #postImage img {
     max-height: 200px;
+}
+#postAdd #postGallery .gallery_media input {
+    width: 100px;
+}
+#postAdd #postGallery .gallery_media input::placeholder{
+    font-size: small;
 }
 
 /* تنسيق بوكس الصور في صفحة إضافة محتوى */

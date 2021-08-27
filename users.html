@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar">
     <head>
-        <title>لوحة التحكم - أعضاء الموقع</title>
+        <title>لوحة التحكم - إدارة المستخدمين</title>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -187,7 +187,7 @@
                             <small class="text-warning">مدير</small>
                         </div>
                     </div>
-                    <a class="dropdown-item text-muted" href="#">
+                    <a class="dropdown-item text-muted" href="profile.html">
                         <i class="fas fa-user-edit"></i>
                         <span class="mr-2">تحرير الملف الشخصي</span>
                     </a>
@@ -225,7 +225,7 @@
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="categories.html">
-                                    <i class="fas fa-sitemap mr-3"></i><span>تصنيفات الموقع</span>
+                                    <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
                                 </a>
                                 <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -234,7 +234,7 @@
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
-                                    <i class="fas fa-file-alt mr-3"></i><span>محتوى الموقع</span>
+                                    <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
                                 </a>
                                 <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
@@ -243,7 +243,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="pages.html">
-                                    <i class="fas fa-clone mr-3"></i><span>صفحات الموقع</span>
+                                    <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
                                 </a>
                                 <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -261,7 +261,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
-                                    <i class="fas fa-ad mr-3"></i><span>إعلانات الموقع</span>
+                                    <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
                                 </a>
                                 <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -270,13 +270,13 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
-                                    <i class="fas fa-comment-dots mr-3"></i><span>تعليقات الموقع</span>
+                                    <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="users.html">
-                                    <i class="fas fa-users mr-3"></i><span>أعضاء الموقع</span>
+                                    <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
                                 </a>
                                 <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
@@ -319,7 +319,7 @@
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
                     <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
-                        <h2 class="py-2">أعضاء الموقع</h2>
+                        <h2 class="py-2">إدارة المستخدمين</h2>
                         <a type="button" class="btn btn-dark" href="user-new.html">
                             <i class="fas fa-user-plus"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
                         </a>
@@ -339,9 +339,20 @@
                                     <strong class="item-title d-none"></strong>
                                     <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
                                     <input type="hidden" id="remove_id" name="remove_id[]" value="">
+                                    <div class="form-group">
+                                        <small class="bg-warning px-1 py-2 mt-1 d-block">* تنويه: سيتم نقل عدد <strong class="posts-num"></strong> مشاركة إلى المستخدم</small>
+                                        <select  class="form-control form-control-sm" name="users_list">
+                                            <option value="1" selected>admin</option>
+                                            <option value="2">user1</option>
+                                            <option value="3">saeed</option>
+                                            <option value="4">ali</option>
+                                            <option value="5">aboood</option>
+                                            <option value="6">saleh</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-danger">حشف نهائي</button>
+                                    <button type="submit" class="btn btn-danger">حذف نهائي</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
                                 </div>
                             </div>
@@ -401,6 +412,7 @@
                             <a type ="button" class="btn btn-light bg-white" href="#">كاتب <span class="badge badge-light">0</span></a>
                             <a type ="button" class="btn btn-light bg-white" href="#">مساهم <span class="badge badge-light">1</span></a>
                             <a type ="button" class="btn btn-light bg-white" href="#">مشترك <span class="badge badge-light">1</span></a>
+                            <a type ="button" class="btn btn-light bg-white" href="permissions.html"><i class="fab fa-expeditedssl"></i> إدارة الصلاحيات</a>
                         </div>
 
                         <!-- حذف العناصر المحددة -->
@@ -456,7 +468,7 @@
                                 <tr id="user-2" class="editor">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-2" type="checkbox" class="custom-control-input" name="user[]" value="2">
+                                            <input id="check-2" type="checkbox" class="custom-control-input" name="user[]" value="2" data-posts_num="2">
                                             <label class="custom-control-label" for="check-2"></label>
                                         </div>
                                     </th>
@@ -490,7 +502,7 @@
                                 <tr id="user-3" class="contributor">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-3" type="checkbox" class="custom-control-input" name="user[]" value="3">
+                                            <input id="check-3" type="checkbox" class="custom-control-input" name="user[]" value="3" data-posts_num="3">
                                             <label class="custom-control-label" for="check-3"></label>
                                         </div>
                                     </th>
@@ -524,7 +536,7 @@
                                 <tr id="user-4" class="subscriber">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-4" type="checkbox" class="custom-control-input" name="user[]" value="4">
+                                            <input id="check-4" type="checkbox" class="custom-control-input" name="user[]" value="4" data-posts_num="1">
                                             <label class="custom-control-label" for="check-4"></label>
                                         </div>
                                     </th>
@@ -558,7 +570,7 @@
                                 <tr id="user-5" class="editor">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-5" type="checkbox" class="custom-control-input" name="user[]" value="5">
+                                            <input id="check-5" type="checkbox" class="custom-control-input" name="user[]" value="5" data-posts_num="6">
                                             <label class="custom-control-label" for="check-5"></label>
                                         </div>
                                     </th>
@@ -592,7 +604,7 @@
                                 <tr id="user-6" class="writer">
                                     <th class="column-check details-control" scope="row">
                                         <div class="custom-control custom-checkbox">
-                                            <input id="check-6" type="checkbox" class="custom-control-input" name="user[]" value="6">
+                                            <input id="check-6" type="checkbox" class="custom-control-input" name="user[]" value="6" data-posts_num="2">
                                             <label class="custom-control-label" for="check-6"></label>
                                         </div>
                                     </th>

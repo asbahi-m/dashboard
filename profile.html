@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <title>لوحة التحكم - الملف الشخصي</title>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" type="image/png" href="images/favicon.png">
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
+        <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- JS Files -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="libraries/nestable/jquery.nestable.js"></script>
+        <script src="libraries/popper/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="libraries/DataTables/datatables.min.js"></script>
+        <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
+        <script src="libraries/textboxio/textboxio.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <header class="d-flex justify-content-between px-2 sticky-top">
+            <span class="d-flex align-items-center logo"><img src="images/logo.png" width=32 height=32></span>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم مطور الويب</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">صفحة الموقع</span></a>
+            
+            <div id="Notices" class="dropdown ml-auto">
+                <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell"></i><span class="badge badge-warning">4</span>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
+                    <!-- عرض ثابت لآخر 5 إشعارات -->
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
+                        <i class="fas fa-comment-medical"></i>
+                        <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                        <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-del new" href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 14 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
+                        <i class="fas fa-sitemap"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>مقالات</strong></span>
+                        <small class="ml-auto">قبل 15 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-edit new" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                        <i class="fas fa-clone"></i>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة الصفحة <strong>اتصل بنا</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
+                    </a>
+
+                    <!-- عرض جميع الإشعارات -->
+                    <div class="collapse" id="allNotices">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الصفحة <strong>نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> وافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> لم يوافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> حذف تعليقاً على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بحذف المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                    </div>
+                    <a type="button" id="showNotices" class="text-center text-light bg-dark btn btn-primary" data-toggle="collapse" href="#allNotices" role="button" aria-expanded="false" aria-controls="allNotices">
+                        <small><span>عرض جميع الإشعارات</span> <i class="fas fa-angle-double-left"></i></small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
+                    <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-angle-down mx-1"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
+                    <div class="user-info d-flex align-items-center" href="#">
+                        <i class="fas fa-user-circle mr-2"></i>
+                        <div>
+                            <div>مدير الموقع</div>
+                            <small class="text-warning">مدير</small>
+                        </div>
+                    </div>
+                    <a class="dropdown-item text-muted" href="profile.html">
+                        <i class="fas fa-user-edit"></i>
+                        <span class="mr-2">تحرير الملف الشخصي</span>
+                    </a>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="mr-2">تسجيل الخروج</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- قائمة لوحة التحكم -->
+                <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark">
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <div class="d-md-block collapse" id="menu">
+                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                            <i class="fas fa-user-circle mr-2"></i>
+                            <div>
+                                <div>مدير الموقع</div>
+                                <small class="text-warning">مدير</small>
+                            </div>
+                        </div>
+
+                        <ul class="nav flex-column p-0">
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="index.html">
+                                    <i class="fas fa-home mr-3"></i><span>الرئيسية</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="categories.html">
+                                    <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
+                                </a>
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="posts.html">
+                                    <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
+                                </a>
+                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-file-medical"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="pages.html">
+                                    <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
+                                </a>
+                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="upload.html">
+                                    <i class="fas fa-images mr-3"></i><span>مكتبة الوسائط</span>
+                                </a>
+                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="ads.html">
+                                    <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
+                                </a>
+                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="comments.html">
+                                    <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center active">
+                                <a class="nav-link" href="users.html">
+                                    <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
+                                </a>
+                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-user-plus"></i>
+                                </a>
+                            </li>
+                            
+                            <!-- <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-poll mr-3"></i><span>استطلاعات الرأي</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li> -->
+                            
+                            <!-- <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-mail-bulk mr-3"></i><span>القائمة البريدية</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li> -->
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="analytics.html">
+                                    <i class="fas fa-chart-pie mr-3"></i><span>إحصائيات وأرقام</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="settings.html">
+                                    <i class="fas fa-cogs mr-3"></i><span>إعدادات الموقع</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                
+                <!-- المحتوى الداخلي -->
+                <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
+                    <h2 class="border-bottom py-2 mb-3">ملفك الشخصي</h2>
+
+                    <!-- بوكس مكتبة الوسائط -->
+                    <div id="editMedia" class="media-modal modal single-media fade" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <ul class="nav nav-tabs w-100" id="tabMedia" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active modal-title" id="media-tab" data-toggle="tab" href="#media" role="tab" aria-controls="media" aria-selected="true"><strong>مكتبة الوسائط</strong></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="upload-tab" data-toggle="tab" href="#upload" role="tab" aria-controls="upload" aria-selected="false"><strong>رفع وسائط</strong></a>
+                                        </li>
+                                    </ul>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="tab-content modal-body" id="tabMediaContent">
+                                    <!-- محتوى الوسائط -->
+                                    <div class="form-row tab-pane fade show active" id="media" role="tabpanel" aria-labelledby="media-tab">
+                                        <div class="col-md-8 col-xl-9 files">
+                                            <!-- فلترة تصفية الجدول بحسب التصنيف والمحرر والتاريخ -->
+                                            <div id="filter" class="form-row mx-0 my-2 align-items-center">
+                                                <div class="col-xl-2 col-sm-3 col-7 my-1">
+                                                    <select class="custom-select custom-select-sm get-user"></select>
+                                                </div>
+                                                <div class="col-xl-2 col-sm-3 col-7">
+                                                    <select class="custom-select custom-select-sm get-date"></select>
+                                                </div>
+                                            </div>
+                                            <!-- محتوى الجدول -->
+                                            <table id="mediaTable" class="table table-hover table-bordered grid">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th id="check" class="column-check" scope="col"></th>
+                                                        <th id="title" class="column-primary" scope="col">العنوان</th>
+                                                        <th id="author" scope="col">المحرر</th>
+                                                        <th id="uploadedTo" scope="col">مرفوع إلى</th>
+                                                        <th id="date" scope="col">التاريخ</th>
+                                                        <th id="iconsControl" class="column-control" scope="col">التحكم</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id="media-12" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-12" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="12" 
+                                                                    data-ar_title="كبيوتر وقهوة"
+                                                                    data-en_title="Computer and Coffe"
+                                                                    data-ar_alt="كمبيوتر وقهوة"
+                                                                    data-en_alt="Computer and Coffe"
+                                                                    data-path="uploads/2020/01/كمبيوتر-وقهوة.jpg"
+                                                                    data-file_name="كمبيوتر-وقهوة.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="164 ك.ب"
+                                                                    data-dimensions="640 × 360 بيكسل"
+                                                                    data-upload_date="2019-12-27"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=1"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-12">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-12-27</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-11" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-11" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="11" 
+                                                                    data-ar_title="خلفية صحراء"
+                                                                    data-en_title="Desert Background"
+                                                                    data-ar_alt="خلفية صحراء"
+                                                                    data-en_alt="Desert Background"
+                                                                    data-path="uploads/2020/01/خلفية-صحراء.jpg"
+                                                                    data-file_name="خلفية-صحراء.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="628 ك.ب"
+                                                                    data-dimensions="1500 × 1500 بيكسل"
+                                                                    data-upload_date="2019-11-18"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=3"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-11">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-11-18</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-9" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-9" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="9" 
+                                                                    data-ar_title="كبيوتر وقهوة"
+                                                                    data-en_title="Computer and Coffe"
+                                                                    data-ar_alt="كمبيوتر وقهوة"
+                                                                    data-en_alt="Computer and Coffe"
+                                                                    data-path="uploads/2020/01/كمبيوتر-وقهوة.jpg"
+                                                                    data-file_name="كمبيوتر-وقهوة.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="164 ك.ب"
+                                                                    data-dimensions="640 × 360 بيكسل"
+                                                                    data-upload_date="2019-09-01"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=1"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-9">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-09-01</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-8" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-8" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="8" 
+                                                                    data-ar_title="خلفية صحراء"
+                                                                    data-en_title="Desert Background"
+                                                                    data-ar_alt="خلفية صحراء"
+                                                                    data-en_alt="Desert Background"
+                                                                    data-path="uploads/2020/01/خلفية-صحراء.jpg"
+                                                                    data-file_name="خلفية-صحراء.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="628 ك.ب"
+                                                                    data-dimensions="1500 × 1500 بيكسل"
+                                                                    data-upload_date="2019-08-27"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=3"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-8">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-08-27</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-6" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-6" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="6" 
+                                                                    data-ar_title="كبيوتر وقهوة"
+                                                                    data-en_title="Computer and Coffe"
+                                                                    data-ar_alt="كمبيوتر وقهوة"
+                                                                    data-en_alt="Computer and Coffe"
+                                                                    data-path="uploads/2020/01/كمبيوتر-وقهوة.jpg"
+                                                                    data-file_name="كمبيوتر-وقهوة.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="164 ك.ب"
+                                                                    data-dimensions="640 × 360 بيكسل"
+                                                                    data-upload_date="2019-06-12"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=1"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-6">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-06-12</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-5" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-5" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="5" 
+                                                                    data-ar_title="خلفية صحراء"
+                                                                    data-en_title="Desert Background"
+                                                                    data-ar_alt="خلفية صحراء"
+                                                                    data-en_alt="Desert Background"
+                                                                    data-path="uploads/2020/01/خلفية-صحراء.jpg"
+                                                                    data-file_name="خلفية-صحراء.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="628 ك.ب"
+                                                                    data-dimensions="1500 × 1500 بيكسل"
+                                                                    data-upload_date="2019-05-07"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=3"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-5">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-05-07</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-3" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-3" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="3" 
+                                                                    data-ar_title="كبيوتر وقهوة"
+                                                                    data-en_title="Computer and Coffe"
+                                                                    data-ar_alt="كمبيوتر وقهوة"
+                                                                    data-en_alt="Computer and Coffe"
+                                                                    data-path="uploads/2020/01/كمبيوتر-وقهوة.jpg"
+                                                                    data-file_name="كمبيوتر-وقهوة.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="164 ك.ب"
+                                                                    data-dimensions="640 × 360 بيكسل"
+                                                                    data-upload_date="2019-03-21"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=1"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-3">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">كمبيوتر وقهوة</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">كيف تبدأ يومك!</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-03-21</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+
+                                                    <tr id="media-2" class="type-image">
+                                                        <th class="column-check details-control" scope="row">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="check-2" type="radio" class="custom-control-input" name="media[]" 
+                                                                    value="2" 
+                                                                    data-ar_title="خلفية صحراء"
+                                                                    data-en_title="Desert Background"
+                                                                    data-ar_alt="خلفية صحراء"
+                                                                    data-en_alt="Desert Background"
+                                                                    data-path="uploads/2020/01/خلفية-صحراء.jpg"
+                                                                    data-file_name="خلفية-صحراء.jpg"
+                                                                    data-file_type="image/jpeg"
+                                                                    data-file_size="628 ك.ب"
+                                                                    data-dimensions="1500 × 1500 بيكسل"
+                                                                    data-upload_date="2019-02-15"
+                                                                    data-uploader="عبدالله"
+                                                                    data-upload_to="post-edit.html?p=3"
+                                                                    data-view_attachment="#"
+                                                                >
+                                                                <label class="custom-control-label media-icon" for="check-2">
+                                                                    <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                                </label>
+                                                            </div>
+                                                        </th>
+                                                        <td class="column-title column-primary" data-column="العنوان"><a href="media-edit.html">خلفية صحراء</a></td>
+                                                        <td class="column-author" data-column="المحرر"><a href="#">عبدالله</a></td>
+                                                        <td class="column-uploadedTo" data-column="مرفوع إلى"><a href="#">عواصف رملية تهدد بعض دول العالم</a></td>
+                                                        <td class="column-date" data-column="التاريخ"><small>2019-02-15</small></td>
+                                                        <td class="column-control" data-column="التحكم"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-4 col-xl-3 file-info">
+                                            <div class="form-group text-center">
+                                                <div class="media-source mb-2">
+                                                    <img src="uploads/2020/01/خلفية-صحراء-1024×1024.jpg" alt="...">
+                                                </div>
+                                                <div class="media-button">
+                                                    <button type="button" data-id="" class="btn btn-light btn-sm edit">تحرير الصورة</button>
+                                                    <button type="button" data-id="" class="btn btn-warning btn-sm delete">حذف الصورة</button>
+                                                    <button type="button" data-id="" class="btn btn-info btn-sm update">حفظ التعديل</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="mediaName">العنوان:</label>
+                                                <div class="lang-ar">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-ar" name="mediaName-ar" value="خلفية صحراء" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaName-en" name="mediaName-en" value="Desert Background" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="mediaAlt">النص البديل:</label>
+                                                <div class="lang-ar">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-ar" name="mediaAlt-ar" value="خلفية صحراء" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" class="form-control form-control-sm" id="mediaAlt-en" name="mediaAlt-en" value="Desert Background" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="mediaUrl">رابط الملف:</label>
+                                                <input type="url" class="form-control form-control-sm" id="mediaUrl" name="mediaUrl" value="uploads/2020/01/خلفية-صحراء.jpg" readonly>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group media-info">
+                                                <div class="file-name">
+                                                    <strong>اسم الملف:</strong>
+                                                    <span>خلفية-صحراء.jpg</span>
+                                                </div>
+                                                <div class="file-type">
+                                                    <strong>نوع الملف:</strong>
+                                                    <span>image/jpeg</span>
+                                                </div>
+                                                <div class="file-size">
+                                                    <strong>حجم الملف:</strong>
+                                                    <span>164 ك.ب</span>
+                                                </div>
+                                                <div class="dimensions">
+                                                    <strong>الأبعاد:</strong>
+                                                    <span>640 × 360 بيكسل</span>
+                                                </div>
+                                                <div class="upload-date">
+                                                    <strong>تاريخ الرفع:</strong>
+                                                    <span>2019-11-21</span>
+                                                </div>
+                                                <div class="uploader">
+                                                    <strong>تم الرفع بواسطة:</strong>
+                                                    <span>عبدالله</span>
+                                                </div>
+                                                <div class="upload-to">
+                                                    <strong>مرفوع إلى:</strong>
+                                                    <a href="post-edit.html">عواصف رملية تهدد بعض دول العالم</a>
+                                                </div>
+                                                <div class="view-attachment">
+                                                    <a class="btn btn-light" href="#" target="_blank">عرض المرفق في الموقع</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- رفع وسائط جديدة -->
+                                    <div class="tab-pane fade" id="upload" role="tabpanel" aria-labelledby="upload-tab">
+                                        <form>
+                                            <div id="media-upload" class="form-group">
+                                                <div id="drag-drop-area" class="d-flex flex-column align-items-center">
+                                                    <span>اسحب الملف/الملفات هنا</span>
+                                                    <span>أو</span>
+                                                    <button type="button" id="upload-browse-button" class="btn btn-light">حدد الملفات</button>
+                                                </div>
+                                            </div>
+        
+                                            <div>
+                                                <div class="max-upload-size">الحد الأقصى لحجم الملف المراد رفعه: <strong>200 ميجا بايت</strong></div>
+                                                <div class="type-upload-file">الامتدادات المسموح بها: <strong>png, jpg, pdf, doc, docx, xls, xlsx, mp4, mp3...</strong></div>
+                                            </div>
+                                            <hr>
+                                            
+                                            <div id="media-items">
+                                                <div id="media-item-0" class="d-flex align-items-center">
+                                                    <span class="media-icon">
+                                                        <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="...">
+                                                    </span>
+                                                    <span class="filename px-2">خلفية صحراء</span>
+                                                    <a type="button" class="ml-auto" href="#">تعديل</a>
+                                                </div>
+        
+                                                <div id="media-item-1" class="d-flex align-items-center">
+                                                    <span class="media-icon">
+                                                        <span class="img-thumbnail"><i class="fas fa-file-pdf"></i></span>
+                                                    </span>
+                                                    <span class="filename px-2">الجمهورية اليمنية</span>
+                                                    <span class="progress">
+                                                        <span class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" id="setMedia" class="btn btn-primary set">تعيين</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- إضافة وتعديل المحتويات -->
+                    <div id="postAdd">
+
+                        <!-- رسائل الأوامر والعمليات -->
+                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block ml-auto" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                            MSG
+                        </button>
+                        <div id="MSG" class="collapse">
+                            
+                            <!-- رسالة نجاح عملية التعديل -->
+                            <div class="alert alert-success alert-dismissible d-flex" role="alert">
+                                <span>تم تعديل بياناتك بنجاح.</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                            </div>                            
+                        </div>
+
+                        <!-- إضافة المحتوى -->
+                        <form>
+                            <div class="form-row">
+                                <div class="col-xl-6 col-lg-8">
+                                    <div class="form-group"><!-- اسم المستخدم -->
+                                        <label class="head" for="username">اسم المستخدم:</label>
+                                        <input id="username" type="text" name="username" class="form-control ltr" value="admin" readonly>
+                                        <small class="form-text text-muted">لا يمكنك تغيير اسم المستخدم.</small>
+                                    </div>
+
+                                    <div class="form-group"><!-- البريد الإلكتروني -->
+                                        <label class="head" for="email">البريد الإلكتروني:</label>
+                                        <input id="email" type="email" name="email" class="form-control" maxlength="50" title="الحد الأقصى 50 حرفاً" value="admin@app.com" required>
+                                        <small class="form-text text-muted">عنوان البريد الإلكتروني لتلقي الاشعارات واستعادة الحساب عند فقدانه.</small>
+                                    </div>
+
+                                    <div class="form-group"><!-- اسم العرض -->
+                                        <label class="head" for="nickname">اسم العرض: <small>(اختياري)</small></label>
+                                        <input id="nickname" type="text" name="nickname" class="form-control" maxlength="30" pattern=".{6,}" title="من 6 إلى 30 حرفاً" value="مدير الموقع">
+                                        <small class="form-text text-muted">الاسم المستعار الذي سيعرض داخل الموقع.</small>
+                                    </div>
+
+                                    <div class="form-group"><!-- صورة الملف الشخصي -->
+                                        <label class="head" for="postImg">صورة الملف الشخصي: <small>(اختياري)</small></label>
+                                        <!-- <div class="form-group row mx-0 align-items-center">
+                                            <div id="postImgContent" class="picture-profile col-sm-4">
+                                                <i class="fas fa-user-circle mr-2"></i>
+                                                <img class="rounded-circle border d-none" width="100" height="100">
+                                            </div>
+                                            <div class="custom-file col-sm-8">
+                                                <input id="postImg" type="file" name="pictureProfile" class="custom-file-input" required>
+                                                <label class="custom-file-label" for="postImg">اختر ملفاً...</label>
+                                            </div>
+                                        </div> -->
+                                        <div class="picture-profile text-center mb-2">
+                                            <i class="fas fa-user-circle d-none"></i>
+                                        </div>
+                                        <div id="postImage" class="text-center" style="display: none">
+                                            <a type="button" class="btn d-block changeMedia" data-media="media-2" data-id="2" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">
+                                                <img class="img-thumbnail rounded-circle border" src="uploads/2020/01/خلفية-صحراء-400×400.jpg" alt="خلفية صحراء" width="100" height="100">
+                                                <input type="hidden" id="media_id" name="media_id" value="-1">
+                                            </a>
+                                            <i type="button" class="fas fa-times-circle clearMedia"></i>
+                                            <small class="text-muted">انقر على الصورة للتعديل أو التحديث</small>
+                                        </div>
+                                        <button type="button" class="btn btn-info btn-sm addMedia" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">تعيين صورة الملف الشخصي</button>
+                                    </div>
+
+                                    <div class="form-group"><!-- لغة لوحة التحكم -->
+                                        <label class="head" for="localeControl">لغة لوحة التحكم: <small>(اختياري)</small></label>
+                                        <select class="custom-select" id="localeControl" name="localeControl">
+                                            <option value="locale-default" selected>اللغة الافتراضية</option>
+                                            <option value="en" lang="en">English</option>
+                                            <option value="ar" lang="ar">العربية</option>
+                                        </select>
+                                        <small class="form-text text-muted">لغة العرض التي تفضلها.</small>
+                                    </div>
+
+                                    <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#changePass" aria-expanded="false" aria-controls="changePass">كلمة مرور جديدة</button>
+                                    <div id="changePass" class="collapse">
+                                        <div class="form-group"><!-- كلمة المرور -->
+                                            <label class="head" for="password">كلمة المرور الجديدة:</label>
+                                            <input id="password" type="text" name="new_password" class="form-control ltr" maxlength="30" minlength="6" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z])[^\s]+" title="يقبل حروف إنجليزية وأرقام ورموز، على الأقل يجب إدخال حرف كبير واحد وحرف صغير واحد ورقم واحد، من 6 إلى 30 حرف، بدون مسافات بيضاء">
+                                            <small class="form-text text-muted">كلمة مرور دخول الموقع، يقبل حروف إنجليزية وأرقام ورموز، من 6 إلى 30 حرفاً.</small>
+                                        </div>
+
+                                        <div class="form-group"><!-- تأكيد كلمة المرور -->
+                                            <label class="head" for="passwordConfirm">تأكيد كلمة المرور:</label>
+                                            <input id="passwordConfirm" type="password" name="new_passwordConfirm" class="form-control ltr">
+                                            <small class="form-text text-muted">أعد إدخال كلمة المرور هنا للمطابقة.</small>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">تحديث</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
+        </footer>
+    </body>
+</html>

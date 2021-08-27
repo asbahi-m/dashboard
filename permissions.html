@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <title>لوحة التحكم - إدارة المستخدمين</title>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" type="image/png" href="images/favicon.png">
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
+        <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- JS Files -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="libraries/nestable/jquery.nestable.js"></script>
+        <script src="libraries/popper/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="libraries/DataTables/datatables.min.js"></script>
+        <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
+        <script src="libraries/textboxio/textboxio.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <header class="d-flex justify-content-between px-2 sticky-top">
+            <span class="d-flex align-items-center logo"><img src="images/logo.png" width=32 height=32></span>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم مطور الويب</span></a>
+            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">صفحة الموقع</span></a>
+            
+            <div id="Notices" class="dropdown ml-auto">
+                <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell"></i><span class="badge badge-warning">4</span>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownNotices">
+                    <!-- عرض ثابت لآخر 5 إشعارات -->
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
+                        <i class="fas fa-comment-medical"></i>
+                        <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                        <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-del new" href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>كيف تبدأ يومك!</strong></span>
+                        <small class="ml-auto">قبل 14 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add new" href="#">
+                        <i class="fas fa-sitemap"></i>
+                        <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>مقالات</strong></span>
+                        <small class="ml-auto">قبل 15 ساعة</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-edit new" href="#">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                        <i class="fas fa-clone"></i>
+                        <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة الصفحة <strong>اتصل بنا</strong></span>
+                        <small class="ml-auto">قبل 1 يوم</small>
+                    </a>
+
+                    <!-- عرض جميع الإشعارات -->
+                    <div class="collapse" id="allNotices">
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف التصنيف <strong>أخبار</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الصفحة <strong>من نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-clone"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الصفحة <strong>نحن</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف المحتوى <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بإضافة الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بتعديل الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-ad"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> قام بحذف الإعلان <strong>تدشين مشروع جديد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>محمد</strong> أضاف تعليقاً جديداً على <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>سعيد أحمد</strong> وافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> لم يوافق على تعليق في <strong>مجموعة صور للطبيعة</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-comment-medical"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> حذف تعليقاً على <strong>كيف تبدأ يومك!</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+    
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-add" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بإضافة المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-edit" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بتعديل بيانات المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center text-muted notice-del" href="#">
+                            <i class="fas fa-user"></i>
+                            <span class="mr-2"><strong>مدير الموقع</strong> قام بحذف المستخدم <strong>سعيد أحمد</strong></span>
+                            <small class="ml-auto">26 سبتمبر - 10:30 ص</small>
+                        </a>
+                    </div>
+                    <a type="button" id="showNotices" class="text-center text-light bg-dark btn btn-primary" data-toggle="collapse" href="#allNotices" role="button" aria-expanded="false" aria-controls="allNotices">
+                        <small><span>عرض جميع الإشعارات</span> <i class="fas fa-angle-double-left"></i></small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
+                    <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-angle-down mx-1"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
+                    <div class="user-info d-flex align-items-center" href="#">
+                        <i class="fas fa-user-circle mr-2"></i>
+                        <div>
+                            <div>مدير الموقع</div>
+                            <small class="text-warning">مدير</small>
+                        </div>
+                    </div>
+                    <a class="dropdown-item text-muted" href="profile.html">
+                        <i class="fas fa-user-edit"></i>
+                        <span class="mr-2">تحرير الملف الشخصي</span>
+                    </a>
+                    <a class="dropdown-item text-muted" href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="mr-2">تسجيل الخروج</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- قائمة لوحة التحكم -->
+                <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark">
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <div class="d-md-block collapse" id="menu">
+                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                            <i class="fas fa-user-circle mr-2"></i>
+                            <div>
+                                <div>مدير الموقع</div>
+                                <small class="text-warning">مدير</small>
+                            </div>
+                        </div>
+
+                        <ul class="nav flex-column p-0">
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="index.html">
+                                    <i class="fas fa-home mr-3"></i><span>الرئيسية</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="categories.html">
+                                    <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
+                                </a>
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="posts.html">
+                                    <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
+                                </a>
+                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-file-medical"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="pages.html">
+                                    <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
+                                </a>
+                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="upload.html">
+                                    <i class="fas fa-images mr-3"></i><span>مكتبة الوسائط</span>
+                                </a>
+                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="ads.html">
+                                    <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
+                                </a>
+                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="comments.html">
+                                    <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center active">
+                                <a class="nav-link" href="users.html">
+                                    <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
+                                </a>
+                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-user-plus"></i>
+                                </a>
+                            </li>
+                            
+                            <!-- <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-poll mr-3"></i><span>استطلاعات الرأي</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li> -->
+                            
+                            <!-- <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-mail-bulk mr-3"></i><span>القائمة البريدية</span>
+                                </a>
+                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-plus-square"></i>
+                                </a>
+                            </li> -->
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="analytics.html">
+                                    <i class="fas fa-chart-pie mr-3"></i><span>إحصائيات وأرقام</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="settings.html">
+                                    <i class="fas fa-cogs mr-3"></i><span>إعدادات الموقع</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                
+                <!-- المحتوى الداخلي -->
+                <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
+                    <h2 class="border-bottom py-2 mb-3">إدارة الصلاحيات</h2>
+
+                    <!-- جدول المحتويات -->
+                    <div id="postAdd">
+
+                        <!-- رسائل الأوامر والعمليات -->
+                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block ml-auto" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                            MSG
+                        </button>
+                        <div id="MSG" class="collapse">
+                            
+                            <!-- رسالة نجاح عملية التعديل -->
+                            <div class="alert alert-success alert-dismissible d-flex" role="alert">
+                                <span>تم تعديل الصلاحيات بنجاح.</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            
+                            <!-- رسائل فشل عملية الحذف -->
+                            <div class="alert alert-danger alert-dismissible d-flex" role="alert">
+                                <span>لا يمكن تعديل الصلاحيات لهذه الرتبة!</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span class="ml-auto"><i class="fas fa-exclamation-circle"></i></span>
+                            </div>
+                        </div>
+
+                        <form>
+                            <div class="form-group d-flex flex-column flex-sm-row justify-content-end pr-sm-5 sticky-top">
+                                <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- رتبة المستخدم -->
+                                    <label class="head m-0">الرتبة:</label>
+                                    <select class="custom-select ml-2" id="userRole" name="userRole">
+                                        <option value="super_admin" selected>مدير</option>
+                                        <option value="editor">محرر</option>
+                                        <option value="writer">كاتب</option>
+                                        <option value="contributor">مساهم</option>
+                                        <option value="normal_user">مشترك</option>
+                                    </select>
+                                </div>
+
+                                <div class="ml-auto ml-sm-0  py-1 py-sm-0"><!-- أيقونة الحفظ والمعاينة -->
+                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                    <button type="reset" class="btn btn-info">استعادة الافتراضيات</button>
+                                </div>
+                            </div>
+                        
+                            <!-- محتوى الجدول -->
+                            <div class="table-responsive">
+                                <table id="permissionsTable" class="table table-hover table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th id="permission" class="column-primary" scope="col">الصلاحية</th>
+                                            <th id="create" scope="col">إضافة</th>
+                                            <th id="read" scope="col">عرض</th>
+                                            <th id="update" scope="col">تعديل</th>
+                                            <th id="delete" scope="col">حذف</th>
+                                            <th id="self" scope="col">إدارة نفسه</th>
+                                            <th id="outher" scope="col">إدارة غيره</th>
+                                            <th id="force_delete" scope="col">حذف نهائي</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> <!-- صلاحية الإعلانات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الإعلانات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-1" type="checkbox" class="custom-control-input" name="permission_id[]" value="1" role="1" checked>
+                                                    <label class="custom-control-label" for="check-1"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-2" type="checkbox" class="custom-control-input" name="permission_id[]" value="2" role="1" checked>
+                                                    <label class="custom-control-label" for="check-2"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-3" type="checkbox" class="custom-control-input" name="permission_id[]" value="3" role="1" checked>
+                                                    <label class="custom-control-label" for="check-3"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-4" type="checkbox" class="custom-control-input" name="permission_id[]" value="4" role="1" checked>
+                                                    <label class="custom-control-label" for="check-4"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-5" type="checkbox" class="custom-control-input" name="permission_id[]" value="5" role="1" checked>
+                                                    <label class="custom-control-label" for="check-5"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-6" type="checkbox" class="custom-control-input" name="permission_id[]" value="6" role="1" checked>
+                                                    <label class="custom-control-label" for="check-6"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-7" type="checkbox" class="custom-control-input" name="permission_id[]" value="7" role="1" checked>
+                                                    <label class="custom-control-label" for="check-7"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية التصنيفات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية التصنيفات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-8" type="checkbox" class="custom-control-input" name="permission_id[]" value="8" role="1" checked>
+                                                    <label class="custom-control-label" for="check-8"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-9" type="checkbox" class="custom-control-input" name="permission_id[]" value="9" role="1" checked>
+                                                    <label class="custom-control-label" for="check-9"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-10" type="checkbox" class="custom-control-input" name="permission_id[]" value="10" role="1" checked>
+                                                    <label class="custom-control-label" for="check-10"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-11" type="checkbox" class="custom-control-input" name="permission_id[]" value="11" role="1" checked>
+                                                    <label class="custom-control-label" for="check-11"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-12" type="checkbox" class="custom-control-input" name="permission_id[]" value="12" role="1" checked>
+                                                    <label class="custom-control-label" for="check-12"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-13" type="checkbox" class="custom-control-input" name="permission_id[]" value="13" role="1" checked>
+                                                    <label class="custom-control-label" for="check-13"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-14" type="checkbox" class="custom-control-input" name="permission_id[]" value="14" role="1" checked>
+                                                    <label class="custom-control-label" for="check-14"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية التعليقات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية التعليقات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-15" type="checkbox" class="custom-control-input" name="permission_id[]" value="15" role="1" checked>
+                                                    <label class="custom-control-label" for="check-15"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-16" type="checkbox" class="custom-control-input" name="permission_id[]" value="16" role="1" checked>
+                                                    <label class="custom-control-label" for="check-16"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-17" type="checkbox" class="custom-control-input" name="permission_id[]" value="17" role="1" checked>
+                                                    <label class="custom-control-label" for="check-17"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-18" type="checkbox" class="custom-control-input" name="permission_id[]" value="18" role="1" checked>
+                                                    <label class="custom-control-label" for="check-18"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-19" type="checkbox" class="custom-control-input" name="permission_id[]" value="19" role="1" checked>
+                                                    <label class="custom-control-label" for="check-19"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-20" type="checkbox" class="custom-control-input" name="permission_id[]" value="20" role="1" checked>
+                                                    <label class="custom-control-label" for="check-20"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-21" type="checkbox" class="custom-control-input" name="permission_id[]" value="21" role="1" checked>
+                                                    <label class="custom-control-label" for="check-21"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية المحتوى -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية المحتوى</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-22" type="checkbox" class="custom-control-input" name="permission_id[]" value="22" role="1" checked>
+                                                    <label class="custom-control-label" for="check-22"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-23" type="checkbox" class="custom-control-input" name="permission_id[]" value="23" role="1" checked>
+                                                    <label class="custom-control-label" for="check-23"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-24" type="checkbox" class="custom-control-input" name="permission_id[]" value="24" role="1" checked>
+                                                    <label class="custom-control-label" for="check-24"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-25" type="checkbox" class="custom-control-input" name="permission_id[]" value="25" role="1" checked>
+                                                    <label class="custom-control-label" for="check-25"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-26" type="checkbox" class="custom-control-input" name="permission_id[]" value="26" role="1" checked>
+                                                    <label class="custom-control-label" for="check-26"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-27" type="checkbox" class="custom-control-input" name="permission_id[]" value="27" role="1" checked>
+                                                    <label class="custom-control-label" for="check-27"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-28" type="checkbox" class="custom-control-input" name="permission_id[]" value="28" role="1" checked>
+                                                    <label class="custom-control-label" for="check-28"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية المحتوى/التصنيفات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية المحتوى/التصنيفات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-29" type="checkbox" class="custom-control-input" name="permission_id[]" value="29" role="1" checked>
+                                                    <label class="custom-control-label" for="check-29"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-30" type="checkbox" class="custom-control-input" name="permission_id[]" value="30" role="1" checked>
+                                                    <label class="custom-control-label" for="check-30"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-31" type="checkbox" class="custom-control-input" name="permission_id[]" value="31" role="1" checked>
+                                                    <label class="custom-control-label" for="check-31"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-32" type="checkbox" class="custom-control-input" name="permission_id[]" value="32" role="1" checked>
+                                                    <label class="custom-control-label" for="check-32"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-33" type="checkbox" class="custom-control-input" name="permission_id[]" value="33" role="1" checked>
+                                                    <label class="custom-control-label" for="check-33"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-34" type="checkbox" class="custom-control-input" name="permission_id[]" value="34" role="1" checked>
+                                                    <label class="custom-control-label" for="check-34"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-35" type="checkbox" class="custom-control-input" name="permission_id[]" value="35" role="1" checked>
+                                                    <label class="custom-control-label" for="check-35"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية المحتوى/ألبوم الصور -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية المحتوى/ألبوم الصور</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-36" type="checkbox" class="custom-control-input" name="permission_id[]" value="36" role="1" checked>
+                                                    <label class="custom-control-label" for="check-36"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-37" type="checkbox" class="custom-control-input" name="permission_id[]" value="37" role="1" checked>
+                                                    <label class="custom-control-label" for="check-37"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-38" type="checkbox" class="custom-control-input" name="permission_id[]" value="38" role="1" checked>
+                                                    <label class="custom-control-label" for="check-38"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-39" type="checkbox" class="custom-control-input" name="permission_id[]" value="39" role="1" checked>
+                                                    <label class="custom-control-label" for="check-39"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-40" type="checkbox" class="custom-control-input" name="permission_id[]" value="40" role="1" checked>
+                                                    <label class="custom-control-label" for="check-40"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-41" type="checkbox" class="custom-control-input" name="permission_id[]" value="41" role="1" checked>
+                                                    <label class="custom-control-label" for="check-41"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-42" type="checkbox" class="custom-control-input" name="permission_id[]" value="42" role="1" checked>
+                                                    <label class="custom-control-label" for="check-42"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية المحتوى/الوسائط -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية المحتوى/الوسائط</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-43" type="checkbox" class="custom-control-input" name="permission_id[]" value="43" role="1" checked>
+                                                    <label class="custom-control-label" for="check-43"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-44" type="checkbox" class="custom-control-input" name="permission_id[]" value="44" role="1" checked>
+                                                    <label class="custom-control-label" for="check-44"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-45" type="checkbox" class="custom-control-input" name="permission_id[]" value="45" role="1" checked>
+                                                    <label class="custom-control-label" for="check-45"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-46" type="checkbox" class="custom-control-input" name="permission_id[]" value="46" role="1" checked>
+                                                    <label class="custom-control-label" for="check-46"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-47" type="checkbox" class="custom-control-input" name="permission_id[]" value="47" role="1" checked>
+                                                    <label class="custom-control-label" for="check-47"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-48" type="checkbox" class="custom-control-input" name="permission_id[]" value="48" role="1" checked>
+                                                    <label class="custom-control-label" for="check-48"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-49" type="checkbox" class="custom-control-input" name="permission_id[]" value="49" role="1" checked>
+                                                    <label class="custom-control-label" for="check-49"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية اللغات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية اللغات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-50" type="checkbox" class="custom-control-input" name="permission_id[]" value="50" role="1" checked>
+                                                    <label class="custom-control-label" for="check-50"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-51" type="checkbox" class="custom-control-input" name="permission_id[]" value="51" role="1" checked>
+                                                    <label class="custom-control-label" for="check-51"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-52" type="checkbox" class="custom-control-input" name="permission_id[]" value="52" role="1" checked>
+                                                    <label class="custom-control-label" for="check-52"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-53" type="checkbox" class="custom-control-input" name="permission_id[]" value="53" role="1" checked>
+                                                    <label class="custom-control-label" for="check-53"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-54" type="checkbox" class="custom-control-input" name="permission_id[]" value="54" role="1" checked>
+                                                    <label class="custom-control-label" for="check-54"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-55" type="checkbox" class="custom-control-input" name="permission_id[]" value="55" role="1" checked>
+                                                    <label class="custom-control-label" for="check-55"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-56" type="checkbox" class="custom-control-input" name="permission_id[]" value="56" role="1" checked>
+                                                    <label class="custom-control-label" for="check-56"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية الوسائط -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الوسائط</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-57" type="checkbox" class="custom-control-input" name="permission_id[]" value="57" role="1" checked>
+                                                    <label class="custom-control-label" for="check-57"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-58" type="checkbox" class="custom-control-input" name="permission_id[]" value="58" role="1" checked>
+                                                    <label class="custom-control-label" for="check-58"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-59" type="checkbox" class="custom-control-input" name="permission_id[]" value="59" role="1" checked>
+                                                    <label class="custom-control-label" for="check-59"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-60" type="checkbox" class="custom-control-input" name="permission_id[]" value="60" role="1" checked>
+                                                    <label class="custom-control-label" for="check-60"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-61" type="checkbox" class="custom-control-input" name="permission_id[]" value="61" role="1" checked>
+                                                    <label class="custom-control-label" for="check-61"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-62" type="checkbox" class="custom-control-input" name="permission_id[]" value="62" role="1" checked>
+                                                    <label class="custom-control-label" for="check-62"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-63" type="checkbox" class="custom-control-input" name="permission_id[]" value="63" role="1" checked>
+                                                    <label class="custom-control-label" for="check-63"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية القوائم -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية القوائم</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-64" type="checkbox" class="custom-control-input" name="permission_id[]" value="64" role="1" checked>
+                                                    <label class="custom-control-label" for="check-64"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-65" type="checkbox" class="custom-control-input" name="permission_id[]" value="65" role="1" checked>
+                                                    <label class="custom-control-label" for="check-65"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-66" type="checkbox" class="custom-control-input" name="permission_id[]" value="66" role="1" checked>
+                                                    <label class="custom-control-label" for="check-66"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-67" type="checkbox" class="custom-control-input" name="permission_id[]" value="67" role="1" checked>
+                                                    <label class="custom-control-label" for="check-67"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-68" type="checkbox" class="custom-control-input" name="permission_id[]" value="68" role="1" checked>
+                                                    <label class="custom-control-label" for="check-68"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-69" type="checkbox" class="custom-control-input" name="permission_id[]" value="69" role="1" checked>
+                                                    <label class="custom-control-label" for="check-69"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-70" type="checkbox" class="custom-control-input" name="permission_id[]" value="70" role="1" checked>
+                                                    <label class="custom-control-label" for="check-70"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية القوائم/المحتوى -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية القوائم/المحتوى</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-71" type="checkbox" class="custom-control-input" name="permission_id[]" value="71" role="1" checked>
+                                                    <label class="custom-control-label" for="check-71"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-72" type="checkbox" class="custom-control-input" name="permission_id[]" value="72" role="1" checked>
+                                                    <label class="custom-control-label" for="check-72"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-73" type="checkbox" class="custom-control-input" name="permission_id[]" value="73" role="1" checked>
+                                                    <label class="custom-control-label" for="check-73"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-74" type="checkbox" class="custom-control-input" name="permission_id[]" value="74" role="1" checked>
+                                                    <label class="custom-control-label" for="check-74"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-75" type="checkbox" class="custom-control-input" name="permission_id[]" value="75" role="1" checked>
+                                                    <label class="custom-control-label" for="check-75"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-76" type="checkbox" class="custom-control-input" name="permission_id[]" value="76" role="1" checked>
+                                                    <label class="custom-control-label" for="check-76"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-77" type="checkbox" class="custom-control-input" name="permission_id[]" value="77" role="1" checked>
+                                                    <label class="custom-control-label" for="check-77"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية الصفحات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الصفحات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-78" type="checkbox" class="custom-control-input" name="permission_id[]" value="78" role="1" checked>
+                                                    <label class="custom-control-label" for="check-78"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-79" type="checkbox" class="custom-control-input" name="permission_id[]" value="79" role="1" checked>
+                                                    <label class="custom-control-label" for="check-79"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-80" type="checkbox" class="custom-control-input" name="permission_id[]" value="80" role="1" checked>
+                                                    <label class="custom-control-label" for="check-80"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-81" type="checkbox" class="custom-control-input" name="permission_id[]" value="81" role="1" checked>
+                                                    <label class="custom-control-label" for="check-81"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-82" type="checkbox" class="custom-control-input" name="permission_id[]" value="82" role="1" checked>
+                                                    <label class="custom-control-label" for="check-82"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-83" type="checkbox" class="custom-control-input" name="permission_id[]" value="83" role="1" checked>
+                                                    <label class="custom-control-label" for="check-83"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-84" type="checkbox" class="custom-control-input" name="permission_id[]" value="84" role="1" checked>
+                                                    <label class="custom-control-label" for="check-84"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية الصفحات/التصنيفات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الصفحات/التصنيفات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-85" type="checkbox" class="custom-control-input" name="permission_id[]" value="85" role="1" checked>
+                                                    <label class="custom-control-label" for="check-85"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-86" type="checkbox" class="custom-control-input" name="permission_id[]" value="86" role="1" checked>
+                                                    <label class="custom-control-label" for="check-86"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-87" type="checkbox" class="custom-control-input" name="permission_id[]" value="87" role="1" checked>
+                                                    <label class="custom-control-label" for="check-87"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-88" type="checkbox" class="custom-control-input" name="permission_id[]" value="88" role="1" checked>
+                                                    <label class="custom-control-label" for="check-88"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-89" type="checkbox" class="custom-control-input" name="permission_id[]" value="89" role="1" checked>
+                                                    <label class="custom-control-label" for="check-89"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-90" type="checkbox" class="custom-control-input" name="permission_id[]" value="90" role="1" checked>
+                                                    <label class="custom-control-label" for="check-90"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-91" type="checkbox" class="custom-control-input" name="permission_id[]" value="91" role="1" checked>
+                                                    <label class="custom-control-label" for="check-91"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية الصلاحيات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الصلاحيات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-92" type="checkbox" class="custom-control-input" name="permission_id[]" value="92" role="1" checked>
+                                                    <label class="custom-control-label" for="check-92"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-93" type="checkbox" class="custom-control-input" name="permission_id[]" value="93" role="1" checked>
+                                                    <label class="custom-control-label" for="check-93"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-94" type="checkbox" class="custom-control-input" name="permission_id[]" value="94" role="1" checked>
+                                                    <label class="custom-control-label" for="check-94"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-95" type="checkbox" class="custom-control-input" name="permission_id[]" value="95" role="1" checked>
+                                                    <label class="custom-control-label" for="check-95"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-96" type="checkbox" class="custom-control-input" name="permission_id[]" value="96" role="1" checked>
+                                                    <label class="custom-control-label" for="check-96"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-97" type="checkbox" class="custom-control-input" name="permission_id[]" value="97" role="1" checked>
+                                                    <label class="custom-control-label" for="check-97"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-98" type="checkbox" class="custom-control-input" name="permission_id[]" value="98" role="1" checked>
+                                                    <label class="custom-control-label" for="check-98"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية القواعد -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية القواعد</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-99" type="checkbox" class="custom-control-input" name="permission_id[]" value="99" role="1" checked>
+                                                    <label class="custom-control-label" for="check-99"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-100" type="checkbox" class="custom-control-input" name="permission_id[]" value="100" role="1" checked>
+                                                    <label class="custom-control-label" for="check-100"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-101" type="checkbox" class="custom-control-input" name="permission_id[]" value="101" role="1" checked>
+                                                    <label class="custom-control-label" for="check-101"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-102" type="checkbox" class="custom-control-input" name="permission_id[]" value="102" role="1" checked>
+                                                    <label class="custom-control-label" for="check-102"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-103" type="checkbox" class="custom-control-input" name="permission_id[]" value="103" role="1" checked>
+                                                    <label class="custom-control-label" for="check-103"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-104" type="checkbox" class="custom-control-input" name="permission_id[]" value="104" role="1" checked>
+                                                    <label class="custom-control-label" for="check-104"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-105" type="checkbox" class="custom-control-input" name="permission_id[]" value="105" role="1" checked>
+                                                    <label class="custom-control-label" for="check-105"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية قواعد الصلاحيات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية قواعد الصلاحيات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-106" type="checkbox" class="custom-control-input" name="permission_id[]" value="106" role="1" checked>
+                                                    <label class="custom-control-label" for="check-106"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-107" type="checkbox" class="custom-control-input" name="permission_id[]" value="107" role="1" checked>
+                                                    <label class="custom-control-label" for="check-107"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-108" type="checkbox" class="custom-control-input" name="permission_id[]" value="108" role="1" checked>
+                                                    <label class="custom-control-label" for="check-108"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-109" type="checkbox" class="custom-control-input" name="permission_id[]" value="109" role="1" checked>
+                                                    <label class="custom-control-label" for="check-109"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-110" type="checkbox" class="custom-control-input" name="permission_id[]" value="110" role="1" checked>
+                                                    <label class="custom-control-label" for="check-110"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-111" type="checkbox" class="custom-control-input" name="permission_id[]" value="111" role="1" checked>
+                                                    <label class="custom-control-label" for="check-111"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-112" type="checkbox" class="custom-control-input" name="permission_id[]" value="112" role="1" checked>
+                                                    <label class="custom-control-label" for="check-112"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية الإعدادات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الإعدادات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-113" type="checkbox" class="custom-control-input" name="permission_id[]" value="113" role="1" checked>
+                                                    <label class="custom-control-label" for="check-113"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-114" type="checkbox" class="custom-control-input" name="permission_id[]" value="114" role="1" checked>
+                                                    <label class="custom-control-label" for="check-114"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-115" type="checkbox" class="custom-control-input" name="permission_id[]" value="115" role="1" checked>
+                                                    <label class="custom-control-label" for="check-115"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-116" type="checkbox" class="custom-control-input" name="permission_id[]" value="116" role="1" checked>
+                                                    <label class="custom-control-label" for="check-116"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-117" type="checkbox" class="custom-control-input" name="permission_id[]" value="117" role="1" checked>
+                                                    <label class="custom-control-label" for="check-117"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-118" type="checkbox" class="custom-control-input" name="permission_id[]" value="118" role="1" checked>
+                                                    <label class="custom-control-label" for="check-118"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-119" type="checkbox" class="custom-control-input" name="permission_id[]" value="119" role="1" checked>
+                                                    <label class="custom-control-label" for="check-119"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية المستخدمين -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية المستخدمين</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-120" type="checkbox" class="custom-control-input" name="permission_id[]" value="120" role="1" checked>
+                                                    <label class="custom-control-label" for="check-120"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-121" type="checkbox" class="custom-control-input" name="permission_id[]" value="121" role="1" checked>
+                                                    <label class="custom-control-label" for="check-121"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-122" type="checkbox" class="custom-control-input" name="permission_id[]" value="122" role="1" checked>
+                                                    <label class="custom-control-label" for="check-122"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-123" type="checkbox" class="custom-control-input" name="permission_id[]" value="123" role="1" checked>
+                                                    <label class="custom-control-label" for="check-116"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-124" type="checkbox" class="custom-control-input" name="permission_id[]" value="124" role="1" checked>
+                                                    <label class="custom-control-label" for="check-124"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-125" type="checkbox" class="custom-control-input" name="permission_id[]" value="125" role="1" checked>
+                                                    <label class="custom-control-label" for="check-125"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-126" type="checkbox" class="custom-control-input" name="permission_id[]" value="126" role="1" checked>
+                                                    <label class="custom-control-label" for="check-126"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية الكُتاب -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الكُتاب</th>
+                                            <td class="column-create" data-column="إضافة">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-127" type="checkbox" class="custom-control-input" name="permission_id[]" value="127" role="1" checked>
+                                                    <label class="custom-control-label" for="check-127"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-128" type="checkbox" class="custom-control-input" name="permission_id[]" value="128" role="1" checked>
+                                                    <label class="custom-control-label" for="check-128"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-129" type="checkbox" class="custom-control-input" name="permission_id[]" value="129" role="1" checked>
+                                                    <label class="custom-control-label" for="check-129"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-130" type="checkbox" class="custom-control-input" name="permission_id[]" value="130" role="1" checked>
+                                                    <label class="custom-control-label" for="check-130"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-131" type="checkbox" class="custom-control-input" name="permission_id[]" value="131" role="1" checked>
+                                                    <label class="custom-control-label" for="check-131"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-132" type="checkbox" class="custom-control-input" name="permission_id[]" value="132" role="1" checked>
+                                                    <label class="custom-control-label" for="check-132"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-133" type="checkbox" class="custom-control-input" name="permission_id[]" value="133" role="1" checked>
+                                                    <label class="custom-control-label" for="check-133"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr> <!-- صلاحية الملف الشخصي -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الملف الشخصي</th>
+                                            <td class="column-create" data-column="إضافة">
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-134" type="checkbox" class="custom-control-input" name="permission_id[]" value="134" role="1" checked>
+                                                    <label class="custom-control-label" for="check-134"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-135" type="checkbox" class="custom-control-input" name="permission_id[]" value="135" role="1" checked>
+                                                    <label class="custom-control-label" for="check-135"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-136" type="checkbox" class="custom-control-input" name="permission_id[]" value="136" role="1" checked>
+                                                    <label class="custom-control-label" for="check-136"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-137" type="checkbox" class="custom-control-input" name="permission_id[]" value="137" role="1" checked>
+                                                    <label class="custom-control-label" for="check-137"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-138" type="checkbox" class="custom-control-input" name="permission_id[]" value="138" role="1" checked>
+                                                    <label class="custom-control-label" for="check-138"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                    
+                                        <tr> <!-- صلاحية الإحصائيات -->
+                                            <th class="column-permission column-primary" scope="row">صلاحية الإحصائيات</th>
+                                            <td class="column-create" data-column="إضافة">
+                                            </td>
+                                            <td class="column-read" data-column="عرض">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-134" type="checkbox" class="custom-control-input" name="permission_id[]" value="134" role="1" checked>
+                                                    <label class="custom-control-label" for="check-134"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-update" data-column="تعديل">
+                                            </td>
+                                            <td class="column-delete" data-column="حذف">
+                                            </td>
+                                            <td class="column-self" data-column="إدارة نفسه">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-136" type="checkbox" class="custom-control-input" name="permission_id[]" value="136" role="1" checked>
+                                                    <label class="custom-control-label" for="check-136"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-outher" data-column="إدارة غيره">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-137" type="checkbox" class="custom-control-input" name="permission_id[]" value="137" role="1" checked>
+                                                    <label class="custom-control-label" for="check-137"></label>
+                                                </div>
+                                            </td>
+                                            <td class="column-force_delete" data-column="حذف نهائي">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="check-138" type="checkbox" class="custom-control-input" name="permission_id[]" value="138" role="1" checked>
+                                                    <label class="custom-control-label" for="check-138"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
+            <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
+        </footer>
+    </body>
+</html>

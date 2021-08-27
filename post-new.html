@@ -187,7 +187,7 @@
                             <small class="text-warning">مدير</small>
                         </div>
                     </div>
-                    <a class="dropdown-item text-muted" href="#">
+                    <a class="dropdown-item text-muted" href="profile.html">
                         <i class="fas fa-user-edit"></i>
                         <span class="mr-2">تحرير الملف الشخصي</span>
                     </a>
@@ -225,7 +225,7 @@
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="categories.html">
-                                    <i class="fas fa-sitemap mr-3"></i><span>تصنيفات الموقع</span>
+                                    <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
                                 </a>
                                 <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -234,7 +234,7 @@
 
                             <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="posts.html">
-                                    <i class="fas fa-file-alt mr-3"></i><span>محتوى الموقع</span>
+                                    <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
                                 </a>
                                 <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
@@ -243,7 +243,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="pages.html">
-                                    <i class="fas fa-clone mr-3"></i><span>صفحات الموقع</span>
+                                    <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
                                 </a>
                                 <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -261,7 +261,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
-                                    <i class="fas fa-ad mr-3"></i><span>إعلانات الموقع</span>
+                                    <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
                                 </a>
                                 <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -270,13 +270,13 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
-                                    <i class="fas fa-comment-dots mr-3"></i><span>تعليقات الموقع</span>
+                                    <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="users.html">
-                                    <i class="fas fa-users mr-3"></i><span>أعضاء الموقع</span>
+                                    <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
                                 </a>
                                 <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
@@ -795,7 +795,7 @@
                                     <select class="custom-select ml-2" id="postType" name="postType">
                                         <option value="default" selected>افتراضي</option>
                                         <option value="new">خبر</option>
-                                        <option value="artical">مقال</option>
+                                        <option value="article">مقال</option>
                                         <option value="gallery">معرض صور</option>
                                         <option value="video">فيديو</option>
                                         <option value="audio">صوت</option>
@@ -924,18 +924,36 @@
                                             <a type="button" class="btn gallery_media d-none" data-media="" data-id="-1">
                                                 <img class="img-thumbnail" src="" alt="">
                                                 <i type="button" class="fas fa-times-circle clearMedia"></i>
+                                                <div class="lang-ar">
+                                                    <input type="text" id="" class="form-control form-control-sm" name="ar_gallery_bio" placeholder="وصف الصورة">
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" id="" class="form-control form-control-sm" name="en_gallery_bio" placeholder="Description">
+                                                </div>
                                                 <input type="hidden" id="" name="gallery_id" value="-1">
                                             </a>
 
                                             <a type="button" class="btn gallery_media" data-media="media-12" data-id="12">
                                                 <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="كمبيوتر وقهوة">
                                                 <i type="button" class="fas fa-times-circle clearMedia"></i>
+                                                <div class="lang-ar">
+                                                    <input type="text" id="ar_gallery_bio_12" class="form-control form-control-sm" name="ar_gallery_bio[]" placeholder="وصف الصورة">
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" id="en_gallery_bio_12" class="form-control form-control-sm" name="en_gallery_bio[]" placeholder="Description">
+                                                </div>
                                                 <input type="hidden" id="gallery_12" name="gallery_id[]" value="12">
                                             </a>
 
                                             <a type="button" class="btn gallery_media" data-media="media-11" data-id="11">
                                                 <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="خلفية صحراء">
                                                 <i type="button" class="fas fa-times-circle clearMedia"></i>
+                                                <div class="lang-ar">
+                                                    <input type="text" id="ar_gallery_bio_11" class="form-control form-control-sm" name="ar_gallery_bio[]" placeholder="وصف الصورة">
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" id="en_gallery_bio_11" class="form-control form-control-sm" name="en_gallery_bio[]" placeholder="Description">
+                                                </div>
                                                 <input type="hidden" id="gallery_11" name="gallery_id[]" value="11">
                                             </a>
                                         </div>
@@ -1047,6 +1065,17 @@
                                             <small class="text-muted">انقر على الصورة للتعديل أو التحديث</small>
                                         </div>
                                         <button type="button" class="btn btn-info btn-sm addMedia" data-title="الصورة البارزة" data-toggle="modal" data-target="#editMedia">تعيين الصورة البارزة</button>
+                                        <a type="button" class="btn btn-light btn-sm mt-2" data-toggle="collapse" data-target="#media_bio" aria-expanded="false" aria-controls="media_bio">
+                                            <i class="fas fa-plus-square"></i> <span>تخصيص وصف الصورة</span>
+                                        </a>
+                                        <div id="media_bio" class="form-group collapse">
+                                            <div class="lang-ar">
+                                                <input type="text" class="form-control form-control-sm" id="ar_media_bio" name="ar_media_bio" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="أدخل وصف مختصر للصورة">
+                                            </div>
+                                            <div class="lang-en">
+                                                <input type="text" class="form-control form-control-sm" id="en_media_bio" name="en_media_bio" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="Insert a brief description for the image">
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                     <div class="form-group"><!-- تاريخ النشر -->
@@ -1066,14 +1095,23 @@
                                     <div class="form-group"><!-- خصائص إضافية -->
                                         <label class="head">خصائص إضافية</label>
 
-                                        <div class="custom-control custom-checkbox">
+                                        <div class="custom-control custom-checkbox mt-2">
+                                            <input id="media_show" type="checkbox" class="custom-control-input" name="media_show" value="1" checked>
+                                            <label class="custom-control-label" for="media_show">عرض الصورة</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox mt-2">
                                             <input id="comment_status" type="checkbox" class="custom-control-input" name="comment_status" value="1" checked>
-                                            <label class="custom-control-label" for="comment_status">السماح بالتعليقات</label>
+                                            <label class="custom-control-label" for="comment_status">السماح بالتعليق</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox mt-2">
                                             <input id="sticky" type="checkbox" class="custom-control-input" name="sticky" value="0">
                                             <label class="custom-control-label" for="sticky">تثبيت بالرئيسية</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox mt-2">
+                                            <input id="sticky_slider" type="checkbox" class="custom-control-input" name="sticky_slider" value="0">
+                                            <label class="custom-control-label" for="sticky_slider">تثبيت بالسلايدر الرئيسي</label>
                                         </div>
                                     </div>
                                 </div>

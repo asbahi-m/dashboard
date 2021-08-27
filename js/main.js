@@ -33,6 +33,7 @@ $(document).ready(function() {
         // searching: false,
         // ordering:  false,
         // "stateSave": true,
+        // paging: false,
         "order": [],
         "pagingType": "full_numbers",
         "pageLength": 100,
@@ -261,40 +262,46 @@ $(document).ready(function() {
     function filter(table, colCate, colType, colUser, colDate) {
 
         /* فلتر تصفية جدول المحتويات بحسب التصنيف */
-        $("#filter select.get-cate").append($('<option value="">جميع التصنيفات</option>')).on("change", function(){
+        $("#filter select.get-cate").append('<option value="">جميع التصنيفات</option>').on("change", function(){
             table.column(colCate) // column(2) This is the column number inside the table.
             .search($(this).val())
             .draw();
         });
-        table.column(colCate).data().unique().sort().each(function(value, index){
-            value = value.replace(/<[^>]*>/g, "");
-            $("#filter select.get-cate").append("<option value='" + value + "'>" + value + "</option>");
+        var table = table.column(colCate).data().unique().sort();
+        var valueArr = [];
+        for (i = 0; i < table.length; i++) {
+            var value = $.trim(table[i].replace(/<br>/g, "|").replace(/<[^>]*>/g, "").replace(/\n\s+/g,"")).split("|");
+            $.merge(valueArr, value);
+        }
+        valueArr = $.unique(valueArr.sort());
+        $.each(valueArr, function (index, value) {
+            $("#filter select.get-cate").append(`<option value="${value}">${value}</option>`);
         });
 
         /* فلتر تصفية جدول المحتويات بحسب النوع */
-        $("#filter select.get-type").append($('<option value="">جميع الأنواع</option>')).on("change", function(){
-            table.column(colType) // column(2) This is the column number inside the table.
+        $("#filter select.get-type").append('<option value="">جميع الأنواع</option>').on("change", function(){
+            table.column(colType) // column(7) This is the column number inside the table.
             .search($(this).val())
             .draw();
         });
         table.column(colType).data().unique().sort().each(function(value, index){
-            value = value.replace(/<[^>]*>/g, "");
-            $("#filter select.get-type").append("<option value='" + value + "'>" + value + "</option>");
+            value = $.trim(value.replace(/<[^>]*>/g, ""));
+            $("#filter select.get-type").append(`<option value="${value}">${value}</option>`);
         });
         
         /* فلتر تصفية جدول المحتويات بحسب المحرر */
-        $("#filter select.get-user").append($('<option value="">جميع المحررين</option>')).on("change", function(){
+        $("#filter select.get-user").append('<option value="">جميع المحررين</option>').on("change", function(){
             table.column(colUser) // column(3) This is the column number inside the table.
             .search($(this).val())
             .draw();
         });
         table.column(colUser).data().unique().sort().each(function(value, index){
-            value = value.replace(/<[^>]*>/g, "");
-            $("#filter select.get-user").append("<option value='" + value + "'>" + value + "</option>");
+            value = $.trim(value.replace(/<[^>]*>/g, ""));
+            $("#filter select.get-user").append(`<option value="${value}">${value}</option>`);
         });
         
         /* فلتر تصفية جدول المحتويات بحسب التاريخ */
-        $("#filter select.get-date").append($('<option value="">جميع التواريخ</option>')).on("change", function(){
+        $("#filter select.get-date").append('<option value="">جميع التواريخ</option>').on("change", function(){
             table.column(colDate) // column(4) This is the column number inside the table.
             .search($(this).val())
             .draw();
@@ -304,21 +311,19 @@ $(document).ready(function() {
         ];
         var ele = table.column(colDate).data().unique().sort();
         var newEle = ele.map(function(value, month, year){
-                value = value.replace(/<[^>]*>/g, "");
+                value = $.trim(value.replace(/<[^>]*>/g, ""));
                 theDate = new Date(value);
                 month = months[theDate.getMonth()];
                 year = theDate.getFullYear();
                 // return theDate == "Invalid Date" ? value : theDate.getFullYear() + "-" + (theDate.getMonth()+1);
                 return theDate == "Invalid Date" ? value : month + ", " + year;
             });
-        newEle.each(function(value, index){
+        newEle.reverse().each(function(value, index){
             if (newEle.indexOf(value) === index) {
                 var valueToArr = value.split(", ");
                 var monthNum = months.indexOf(valueToArr[0]);
                 function checkMonth(){return monthNum == -1 ? value : valueToArr[1] + "-" + ("0"+(monthNum+1)).slice(-2)};
-                $("#filter select.get-date").append("<option value='" + checkMonth() + "'>" + 
-                value + 
-                "</option>");
+                $("#filter select.get-date").append(`<option value="${checkMonth()}">${value}</option>`);
             }
         });
     }
@@ -576,7 +581,9 @@ $(document).ready(function() {
                 $("#postGalleryContent [data-id=-1]").clone().appendTo("#postGalleryContent")
                 .removeClass("d-none").attr({"data-media":"media-"+data_id, "data-id":data_id})
                 .find("img").attr({"src":data_path, "alt":data_ar_alt})
-                .parent().find("[name=gallery_id]").val(data_id).attr({"id": "gallery_" + data_id, "name": "gallery_id[]"});
+                .parent().find("[name=gallery_id]").val(data_id).attr({"id": "gallery_" + data_id, "name": "gallery_id[]"})
+                .parent().find("[name=ar_gallery_bio]").attr({"id": "ar_gallery_bio_" + data_id, "name": "ar_gallery_bio[]"})
+                .parent().parent().find("[name=en_gallery_bio]").attr({"id": "en_gallery_bio_" + data_id, "name": "en_gallery_bio[]"});
             })
             $("#postGalleryContent .clearMedia").click(function() {
                 // إزالة الصور من معرض الصور والغاء تعيينها
@@ -607,32 +614,41 @@ $(document).ready(function() {
     })
 
     // صندوق مكتبة الوسائط
-    
-    $("#editMedia.media-modal [name='media[]']").click(function() {
-        var itemClass = $(this).attr("id");
+
+    $("#editMedia.media-modal [name='media[]']").click(media);
+    $("#postImage .changeMedia").click(media);
+    function media() {
+        var $this = this;
+        if ($(this).hasClass("changeMedia")) {
+            $this = "[name='media[]']:checked";
+        }
+        else {
+            $this = this;
+        }
+        var itemClass = $($this).attr("id");
         var itemNum = $("[name='media[]']:checked:not(:disabled)").length;
         
-        if ($(this).prop("checked") == true) {
+        if ($($this).prop("checked") == true) {
             // إظهار معلومات الصورة
             $(".file-info").show();
             // تفعيل أيقونة "تعيين وحفظ" فقط
             $("#editMedia.media-modal .modal-footer button").prop("disabled", false);
 
             $("#editMedia.mediaGallery .modal-footer .gallery-items span").text("عدد العناصر المحددة: " + itemNum);
-            var data_id = $(this).attr("value"),
-                data_path = $(this).attr("data-path"),
-                data_ar_title = $(this).attr("data-ar_title"),
-                data_en_title = $(this).attr("data-en_title"),
-                data_ar_alt = $(this).attr("data-ar_alt"),
-                data_en_alt = $(this).attr("data-en_alt"),
-                data_file_name = $(this).attr("data-file_name"),
-                data_file_type = $(this).attr("data-file_type"),
-                data_file_size = $(this).attr("data-file_size"),
-                data_dimensions = $(this).attr("data-dimensions"),
-                data_upload_date = $(this).attr("data-upload_date"),
-                data_uploader = $(this).attr("data-uploader"),
-                data_upload_to = $(this).attr("data-upload_to"),
-                data_view_attachment = $(this).attr("data-view_attachment");
+            var data_id = $($this).attr("value"),
+                data_path = $($this).attr("data-path"),
+                data_ar_title = $($this).attr("data-ar_title"),
+                data_en_title = $($this).attr("data-en_title"),
+                data_ar_alt = $($this).attr("data-ar_alt"),
+                data_en_alt = $($this).attr("data-en_alt"),
+                data_file_name = $($this).attr("data-file_name"),
+                data_file_type = $($this).attr("data-file_type"),
+                data_file_size = $($this).attr("data-file_size"),
+                data_dimensions = $($this).attr("data-dimensions"),
+                data_upload_date = $($this).attr("data-upload_date"),
+                data_uploader = $($this).attr("data-uploader"),
+                data_upload_to = $($this).attr("data-upload_to"),
+                data_view_attachment = $($this).attr("data-view_attachment");
 
             $(".file-info .media-source img").attr({"src": data_path, "alt": data_ar_alt});
             $(".file-info .media-button button").attr("data-id", data_id);
@@ -663,14 +679,75 @@ $(document).ready(function() {
                 $("#editMedia.mediaGallery .modal-footer .gallery-items span").text("");
             }
         }
-        if ($("#editMedia.media-modal").hasClass("mediaGallery") && $(this).prop("checked") === true) {
+        if ($("#editMedia.media-modal").hasClass("mediaGallery") && $($this).prop("checked") === true) {
             // إضافة العناصر المحددة أسفل بوكس مكتبة الوسائط
-            $(this).next().find("img").clone().appendTo("#editMedia.media-modal .modal-footer .gallery-items").addClass(itemClass);
+            $($this).next().find("img").clone().appendTo("#editMedia.media-modal .modal-footer .gallery-items").addClass(itemClass);
         }
         else {
             // إزالة العناصر المحددة أسفل بوكس مكتبة الوسائط
             $("#editMedia.media-modal .modal-footer ." + itemClass).remove();
         }
+    }
+    // إدراج صورة في بوكس الوسائط عند الضغط على أيقونة Append
+    $("#editMedia.media-modal").on("click", "#append", function () {
+        var mediaObj = {
+            "id": "1111",
+            "ar_title": "كبيوتر وقهوة",
+            "en_title": "Computer and Coffe",
+            "ar_alt": "كمبيوتر وقهوة",
+            "en_alt": "Computer and Coffe",
+            "path": "/admin/uploads/2020/01/كمبيوتر-وقهوة.jpg",
+            "file_name": "كمبيوتر-وقهوة.jpg",
+            "file_type": "image/jpeg",
+            "file_size": "164 ك.ب",
+            "dimensions": "640 × 360 بيكسل",
+            "upload_date": "2019-12-27",
+            "uploader": "admin",
+            "upload_to": "1",   // Post ID
+            "upload_to_postTitle": "كيف تبدأ يومك!", // Post Title
+            "view_attachment": "#"
+        }
+        $("#media-0").clone().prependTo("#mediaTable tbody")
+        .removeClass("d-none")
+        .attr("id", "media-"+mediaObj.id)
+        .find("td").each(function() {
+            if ($(this).hasClass("column-title")) {
+                $(this).html('<a href="media-edit.html">'+mediaObj.ar_title+'</a>')
+            }
+            else if ($(this).hasClass("column-author")) {
+                $(this).html('<a href="#">'+mediaObj.uploader+'</a>')
+            }
+            else if ($(this).hasClass("column-uploadedTo")) {
+                $(this).html('<a href="/contents/'+mediaObj.upload_to+'/edit">'+mediaObj.upload_to_postTitle+'</a>')
+            }
+            else if ($(this).hasClass("column-date")) {
+                $(this).html('<small>'+mediaObj.upload_date+'</small>')
+            }
+        })
+        .parent().find("input").attr({
+            "name": "media[]",
+            "id": "check-"+mediaObj.id,
+            "value": mediaObj.id,
+            "data-ar_title": mediaObj.ar_title,
+            "data-en_title": mediaObj.en_title,
+            "data-ar_alt": mediaObj.ar_alt,
+            "data-en_alt": mediaObj.en_alt,
+            "data-path": mediaObj.path,
+            "data-file_name": mediaObj.file_name,
+            "data-file_type": mediaObj.file_type,
+            "data-file_size": mediaObj.file_size,
+            "data-dimensions": mediaObj.dimensions,
+            "data-upload_date": mediaObj.upload_date,
+            "data-uploader": mediaObj.uploader,
+            "data-upload_to": mediaObj.upload_to,
+            "data-view_attachment": mediaObj.view_attachment
+        })
+        .click(media)
+        .next().attr("for", "check-"+mediaObj.id)
+        .find("img").attr({
+            "src": mediaObj.path,
+            "alt": mediaObj.ar_alt
+        });
     })
 
     // افتراضي صندوق مكتبة الوسائط
@@ -819,9 +896,9 @@ $(document).ready(function() {
     });
     
     // إظهار عنصر (كاتب المقال) إذا كانت بنية المحتوى: مقال
-    elementCase("#postWriter", "#postWriter select, #postWriter input", "artical");
+    elementCase("#postWriter", "#postWriter select, #postWriter input", "article");
     $("#postType").change(function(){
-        elementCase("#postWriter", "#postWriter select, #postWriter input", "artical");
+        elementCase("#postWriter", "#postWriter select, #postWriter input", "article");
     });
 
     // إخفاء بوكس إضافة كاتب عند الضغط على أيقونة تعديل كاتب، والعكس
@@ -898,7 +975,7 @@ $(document).ready(function() {
 
 
     /////////////////////////// إضافة الصور المتعددة في بوكس معرض الصور وإظهارها مباشرةً
-    $("#postGalleryImg").change(function(){
+    /* $("#postGalleryImg").change(function(){
         var fReader = new FileReader();
         fReader.readAsDataURL(this.files[0]);
         $("#postGalleryContent").append("<span><img class='img-thumbnail my-2'><i class='fas fa-times-circle'></i></span>");
@@ -912,10 +989,10 @@ $(document).ready(function() {
             // alert("hi");
             $(this).parent().remove();
         });
-    })
+    }) */
 
     /////////////////////////// إضافة الصورة في بوكس الصورة البارزة وإظهارها مباشرةً
-    $("#postImg, .postImg").change(function(){
+    /* $("#postImg, .postImg").change(function(){
         $(this).parent().parent().find("#postImgContent img").addClass("d-block").removeClass("d-none");
         $(this).parent().parent().find("#postImgContent i").remove();
         var fReader = new FileReader();
@@ -925,7 +1002,7 @@ $(document).ready(function() {
             // var img = document.getElementById("postImgContent");
             imgContent.src = event.target.result;
         }
-    })
+    }) */
 
     /////////////////////////// تعيين تاريخ النشر تلقائياً بحسب التاريخ والوقت الحالي
     var dateNow = new Date(),

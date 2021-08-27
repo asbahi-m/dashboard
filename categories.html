@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar">
     <head>
-        <title>لوحة التحكم - تصنيفات الموقع</title>
+        <title>لوحة التحكم - إدارة التصنيفات</title>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -187,7 +187,7 @@
                             <small class="text-warning">مدير</small>
                         </div>
                     </div>
-                    <a class="dropdown-item text-muted" href="#">
+                    <a class="dropdown-item text-muted" href="profile.html">
                         <i class="fas fa-user-edit"></i>
                         <span class="mr-2">تحرير الملف الشخصي</span>
                     </a>
@@ -225,7 +225,7 @@
 
                             <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="categories.html">
-                                    <i class="fas fa-sitemap mr-3"></i><span>تصنيفات الموقع</span>
+                                    <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
                                 </a>
                                 <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -234,7 +234,7 @@
 
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
-                                    <i class="fas fa-file-alt mr-3"></i><span>محتوى الموقع</span>
+                                    <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
                                 </a>
                                 <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
@@ -243,7 +243,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="pages.html">
-                                    <i class="fas fa-clone mr-3"></i><span>صفحات الموقع</span>
+                                    <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
                                 </a>
                                 <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -261,7 +261,7 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
-                                    <i class="fas fa-ad mr-3"></i><span>إعلانات الموقع</span>
+                                    <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
                                 </a>
                                 <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
@@ -270,13 +270,13 @@
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
-                                    <i class="fas fa-comment-dots mr-3"></i><span>تعليقات الموقع</span>
+                                    <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="users.html">
-                                    <i class="fas fa-users mr-3"></i><span>أعضاء الموقع</span>
+                                    <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
                                 </a>
                                 <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
@@ -319,7 +319,7 @@
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
                     <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
-                        <h2 class="py-2">تصنيفات الموقع</h2>
+                        <h2 class="py-2">إدارة التصنيفات</h2>
                         <a type="button" class="btn btn-dark d-xl-none text-white" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">
                             <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
                         </a>
@@ -376,6 +376,10 @@
                                         <textarea class="form-control form-control-sm" id="cateDesc-en" name="cateDesc-en" placeholder="Description" row="3" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف"></textarea>
                                     </div>
                                     <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
+                                </div>
+                                <div class="form-group custom-control custom-checkbox">
+                                    <input id="notAccess" type="checkbox" class="custom-control-input" name="notAccess">
+                                    <label class="custom-control-label" for="notAccess">عدم الوصول للتصنيف.</label>
                                 </div>
                                 <button type="submit" class="btn btn-primary">أضف تصنيف</button>
                             </form>
@@ -439,6 +443,10 @@
                                                 </div>
                                                 <small>لإنشاء وصف مختصر للتصنيف (اختياري).</small>
                                             </div>
+                                            <div class="form-group custom-control custom-checkbox">
+                                                <input id="notAccess" type="checkbox" class="custom-control-input" name="notAccess">
+                                                <label class="custom-control-label" for="notAccess">عدم الوصول للتصنيف.</label>
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-warning">تعديل</button>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
@@ -479,7 +487,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <button type="submit" class="btn btn-danger">حذف نهائي</button>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
                                     </div>
                                 </div>
@@ -555,6 +563,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr id="cate-1" class="level-0">
+                                        <th class="column-check" scope="row"></th>
+                                        <td class="column-name column-primary child-name" data-column="التصنيف">غير مصنف</td>
+                                        <td class="column-slug" data-column="الاسم المختصر">غير مصنف</td>
+                                        <td class="column-desc" data-column="الوصف"><small>لا يمكن حذف هذا التصنيف</small></td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">5</a></td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem" data-posts_num="50">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     <tr id="cate-7" class="level-0 hasChildren">
                                         <th class="column-check" scope="row">
                                             <div class="custom-control custom-checkbox">
@@ -740,21 +763,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="cate-1" class="level-0">
-                                        <th class="column-check" scope="row"></th>
-                                        <td class="column-name column-primary child-name" data-column="التصنيف">غير مصنف</td>
-                                        <td class="column-slug" data-column="الاسم المختصر">غير مصنف</td>
-                                        <td class="column-desc" data-column="الوصف"><small>لا يمكن حذف هذا التصنيف</small></td>
-                                        <td class="column-postsNum" data-column="العدد"><a href="#">5</a></td>
-                                        <td class="column-control" data-column="التحكم">
-                                            <div class="icons-control">
-                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem" data-posts_num="50">
-                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
