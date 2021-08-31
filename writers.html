@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
     <head>
-        <title>لوحة التحكم - إضافة محتوى</title>
+        <title>لوحة التحكم - إدارة الكُتاب</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -236,7 +236,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item d-flex align-items-center active">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="posts.html">
                                     <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
                                 </a>
@@ -246,7 +246,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item d-flex align-items-center">
+                            <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="writers.html">
                                     <i class="fas fa-pen-nib mr-3"></i><span>إدارة الكُتاب</span>
                                 </a>
@@ -329,7 +329,12 @@
                 
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
-                    <h2 class="border-bottom py-2 mb-3">إضافة محتوى جديد</h2>
+                    <div class="d-flex justify-content-between border-bottom align-items-center mb-3">
+                        <h2 class="py-2">كُتاب المقالات</h2>
+                        <a type="button" class="btn btn-dark d-xl-none text-white" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">
+                            <i class="fas fa-plus-square"></i> <span class="d-none d-sm-inline-block">أضف جديداً</span>
+                        </a>
+                    </div>
 
                     <!-- بوكس مكتبة الوسائط -->
                     <div id="editMedia" class="media-modal modal single-media fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -754,371 +759,299 @@
                         </div>
                     </div>
 
-                    <!-- إضافة وتعديل المحتويات -->
-                    <div id="postAdd">
-                        <!-- رسائل الأوامر والعمليات -->
-                        <button type="button" class="btn btn-outline-dark btn-sm MSG d-block ml-auto" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
-                            MSG
-                        </button>
-                        <div id="MSG" class="collapse">
-                            <!-- رسالة نجاح عملية التعديل -->
-                            <div class="alert alert-success alert-dismissible d-flex" role="alert">
-                                <span>تم إضافة المحتوى بنجاح.</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
-                            </div>
-                            
-                            <!-- رسالة نجاح عملية الحذف -->
-                            <div class="alert alert-warning alert-dismissible d-flex" role="alert">
-                                <span>تم حذف المحتوى بنجاح.</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
-                            </div>
+                    <div class="row">
+                        <!-- بوكس إضافة عنصر جديد -->
+                        <div id="addItem" class="col-xl-3 col-lg-12 rounded py-2 bg-white">
+                            <h4>أضف كاتباً جديداً</h4>
+                            <form id="addWriter">
+                                <div class="form-group">
+                                    <label for="writerName">الاسم الكامل:</label>
+                                    <div class="lang-ar">
+                                        <input type="text" class="form-control form-control-sm" id="writerName-ar" name="writerName-ar" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" placeholder="أدخل اسم الكاتب كاملاً" required>
+                                    </div>
+                                    <div class="lang-en">
+                                        <input type="text" class="form-control form-control-sm" id="writerName-en" name="writerName-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="Enter Writer Full Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="writerNickname">الاسم المستعار:</label>
+                                    <div class="lang-ar">
+                                        <input type="text" class="form-control form-control-sm" id="writerNickname-ar" name="writerNickname-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="أدخل الاسم المستعار للكاتب">
+                                    </div>
+                                    <div class="lang-en">
+                                        <input type="text" class="form-control form-control-sm" id="writerNickname-en" name="writerNickname-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="Enter Writer Nickname">
+                                    </div>
+                                    <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
+                                </div>
+                                <div class="form-group"><!-- صورة الملف الشخصي -->
+                                    <label for="postImg">صورة الملف الشخصي:</label>
+                                    <div class="picture-profile text-center mb-2">
+                                        <i class="fas fa-user-circle d-none"></i>
+                                    </div>
+                                    <div id="postImage" class="text-center" style="display: none">
+                                        <a type="button" class="btn d-block changeMedia" data-media="media-0" data-id="-1" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">
+                                            <img class="img-thumbnail rounded-circle border" src="" alt="" width="100" height="100">
+                                            <input type="hidden" id="media_id" name="media_id" value="-1">
+                                        </a>
+                                        <i type="button" class="fas fa-times-circle clearMedia"></i>
+                                        <small class="text-muted">انقر على الصورة للتعديل أو التحديث</small>
+                                    </div>
+                                    <button type="button" class="btn btn-info btn-sm addMedia" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">تعيين صورة الملف الشخصي</button>
+                                </div>
+                                <button type="submit" id="saveWriter" class="btn btn-primary">إضافة كاتب</button>
+                            </form>
+                        </div>
 
-                            <!-- رسائل فشل عملية الحذف -->
-                            <div class="alert alert-danger alert-dismissible d-flex" role="alert">
-                                <span>لا يمكن حذف هذا المحتوى!</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <span class="ml-auto"><i class="fas fa-exclamation-circle"></i></span>
+                        <!-- بوكس تعديل العنصر -->
+                        <div id="editItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">تعديل الكاتب: <strong>محمد سعيد</strong></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editWriter">
+                                            <div class="form-group">
+                                                <label for="writerName">الاسم الكامل:</label>
+                                                <div class="lang-ar">
+                                                    <input type="text" class="form-control form-control-sm" id="writerName-ar" name="writerName-ar" placeholder="أدخل اسم الكاتب كاملاً" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" value="محمد أحمد علي سعيد" required>
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" class="form-control form-control-sm" id="writerName-en" name="writerName-en" placeholder="Enter Writer Full Name" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" value="Moh'd Ahmed Ali Saeed">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="writerNickname">الاسم المستعار:</label>
+                                                <div class="lang-ar">
+                                                    <input type="text" class="form-control form-control-sm" id="writerNickname-ar" name="writerNickname-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="أدخل الاسم المستعار للكاتب" value="محمد سعيد">
+                                                </div>
+                                                <div class="lang-en">
+                                                    <input type="text" class="form-control form-control-sm" id="writerNickname-en" name="writerNickname-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="Enter Writer Nickname" value="Moh'd Saeed">
+                                                </div>
+                                                <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
+                                            </div>
+                                            <div class="form-group"><!-- صورة الملف الشخصي -->
+                                                <label>صورة الملف الشخصي:</label>
+                                                <div class="picture-profile text-center mb-2">
+                                                    <i class="fas fa-user-circle d-none"></i>
+                                                </div>
+                                                <div id="postImage_2" class="text-center" style="display: none">
+                                                    <a type="button" class="btn d-block changeMedia" data-media="media-0" data-id="-1" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">
+                                                        <img class="img-thumbnail rounded-circle border" src="" alt="" width="100" height="100">
+                                                        <input type="hidden" id="multi_media_id" name="multi_media_id" value="-1">
+                                                    </a>
+                                                    <i type="button" class="fas fa-times-circle clearMedia"></i>
+                                                    <small class="text-muted">انقر على الصورة للتعديل أو التحديث</small>
+                                                </div>
+                                                <button type="button" class="btn btn-info btn-sm addMultiMedia" data-title="صورة الملف الشخصي" data-toggle="modal" data-target="#editMedia">تعيين صورة الملف الشخصي</button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" id="updateWriter" class="btn btn-primary">تعديل</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- إضافة المحتوى -->
-                        <form>
-                            <div class="form-group d-flex flex-column flex-sm-row justify-content-end pr-sm-5 sticky-top">
-                                <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- اختيار نموذج -->
-                                    <label class="head m-0">النموذج:</label>
-                                    <select class="custom-select ml-2" id="postType" name="post_type">
-                                        <option value="default" selected>افتراضي</option>
-                                        <option value="new">خبر</option>
-                                        <option value="article">مقال</option>
-                                        <option value="image">صورة</option>
-                                        <option value="gallery">معرض صور</option>
-                                        <option value="video">فيديو</option>
-                                        <option value="audio">صوت</option>
-                                    </select>
-                                </div>
-
-                                <div class="d-flex align-items-center mr-sm-3 py-1 py-sm-0"><!-- حالة العرض -->
-                                    <label class="head m-0">الحالة:</label>
-                                    <select class="custom-select ml-2" id="postStatus" name="post_status">
-                                        <option value="publish" selected>منشور</option>
-                                        <option value="draft">مسودة</option>
-                                        <option value="pending">تحت المراجعة</option>
-                                    </select>
-                                </div>
-
-                                <div class="ml-auto ml-sm-0  py-1 py-sm-0"><!-- أيقونة الحفظ والمعاينة -->
-                                    <button type="submit" class="btn btn-primary">حفظ</button>
-                                    <a class="btn btn-light border" href="#" target="_blank">معاينة</a>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col-lg-9">
-                                    <div class="form-group"><!-- العنوان -->
-                                        <label class="head" for="postTitle">العنوان:</label>
-                                        <div class="lang-ar">
-                                            <input id="postTitle-ar" type="text" class="form-control" name="postTitle-ar" placeholder="إضافة عنوان" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
-                                        </div>
-                                        <div class="lang-en">
-                                            <input id="postTitle-en" type="text" class="form-control" name="postTitle-en" placeholder="Add Title" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف">
-                                        </div>
+                        <!-- بوكس حذف العنصر -->
+                        <div id="deleteItem" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">هل فعلاً تريد حذف <span class="item-type">الكاتب</span></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-
-                                    <div class="form-group"><!-- محرر النصوص -->
-                                        <!-- <label class="head" for="postContent">المحتوى:</label> -->
-                                        <div class="lang-ar">
-                                            <textarea id="textEditor-ar" name="postContent-ar"></textarea>
-                                        </div>
-                                        <div class="lang-en">
-                                            <textarea id="textEditor-en" name="postContent-en"></textarea>
-                                        </div>
+                                    <div class="modal-body">
+                                        <strong class="item-title d-none"></strong>
+                                        <span class="d-none"><strong class="count"></strong> من العناصر المحددة</span>
+                                        <input type="hidden" id="remove_id" name="remove_id[]" value="">
                                     </div>
-                                    
-                                    <div class="form-group"><!-- نبذة مختصرة -->
-                                        <label class="head" for="postDesc">نبذة مختصرة: <small>(اختياري)</small></label>
-                                        <div class="lang-ar">
-                                            <textarea id="postDesc-ar" class="form-control" name="postDesc-ar" rows="3" placeholder="نبذة مختصرة" data-length="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف"></textarea>
-                                        </div>
-                                        <div class="lang-en">
-                                            <textarea id="postDesc-en" class="form-control" name="postDesc-en" rows="3" placeholder="Description" data-length="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group" id="postSource"><!-- مصدر الخبر -->
-                                        <label class="head">مصدر الخبر: <small>(اختياري)</small></label>
-                                        <div class="form-group row mx-0">
-                                            <label class="col-sm-3 col-xl-2" for="postSourceName">اسم المصدر:</label>
-                                            <div class="col-sm-9 col-xl-10">
-                                                <div class="lang-ar">
-                                                    <input id="postSourceName-ar" type="text" class="form-control" name="postSourceName-ar" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="مصدر الخبر" disabled>
-                                                </div>
-                                                <div class="lang-en">
-                                                    <input id="postSourceName-en" type="text" class="form-control" name="postSourceName-en" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="New Source" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mx-0">
-                                            <label class="col-sm-3 col-xl-2" for="postSourceUrl">الرابط:</label>
-                                            <div class="col-sm-9 col-xl-10">
-                                                <input id="postSourceUrl" type="url" class="form-control" name="postSourceUrl" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="رابط الخبر" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group" id="postWriter"><!-- كاتب المقال -->
-                                        <label class="head" for="postWriterName">كاتب المقال: <small>(اختياري)</small></label>
-                                        <div class="form-group d-flex">
-                                            <select id="postWriterName" class="custom-select w-auto" name="postWriterName">
-                                                <option value="0">بدون كاتب</option>
-                                                <option value="1">محمد سعيد</option>
-                                                <option value="2">قاسم رضا</option>
-                                                <option value="3">ملاك أحمد</option>
-                                            </select>
-
-                                            <div class="writer-img mx-3"><i class="fas fa-user-circle"></i></div>
-
-                                            <div>
-                                                <a type="button" class="btn btn-info text-white" data-toggle="collapse" data-target="#addWriter" aria-expanded="false" aria-controls="addWriter">إضافة كاتب</a>
-                                                <a class="btn btn-light" href="writers.html" target="_blank">إدارة الكُتاب</a>
-                                                
-                                                <div id="addWriter" class="collapse p-2 border mt-2"><!-- بوكس إضافة كاتب -->
-                                                    <label>الاسم الكامل:</label>
-                                                    <div class="lang-ar">
-                                                        <input type="text" class="form-control form-control-sm" id="writerName-ar" name="writerName-ar" placeholder="أدخل الكاتب كاملاً" maxlength="200" pattern=".{4,200}" title="يجب أن تكون القيمة من 4 إلى 200 حرف" required>
-                                                    </div>
-                                                    <div class="lang-en">
-                                                        <input type="text" class="form-control form-control-sm" id="writerName-en" name="writerName-en" placeholder="Enter Writer Full Name" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                    </div>
-                                                    <hr>
-                                                    <label>الاسم المستعار:</label>
-                                                    <div class="lang-ar">
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname-ar" name="writerNickname-ar" placeholder="أدخل الاسم المستعار للكاتب" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                    </div>
-                                                    <div class="lang-en">
-                                                        <input type="text" class="form-control form-control-sm" id="writerNickname-en" name="writerNickname-en" placeholder="Enter Writer Nickname" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف">
-                                                    </div>
-                                                    <small class="form-text text-muted">الاسم المستعار هو الذي سيظهر في الموقع.</small>
-                                                    <hr>
-                                                    <button type="button" id="saveWriter" class="btn btn-info">أضف كاتباً</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group" id="postGallery"><!-- معرض الصور -->
-                                        <label class="head">معرض الصور: <small>(اختياري)</small></label>
-                                        <div id="postGalleryContent" class="d-flex justify-content-around flex-wrap">
-                                            <a type="button" class="btn gallery_media d-none" data-media="" data-id="-1">
-                                                <img class="img-thumbnail" src="" alt="">
-                                                <i type="button" class="fas fa-times-circle clearMedia"></i>
-                                                <div class="lang-ar">
-                                                    <input type="text" id="" class="form-control form-control-sm" name="ar_gallery_bio" placeholder="وصف الصورة">
-                                                </div>
-                                                <div class="lang-en">
-                                                    <input type="text" id="" class="form-control form-control-sm" name="en_gallery_bio" placeholder="Description">
-                                                </div>
-                                                <input type="hidden" id="" name="gallery_id" value="-1">
-                                            </a>
-
-                                            <a type="button" class="btn gallery_media" data-media="media-12" data-id="12">
-                                                <img class="img-thumbnail" src="uploads/2020/01/كمبيوتر-وقهوة-150×150.jpg" alt="كمبيوتر وقهوة">
-                                                <i type="button" class="fas fa-times-circle clearMedia"></i>
-                                                <div class="lang-ar">
-                                                    <input type="text" id="ar_gallery_bio_12" class="form-control form-control-sm" name="ar_gallery_bio[]" placeholder="وصف الصورة">
-                                                </div>
-                                                <div class="lang-en">
-                                                    <input type="text" id="en_gallery_bio_12" class="form-control form-control-sm" name="en_gallery_bio[]" placeholder="Description">
-                                                </div>
-                                                <input type="hidden" id="gallery_12" name="gallery_id[]" value="12">
-                                            </a>
-
-                                            <a type="button" class="btn gallery_media" data-media="media-11" data-id="11">
-                                                <img class="img-thumbnail" src="uploads/2020/01/خلفية-صحراء-150×150.jpg" alt="خلفية صحراء">
-                                                <i type="button" class="fas fa-times-circle clearMedia"></i>
-                                                <div class="lang-ar">
-                                                    <input type="text" id="ar_gallery_bio_11" class="form-control form-control-sm" name="ar_gallery_bio[]" placeholder="وصف الصورة">
-                                                </div>
-                                                <div class="lang-en">
-                                                    <input type="text" id="en_gallery_bio_11" class="form-control form-control-sm" name="en_gallery_bio[]" placeholder="Description">
-                                                </div>
-                                                <input type="hidden" id="gallery_11" name="gallery_id[]" value="11">
-                                            </a>
-                                        </div>
-                                        <button type="button" id="addGallery" class="btn btn-info btn-sm" data-title="معرض الصور" data-toggle="modal" data-target="#editMedia">إضافة صور للمعرض</button>
-                                    </div>
-
-                                    <div class="form-group" id="postVideo"><!-- تضمين الفيديو -->
-                                        <label class="head" for="postVideoCode">تضمين الفيديو: <small>(اختياري)</small></label>
-                                        <input id="postVideoCode" type="text" class="form-control ltr" name="video_link"
-                                                pattern=".{0,20}" title="يجب أن تكون القيمة أقل من 20 حرف"
-                                                placeholder="شفرة الفيديو على يوتيوب" value="">
-                                        <small class="form-text text-muted ml-3">مثال على شفرة يوتيوب: <bdi>fM6K2Nw7esU</bdi></small>
-                                    </div>
-                
-                                    <div class="form-group" id="postAudio"><!-- تضمين الصوت -->
-                                        <label class="head" for="postAudioCode">تضمين الصوت: <small>(اختياري)</small></label>
-                                        <input id="postAudioCode" type="url" class="form-control ltr" name="audio_link"
-                                                pattern=".{0,100}" title="يجب أن تكون القيمة أقل من 100 حرف"
-                                                placeholder="رابط المقطع الصوتي" value="">
-                                        <small class="form-text text-muted ml-3">يجب أن يبدأ الرابط بـ <bdi>https://</bdi></small>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3">
-                                    <div class="form-group"><!-- التصنيفات -->
-                                        <label class="head">التصنيف:</label>
-                                        <ul class="cate-all">
-                                            <li id="category-1" class="custom-control custom-checkbox" data-depth="1">
-                                                <input id="in-cate-1" value="1" type="checkbox" class="custom-control-input" name="postCate[]">
-                                                <label class="custom-control-label" for="in-cate-1">غير مصنف</label>
-                                            </li>
-
-                                            <li id="category-2" class="custom-control custom-checkbox" data-depth="1">
-                                                <input id="in-cate-2" value="2" type="checkbox" class="custom-control-input" name="postCate[]" disabled>
-                                                <label class="custom-control-label" for="in-cate-2">أخبار</label>
-
-                                                <ul class="children">
-                                                    <li id="category-6" class="custom-control custom-checkbox" data-depth="2">
-                                                        <input id="in-cate-6" value="6" type="checkbox" class="custom-control-input" name="postCate[]">
-                                                        <label class="custom-control-label" for="in-cate-6">أخبار دولية</label>
-                                                    </li>
-                                                    <li id="category-3" class="custom-control custom-checkbox" data-depth="2">
-                                                        <input id="in-cate-3" value="3" type="checkbox" class="custom-control-input" name="postCate[]" disabled>
-                                                        <label class="custom-control-label" for="in-cate-3">أخبار محلية</label>
-
-                                                        <ul class="children">
-                                                            <li id="category-5" class="custom-control custom-checkbox" data-depth="3">
-                                                                <input id="in-cate-5" value="5" type="checkbox" class="custom-control-input" name="postCate[]">
-                                                                <label class="custom-control-label" for="in-cate-5">أخبار محلية اقتصادية</label>
-                                                            </li>
-                                                            <li id="category-4" class="custom-control custom-checkbox" data-depth="3">
-                                                                <input id="in-cate-4" value="4" type="checkbox" class="custom-control-input" name="postCate[]">
-                                                                <label class="custom-control-label" for="in-cate-4">أخبار محلية سياسية</label>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            <li id="category-7" class="custom-control custom-checkbox" data-depth="1">
-                                                <input id="in-cate-7" value="7" type="checkbox" class="custom-control-input" name="postCate[]" disabled>
-                                                <label class="custom-control-label" for="in-cate-7">مقالات</label>
-
-                                                <ul class="children">
-                                                    <li id="category-9" class="custom-control custom-checkbox" data-depth="2">
-                                                        <input id="in-cate-9" value="9" type="checkbox" class="custom-control-input" name="postCate[]">
-                                                        <label class="custom-control-label" for="in-cate-9">مقالات اقتصادية</label>
-                                                    </li>
-                                                    <li id="category-8" class="custom-control custom-checkbox" data-depth="2">
-                                                        <input id="in-cate-8" value="8" type="checkbox" class="custom-control-input" name="postCate[]">
-                                                        <label class="custom-control-label" for="in-cate-8">مقالات سياسية</label>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-
-                                        <!-- بوكس إضافة تصنيف جديد -->
-                                        <a type="button" class="btn btn-light" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">
-                                            <i class="fas fa-plus-square"></i> <span>أضف تصنيف جديد</span>
-                                        </a>
-                                        <div id="addItem" class="rounded py-2 bg-white">
-                                            <div class="lang-ar">
-                                                <input type="text" class="form-control form-control-sm mb-3" id="ar-cate-name"
-                                                        placeholder="أدخل اسم التصنيف" maxlength="100" pattern=".{0,100}"
-                                                        title="يجب أن تكون القيمة أقل من 100 حرف">
-                                            </div>
-                                            <div class="lang-en">
-                                                <input type="text" class="form-control form-control-sm mb-3" id="en-cate-name"
-                                                        placeholder="Enter Category Name" maxlength="100" pattern=".{0,100}"
-                                                        title="يجب أن تكون القيمة أقل من 100 حرف">
-                                            </div>
-                                            <select id="parentCate" class="form-control form-control-sm mb-1" name="parentCate">
-                                                <option selected value="">بدون</option>
-                                                <option data-depth="1" value="7">مقالات</option>
-                                                <option data-depth="2" value="9">مقالات اقتصادية</option>
-                                                <option data-depth="2" value="8">مقالات سياسية</option>
-                                                <option data-depth="1" value="2">أخبار</option>
-                                                <option data-depth="2" value="6">أخبار دولية</option>
-                                                <option data-depth="2" value="3">أخبار محلية</option>
-                                                <option data-depth="3" value="5">أخبار محلية اقتصادية</option>
-                                                <option data-depth="3" value="4">أخبار محلية سياسية</option>
-                                                <option data-depth="1" value="1">غير مصنف</option>
-                                            </select>
-                                            <button type="button" class="btn btn-primary">أضف تصنيف</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group"><!-- الصورة البارزة -->
-                                        <label class="head">الصورة البارزة</label>
-                                        <div id="postImage" class="text-center mb-2" style="display: none">
-                                            <a type="button" class="btn d-block changeMedia" data-media="media-0" data-id="-1" data-title="الصورة البارزة" data-toggle="modal" data-target="#editMedia">
-                                                <img class="img-thumbnail" src="" alt="">
-                                                <input type="hidden" id="media_id" name="media_id" value="-1">
-                                            </a>
-                                            <i type="button" class="fas fa-times-circle clearMedia"></i>
-                                            <small class="text-muted">انقر على الصورة للتعديل أو التحديث</small>
-                                        </div>
-                                        <button type="button" class="btn btn-info btn-sm addMedia" data-title="الصورة البارزة" data-toggle="modal" data-target="#editMedia">تعيين الصورة البارزة</button>
-                                        <a type="button" class="btn btn-light btn-sm mt-2" data-toggle="collapse" data-target="#media_bio" aria-expanded="false" aria-controls="media_bio">
-                                            <i class="fas fa-plus-square"></i> <span>تخصيص وصف مختصر للصورة</span>
-                                        </a>
-                                        <div id="media_bio" class="form-group collapse">
-                                            <div class="lang-ar">
-                                                <input type="text" class="form-control form-control-sm" id="ar_media_bio" name="ar_media_bio" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="أدخل وصف مختصر للصورة">
-                                            </div>
-                                            <div class="lang-en">
-                                                <input type="text" class="form-control form-control-sm" id="en_media_bio" name="en_media_bio" maxlength="200" pattern=".{0,200}" title="يجب أن تكون القيمة أقل من 200 حرف" placeholder="Insert a brief description for the image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group"><!-- تاريخ النشر -->
-                                        <label class="head">تاريخ النشر</label>
-                                        <div class="form-row">
-                                            <div class="col-7">
-                                                <input id="postDate" type="date" class="form-control postDate" name="publish_date" value="">
-                                                <small class="form-text text-muted">2020/02/24</small>
-                                            </div>
-                                            <div class="col-5">
-                                                <input id="postTime" type="time" class="form-control postTime" name="publish_date" value="">
-                                                <small class="form-text text-muted">10:30 ص</small>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group"><!-- خصائص إضافية -->
-                                        <label class="head">خصائص إضافية</label>
-
-                                        <div class="custom-control custom-checkbox mt-2">
-                                            <input id="media_show" type="checkbox" class="custom-control-input" name="media_show" value="1" checked>
-                                            <label class="custom-control-label" for="media_show">عرض الصورة</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox mt-2">
-                                            <input id="comment_status" type="checkbox" class="custom-control-input" name="comment_status" value="1" checked>
-                                            <label class="custom-control-label" for="comment_status">السماح بالتعليق</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox mt-2">
-                                            <input id="sticky" type="checkbox" class="custom-control-input" name="sticky" value="0">
-                                            <label class="custom-control-label" for="sticky">تثبيت بالرئيسية</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox mt-2">
-                                            <input id="sticky_slider" type="checkbox" class="custom-control-input" name="sticky_slider" value="0">
-                                            <label class="custom-control-label" for="sticky_slider">تثبيت بالسلايدر الرئيسي</label>
-                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+
+                        <!-- جدول المحتويات -->
+                        <div id="writersContent" class="table-responsive-lg col-xl-9 col-lg-12">
+                            <!-- رسائل الأوامر والعمليات -->
+                            <button type="button" class="btn btn-outline-dark btn-sm MSG d-block ml-auto float-lg-right" data-toggle="collapse" data-target="#MSG" aria-expanded="false" aria-controls="MSG">
+                                Show MSG
+                            </button>
+                            <div id="MSG" class="collapse">
+                                <!-- رسالة نجاح عملية التعديل -->
+                                <div class="alert alert-success alert-dismissible d-flex" role="alert">
+                                    <span>تم تعديل الكاتب بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                
+                                <!-- رسالة نجاح عملية الحذف -->
+                                <div class="alert alert-warning alert-dismissible d-flex" role="alert">
+                                    <span>تم حذف الكاتب/الكُتاب بنجاح.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="ml-auto"><i class="fas fa-check-circle"></i></span>
+                                </div>
+    
+                                <!-- رسائل فشل عملية الحذف -->
+                                <div class="alert alert-danger alert-dismissible d-flex" role="alert">
+                                    <span>لا يمكن حذف هذا الكاتب لاحتوائه على محتوى!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <span class="ml-auto"><i class="fas fa-exclamation-circle"></i></span>
+                                </div>
+                            </div>
+
+                            <!-- رسالة تحديد العناصر -->
+                            <div class="alert alert-info alert-dismissible selected" role="alert">
+                                <span>تم تحديد <strong class="count"></strong> عنصر/عناصر</span>
+                                <button type="button" class="close" data-dismiss="" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            
+                            <!-- حذف العناصر المحددة -->
+                            <button id="btnDeleteItems" type="button" class="btn btn-outline-danger btn-sm delete-items float-left" data-toggle="modal" data-target="#deleteItem">
+                                <i class="fas fa-trash"></i><span class="ml-1">حذف المحدد (<strong class="count"></strong>)</span>
+                            </button>
+                            
+                            <!-- محتوى الجدول -->
+                            <table id="writersTable" class="table table-hover table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th id="check-writer" class="column-check" scope="col">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="checkAll" type="checkbox" class="custom-control-input">
+                                                <label class="custom-control-label" for="checkAll"></label>
+                                            </div>
+                                        </th>
+                                        <th id="name" class="column-primary" scope="col">الكاتب</th>
+                                        <th id="nickname" scope="col">الاسم المستعار</th>
+                                        <th id="postsNum" scope="col">العدد</th>
+                                        <th id="picture" scope="col">الصورة</th>
+                                        <th id="controlIcons" class="column-control" scope="col">التحكم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="writer-1">
+                                        <th class="column-check" scope="row"></th>
+                                        <td class="column-name column-primary" data-column="الكاتب">بدون كاتب</td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">بدون كاتب</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">10</a></td>
+                                        <td class="column-picture" data-column="الصورة"></td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr id="writer-2">
+                                        <th class="column-check" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-writer-2" type="checkbox" class="custom-control-input" name="writer[]" value="2">
+                                                <label class="custom-control-label" for="check-writer-2"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-name column-primary" data-column="الكاتب">محمد أحمد علي سعيد
+                                        </td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">محمد سعيد</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">7</a></td>
+                                        <td class="column-picture" data-column="الصورة">
+                                            <div class="picture-profile d-flex align-items-center">
+                                                <i class="fas fa-user-circle mr-2"></i>
+                                            </div>
+                                        </td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="2" data-title="محمد أحمد علي سعيد">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="writer-3">
+                                        <th class="column-check" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-writer-3" type="checkbox" class="custom-control-input" name="writer[]" value="3">
+                                                <label class="custom-control-label" for="check-writer-3"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-name column-primary" data-column="الكاتب">قاسم صالح رضا
+                                        </td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">قاسم رضا</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">5</a></td>
+                                        <td class="column-picture" data-column="الصورة">
+                                            <div class="picture-profile d-flex align-items-center">
+                                                <i class="fas fa-user-circle mr-2"></i>
+                                            </div>
+                                        </td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="3" data-title="قاسم صالح رضا">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr id="writer-4">
+                                        <th class="column-check" scope="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="check-writer-4" type="checkbox" class="custom-control-input" name="writer[]" value="4">
+                                                <label class="custom-control-label" for="check-writer-4"></label>
+                                            </div>
+                                        </th>
+                                        <td class="column-name column-primary" data-column="الكاتب">ملاك أحمد السعدي
+                                        </td>
+                                        <td class="column-nickname" data-column="الاسم المستعار">ملاك أحمد</td>
+                                        <td class="column-postsNum" data-column="العدد"><a href="#">2</a></td>
+                                        <td class="column-picture" data-column="الصورة">
+                                            <div class="picture-profile d-flex align-items-center">
+                                                <i class="fas fa-user-circle mr-2"></i>
+                                            </div>
+                                        </td>
+                                        <td class="column-control" data-column="التحكم">
+                                            <div class="icons-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal" data-target="#editItem">
+                                                    <i class="fas fa-edit"></i><span class="d-none d-lg-inline-block ml-1">تعديل</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete" data-toggle="modal" data-target="#deleteItem"  data-id="4" data-title="ملاك أحمد السعدي">
+                                                    <i class="fas fa-trash"></i><span class="d-none d-lg-inline-block ml-1">حذف</span>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-dark btn-sm details"><i class="fas fa-angle-down"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </main>
             </div>
@@ -1133,7 +1066,6 @@
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/datatables.min.js"></script>
         <script src="js/dataTables.bootstrap4.min.js"></script>
-        <script src="js/textboxio/textboxio.js"></script>
         <script src="js/fontawesome.js"></script>
         <script src="js/main.js"></script>
     </body>

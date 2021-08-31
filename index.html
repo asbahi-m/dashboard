@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html dir="rtl" lang="ar">
     <head>
         <title>لوحة التحكم - الرئيسية</title>
         <meta charset="UTF-8">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- Preload -->
+        <link rel="preload" crossorigin as="image" href="images/favicon.png" type="image/png">
+        <link rel="preload" crossorigin as="image" href="images/logo.png" type="image/png">
+        <link rel="preload" crossorigin as="style" href="css/bootstrap-rtl.min.css">
+        <link rel="preload" crossorigin as="script" href="js/jquery-3.6.0.min.js">
+        <link rel="preload" crossorigin as="script" href="js/bootstrap.bundle.min.js">
+        <link rel="preload" crossorigin as="script" href="js/datatables.min.js">
+        <link rel="preload" crossorigin as="script" href="js/fontawesome.js">
+        <link rel="preload" crossorigin as="script" href="js/main.js">
+
         <link rel="icon" type="image/png" href="images/favicon.png">
 
         <!-- CSS Files -->
-        <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
-        <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="css/bootstrap-rtl.min.css">
+        <!-- <link rel="stylesheet" href="css/fontawesome.min.css"> -->
+        <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/style.css">
-
-        <!-- JS Files -->
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="libraries/nestable/jquery.nestable.js"></script>
-        <script src="libraries/popper/popper.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="libraries/DataTables/datatables.min.js"></script>
-        <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
-        <script src="libraries/textboxio/textboxio.js"></script>
-        <script src="js/main.js"></script>
     </head>
 
     <body>
         <header class="d-flex justify-content-between px-2 sticky-top">
-            <span class="d-flex align-items-center logo"><img src="images/logo.png" width=32 height=32></span>
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم مطور الويب</span></a>
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">صفحة الموقع</span></a>
+            <span class="d-flex align-items-center logo"><img src="images/logo.png" alt="Logo" width=32 height=32></span>
+            <a class="d-flex align-items-center" href="index.html"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم | مطور الويب</span></a>
+            <a class="d-flex align-items-center" href="../index.html"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">صفحة الموقع</span></a>
             
+            <!-- الاشعارات -->
             <div id="Notices" class="dropdown ml-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i><span class="badge badge-warning">4</span>
@@ -173,6 +173,17 @@
                 </div>
             </div>
 
+            <!-- اللغات -->
+            <div id="locale" class="dropdown">
+                <a role="button" id="dropdownLangs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-flag"></i></a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownLangs">
+                    <a class="dropdown-item" href="ar">العربية</a>
+                    <a class="dropdown-item" href="en">الإنجليزية</a>
+                </div>
+            </div>
+
+            <!-- معلومات المستخدم -->
             <div class="dropdown">
                 <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
@@ -180,7 +191,7 @@
                     <i class="fas fa-angle-down mx-1"></i>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
-                    <div class="user-info d-flex align-items-center" href="#">
+                    <div class="user-info d-flex align-items-center">
                         <i class="fas fa-user-circle mr-2"></i>
                         <div>
                             <div>مدير الموقع</div>
@@ -203,12 +214,13 @@
             <div class="row">
                 <!-- قائمة لوحة التحكم -->
                 <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark">
-                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>
 
                     <div class="d-md-block collapse" id="menu">
-                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                        <!-- معلومات المستخدم -->
+                        <div class="user-info d-flex align-items-center mb-3">
                             <i class="fas fa-user-circle mr-2"></i>
                             <div>
                                 <div>مدير الموقع</div>
@@ -216,6 +228,7 @@
                             </div>
                         </div>
 
+                        <!-- القائمة الجانبية -->
                         <ul class="nav flex-column p-0">
                             <li class="nav-item d-flex align-items-center active">
                                 <a class="nav-link" href="index.html">
@@ -227,7 +240,8 @@
                                 <a class="nav-link" href="categories.html">
                                     <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
                                 </a>
-                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
@@ -236,77 +250,84 @@
                                 <a class="nav-link" href="posts.html">
                                     <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
                                 </a>
-                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
                                 </a>
                             </li>
-                            
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="writers.html">
+                                    <i class="fas fa-pen-nib mr-3"></i><span>إدارة الكُتاب</span>
+                                </a>
+                                <a href="writers.html#addItem" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-file-medical"></i>
+                                </a>
+                            </li>
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="pages.html">
                                     <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
                                 </a>
-                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="upload.html">
+                                <a class="nav-link" href="media.html">
                                     <i class="fas fa-images mr-3"></i><span>مكتبة الوسائط</span>
                                 </a>
-                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
                                     <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
                                 </a>
-                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
                                     <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
                                 </a>
+                                <a href="comments.html?comment_status=pending" class="ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="بانتظار الموافقة">
+                                    <span class="badge badge-warning mr-2">20</span>
+                                </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="users.html">
                                     <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
                                 </a>
-                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
                                 </a>
                             </li>
-                            
-                            <!-- <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-poll mr-3"></i><span>استطلاعات الرأي</span>
-                                </a>
-                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                    <i class="fas fa-plus-square"></i>
-                                </a>
-                            </li> -->
-                            
-                            <!-- <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-mail-bulk mr-3"></i><span>القائمة البريدية</span>
-                                </a>
-                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                    <i class="fas fa-plus-square"></i>
-                                </a>
-                            </li> -->
-                            
+
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="analytics.html">
-                                    <i class="fas fa-chart-pie mr-3"></i><span>إحصائيات وأرقام</span>
+                                <a class="nav-link" href="profile.html">
+                                    <i class="fas fa-user mr-3"></i><span>الملف الشخصي</span>
                                 </a>
                             </li>
-                            
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="analytics.html">
+                                    <i class="fas fa-chart-pie mr-3"></i><span>تحليلات إحصائية</span>
+                                </a>
+                            </li>
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="settings.html">
                                     <i class="fas fa-cogs mr-3"></i><span>إعدادات الموقع</span>
@@ -391,9 +412,9 @@
                             <hr class="d-block d-xl-none">
                         </div>
                     </div>
-                    
+
                     <hr class="d-none d-xl-block">
-                    
+
                     <!-- آخر المنشورات والتعليقات -->
                     <div class="row">
                         <div class="col-lg-6">
@@ -401,44 +422,64 @@
                                 <h4 class="card-header">آخر المنشورات</h4>
                                 <ul class="list-group list-group-flush p-0">
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>اليوم 10:42 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong>مثبتة</strong></small>
+                                        <small class="text-nowrap ml-2">اليوم 10:42 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>بالأمس 11:50 م</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong></strong></small>
+                                        <small class="text-nowrap ml-2">بالأمس 11:50 م</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong>مسودة</strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong></strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong>بانتظار المراجعة</strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong>مثبتة</strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong>محذوفة</strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong></strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong></strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <a href="#">كيف تبدأ يومك!</a>
-                                        <small>26 سبتمبر - 10:30 ص</small>
+                                        <a class="mr-2 text-secondary" href="#"><i class="fas fa-edit"></i></a>
+                                        <a class="text-truncate mr-auto" href="#" target="_blank">كيف تبدأ يومك</a>
+                                        <small class="text-nowrap ml-2"><strong></strong></small>
+                                        <small class="text-nowrap ml-2">26 سبتمبر - 10:30 ص</small>
                                     </li>
                                 </ul>
                             </div>
@@ -450,93 +491,85 @@
                                 <h4 class="card-header">آخر التعليقات</h4>
                                 <ul class="list-group list-group-flush p-0">
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>إدارة الموقع:</span>
+                                            <q><a id="comment-10" href="comments.html#comment-10">شكراً لتعليقك</a></q>
+                                            <span> - رداً على: </span><q>
+                                            <a href="comments.html#comment-9">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
                                         <small>اليوم 05:36 م</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-9" href="comments.html#comment-9">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
+                                        <small>اليوم 04:00 م</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-8" href="comments.html#comment-8">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
                                         <small>بالأمس 09:15 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-7" href="comments.html#comment-7">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong>بانتظار المراجعة</strong></small>
                                         <small>26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-6" href="comments.html#comment-6">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong>مزعج</strong></small>
                                         <small>26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-5" href="comments.html#comment-5">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
                                         <small>26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-4" href="comments.html#comment-4">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
                                         <small>26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-3" href="comments.html#comment-3">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
                                         <small>26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-2" href="comments.html#comment-2">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
                                         <small>26 سبتمبر - 10:30 ص</small>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
-                                        <small>26 سبتمبر - 10:30 ص</small>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between">
-                                        <div>
-                                            <small>محمد: </small>
-                                            <span>مقال رائع يستحق القراءة</span>
-                                            <small> - رداً على: </small>
-                                            <a href="#">كيف تبدأ يومك!</a>
-                                        </div>
+                                        <small class="mr-2">
+                                            <span>محمد:</span>
+                                            <q><a id="comment-1" href="comments.html#comment-1">مقال رائع يستحق القراءة</a></q>
+                                        </small>
+                                        <small class="text-danger ml-auto mr-2"><strong></strong></small>
                                         <small>26 سبتمبر - 10:30 ص</small>
                                     </li>
                                 </ul>
@@ -550,5 +583,22 @@
         <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
             <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
         </footer>
+
+        <!-- prefetch -->
+        <link rel="prefetch" crossorigin as="style" href="css/fontawesome.min.css">
+        <link rel="prefetch" crossorigin as="script" href="js/jquery.nestable.js">
+        <link rel="prefetch" crossorigin as="script" href="js/textboxio/textboxio.js">
+        <link rel="prefetch" crossorigin as="font" href="webfonts/tssoApxBaigK_hnnS-agtnqWo572.woff2" type="font/woff2">
+        <link rel="prefetch" crossorigin as="font" href="webfonts/tsstApxBaigK_hnnQ1iFo0C3.woff2" type="font/woff2">
+        <link rel="prefetch" crossorigin as="font" href="webfonts/fa-brands-400.woff2" type="font/woff2">
+        <link rel="prefetch" crossorigin as="font" href="webfonts/fa-regular-400.woff2" type="font/woff2">
+        <link rel="prefetch" crossorigin as="font" href="webfonts/fa-solid-900.woff2" type="font/woff2">
+
+        <!-- JS Files -->
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/datatables.min.js"></script>
+        <script src="js/fontawesome.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

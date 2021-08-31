@@ -1,44 +1,26 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html dir="rtl" lang="ar">
     <head>
-        <title>لوحة التحكم - مكتبة الوسائط</title>
+        <title>لوحة التحكم - تحليلات إحصائية</title>
         <meta charset="UTF-8">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" type="image/png" href="images/favicon.png">
 
         <!-- CSS Files -->
-        <link rel="stylesheet" href="css/rtl/bootstrap.min.css">
-        <link rel="stylesheet" href="libraries/DataTables/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="libraries/fontawesome/css/all.min.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="css/bootstrap-rtl.min.css">
+        <!-- <link rel="stylesheet" href="css/fontawesome.min.css"> -->
+        <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/style.css">
-
-        <!-- JS Files -->
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="libraries/nestable/jquery.nestable.js"></script>
-        <script src="libraries/popper/popper.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="libraries/DataTables/datatables.min.js"></script>
-        <script src="libraries/DataTables/dataTables.bootstrap4.min.js"></script>
-        <script src="libraries/textboxio/textboxio.js"></script>
-        <!-- FusionCharts -->
-        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
-        <!-- jQuery-FusionCharts -->
-        <script type="text/javascript" src="https://rawgit.com/fusioncharts/fusioncharts-jquery-plugin/develop/dist/fusioncharts.jqueryplugin.min.js"></script>
-        <!-- Fusion Theme -->
-        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/myChart.js"></script>
     </head>
 
     <body>
         <header class="d-flex justify-content-between px-2 sticky-top">
-            <span class="d-flex align-items-center logo"><img src="images/logo.png" width=32 height=32></span>
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم مطور الويب</span></a>
-            <a class="d-flex align-items-center" href="#"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">صفحة الموقع</span></a>
+            <span class="d-flex align-items-center logo"><img src="images/logo.png" alt="Logo" width=32 height=32></span>
+            <a class="d-flex align-items-center" href="index.html"><i class="fas fa-cog pr-1"></i><span class="d-none d-md-block">لوحة تحكم | مطور الويب</span></a>
+            <a class="d-flex align-items-center" href="../index.html"><i class="fas fa-home pr-1"></i><span class="d-none d-md-block">صفحة الموقع</span></a>
             
+            <!-- الاشعارات -->
             <div id="Notices" class="dropdown ml-auto">
                 <a role="button" id="dropdownNotices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i><span class="badge badge-warning">4</span>
@@ -180,6 +162,17 @@
                 </div>
             </div>
 
+            <!-- اللغات -->
+            <div id="locale" class="dropdown">
+                <a role="button" id="dropdownLangs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-flag"></i></a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownLangs">
+                    <a class="dropdown-item" href="ar">العربية</a>
+                    <a class="dropdown-item" href="en">الإنجليزية</a>
+                </div>
+            </div>
+
+            <!-- معلومات المستخدم -->
             <div class="dropdown">
                 <a class="d-flex align-items-center" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="d-none d-md-block">مرحباً, مدير الموقع</span>
@@ -187,7 +180,7 @@
                     <i class="fas fa-angle-down mx-1"></i>
                 </a>
                 <div class="dropdown-menu py-0" aria-labelledby="dropdownUser">
-                    <div class="user-info d-flex align-items-center" href="#">
+                    <div class="user-info d-flex align-items-center">
                         <i class="fas fa-user-circle mr-2"></i>
                         <div>
                             <div>مدير الموقع</div>
@@ -210,12 +203,13 @@
             <div class="row">
                 <!-- قائمة لوحة التحكم -->
                 <nav class="navbar-expand-md col-xl-2 col-lg-3 col-md-4 py-3 bg-dark">
-                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler text-light border" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>
 
                     <div class="d-md-block collapse" id="menu">
-                        <div class="user-info d-flex align-items-center mb-3" href="#">
+                        <!-- معلومات المستخدم -->
+                        <div class="user-info d-flex align-items-center mb-3">
                             <i class="fas fa-user-circle mr-2"></i>
                             <div>
                                 <div>مدير الموقع</div>
@@ -223,6 +217,7 @@
                             </div>
                         </div>
 
+                        <!-- القائمة الجانبية -->
                         <ul class="nav flex-column p-0">
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="index.html">
@@ -234,7 +229,8 @@
                                 <a class="nav-link" href="categories.html">
                                     <i class="fas fa-sitemap mr-3"></i><span>إدارة التصنيفات</span>
                                 </a>
-                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="categories.html#addItem" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
@@ -243,77 +239,84 @@
                                 <a class="nav-link" href="posts.html">
                                     <i class="fas fa-file-alt mr-3"></i><span>إدارة المحتوى</span>
                                 </a>
-                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="post-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-file-medical"></i>
                                 </a>
                             </li>
-                            
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="writers.html">
+                                    <i class="fas fa-pen-nib mr-3"></i><span>إدارة الكُتاب</span>
+                                </a>
+                                <a href="writers.html#addItem" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
+                                    <i class="fas fa-file-medical"></i>
+                                </a>
+                            </li>
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="pages.html">
                                     <i class="fas fa-clone mr-3"></i><span>إدارة الصفحات</span>
                                 </a>
-                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="page-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="upload.html">
+                                <a class="nav-link" href="media.html">
                                     <i class="fas fa-images mr-3"></i><span>مكتبة الوسائط</span>
                                 </a>
-                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="media-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="ads.html">
                                     <i class="fas fa-ad mr-3"></i><span>إدارة الإعلانات</span>
                                 </a>
-                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="ads-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-plus-square"></i>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="comments.html">
                                     <i class="fas fa-comment-dots mr-3"></i><span>إدارة التعليقات</span>
                                 </a>
+                                <a href="comments.html?comment_status=pending" class="ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="بانتظار الموافقة">
+                                    <span class="badge badge-warning mr-2">20</span>
+                                </a>
                             </li>
-                            
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="users.html">
                                     <i class="fas fa-users mr-3"></i><span>إدارة المستخدمين</span>
                                 </a>
-                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
+                                <a href="user-new.html" type="button" class="btn btn-dark add ml-auto"
+                                    data-toggle="tooltip" data-placement="top" title="أضف جديد">
                                     <i class="fas fa-user-plus"></i>
                                 </a>
                             </li>
-                            
-                            <!-- <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-poll mr-3"></i><span>استطلاعات الرأي</span>
-                                </a>
-                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                    <i class="fas fa-plus-square"></i>
-                                </a>
-                            </li> -->
-                            
-                            <!-- <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-mail-bulk mr-3"></i><span>القائمة البريدية</span>
-                                </a>
-                                <a href="#" type="button" class="btn btn-dark add ml-auto" data-toggle="tooltip"  data-placement="top" title="أضف جديد">
-                                    <i class="fas fa-plus-square"></i>
-                                </a>
-                            </li> -->
-                            
-                            <li class="nav-item d-flex align-items-center active">
-                                <a class="nav-link" href="analytics.html">
-                                    <i class="fas fa-chart-pie mr-3"></i><span>إحصائيات وأرقام</span>
+
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link" href="profile.html">
+                                    <i class="fas fa-user mr-3"></i><span>الملف الشخصي</span>
                                 </a>
                             </li>
-                            
+
+                            <li class="nav-item d-flex align-items-center active">
+                                <a class="nav-link" href="analytics.html">
+                                    <i class="fas fa-chart-pie mr-3"></i><span>تحليلات إحصائية</span>
+                                </a>
+                            </li>
+
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="settings.html">
                                     <i class="fas fa-cogs mr-3"></i><span>إعدادات الموقع</span>
@@ -325,25 +328,37 @@
                 
                 <!-- المحتوى الداخلي -->
                 <main class="col-xl-10 col-lg-9 col-md-8 bg-light px-4 py-4">
-                    <h2 class="border-bottom py-2 mb-3">إحصائيات الموقع</h2>
+                    <h2 class="border-bottom py-2 mb-3">تحليلات إحصائية</h2>
 
                     <div class="d-flex flex-wrap my-2">
-                        <a type ="button" class="btn btn-dark mr-2" href="#">إحصائيات المشاركات</a>
-                        <a type ="button" class="btn btn-light bg-white" href="#">إحصائيات المشاهدات</a>
+                        <a type ="button" class="btn btn-dark mr-2" href="?contents">إحصائيات المشاركات</a>
+                        <a type ="button" class="btn btn-light bg-white" href="?views">إحصائيات المشاهدات</a>
                     </div>
 
                     <!-- إجمالي الإحصائيات -->
                     <div class="row">
-                        <div class="col-xl-6 col-sm-12">
-                            <div class="panel p-0 bg-light border border-dark">
-                                <div class="px-3 py-1 d-flex justify-content-between align-items-center text-dark">
-                                    <i class="fas fa-file-alt display-4"></i>
-                                    <div class="d-flex flex-column text-center">
-                                        <span class="display-4">7</span>
+                        <div class="col-auto">
+                            <div class="panel px-3 py-2 bg-light border border-dark d-flex align-items-center">
+                                <i class="fas fa-file-alt display-4"></i>
+                                <div class="d-flex flex-wrap justify-content-center align-items-center text-dark">
+                                    <div class="px-3 py-2 d-flex flex-column text-center">
+                                        <span class="display-4">2</span>
                                         <span>مشاركات اليوم</span>
                                     </div>
-                                    <div class="d-flex flex-column text-center">
-                                        <span class="display-4">2,085</span>
+                                    <div class="px-3 py-2 d-flex flex-column text-center">
+                                        <span class="display-4">8</span>
+                                        <span>مشاركات آخر أسبوع</span>
+                                    </div>
+                                    <div class="px-3 py-2 d-flex flex-column text-center">
+                                        <span class="display-4">30</span>
+                                        <span>مشاركات آخر شهر</span>
+                                    </div>
+                                    <div class="px-3 py-2 d-flex flex-column text-center">
+                                        <span class="display-4">518</span>
+                                        <span>مشاركات آخر سنة</span>
+                                    </div>
+                                    <div class="px-3 py-2 d-flex flex-column text-center">
+                                        <span class="display-4">1,133</span>
                                         <span>إجمالي المشاركات</span>
                                     </div>
                                 </div>
@@ -353,43 +368,59 @@
                     </div>
 
                     <!-- فلاتر جلب الإحصائيات -->
-                    <div class="col-xl-6 col-lg-8 col-12 d-flex my-2">
-                        <select class="custom-select mr-2" name="years">
-                            <option value="all_year">جميع السنوات</option>
-                        </select>
-    
-                        <select class="custom-select mr-2" name="months">
-                            <option value="all_months">جميع الأشهر</option>
-                        </select>
-
-                        <button type="submit" class="btn btn-primary mr-2">جلب</button>
-                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#custom_date" aria-expanded="true" aria-controls="custom_date">مخصص</button>
-                    </div>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select id="years" class="custom-select mr-2" name="year">
+                                    <option value="all" readonly>جميع السنوات</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select id="months" class="custom-select mr-2" name="month">
+                                    <option value="all" readonly>جميع الأشهر</option>
+                                    <option value="1">يناير</option>
+                                    <option value="2">فبراير</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary mr-2">جلب</button>
+                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#custom_date" aria-expanded="true"
+                                        aria-controls="custom_date">مخصص</button>
+                            </div>
+                        </div>
+                    </form>
 
                     <div id="custom_date" class="col-xl-6 col-lg-8 col-12 my-2 collapse">
-                        <div class="d-flex flex-column flex-sm-row align-items-center">
-                            <span class="mr-2">من:</span>
-                            <input type="date" class="form-control mr-2" name="from_date">
-                            <span class="mr-2">إلى:</span>
-                            <input type="date" class="form-control mr-2" name="to_date">
-                            <button type="submit" class="btn btn-info">جلب</button>
-                        </div>
+                        <form>
+                            <div class="d-flex flex-column flex-sm-row align-items-center">
+                                <span class="mr-2">من:</span>
+                                <input type="date" class="form-control mr-2" name="from_date">
+                                <span class="mr-2">إلى:</span>
+                                <input type="date" class="form-control mr-2" name="to_date">
+                                <button type="submit" class="btn btn-info">جلب</button>
+                            </div>
+                        </form>
                     </div>
 
                     <!-- إحصائيات المشاركات -->
                     <div class="row mt-4">
                         <div class="col-12">
-                            <div id="chart-typePosts" style="height:500px">إحصائيات عدد المشاركات بحسب الأنواع</div>
+                            <!-- إحصائيات عدد المشاركات بحسب الأنواع -->
+                            <div id="chart-typePosts" style="height:500px"></div>
                             <hr>
                         </div>
                         
                         <div class="col-12">
-                            <div id="chart-catePosts" style="height:500px">إحصائيات عدد المشاركات بحسب التصنيفات</div>
+                            <!-- إحصائيات عدد المشاركات بحسب التصنيفات -->
+                            <div id="chart-catePosts" style="height:500px"></div>
                             <hr>
                         </div>
 
                         <div class="col-12">
-                            <div id="chart-userPosts" style="height:400px">إحصائيات عدد المشاركات بحسب المستخدمين</div>
+                            <!-- إحصائيات عدد المشاركات بحسب المستخدمين -->
+                            <div id="chart-userPosts" style="height:400px"></div>
                             <hr>
                         </div>
                     </div>
@@ -397,11 +428,27 @@
                     <!-- مقارنة الإحصائيات -->
                     <div class="row mt-4">
                         <div class="col-12">
-                            <div id="chart-months" style="height:500px">إحصائيات عدد المشاركات شهرياً</div>
+                            <!-- إحصائيات عدد المشاركات شهرياً -->
+                            <div id="chart-months" style="height:500px"></div>
                             <hr>
                         </div>
                         <div class="col-12">
-                            <div id="chart-years" style="height:500px">إحصائيات عدد المشاركات سنوياً</div>
+                            <!-- إحصائيات عدد المشاركات سنوياً -->
+                            <div id="chart-years" style="height:500px"></div>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <!-- إحصائيات المشاهدات -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <!-- إحصائيات عدد المشاهدات أسبوعياً -->
+                            <div id="chart-views" style="height:500px"></div>
+                            <hr>
+                        </div>
+                        <div class="col-12">
+                            <!-- إحصائيات عدد المشاهدات سنوياً -->
+                            <div id="chart-viewYears" style="height:500px"></div>
                             <hr>
                         </div>
                     </div>
@@ -409,19 +456,8 @@
                     <!-- إحصائيات الأعضاء -->
                     <div class="row mt-4">
                         <div class="col-12">
-                            <div id="chart-users" style="height:400px">FusionCharts will render here</div>
-                            <hr>
-                        </div>
-                    </div>
-
-                    <!-- إحصائيات عدد المشاهدات -->
-                    <div class="row mt-4">
-                        <div class="col-12">
-                            <div id="chart-views" style="height:400px">FusionCharts will render here</div>
-                            <hr>
-                        </div>
-                        <div class="col-12">
-                            <div id="chart-viewYears" style="height:400px">FusionCharts will render here</div>
+                            <!-- إجمالي المستخدمين ورتبهم -->
+                            <div id="chart-users" style="height:400px"></div>
                             <hr>
                         </div>
                     </div>
@@ -432,5 +468,19 @@
         <footer class="col-md-8 col-lg-9 col-xl-10 ml-auto">
             <span>جميع الحقوق محفوظة © 2020 | <a href="mailto:asbahi.mo@gmail.com">مطور الويب</a></span>
         </footer>
+
+        <!-- JS Files -->
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/datatables.min.js"></script>
+        <script src="js/fontawesome.js"></script>
+        <script src="js/main.js"></script>
+        <!-- FusionCharts -->
+        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+        <!-- jQuery-FusionCharts -->
+        <script type="text/javascript" src="https://rawgit.com/fusioncharts/fusioncharts-jquery-plugin/develop/dist/fusioncharts.jqueryplugin.min.js"></script>
+        <!-- Fusion Theme -->
+        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+        <script src="js/myChart.js"></script>
     </body>
 </html>

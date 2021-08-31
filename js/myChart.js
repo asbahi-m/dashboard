@@ -1,5 +1,4 @@
 $('document').ready(function(){
-    
     $(".charts").insertFusionCharts({
         type: "",
         dataSource: {
@@ -223,15 +222,15 @@ $('document').ready(function(){
             chart: {
                 theme: "fusion",
                 caption: "عدد مشاركات الموقع بحسب النوع",
-                subCaption: "من 2019 إلى 2020",
+                subCaption: "من 2019-06-30 إلى 2020-12-31",
                 xAxisName: "2,085 مشاركة",
                 yAxisName: "عدد المشاركات",
                 numberPrefix: "",
                 numberSuffix: "",
                 exportEnabled: "1",
                 showValues: "1",
-                minPlotHeightForValue: "15",
-                plotToolText: "عدد ال$label: $dataValue",
+                minPlotHeightForValue: "10",
+                plotToolText: "$label: $dataValue",
                 baseFont: "Almarai",
                 canvasbgColor: "#1790E1",
                 canvasbgAlpha: "10",
@@ -256,13 +255,13 @@ $('document').ready(function(){
                 label: "افتراضي",
                 value: "290"
                 }, {
-                label: "مقالات",
+                label: "مقال",
                 value: "260"
                 }, {
-                label: "أخبار",
+                label: "خبر",
                 value: "180"
                 }, {
-                label: "صور",
+                label: "معرض صور",
                 value: "140"
                 }, {
                 label: "فيديو",
@@ -277,7 +276,7 @@ $('document').ready(function(){
 
     ///////////////////////////////////////// إحصائيات عدد المشاركات بحسب التصنيف
     $("#chart-catePosts").insertFusionCharts({
-        type: "column2d",
+        type: "scrollbar2d",
         width: "100%",
         height: "100%",
         dataFormat: "json",
@@ -286,15 +285,18 @@ $('document').ready(function(){
             chart: {
                 theme: "fusion",
                 caption: "عدد مشاركات الموقع بحسب التصنيف",
-                subCaption: "من 2019 إلى 2020",
+                subCaption: "من 2019-06-30 إلى 2020-12-31",
                 xAxisName: "2,085 مشاركة",
                 yAxisName: "عدد المشاركات",
                 numberPrefix: "",
                 numberSuffix: "",
                 exportEnabled: "1",
                 showValues: "1",
-                minPlotHeightForValue: "15",
-                plotToolText: "عدد ال$label: $dataValue",
+                scrollPosition: "right",
+                scrollshowbuttons: 1,
+                scrollColor: "#77bf1a",
+                minPlotHeightForValue: "10",
+                plotToolText: "$label: $dataValue",
                 baseFont: "Almarai",
                 canvasbgColor: "#77bf1a",
                 canvasbgAlpha: "10",
@@ -314,27 +316,26 @@ $('document').ready(function(){
                 yAxisNameBorderRadius: "10"
             },
             // Chart Data
-            data: [
-                {
-                label: "أخبار العالم",
-                value: "290"
-                }, {
-                label: "أخبار اليمن",
-                value: "260"
-                }, {
-                label: "اقتصاد",
-                value: "180"
-                }, {
-                label: "سياسة",
-                value: "140"
-                }, {
-                label: "رياضة",
-                value: "115"
-                }, {
-                label: "وثائق",
-                value: "100"
-                }
-            ]
+            categories: [{
+                category: [
+                    {label: "أخبار العالم"},
+                    {label: "أخبار اليمن"},
+                    {label: "اقتصاد"},
+                    {label: "سياسة"},
+                    {label: "رياضة"},
+                    {label: "وثائق"}
+                ]
+            }],
+            dataset: [{
+                data: [
+                    {value: "290"},
+                    {value: "260"},
+                    {value: "180"},
+                    {value: "140"},
+                    {value: "115"},
+                    {value: "100"}
+                ]
+            }]
         }
     });
 
@@ -349,14 +350,14 @@ $('document').ready(function(){
             chart: {
                 theme: "fusion",
                 caption: "عدد مشاركات الموقع بحسب المستخدمين",
-                subCaption: "من 2019 إلى 2020",
+                subCaption: "من 2019-06-30 إلى 2020-12-31",
                 xAxisName: "2,085 مشاركة",
                 yAxisName: "عدد المشاركات",
                 numberPrefix: "",
                 numberSuffix: "",
                 exportEnabled: "1",
                 showValues: "1",
-                plotToolText: "عدد مشاركات <br>$label: <b>$dataValue</b>",
+                plotToolText: "عدد المشاركات <br>$label: <b>$dataValue</b>",
                 baseFont: "Almarai",
                 canvasbgColor: "#1790E1",
                 canvasbgAlpha: "10",
@@ -378,171 +379,30 @@ $('document').ready(function(){
                 yAxisNameBorderRadius: "10",
                 anchorAlpha: "100",           //شفافية نقطة المخطط تشمل الصورة
                 anchorImageAlpha: "100",      //شفافية الصورة
-                anchorImageScale: "100"       // حجم عرض الصورة
+                anchorImageScale: "30"       // حجم عرض الصورة
             },
             // Chart Data
             data: [{
                 label: "مدير الموقع",
                 value: "44",
-                anchorImageUrl: "https://static.fusioncharts.com/sampledata/userimages/1.png"
+                anchorImageUrl: "../images/user.png"
             }, {
                 label: "محمد أحمد",
                 value: "72",
-                anchorImageUrl: "https://static.fusioncharts.com/sampledata/userimages/2.png"
+                anchorImageUrl: "../images/user.png"
             }, {
                 label: "علي صالح",
                 value: "80",
-                anchorImageUrl: "https://static.fusioncharts.com/sampledata/userimages/3.png"
+                anchorImageUrl: "../images/user.png"
             },{
                 label: "سلوى أمين",
                 value: "10",
-                anchorImageUrl: "https://static.fusioncharts.com/sampledata/userimages/4.png"
+                anchorImageUrl: "../images/user.png"
             }, {
                 label: "قاسم سعيد",
                 value: "30",
-                anchorImageUrl: "https://static.fusioncharts.com/sampledata/userimages/5.png"
+                anchorImageUrl: "../images/user.png"
             }]
-        }
-    });
-
-    ///////////////////////////////////////// إحصائيات عدد المستخدمين
-    $("#chart-users").insertFusionCharts({
-        type: "doughnut2d",
-        width: "100%",
-        height: "100%",
-        dataFormat: "json",
-        dataSource: {
-            // Chart Configuration
-            chart: {
-                theme: "fusion",
-                caption: "إجمالي المستخدمين ورتبهم",
-                subCaption: "إحصائيات تفصيلية بالمستخدمين والرتب",
-                defaultCenterLabel: "إجمالي المستخدمين: 15",
-                centerLabel: "عدد $value برتبة $label",
-                numberPrefix: "",
-                numberSuffix: "",
-                exportEnabled: "1",
-                showPercentValues: "0",       //عرض القيم 1 = بالنسبة المئوية-افتراضي، 0 = بالقيمة الحقيقية
-                showPercentInTooltip: "1",    //عرض القيم عند المرور بالماوس 1 = بالنسبة المئوية، 0 = بالقيمة الحقيقية-افتراضي
-                smartLineColor: "#1790E1",
-                smartLineThickness: "2",
-                smartLineAlpha: "80",
-                isSmartLineSlanted: "0",
-                doughnutRadius: "90",
-                // minPlotHeightForValue: "15",
-                legendPosition: "right",
-                legendCaption: "رتب المستخدمين",
-                baseFont: "Almarai",
-                valueFont: "Almarai",
-                labelFontColor: "#0075c2"
-            },
-            // Chart Data
-            data: [
-                {
-                label: "مدير",
-                value: "3"
-                }, {
-                label: "محرر",
-                value: "5"
-                }, {
-                label: "مساهم",
-                value: "10"
-                }, {
-                label: "مشترك",
-                value: "25"
-                }
-            ]
-        }
-    });
-
-    ///////////////////////////////////////// إحصائيات عدد المشاركات السنوية
-    $("#chart-years").insertFusionCharts({
-        type: "stackedcolumn2d",
-        width: "100%",
-        height: "100%",
-        dataFormat: "json",
-        dataSource: {
-            // Chart Configuration
-            chart: {
-                theme: "fusion",
-                caption: "عدد مشاركات الموقع بحسب السنوات",
-                subCaption: "إحصائيات تفصيلية لعدد المشاركات سنوياً",
-                xAxisName: "السنوات",
-                yAxisName: "عدد المشاركات",
-                numberPrefix: "",
-                numberSuffix: "",
-                exportEnabled: "1",
-                showValues: "1",
-                minPlotHeightForValue: "15",
-                plotToolText: "عدد ال$seriesName: <b>$dataValue</b> من <u>$unformattedSum</u>",
-                showSum: "1",
-                legendPosition: "right",
-                legendCaption: "أنواع المشاركات",
-                baseFont: "Almarai",
-                canvasbgColor: "#1790E1",
-                canvasbgAlpha: "10",
-                // palettecolors: "#1790E1",
-                labelFontColor: "#0075c2",
-                xAxisNameFontColor: "#1790E1",
-                xAxisNameFontBold: "1",
-                xAxisNameBgColor: "#1790E1",
-                xAxisNameBgAlpha: "10",
-                xAxisNameBorderPadding: "5",
-                xAxisNameBorderRadius: "10",
-                yAxisNameFontColor: "#343A40",
-                yAxisNameFontBold: "1",
-                yAxisNameBgColor: "#343A40",
-                yAxisNameBgAlpha: "10",
-                yAxisNameBorderPadding: "5",
-                yAxisNameBorderRadius: "10"
-            },
-            // Chart Categories
-            categories: [{
-                category: [
-                    {label: "2017"},
-                    {label: "2018"},
-                    {label: "2019"}]
-            }],
-            // Chart Data
-            dataset: [
-                {
-                seriesName: "افتراضي",
-                data: [
-                    {value: "235"},
-                    {value: "260"},
-                    {value: "290"}]
-                }, {
-                    seriesName: "مقالات",
-                    data: [
-                        {value: "202"},
-                        {value: "225"},
-                        {value: "260"}]
-                }, {
-                    seriesName: "أخبار",
-                    data: [
-                        {value: "143"},
-                        {value: "162"},
-                        {value: "180"}]
-                }, {
-                    seriesName: "صور",
-                    data: [
-                        {value: "111"},
-                        {value: "128"},
-                        {value: "140"}]
-                }, {
-                    seriesName: "فيديو",
-                    data: [
-                        {value: "95"},
-                        {value: "102"},
-                        {value: "115"}]
-                }, {
-                    seriesName: "صوت",
-                    data: [
-                        {value: "85"},
-                        {value: "92"},
-                        {value: "100"}]
-                }
-            ]
         }
     });
 
@@ -557,15 +417,15 @@ $('document').ready(function(){
             chart: {
                 theme: "fusion",
                 caption: "عدد مشاركات الموقع بحسب الأشهر",
-                subCaption: "إحصائيات تفصيلية بحسب عدد المشاركات لعام 2019",
+                subCaption: "إحصائيات تفصيلية بحسب عدد المشاركات لعام 2020",
                 xAxisName: "الأشهر",
                 yAxisName: "عدد المشاركات",
                 numberPrefix: "",
                 numberSuffix: "",
                 exportEnabled: "1",
                 showValues: "1",
-                minPlotHeightForValue: "15",
-                plotToolText: "عدد ال$seriesName: <b>$dataValue</b> من <u>$unformattedSum</u>",
+                minPlotHeightForValue: "10",
+                plotToolText: "$seriesName: <b>$dataValue</b> من <u>$unformattedSum</u>",
                 showSum: "1",
                 // legendPosition: "right",
                 legendCaption: "أنواع المشاركات",
@@ -622,8 +482,9 @@ $('document').ready(function(){
                     {value: "235"},
                     {value: "260"},
                     {value: "290"}]
-                }, {
-                    seriesName: "مقالات",
+                },
+                {
+                    seriesName: "مقال",
                     data: [
                         {value: "8"},
                         {value: "20"},
@@ -637,8 +498,9 @@ $('document').ready(function(){
                         {value: "202"},
                         {value: "225"},
                         {value: "260"}]
-                }, {
-                    seriesName: "أخبار",
+                },
+                {
+                    seriesName: "خبر",
                     data: [
                         {value: "5"},
                         {value: "15"},
@@ -652,8 +514,9 @@ $('document').ready(function(){
                         {value: "143"},
                         {value: "162"},
                         {value: "180"}]
-                }, {
-                    seriesName: "صور",
+                },
+                {
+                    seriesName: "معرض صور",
                     data: [
                         {value: "4"},
                         {value: "12"},
@@ -667,7 +530,8 @@ $('document').ready(function(){
                         {value: "111"},
                         {value: "128"},
                         {value: "140"}]
-                }, {
+                },
+                {
                     seriesName: "فيديو",
                     data: [
                         {value: "1"},
@@ -682,7 +546,8 @@ $('document').ready(function(){
                         {value: "95"},
                         {value: "102"},
                         {value: "115"}]
-                }, {
+                },
+                {
                     seriesName: "صوت",
                     data: [
                         {value: "1"},
@@ -702,9 +567,155 @@ $('document').ready(function(){
         }
     });
 
+    ///////////////////////////////////////// إحصائيات عدد المشاركات السنوية
+    $("#chart-years").insertFusionCharts({
+        type: "stackedcolumn2d",
+        width: "100%",
+        height: "100%",
+        dataFormat: "json",
+        dataSource: {
+            // Chart Configuration
+            chart: {
+                theme: "fusion",
+                caption: "عدد مشاركات الموقع بحسب السنوات",
+                subCaption: "إحصائيات تفصيلية لعدد المشاركات سنوياً",
+                xAxisName: "السنوات",
+                yAxisName: "عدد المشاركات",
+                numberPrefix: "",
+                numberSuffix: "",
+                exportEnabled: "1",
+                showValues: "1",
+                minPlotHeightForValue: "10",
+                plotToolText: "$seriesName: <b>$dataValue</b> من <u>$unformattedSum</u>",
+                showSum: "1",
+                legendPosition: "right",
+                legendCaption: "أنواع المشاركات",
+                baseFont: "Almarai",
+                canvasbgColor: "#1790E1",
+                canvasbgAlpha: "10",
+                // palettecolors: "#1790E1",
+                labelFontColor: "#0075c2",
+                xAxisNameFontColor: "#1790E1",
+                xAxisNameFontBold: "1",
+                xAxisNameBgColor: "#1790E1",
+                xAxisNameBgAlpha: "10",
+                xAxisNameBorderPadding: "5",
+                xAxisNameBorderRadius: "10",
+                yAxisNameFontColor: "#343A40",
+                yAxisNameFontBold: "1",
+                yAxisNameBgColor: "#343A40",
+                yAxisNameBgAlpha: "10",
+                yAxisNameBorderPadding: "5",
+                yAxisNameBorderRadius: "10"
+            },
+            // Chart Categories
+            categories: [{
+                category: [
+                    {label: "2018"},
+                    {label: "2019"},
+                    {label: "2020"}]
+            }],
+            // Chart Data
+            dataset: [
+                {
+                seriesName: "افتراضي",
+                data: [
+                    {value: "235"},
+                    {value: "260"},
+                    {value: "290"}]
+                },
+                {
+                    seriesName: "مقال",
+                    data: [
+                        {value: "202"},
+                        {value: "225"},
+                        {value: "260"}]
+                },
+                {
+                    seriesName: "خبر",
+                    data: [
+                        {value: "143"},
+                        {value: "162"},
+                        {value: "180"}]
+                },
+                {
+                    seriesName: "معرض صور",
+                    data: [
+                        {value: "111"},
+                        {value: "128"},
+                        {value: "140"}]
+                },
+                {
+                    seriesName: "فيديو",
+                    data: [
+                        {value: "95"},
+                        {value: "102"},
+                        {value: "115"}]
+                },
+                {
+                    seriesName: "صوت",
+                    data: [
+                        {value: "85"},
+                        {value: "92"},
+                        {value: "100"}]
+                }
+            ]
+        }
+    });
+
+    ///////////////////////////////////////// إحصائيات عدد المستخدمين
+    $("#chart-users").insertFusionCharts({
+        type: "doughnut2d",
+        width: "100%",
+        height: "100%",
+        dataFormat: "json",
+        dataSource: {
+            // Chart Configuration
+            chart: {
+                theme: "fusion",
+                caption: "إجمالي المستخدمين ورتبهم",
+                subCaption: "إحصائيات تفصيلية بالمستخدمين والرتب",
+                defaultCenterLabel: "إجمالي المستخدمين: 15",
+                centerLabel: "عدد $value برتبة $label",
+                numberPrefix: "",
+                numberSuffix: "",
+                exportEnabled: "1",
+                showPercentValues: "0",       //عرض القيم 1 = بالنسبة المئوية-افتراضي، 0 = بالقيمة الحقيقية
+                showPercentInTooltip: "1",    //عرض القيم عند المرور بالماوس 1 = بالنسبة المئوية، 0 = بالقيمة الحقيقية-افتراضي
+                smartLineColor: "#1790E1",
+                smartLineThickness: "2",
+                smartLineAlpha: "80",
+                isSmartLineSlanted: "0",
+                doughnutRadius: "90",
+                // minPlotHeightForValue: "15",
+                legendPosition: "right",
+                legendCaption: "رتب المستخدمين",
+                baseFont: "Almarai",
+                valueFont: "Almarai",
+                labelFontColor: "#0075c2"
+            },
+            // Chart Data
+            data: [
+                {
+                label: "مدير",
+                value: "3"
+                }, {
+                label: "محرر",
+                value: "5"
+                }, {
+                label: "مساهم",
+                value: "10"
+                }, {
+                label: "مشترك",
+                value: "25"
+                }
+            ]
+        }
+    });
+
     ///////////////////////////////////////// إحصائيات عدد المشاهدات
     $("#chart-views").insertFusionCharts({
-        type: "line",
+        type: "area2d",
         width: "100%",
         height: "100%",
         dataFormat: "json",
@@ -714,7 +725,7 @@ $('document').ready(function(){
                 theme: "fusion",
                 caption: "عدد المشاهدات لآخر 7 أيام",
                 subCaption: "إحصائيات تفصيلية بعدد مشاهدات آخر أسبوع",
-                xAxisName: "آخر 7 أيام",
+                xAxisName: "1,314 مشاهدة",
                 yAxisName: "عدد المشاهدات",
                 numberPrefix: "",
                 numberSuffix: "",
@@ -725,7 +736,7 @@ $('document').ready(function(){
                 canvasbgColor: "#1790E1",
                 canvasbgAlpha: "10",
                 // palettecolors: "#1790E1",
-                // labelDisplay: "rotate",
+                labelDisplay: "rotate",
                 // slantLabel: "1",
                 labelFontColor: "#0075c2",
                 xAxisNameFontColor: "#1790E1",
@@ -815,13 +826,13 @@ $('document').ready(function(){
             // Chart Data
             data: [
                 {
-                label: "2017",
+                label: "2018",
                 value: "10000000"
                 }, {
-                label: "2018",
+                label: "2019",
                 value: "12000000"
                 }, {
-                label: "2019",
+                label: "2020",
                 value: "15000000"
                 }
             ]
